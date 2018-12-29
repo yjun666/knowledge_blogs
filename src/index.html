@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <title>KnowledgeBlogs</title>
@@ -7,8 +8,28 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <script>
+    var html = document.getElementsByTagName('html')[0];
+    if (html) {
+      var h = window.innerHeight;
+      var fontSize = (h > 1080 ? 1080 : h) / 1080 * 20;
+      html.style.fontSize = fontSize + 'px';
+      /*已经适配来当前的设备*/
+    }
+    /*响应*/
+    window.onload = function () {
+      window.onresize = function () {
+        var h = window.innerHeight;
+        var fontSize = (h > 1080 ? 1080 : h) / 1080 * 20;
+        html.style.fontSize = fontSize + 'px';
+      }
+    }
+
+  </script>
 </head>
+
 <body>
   <app-root></app-root>
 </body>
+
 </html>

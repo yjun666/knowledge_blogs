@@ -1,0 +1,63 @@
+#sidebar-body {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 235px;
+  width: 235px;
+  margin-left: -235px;
+  //   margin-bottom: 48px;
+  border: none;
+  border-radius: 0;
+  overflow-y: auto;
+  background-color: #222;
+  bottom: 0;
+  overflow-x: hidden;
+  padding-bottom: 40px;
+  white-space: nowrap;
+  transition: all 0.2s ease-in-out;
+
+  title {
+    display: block;
+    font-size: 20px;
+    color: #fff;
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    font-family: cursive;
+  }
+
+  &:after {
+    content: '<';
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: 20/20+rem;
+    height: 20/20+rem;
+    margin-top: -20/20+rem;
+  }
+
+  ul#catalog-details {
+    color: red;
+    background-color: rgba(255, 0, 0, 0.5);
+
+    li {
+      color: rgba(255, 255, 255, 0.8);
+
+      .first-catalog {
+        text-indent: 1em;
+        font-size: 18px;
+      }
+
+      .second-catalog {
+        text-indent: 3em;
+        font-size: 16px;
+      }
+
+      .third-catalog {
+        text-indent: 5em;
+        font-size: 16px;
+      }
+    }
+  }
+}

@@ -1,0 +1,24 @@
+<div id="sidebar-body">
+  <title>目录</title>
+  <ul id='catalog-details'>
+    <ng-template ngFor let-item [ngForOf]='catalog' let-i='index'>
+      <li *ngIf='!item.parentId'>
+        <div class='first-catalog' (click)='closeCurCatalog(item,$event.target)'>{{item.text}}</div>
+        <ul *ngIf='item.isHasChild'>
+          <ng-template ngFor let-cont [ngForOf]='catalog' let-j='index'>
+            <li *ngIf='item.id===cont.parentId&&cont.isShow'>
+              <div class='second-catalog' (click)='closeCurCatalog(cont,$event.target)'>{{cont.text}}</div>
+              <ul *ngIf='cont.isHasChild'>
+                <ng-template ngFor let-param [ngForOf]='catalog' let-k='index'>
+                  <li *ngIf='cont.id===param.parentId&&param.isShow'>
+                    <div class='third-catalog' (click)='pageTurn()'>{{param.text}}</div>
+                  </li>
+                </ng-template>
+              </ul>
+            </li>
+          </ng-template>
+        </ul>
+      </li>
+    </ng-template>
+  </ul>
+</div>

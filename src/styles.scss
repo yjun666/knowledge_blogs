@@ -1,1 +1,265 @@
 /* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+html,
+body {
+  width: 100%;
+  height: 100%;
+  font-family: 'Gotham-Medium';
+  user-select: none;
+}
+
+/*css 初始化 */
+html,
+body,
+ul,
+li,
+ol,
+dl,
+dd,
+dt,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+form,
+fieldset,
+legend,
+img {
+  margin: 0;
+  padding: 0;
+  font-size: 18/20+rem;
+}
+
+fieldset,
+img,
+input,
+button {
+  /*fieldset组合表单中的相关元素*/
+  border: none;
+  padding: 0;
+  margin: 0;
+  outline-style: none;
+}
+
+ul,
+ol {
+  list-style: none;
+  /*清除列表风格*/
+}
+
+input {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+select,
+input {
+  vertical-align: middle;
+}
+
+select,
+input,
+textarea {
+  font-size: 12/20+rem;
+  margin: 0;
+  outline: none;
+  outline-color: red;
+}
+
+textarea {
+  resize: none;
+}
+
+/*防止多行文本框拖动*/
+img {
+  border: 0;
+  vertical-align: middle;
+}
+
+/*  去掉图片低测默认的3像素空白缝隙*/
+table {
+  border-collapse: collapse;
+  /*合并外边线*/
+}
+
+
+.clearfix:before,
+.clearfix:after {
+  content: "";
+  display: table;
+}
+
+.clearfix:after {
+  clear: both;
+}
+
+.clearfix {
+  *zoom: 1;
+  /*IE/7/6*/
+}
+
+a {
+  color: #666;
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-decoration: none;
+  font-weight: normal;
+  font-size: 100%;
+}
+
+s,
+i,
+em {
+  font-style: normal;
+  text-decoration: none;
+}
+
+/*公共类*/
+.fl {
+  float: left
+}
+
+.fr {
+  float: right
+}
+
+.al {
+  text-align: left
+}
+
+.ac {
+  text-align: center
+}
+
+.ar {
+  text-align: right
+}
+
+.db {
+  display: block;
+}
+
+.dn {
+  display: none;
+}
+
+.dib {
+  display: inline-block;
+}
+
+// 字体引入
+@font-face {
+  font-family: 'Gotham-Black';
+  src: url('../src/assets/viewinfor/font/Gotham-Black.otf');
+}
+
+@font-face {
+  font-family: 'Gotham-BlackItalic';
+  src: url('../src/assets/viewinfor/font/Gotham-BlackItalic.otf');
+}
+
+@font-face {
+  font-family: 'Gotham-Bold';
+  src: url('../src/assets/viewinfor/font/Gotham-Bold.otf');
+}
+
+@font-face {
+  font-family: 'Gotham-BoldItalic';
+  src: url('../src/assets/viewinfor/font/Gotham-BoldItalic.otf');
+}
+
+@font-face {
+  font-family: 'Gotham-Book';
+  src: url('../src/assets/viewinfor/font/Gotham-Book.otf');
+}
+
+@font-face {
+  font-family: 'Gotham-BookItalic';
+  src: url('../src/assets/viewinfor/font/Gotham-BookItalic.otf');
+}
+
+@font-face {
+  font-family: 'Gotham-Light';
+  src: url('../src/assets/viewinfor/font/Gotham-Light.otf');
+}
+
+@font-face {
+  font-family: 'Gotham-LightItalic';
+  src: url('../src/assets/viewinfor/font/Gotham-LightItalic.otf');
+}
+
+@font-face {
+  font-family: 'Gotham-MediumItalic';
+  src: url('../src/assets/viewinfor/font/Gotham-MediumItalic.otf');
+}
+
+@font-face {
+  font-family: 'Gotham-Medium';
+  src: url('../src/assets/viewinfor/font/Gotham-Medium.otf');
+}
+
+@font-face {
+  /* font-properties */
+  font-family: 'Gotham-Thin';
+  src: url('../src/assets/viewinfor/font/Gotham-Thin.otf');
+}
+
+@font-face {
+  font-family: 'Gotham-ThinItalic';
+  src: url('../src/assets/viewinfor/font/Gotham-ThinItalic.otf');
+}
+
+@font-face {
+  font-family: 'Gotham-Ultra';
+  src: url('../src/assets/viewinfor/font/Gotham-Ultra.otf');
+}
+
+@font-face {
+  font-family: 'Gotham-UltraItalic';
+  src: url('../src/assets/viewinfor/font/Gotham-UltraItalic.otf');
+}
+
+@font-face {
+  font-family: 'Gotham-XLight';
+  src: url('../src/assets/viewinfor/font/Gotham-XLight.otf');
+}
+
+@font-face {
+  font-family: 'Gotham-XLightItalic';
+  src: url('../src/assets/viewinfor/font/Gotham-XLightItalic.otf');
+}
+
+@font-face {
+  font-family: 'FZLTCXHJW';
+  src: url('../src/assets/viewinfor/font/FZLTCXHJW.TTF');
+}
+
+@font-face {
+  font-family: 'FZLTDHJW';
+  src: url('../src/assets/viewinfor/font/FZLTDHJW.TTF');
+}
+
+@font-face {
+  font-family: 'FZLTHJW';
+  src: url('../src/assets/viewinfor/font/FZLTHJW.TTF');
+}
+
+@font-face {
+  font-family: 'FZLTXIHJW';
+  src: url('../src/assets/viewinfor/font/FZLTXIHJW.TTF');
+}
+
+@font-face {
+  font-family: 'FZLTHJW';
+  src: url('../src/assets/viewinfor/font/FZLTZHJW.TTF');
+}
