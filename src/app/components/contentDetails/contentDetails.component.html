@@ -1,5 +1,13 @@
 <div id="content-details-body">
   <div id="content">
-    <h1>details</h1>
+    <h1>{{title}}</h1>
   </div>
+  <ng-template ngFor let-item [ngForOf]='curOption'>
+    <div class="img-content" *ngIf='item.type=="img"'>
+      <img [attr.src]='item.imgSrc' [ngStyle]="item.imgStyle" alt="">
+    </div>
+    <div class="md-content" id='md' *ngIf='item.type=="md"' [appMarked]='item'>
+
+    </div>
+  </ng-template>
 </div>

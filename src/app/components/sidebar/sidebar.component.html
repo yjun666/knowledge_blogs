@@ -1,24 +1,42 @@
 <div id="sidebar-body">
-  <title>目录</title>
-  <ul id='catalog-details'>
-    <ng-template ngFor let-item [ngForOf]='catalog' let-i='index'>
-      <li *ngIf='!item.parentId'>
-        <div class='first-catalog' (click)='closeCurCatalog(item,$event.target)'>{{item.text}}</div>
-        <ul *ngIf='item.isHasChild'>
-          <ng-template ngFor let-cont [ngForOf]='catalog' let-j='index'>
-            <li *ngIf='item.id===cont.parentId&&cont.isShow'>
-              <div class='second-catalog' (click)='closeCurCatalog(cont,$event.target)'>{{cont.text}}</div>
-              <ul *ngIf='cont.isHasChild'>
-                <ng-template ngFor let-param [ngForOf]='catalog' let-k='index'>
-                  <li *ngIf='cont.id===param.parentId&&param.isShow'>
-                    <div class='third-catalog' (click)='pageTurn()'>{{param.text}}</div>
-                  </li>
-                </ng-template>
-              </ul>
-            </li>
-          </ng-template>
-        </ul>
-      </li>
-    </ng-template>
-  </ul>
+  <nav class="list-group" *ngIf="isShowSideBar">
+    <div class="nav-top">
+      <title>目录</title>
+      <i class="fa fa-angle-double-left" (click)='hideSideBar()'></i>
+    </div>
+    <ul id='catalog-details'>
+      <ng-template ngFor let-item [ngForOf]='catalog' let-i='index'>
+        <li *ngIf='!item.parentId'>
+          <div class='first-catalog' (click)='closeCurCatalog(item,$event.target)' *ngIf='item.isHasChild'>{{item.text}}
+            <i class="icon-isShow fa fa-angle-down" *ngIf='item.isShow'></i>
+            <i class="icon-isShow fa fa-angle-up" *ngIf='!item.isShow'></i>
+          </div>
+          <div class='first-catalog' (click)='closeCurCatalog(item,$event.target);pageTurn(item,$event)' [ngStyle]="{'background-color': item.isCurCatalog ? 'skyblue' : null}"
+            *ngIf='!item.isHasChild'>{{item.text}}</div>
+          <ul *ngIf='item.isHasChild&&item.isShow'>
+            <ng-template ngFor let-cont [ngForOf]='catalog' let-j='index'>
+              <li *ngIf='item.id===cont.parentId'>
+                <div class='second-catalog' (click)='closeCurCatalog(cont,$event.target)' *ngIf='cont.isHasChild'>{{cont.text}}
+                    <i class="icon-isShow fa fa-angle-down" *ngIf='cont.isShow'></i>
+                    <i class="icon-isShow fa fa-angle-up" *ngIf='!cont.isShow'></i>
+                </div>
+                <div class='second-catalog' (click)='closeCurCatalog(cont,$event.target);pageTurn(cont,$event)'
+                  [ngStyle]="{'background-color': cont.isCurCatalog ? 'skyblue' : null}" *ngIf='!cont.isHasChild'>{{cont.text}}</div>
+                <ul *ngIf='cont.isHasChild&&cont.isShow'>
+                  <ng-template ngFor let-param [ngForOf]='catalog' let-k='index'>
+                    <li *ngIf='cont.id===param.parentId'>
+                      <div class='third-catalog' (click)='pageTurn(param,$event)' [ngStyle]="{'background-color': param.isCurCatalog ? 'skyblue' : null}">{{param.text}}</div>
+                    </li>
+                  </ng-template>
+                </ul>
+              </li>
+            </ng-template>
+          </ul>
+        </li>
+      </ng-template>
+    </ul>
+  </nav>
+</div>
+<div class="show-sideBar" *ngIf="!isShowSideBar">
+  <i class="fa fa-angle-double-right" (click)='showSideBar()'></i>
 </div>

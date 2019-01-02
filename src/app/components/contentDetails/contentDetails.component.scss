@@ -3,4 +3,35 @@
   padding-left: 235px;
   box-sizing: border-box;
   height: 100%;
+  transition: all 0.2s ease-in-out;
+  background-color: bisque;
+
+  #content {
+    h1 {
+      text-align: center;
+      color: springgreen;
+      font-size: 40/20+rem;
+    }
+  }
+
+  .md-content {
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 0 10px;
+    background-color: bisque;
+
+    pre {
+      background-color: #aaa;
+
+      code {
+        color: #fff;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  #content-details-body {
+    padding-left: 0;
+  }
 }

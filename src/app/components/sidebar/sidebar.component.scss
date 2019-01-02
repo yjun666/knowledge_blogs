@@ -12,19 +12,34 @@
   background-color: #222;
   bottom: 0;
   overflow-x: hidden;
-  padding-bottom: 40px;
+  padding-bottom: 80px;
   white-space: nowrap;
   transition: all 0.2s ease-in-out;
+  font-family: cursive;
 
-  title {
-    display: block;
-    font-size: 20px;
-    color: #fff;
-    margin: 0 auto;
-    width: 100%;
-    text-align: center;
-    padding: 10px 0;
-    font-family: cursive;
+  .nav-top {
+    position: relative;
+
+    title {
+      display: block;
+      font-size: 20px;
+      color: #fff;
+      margin: 0 auto;
+      width: 100%;
+      text-align: center;
+      padding: 10px 0;
+      height: 43px;
+      box-sizing: border-box;
+    }
+
+    i {
+      cursor: pointer;
+      position: absolute;
+      color: #fff;
+      top: 0;
+      line-height: 43px;
+      margin-left: 0.5rem;
+    }
   }
 
   &:after {
@@ -39,10 +54,29 @@
 
   ul#catalog-details {
     color: red;
-    background-color: rgba(255, 0, 0, 0.5);
+    // background-color: rgba(255, 0, 0, 0.5);
 
     li {
       color: rgba(255, 255, 255, 0.8);
+
+      div {
+        cursor: pointer;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        padding: 5px 0;
+        padding-right: 1.1rem;
+
+        .icon-isShow {
+          position: absolute;
+          right: 0.7rem;
+        }
+
+        &:hover {
+          background-color: orange !important;
+        }
+      }
+
 
       .first-catalog {
         text-indent: 1em;
@@ -50,14 +84,50 @@
       }
 
       .second-catalog {
-        text-indent: 3em;
+        // background-color: skyblue;
+        text-indent: 2em;
         font-size: 16px;
       }
 
       .third-catalog {
-        text-indent: 5em;
+        // background-color: sienna;
+        text-indent: 3em;
         font-size: 16px;
       }
     }
+  }
+}
+
+.show-sideBar {
+  position: absolute;
+  top: 0;
+  font-size: 34px;
+  height: 40px;
+  left: 0.7rem;
+  color: green;
+  animation-name: halo;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-delay: 0s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-play-state: running;
+  cursor: pointer;
+}
+
+@keyframes halo {
+  from {
+    opacity: 0.2;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+
+@media screen and (max-width: 1024px) {
+  #sidebar-body {
+    left: 0;
   }
 }
