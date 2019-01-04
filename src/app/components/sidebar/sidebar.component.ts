@@ -1,5 +1,8 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { AppUpdateService } from '../../app-update.service';
+import { HttpClient, HttpResponse } from '@angular/common/http';
+
+
 
 import { from } from 'rxjs';
 import { filter } from 'rxjs/operators';
@@ -11,10 +14,11 @@ declare const $;
     styleUrls: ['./sidebar.component.scss']
 })
 export class SideBarComponent implements OnInit, AfterViewInit {
-    catalog = [
+    catalog: any = [
         {
-            id: 1,
+            id: '1',
             text: '学习网址或demo网站学习网址或demo网站',
+            parentId: '',
             isHasChild: true,
             curCatalogLevel: 'first',
             isShow: true,
@@ -23,9 +27,9 @@ export class SideBarComponent implements OnInit, AfterViewInit {
             pageOption: []
         },
         {
-            id: 2,
+            id: '1-1',
             text: '学习网址或demo网站学习网址或demo网站',
-            parentId: 1,
+            parentId: '1',
             isHasChild: true,
             curCatalogLevel: 'second',
             isShow: true,
@@ -34,9 +38,9 @@ export class SideBarComponent implements OnInit, AfterViewInit {
             pageOption: [],
         },
         {
-            id: 3,
+            id: '1-1-1',
             text: '网站',
-            parentId: 2,
+            parentId: '1-1',
             isHasChild: false,
             curCatalogLevel: 'third',
             isShow: false,
@@ -45,13 +49,13 @@ export class SideBarComponent implements OnInit, AfterViewInit {
             pageOption: [
                 {
                     type: 'md',
-                    mdSrc: './assets/markdown/allStudyCom/allStudyCom.md',
+                    mdSrc: './assets/markdown/all_study_station/all-study-station.md',
                     mdStyle: {}
                 }
             ],
         },
         {
-            id: 4,
+            id: '2',
             text: 'other',
             parentId: '',
             isHasChild: false,
@@ -62,14 +66,15 @@ export class SideBarComponent implements OnInit, AfterViewInit {
             pageOption: [
                 {
                     type: 'md',
-                    mdSrc: './assets/markdown/allStudyCom/allStudyCom.md',
+                    mdSrc: './assets/markdown/all_study_station/all-study-station.md',
                     mdStyle: {}
                 }
             ],
         },
         {
-            id: 5,
+            id: '3',
             text: 'css----样式',
+            parentId: '',
             isHasChild: true,
             curCatalogLevel: 'first',
             isShow: false,
@@ -78,9 +83,9 @@ export class SideBarComponent implements OnInit, AfterViewInit {
             pageOption: [],
         },
         {
-            id: 6,
+            id: '3-1',
             text: 'css3----常用总结',
-            parentId: 5,
+            parentId: '3',
             isHasChild: false,
             curCatalogLevel: 'second',
             isShow: false,
@@ -95,13 +100,13 @@ export class SideBarComponent implements OnInit, AfterViewInit {
             ],
         },
         {
-            id: 6,
-            text: 'table---radio和audio样式',
-            parentId: 5,
+            id: '3-2',
+            text: 'table---边框样式',
+            parentId: '3',
             isHasChild: false,
             curCatalogLevel: 'second',
             isShow: false,
-            title: 'table---radio和audio样式',
+            title: 'table---边框样式',
             isCurCatalog: false,
             pageOption: [
                 {
@@ -111,40 +116,152 @@ export class SideBarComponent implements OnInit, AfterViewInit {
                 }
             ],
         },
+        {
+            id: '3-4',
+            text: 'radio和checkbox修改选择框样式',
+            parentId: '3',
+            isHasChild: false,
+            curCatalogLevel: 'second',
+            isShow: false,
+            title: 'radio和checkbox修改选择框样式',
+            isCurCatalog: false,
+            pageOption: [
+                {
+                    type: 'md',
+                    mdSrc: './assets/markdown/css---Style/change--radioAndCheckboxStyle.md',
+                    mdStyle: {}
+                }
+            ],
+        },
+        {
+            id: '4',
+            text: '终端常用命令',
+            parentId: '',
+            isHasChild: true,
+            curCatalogLevel: 'first',
+            isShow: false,
+            title: '终端常用命令',
+            isCurCatalog: false,
+            pageOption: [],
+        },
+        {
+            id: '4-1',
+            text: 'terminal',
+            parentId: '4',
+            isHasChild: false,
+            curCatalogLevel: 'second',
+            isShow: false,
+            title: '终端常用命令',
+            isCurCatalog: false,
+            pageOption: [
+                {
+                    type: 'md',
+                    mdSrc: './assets/markdown/terminal/terminal.md',
+                    mdStyle: {}
+                }
+            ],
+        },
+        {
+            id: '5',
+            text: 'nodeJs',
+            parentId: '',
+            isHasChild: true,
+            curCatalogLevel: 'first',
+            isShow: false,
+            title: 'nodeJs',
+            isCurCatalog: false,
+            pageOption: [],
+        },
+        {
+            id: '5-1',
+            text: 'nodeJs--回调函数',
+            parentId: '5',
+            isHasChild: false,
+            curCatalogLevel: 'second',
+            isShow: false,
+            title: 'nodeJs--回调函数',
+            isCurCatalog: false,
+            pageOption: [
+                {
+                    type: 'md',
+                    mdSrc: './assets/markdown/nodejs/nodejs--callbackFun.md',
+                    mdStyle: {}
+                }
+            ],
+        },
+        {
+            id: '5-2',
+            text: 'nodejs—eventEmitter',
+            parentId: '5',
+            isHasChild: false,
+            curCatalogLevel: 'second',
+            isShow: false,
+            title: 'nodejs—eventEmitter',
+            isCurCatalog: false,
+            pageOption: [
+                {
+                    type: 'md',
+                    mdSrc: './assets/markdown/nodejs/nodejs—eventEmitter.md',
+                    mdStyle: {}
+                }
+            ],
+        },
+        {
+            id: '5-3',
+            text: 'nodejs—eventEmitter',
+            parentId: '5',
+            isHasChild: false,
+            curCatalogLevel: 'second',
+            isShow: false,
+            title: 'nodejs—eventEmitter',
+            isCurCatalog: false,
+            pageOption: [
+                {
+                    type: 'md',
+                    mdSrc: './assets/markdown/nodejs/nodejs-getOrPost.md',
+                    mdStyle: {}
+                }
+            ],
+        },
     ];
+
     isShowSideBar = true;
-
-    constructor(private appUpdateService: AppUpdateService) { }
+    constructor(private appUpdateService: AppUpdateService, private http: HttpClient) { }
     ngOnInit() {
-
+        this.http.get('./assets/json/text2.json')
+            .subscribe((res) => {
+                console.log(res);
+                this.catalog = res;
+            });
     }
 
     ngAfterViewInit(): void { }
 
     public closeCurCatalog(param, event) {
-        // console.log(param);
         const curId = param.id;
         const curParentId = param.parentId;
         const curEleClassName = event.className;
         // console.log(curId, curParentId, curEleClassName);
         const catalog$ = from(this.catalog);
 
-        const catalog$New = catalog$.pipe(filter((val) => val.id === param.id))
+        const catalog$New = catalog$.pipe(filter((val) => val['id'] === param.id))
             .subscribe((data) => {
-                data.isShow = !data.isShow; // 控制二级目录是否显示即一级目录是否打开
-                console.log(data.id);
+                data['isShow'] = !data['isShow']; // 控制二级目录是否显示即一级目录是否打开
+                console.log(data['id']);
                 // 控制三级目录是否显示即二级目录是否打开
-                catalog$.pipe(filter((val) => val.parentId === data.id))
+                catalog$.pipe(filter((val) => val['parentId'] === data['id']))
                     .subscribe((data2) => {
-                        if (!data.isShow) {
-                            data2.isShow = false;
+                        if (!data['isShow']) {
+                            data2['isShow'] = false;
                         }
                     }).unsubscribe();
             }).unsubscribe();
     }
 
     public pageTurn(param, event) {
-        this.catalog.find((m) => m.isCurCatalog).isCurCatalog = false;
+        if (this.catalog.find((m) => m.isCurCatalog)) {
+            this.catalog.find((m) => m.isCurCatalog).isCurCatalog = false;
+        }
 
         param.isCurCatalog = true;
         this.appUpdateService.emitUpdataSideBarSubject(param);

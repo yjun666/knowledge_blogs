@@ -24,4 +24,8 @@ export class ContentDetailsComponent implements OnInit {
         });
     }
 
+    private scrollTop(){
+        // document.body.scrollTop
+    }
+
 }

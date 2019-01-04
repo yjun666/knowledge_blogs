@@ -6,8 +6,11 @@
     <div class="img-content" *ngIf='item.type=="img"'>
       <img [attr.src]='item.imgSrc' [ngStyle]="item.imgStyle" alt="">
     </div>
-    <div class="md-content" id='md' *ngIf='item.type=="md"' [appMarked]='item'>
-
-    </div>
+    <div class="md-content" id='md' *ngIf='item.type=="md"' [appMarked]='item'></div>
   </ng-template>
+  <!-- <img src="./assets/knowledge_img/team中國自.png" alt=""> -->
+</div>
+
+<div class="call-top" (click)='scrollTop()'>
+  回到顶部
 </div>
