@@ -7,6 +7,7 @@
       <img [attr.src]='item.imgSrc' [ngStyle]="item.imgStyle" alt="">
     </div>
     <div class="md-content" id='md' *ngIf='item.type=="md"' [appMarked]='item'></div>
+    <iframe class="iframe-content" id='iframe' *ngIf='item.type=="iframeHtml"' [attr.src]='item.iframeSrc'></iframe>
   </ng-template>
   <!-- <img src="./assets/knowledge_img/team中國自.png" alt=""> -->
 </div>

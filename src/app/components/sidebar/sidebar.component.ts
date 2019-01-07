@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, OnDestroy } from '@angular/core';
 import { AppUpdateService } from '../../app-update.service';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 
@@ -13,7 +13,7 @@ declare const $;
     templateUrl: './sidebar.component.html',
     styleUrls: ['./sidebar.component.scss']
 })
-export class SideBarComponent implements OnInit, AfterViewInit {
+export class SideBarComponent implements OnInit, AfterViewInit, OnDestroy {
     catalog: any = [
         {
             id: '1',
@@ -233,9 +233,33 @@ export class SideBarComponent implements OnInit, AfterViewInit {
                 console.log(res);
                 this.catalog = res;
             });
+
+        window.addEventListener('resize', function () {
+            $('#sidebar-body').getNiceScroll().resize();
+        });
     }
 
-    ngAfterViewInit(): void { }
+    ngOnDestroy() {
+        window.removeEventListener('resize', function () {
+            $('#sidebar-body').getNiceScroll().resize();
+        });
+    }
+
+    private niceScroll() {
+        $('#sidebar-body').niceScroll({
+            cursorcolor: '#ccc', // #CC0071 光标颜色
+            cursoropacitymax: 1, // 改变不透明度非常光标处于活动状态（scrollabar“可见”状态），范围从1到0
+            touchbehavior: false, // 使光标拖动滚动像在台式电脑触摸设备
+            cursorwidth: '5px', // 像素光标的宽度
+            cursorborder: '0', // 	游标边框css定义
+            cursorborderradius: '5px', // 以像素为光标边界半径
+            autohidemode: true // 是否隐藏滚动条
+        });
+        $('#sidebar-body').getNiceScroll().resize();
+
+    }
+
+    ngAfterViewInit(): void { this.niceScroll() }
 
     public closeCurCatalog(param, event) {
         const curId = param.id;
@@ -256,6 +280,9 @@ export class SideBarComponent implements OnInit, AfterViewInit {
                         }
                     }).unsubscribe();
             }).unsubscribe();
+        setTimeout(() => {
+            this.niceScroll();
+        }, 10);
     }
 
     public pageTurn(param, event) {
@@ -268,10 +295,13 @@ export class SideBarComponent implements OnInit, AfterViewInit {
         console.log(event);
         // event.target.style.backgroundColor = 'purple';
         console.log('pageTurn');
+        this.niceScroll();
     }
 
     public hideSideBar() {
-        $('#sidebar-body').css('left', '0');
+        this.niceScroll();
+        $('#sidebar-body').getNiceScroll().hide();
+        $('#sidebar-body').css('left', '-235px');
         $('#content-details-body').css('padding-left', '0');
         setTimeout(() => {
             this.isShowSideBar = false;
@@ -279,9 +309,11 @@ export class SideBarComponent implements OnInit, AfterViewInit {
     }
 
     public showSideBar() {
-        $('#sidebar-body').css('left', '235px');
+        $('#sidebar-body').getNiceScroll().show();
+        $('#sidebar-body').css('left', '0');
         $('#content-details-body').css('padding-left', '235px');
         this.isShowSideBar = true;
+        this.niceScroll();
     }
 
 }

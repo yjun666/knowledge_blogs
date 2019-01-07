@@ -12,7 +12,6 @@ function getIndexByPath(dir, deep = 10) {
 }
 
 
-
 // 开始对指定 path 递归查找深度为 deep 深度
 function getIndexOfPathByDeep(obj, dir, curDir, deep, arr) {
 
@@ -30,8 +29,10 @@ function getIndexOfPathByDeep(obj, dir, curDir, deep, arr) {
 
 
   let curPath = path.join(dir, curDir);
+  let newkey = null;
   // 判断当前是文件夹
   if (fs.statSync(curPath).isDirectory()) {
+    newkey = null;
     obj['isHasChild'] = true; // 如果当前是文件夹，则设置为true，不管是否是真的有子集
     let lists = fs.readdirSync(curPath);
     lists.forEach(list => getIndexOfPathByDeep(obj[curDir], curPath, list, deep - 1, arr))
@@ -41,22 +42,34 @@ function getIndexOfPathByDeep(obj, dir, curDir, deep, arr) {
     newkey = key.pop();
     obj[key + ''] = curPath;
 
-
     // 存储当前的text和title名称和type类型，本字段均生成的是markdown文件------------start
     obj['text'] = (key + '');
     obj['title'] = (key + '');
     const obj2 = {};
     const mdSrc = curPath.split('\\assets\\')[1];
-    obj2['type'] = 'md';
-    obj2['mdSrc'] = ('./assets/' + mdSrc).replace(/\\/gi, '/');
+
+    if (newkey && (newkey.includes('png') || newkey.includes('jpg') || newkey.includes('jpeg') || newkey.includes('gif'))) {
+      obj2['type'] = 'img';
+      obj2['imgSrc'] = ('./assets/' + mdSrc).replace(/\\/gi, '/');
+
+    } else if (newkey && newkey == 'md') {
+      obj2['type'] = 'md';
+      obj2['mdSrc'] = ('./assets/' + mdSrc).replace(/\\/gi, '/');
+    }
+
     obj2['mdStyle'] = {};
+
     obj['pageOption'].push(obj2);
+
     // 存储当前的text和title名称和type类型，本字段均生成的是markdown文件------------end
   }
 
   // 转成json后markdown是顶层目录，过滤掉，其他的同级显示
   if (obj['id'] !== 'markdown') {
-    arr.push(obj);
+    if (!newkey || newkey && (newkey == 'png' || newkey == 'jpg' || newkey == 'jpeg' || newkey == 'gif' || newkey == 'md')) {
+      arr.push(obj);
+    }
+
   }
 
 }
