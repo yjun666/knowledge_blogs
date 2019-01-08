@@ -8,6 +8,8 @@ import { AppService } from './app.service';
 
 // view 文件
 import { HomeComponent, HomeService } from './view/home';
+import { LoginComponent, LoginService } from './view/login';
+
 
 // components
 import { SideBarComponent, SidebarService } from './components/sidebar';
@@ -16,11 +18,33 @@ import { ContentDetailsComponent, ContentDetailsService } from './components/con
 // directives
 import { AppMarkedDirective, AppTitleHoverShowDirective } from './directives';
 
+// auth
+import { AuthGuard } from './auth';
 
+// module
+import { AlertModule } from './components/alert/alert.module';
 
-const components = [HomeComponent, SideBarComponent, ContentDetailsComponent];
-const directives = [AppMarkedDirective, AppTitleHoverShowDirective];
-const services = [AppUpdateService, AppService, HomeService, SidebarService, ContentDetailsService];
+const modules = [AlertModule];
+
+const components = [
+  HomeComponent,
+  SideBarComponent,
+  ContentDetailsComponent,
+  LoginComponent
+];
+const directives = [
+  AppMarkedDirective,
+  AppTitleHoverShowDirective
+];
+const services = [
+  AppUpdateService,
+  AppService,
+  HomeService,
+  SidebarService,
+  ContentDetailsService,
+  LoginService,
+  AuthGuard
+];
 
 @NgModule({
   declarations: [
@@ -31,7 +55,8 @@ const services = [AppUpdateService, AppService, HomeService, SidebarService, Con
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ...modules
   ],
   providers: [...services],
   bootstrap: [AppComponent]
