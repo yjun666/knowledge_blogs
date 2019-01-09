@@ -69,9 +69,7 @@ function getIndexOfPathByDeep(obj, dir, curDir, deep, arr) {
     if (!newkey || newkey && (newkey == 'png' || newkey == 'jpg' || newkey == 'jpeg' || newkey == 'gif' || newkey == 'md')) {
       arr.push(obj);
     }
-
   }
-
 }
 
 fs.writeFileSync('../json/text2.json', JSON.stringify(getIndexByPath('../markdown')));
