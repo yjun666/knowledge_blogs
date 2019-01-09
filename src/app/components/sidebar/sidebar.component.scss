@@ -1,26 +1,31 @@
 #sidebar-body {
   position: fixed;
   z-index: 1000;
-  top: 0;
+  top: 60px;
   left: 0px;
   width: 235px;
-  // margin-left: -235px;
-  //   margin-bottom: 48px;
   border: none;
   border-radius: 0;
   overflow-y: auto;
   background-color: #222;
   bottom: 0;
-  overflow: hidden;
-  padding-bottom: 80px;
+  padding-bottom: 2.6rem;
   white-space: nowrap;
   transition: all 0.2s ease-in-out;
   font-family: cursive;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
   user-select: none;
+  overflow: hidden;
+  nav {
+    height: 100%;
+  }
 
   .nav-top {
     position: relative;
-
+    height: 2.6rem;
+    line-height: 2.6rem;
     title {
       display: block;
       font-size: 20px;
@@ -28,7 +33,6 @@
       margin: 0 auto;
       width: 100%;
       text-align: center;
-      padding: 10px 0;
       height: 43px;
       box-sizing: border-box;
     }
@@ -55,12 +59,15 @@
 
   ul#catalog-details {
     color: red;
+    overflow: hidden;
+    height: 100%;
     // background-color: rgba(255, 0, 0, 0.5);
 
     li {
       color: rgba(255, 255, 255, 0.8);
 
       div {
+        position: relative;
         cursor: pointer;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -101,10 +108,10 @@
 
 .show-sideBar {
   position: absolute;
-  top: 0;
+  top: 60px;
   font-size: 34px;
   height: 40px;
-  left: 0.7rem;
+  left: 10px;
   color: green;
   animation-name: halo;
   animation-duration: 1s;

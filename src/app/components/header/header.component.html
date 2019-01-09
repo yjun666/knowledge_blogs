@@ -1,0 +1,35 @@
+<div class="header-body">
+  <div class="float-left header-left">
+    <div class="logo">
+      <i class="fa fa-edge"></i>
+    </div>
+
+    <nav class="ul-list">
+      <ul class="li-list">
+        <li><a routerLink="/home/markdown" routerLinkActive="active">notes</a></li>
+        <li><a routerLink="/home/iframe" routerLinkActive="active">home</a></li>
+        <!-- <li>home3</li>
+        <li>home4</li>
+        <li>home5</li> -->
+      </ul>
+    </nav>
+  </div>
+  <div class="float-right header-right">
+    <div class="account-message" (click)='showUserDetails(isShowUserDetails)'>
+      <i class="fa fa-angellist"></i>
+      <span class="name">yangjun</span>
+    </div>
+    <div class="message-details" *ngIf='isShowUserDetails'>
+      <i class="fa fa-caret-up "></i>
+      <ul>
+        <li>
+          <span class="account-name">用户名:</span>
+          <span class="name">yangjun</span>
+        </li>
+        <li>
+          <span class="logout" (click)='logout()'>退出</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

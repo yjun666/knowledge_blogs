@@ -9,11 +9,13 @@ import { AppService } from './app.service';
 // view 文件
 import { HomeComponent, HomeService } from './view/home';
 import { LoginComponent, LoginService } from './view/login';
+import { MarkdownComponent, MarkdowService } from './view/markdown';
 
 
 // components
 import { SideBarComponent, SidebarService } from './components/sidebar';
 import { ContentDetailsComponent, ContentDetailsService } from './components/contentDetails';
+import { HeaderService, HeaderComponent } from './components/Header';
 
 // directives
 import { AppMarkedDirective, AppTitleHoverShowDirective } from './directives';
@@ -30,7 +32,9 @@ const components = [
   HomeComponent,
   SideBarComponent,
   ContentDetailsComponent,
-  LoginComponent
+  LoginComponent,
+  HeaderComponent,
+  MarkdownComponent
 ];
 const directives = [
   AppMarkedDirective,
@@ -43,7 +47,9 @@ const services = [
   SidebarService,
   ContentDetailsService,
   LoginService,
-  AuthGuard
+  AuthGuard,
+  HeaderService,
+  MarkdowService
 ];
 
 @NgModule({

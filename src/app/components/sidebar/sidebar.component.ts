@@ -235,18 +235,18 @@ export class SideBarComponent implements OnInit, AfterViewInit, OnDestroy {
             });
 
         window.addEventListener('resize', function () {
-            $('#sidebar-body').getNiceScroll().resize();
+            $('#catalog-details').getNiceScroll().resize();
         });
     }
 
     ngOnDestroy() {
         window.removeEventListener('resize', function () {
-            $('#sidebar-body').getNiceScroll().resize();
+            $('#catalog-details').getNiceScroll().resize();
         });
     }
 
     private niceScroll() {
-        $('#sidebar-body').niceScroll({
+        $('#catalog-details').niceScroll({
             cursorcolor: '#ccc', // #CC0071 光标颜色
             cursoropacitymax: 1, // 改变不透明度非常光标处于活动状态（scrollabar“可见”状态），范围从1到0
             touchbehavior: false, // 使光标拖动滚动像在台式电脑触摸设备
@@ -255,7 +255,7 @@ export class SideBarComponent implements OnInit, AfterViewInit, OnDestroy {
             cursorborderradius: '5px', // 以像素为光标边界半径
             autohidemode: true // 是否隐藏滚动条
         });
-        $('#sidebar-body').getNiceScroll().resize();
+        $('#catalog-details').getNiceScroll().resize();
 
     }
 
@@ -300,7 +300,7 @@ export class SideBarComponent implements OnInit, AfterViewInit, OnDestroy {
 
     public hideSideBar() {
         this.niceScroll();
-        $('#sidebar-body').getNiceScroll().hide();
+        $('#catalog-details').getNiceScroll().hide();
         $('#sidebar-body').css('left', '-235px');
         $('#content-details-body').css('padding-left', '0');
         setTimeout(() => {
@@ -309,7 +309,7 @@ export class SideBarComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     public showSideBar() {
-        $('#sidebar-body').getNiceScroll().show();
+        $('#catalog-details').getNiceScroll().show();
         $('#sidebar-body').css('left', '0');
         $('#content-details-body').css('padding-left', '235px');
         this.isShowSideBar = true;

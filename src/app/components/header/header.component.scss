@@ -1,0 +1,157 @@
+.header-body {
+  width: 100%;
+  height: 60px;
+  background-color: #222;
+  line-height: 60px;
+  position: relative;
+  padding-left: 1rem;
+  margin-right: 1rem;
+
+  .header-left {
+    width: 70%;
+
+    .logo {
+      float: left;
+      margin-right: 2rem;
+
+      i {
+        color: #fff;
+        font-size: 40px;
+        vertical-align: middle;
+      }
+    }
+
+    nav.ul-list {
+      display: inline-block;
+      vertical-align: middle;
+
+      ul.li-list {
+        overflow: hidden;
+
+        li {
+          transition: all 300ms;
+          float: left;
+          color: #fff;
+          width: 5.5rem;
+          text-align: center;
+          background-color: #00a1ff;
+          margin-left: 0.2rem;
+          height: 30px;
+          line-height: 30px;
+          transform: skew(-30deg);
+          cursor: pointer;
+
+          &:hover {
+            margin-top: -2px;
+            box-shadow: 2px 2px 2px rgba(255, 255, 255, 1);
+          }
+
+          a {
+            color: #fff;
+            text-decoration: none;
+            width: 100%;
+            height: 100%;
+            display: inline-block;
+
+            &:hover {
+              color: #fff !important;
+              background-color: #0017ff;
+            }
+          }
+        }
+
+        li:first-child {
+          margin-left: -.5rem;
+        }
+
+        li:last-child {
+          margin-right: -0.5rem;
+        }
+
+        .active {
+          background-color: #fd0;
+          width: 100%;
+          height: 100%;
+          display: inline-block;
+          color: #000 !important;
+        }
+
+      }
+
+    }
+  }
+
+  .header-right {
+    user-select: none;
+    padding-right: 1rem;
+    cursor: pointer;
+
+    .account-message {
+      i {
+        color: #fff;
+        margin-right: 0.5rem;
+      }
+
+      span.name {
+        color: #fff;
+      }
+    }
+
+    .message-details {
+      background-color: rgba(255, 255, 255, 1);
+      border-radius: 5px;
+      width: 220px;
+      position: absolute;
+      right: 10px;
+      border-radius: 5px;
+      padding: 5px 10px;
+
+      >i {
+        position: absolute;
+        top: -25px;
+        font-size: 40px;
+        color: #fff;
+        right: 10px;
+      }
+
+      ul {
+        li {
+          border-bottom: 1px solid #000;
+          font-size: 0.8rem;
+          height: 2.5rem;
+          line-height: 2.5rem;
+
+          .account-name {
+            display: inline-block;
+            width: 30%;
+            font-weight: 900;
+            font-size: 0.8rem;
+          }
+
+          .name {
+            font-size: 14px;
+          }
+
+          .logout {
+            font-weight: 900;
+            text-align: center;
+            width: 100%;
+            display: inline-block;
+          }
+        }
+
+        li:last-child {
+          border: none;
+        }
+      }
+    }
+  }
+}
+
+.float-left {
+  float: left;
+}
+
+.float-right {
+  float: right;
+}
