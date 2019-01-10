@@ -1,4 +1,5 @@
 [{
+  "number": "342",
   "City": "ARIEL",
   "name": "Israel",
   "mininame": "IL",
@@ -8,6 +9,7 @@
   "lon": "35.1921882629395",
   "Confidence": "Medium"
 }, {
+  "number": "679",
   "City": "GRAND PR",
   "name": "Canada",
   "mininame": "CA",
@@ -17,6 +19,7 @@
   "lon": "-54.59612",
   "Confidence": "Medium"
 }, {
+  "number": "720",
   "City": "SAINTE MARIE",
   "name": "R??union",
   "mininame": "RE",
@@ -26,6 +29,7 @@
   "lon": "55.5499000549316",
   "Confidence": "High"
 }, {
+  "number": "1736",
   "City": "PARIS ISLAND",
   "name": "United States",
   "mininame": "US",
@@ -35,6 +39,7 @@
   "lon": "2.34143996238708",
   "Confidence": "Medium"
 }, {
+  "number": "1883",
   "City": "SAN MARINO",
   "name": "Italy",
   "mininame": "IT",
@@ -44,6 +49,7 @@
   "lon": "12.4635076522827",
   "Confidence": "High"
 }, {
+  "number": "2059",
   "City": "RAFAEL",
   "name": "United States",
   "mininame": "US",
@@ -53,6 +59,7 @@
   "lon": "-70.60052",
   "Confidence": "High"
 }, {
+  "number": "2780",
   "City": "ROAD TOWN",
   "name": "Virgin Islands (British)",
   "mininame": "VG",
@@ -62,6 +69,7 @@
   "lon": "-64.6132431030273",
   "Confidence": "High"
 }, {
+  "number": "2790",
   "City": "BELFAST",
   "name": "Ireland",
   "mininame": "IE",
@@ -71,6 +79,7 @@
   "lon": "-5.9345498085022",
   "Confidence": "High"
 }, {
+  "number": "3370",
   "City": "SAINT-PIERRE",
   "name": "R??union",
   "mininame": "RE",
@@ -80,6 +89,7 @@
   "lon": "-56.3247451782227",
   "Confidence": "High"
 }, {
+  "number": "3386",
   "City": "FORT ST",
   "name": "Canada",
   "mininame": "CA",
@@ -89,6 +99,7 @@
   "lon": "-83.1664070089722",
   "Confidence": "Low"
 }, {
+  "number": "3445",
   "City": "ST JACOB",
   "name": "Canada",
   "mininame": "CA",
@@ -98,6 +109,7 @@
   "lon": "-89.7683792114258",
   "Confidence": "High"
 }, {
+  "number": "4032",
   "City": "\"SCHAANWALD",
   "name": " FL\"",
   "mininame": "Switzerland",
@@ -108,6 +120,7 @@
   "Confidence": "9.56208992004395",
   "undefined": "High"
 }, {
+  "number": "4193",
   "City": "PORT MMORESBY",
   "name": "Australia",
   "mininame": "AU",
@@ -117,6 +130,7 @@
   "lon": "147.20393371582",
   "Confidence": "Medium"
 }, {
+  "number": "4333",
   "City": "Lauder-Königshofen",
   "name": "Germany",
   "mininame": "DE",
@@ -126,6 +140,7 @@
   "lon": "-2.75010991096497",
   "Confidence": "Medium"
 }, {
+  "number": "4437",
   "City": "TORRE DEL SEGRE",
   "name": "Spain",
   "mininame": "ES",
@@ -135,6 +150,7 @@
   "lon": "9.62863540649414",
   "Confidence": "Medium"
 }, {
+  "number": "4713",
   "City": "HOHNHART",
   "name": "Austria",
   "mininame": "AT",
@@ -144,6 +160,7 @@
   "lon": "149.00431",
   "Confidence": "High"
 }, {
+  "number": "4904",
   "City": "BRONFIELD",
   "name": "United States",
   "mininame": "US",
@@ -153,6 +170,7 @@
   "lon": "24.80078",
   "Confidence": "Medium"
 }, {
+  "number": "5094",
   "City": "TORREJON DE  CALZADA",
   "name": "Spain",
   "mininame": "ES",
@@ -162,6 +180,7 @@
   "lon": "10.4006948471069",
   "Confidence": "Medium"
 }, {
+  "number": "5121",
   "City": "D RAPPU 66",
   "name": "Finland",
   "mininame": "FI",
@@ -171,6 +190,7 @@
   "lon": "-80.2101090982529",
   "Confidence": "Low"
 }, {
+  "number": "5229",
   "City": "\"LOS FRAILES",
   "name": " GUAYNABO\"",
   "mininame": "United States",
@@ -181,6 +201,7 @@
   "Confidence": "-66.10249",
   "undefined": "Medium"
 }, {
+  "number": "5651",
   "City": "AKWESASNE",
   "name": "Canada",
   "mininame": "CA",
@@ -190,6 +211,7 @@
   "lon": "-74.6419372558594",
   "Confidence": "High"
 }, {
+  "number": "6824",
   "City": "FOREST H",
   "name": "United States",
   "mininame": "US",
@@ -199,6 +221,7 @@
   "lon": "0.0574",
   "Confidence": "Medium"
 }, {
+  "number": "6883",
   "City": "Woodville Garden",
   "name": "Australia",
   "mininame": "AU",
@@ -208,6 +231,7 @@
   "lon": "-94.4143218994141",
   "Confidence": "Medium"
 }, {
+  "number": "7015",
   "City": "FREIBURG I. BREISGAU",
   "name": "Germany",
   "mininame": "DE",
@@ -217,6 +241,7 @@
   "lon": "7.1535701751709",
   "Confidence": "High"
 }, {
+  "number": "7829",
   "City": "SAN JOSE DE RICON",
   "name": "Spain",
   "mininame": "ES",
@@ -226,6 +251,7 @@
   "lon": "-100.151992797852",
   "Confidence": "Medium"
 }, {
+  "number": "7870",
   "City": "BAYAMON GARDENS",
   "name": "United States",
   "mininame": "US",
@@ -235,6 +261,7 @@
   "lon": "-66.1473770141602",
   "Confidence": "Medium"
 }, {
+  "number": "8105",
   "City": "SOMERVILLE",
   "name": "Italy",
   "mininame": "IT",
@@ -244,6 +271,7 @@
   "lon": "-71.0984497070312",
   "Confidence": "Medium"
 }, {
+  "number": "9007",
   "City": "KINGSHILL",
   "name": "United States",
   "mininame": "US",
@@ -253,6 +281,7 @@
   "lon": "30.5573",
   "Confidence": "Medium"
 }, {
+  "number": "9043",
   "City": "SAINTE MARIE CÉDEX",
   "name": "R??union",
   "mininame": "RE",
@@ -262,6 +291,7 @@
   "lon": "49.9272308349609",
   "Confidence": "High"
 }, {
+  "number": "9092",
   "City": "BRADFORD WEST",
   "name": "Canada",
   "mininame": "CA",
@@ -271,6 +301,7 @@
   "lon": "-1.75829994678497",
   "Confidence": "Medium"
 }, {
+  "number": "9724",
   "City": "PALMDALE",
   "name": "Bahamas (The)",
   "mininame": "BS",
@@ -280,6 +311,7 @@
   "lon": "-77.32727",
   "Confidence": "High"
 }, {
+  "number": "10341",
   "City": "\"ST PETER PORT",
   "name": " GUERNSEY\"",
   "mininame": "United Kingdom",
@@ -290,6 +322,7 @@
   "Confidence": "-2.53517007827759",
   "undefined": "Medium"
 }, {
+  "number": "10500",
   "City": "GOSIER",
   "name": "Guadeloupe",
   "mininame": "GP",
@@ -299,6 +332,7 @@
   "lon": "-61.4948196411133",
   "Confidence": "High"
 }, {
+  "number": "10638",
   "City": "PONTE VE",
   "name": "United States",
   "mininame": "US",
@@ -308,6 +342,7 @@
   "lon": "12.33778",
   "Confidence": "Medium"
 }, {
+  "number": "10641",
   "City": "\"ST. HELIER",
   "name": " JERSEY\"",
   "mininame": "United Kingdom",
@@ -318,6 +353,7 @@
   "Confidence": "-2.11108994483948",
   "undefined": "High"
 }, {
+  "number": "11068",
   "City": "GREENLAND BEACH",
   "name": "United States",
   "mininame": "US",
@@ -327,6 +363,7 @@
   "lon": "-41.3941650390625",
   "Confidence": "High"
 }, {
+  "number": "11300",
   "City": "BARCELLONA POZZO DI",
   "name": "Italy",
   "mininame": "IT",
@@ -336,6 +373,7 @@
   "lon": "2.17001008987427",
   "Confidence": "High"
 }, {
+  "number": "12014",
   "City": "הר חוצבים ירושלים",
   "name": "Israel",
   "mininame": "IL",
@@ -345,6 +383,7 @@
   "lon": "35.2129402160645",
   "Confidence": "High"
 }, {
+  "number": "12723",
   "City": "OCEAN CI",
   "name": "United States",
   "mininame": "US",
@@ -354,6 +393,7 @@
   "lon": "-3.96833",
   "Confidence": "Medium"
 }, {
+  "number": "12810",
   "City": "PETIT BOURG",
   "name": "Guadeloupe",
   "mininame": "GP",
@@ -363,6 +403,7 @@
   "lon": "-61.5899085998535",
   "Confidence": "High"
 }, {
+  "number": "13266",
   "City": "BEIT SHEMESH",
   "name": "Israel",
   "mininame": "IL",
@@ -372,6 +413,7 @@
   "lon": "34.9863090515137",
   "Confidence": "Medium"
 }, {
+  "number": "13577",
   "City": "ELLIOT L",
   "name": "Canada",
   "mininame": "CA",
@@ -381,6 +423,7 @@
   "lon": "27.8531303405762",
   "Confidence": "Low"
 }, {
+  "number": "14555",
   "City": "SANTIAGO QUERETARO",
   "name": "Mexico",
   "mininame": "MX",
@@ -390,6 +433,7 @@
   "lon": "-70.57841",
   "Confidence": "Medium"
 }, {
+  "number": "14722",
   "City": "NORTH VA",
   "name": "Canada",
   "mininame": "CA",
@@ -399,6 +443,7 @@
   "lon": "-78.5051651000977",
   "Confidence": "Medium"
 }, {
+  "number": "15096",
   "City": "WIEN",
   "name": "Germany",
   "mininame": "DE",
@@ -408,6 +453,7 @@
   "lon": "16.3687992095947",
   "Confidence": "High"
 }, {
+  "number": "15422",
   "City": "BAIE-MAHAULT",
   "name": "France",
   "mininame": "FR",
@@ -417,6 +463,7 @@
   "lon": "-61.5723342895508",
   "Confidence": "High"
 }, {
+  "number": "15611",
   "City": "SAINT DENIS CEDEX 9",
   "name": "R??union",
   "mininame": "RE",
@@ -426,6 +473,7 @@
   "lon": "2.3554699420929",
   "Confidence": "Medium"
 }, {
+  "number": "15697",
   "City": "OLIVE BR",
   "name": "United States",
   "mininame": "US",
@@ -435,6 +483,7 @@
   "lon": "77.37849",
   "Confidence": "Medium"
 }, {
+  "number": "15838",
   "City": "LONGYEARBYEN",
   "name": "Norway",
   "mininame": "NO",
@@ -444,6 +493,7 @@
   "lon": "15.5500001907349",
   "Confidence": "Medium"
 }, {
+  "number": "15904",
   "City": "SAINT-DAMIEN-DE-BUCK",
   "name": "Canada",
   "mininame": "CA",
@@ -453,6 +503,7 @@
   "lon": "10.4006948471069",
   "Confidence": "Medium"
 }, {
+  "number": "15992",
   "City": "CIUDAD DE VILLA DE ALVAREZ",
   "name": "Colombia",
   "mininame": "CO",
@@ -462,6 +513,7 @@
   "lon": "-103.736938476562",
   "Confidence": "High"
 }, {
+  "number": "16055",
   "City": "WATERFORD CITY WATERFORD",
   "name": "United Kingdom",
   "mininame": "GB",
@@ -471,6 +523,7 @@
   "lon": "-7.11820411682129",
   "Confidence": "High"
 }, {
+  "number": "16283",
   "City": "DEL AZCAPOTZALCO",
   "name": "Mexico",
   "mininame": "MX",
@@ -480,6 +533,7 @@
   "lon": "9.62863540649414",
   "Confidence": "Medium"
 }, {
+  "number": "16304",
   "City": "FONTENAY-AUX-ROSES",
   "name": "Belgium",
   "mininame": "BE",
@@ -489,6 +543,7 @@
   "lon": "2.28623008728027",
   "Confidence": "High"
 }, {
+  "number": "16511",
   "City": "SAINT BARTHELEMY",
   "name": "Guadeloupe",
   "mininame": "GP",
@@ -498,6 +553,7 @@
   "lon": "-62.8293914794922",
   "Confidence": "High"
 }, {
+  "number": "16616",
   "City": "CHAPEL HILL",
   "name": "Israel",
   "mininame": "IL",
@@ -507,6 +563,7 @@
   "lon": "-78.83052",
   "Confidence": "Low"
 }, {
+  "number": "17163",
   "City": "EXTON",
   "name": "Italy",
   "mininame": "IT",
@@ -516,6 +573,7 @@
   "lon": "-75.6288375854492",
   "Confidence": "High"
 }, {
+  "number": "17482",
   "City": "VANDOUVRE-LES-NANCY",
   "name": "Switzerland",
   "mininame": "CH",
@@ -525,6 +583,7 @@
   "lon": "6.17266988754272",
   "Confidence": "High"
 }, {
+  "number": "17769",
   "City": "TESTE-DE-BUCH",
   "name": "France",
   "mininame": "FR",
@@ -534,6 +593,7 @@
   "lon": "10.1785898208618",
   "Confidence": "Medium"
 }, {
+  "number": "17822",
   "City": "Colombia",
   "name": "United States",
   "mininame": "US",
@@ -543,6 +603,7 @@
   "lon": "-73.0750274658203",
   "Confidence": "High"
 }, {
+  "number": "17907",
   "City": "FORT ST.",
   "name": "Canada",
   "mininame": "CA",
@@ -552,6 +613,7 @@
   "lon": "-83.1664070089722",
   "Confidence": "Low"
 }, {
+  "number": "17985",
   "City": "BAIE-MAHAULT",
   "name": "Guadeloupe",
   "mininame": "GP",
@@ -561,6 +623,7 @@
   "lon": "-61.5723342895508",
   "Confidence": "High"
 }, {
+  "number": "18250",
   "City": "L0S ANGELES",
   "name": "United States",
   "mininame": "US",
@@ -570,6 +633,7 @@
   "lon": "-79.3102188110352",
   "Confidence": "High"
 }, {
+  "number": "18778",
   "City": "SAINT PIERRE",
   "name": "R??union",
   "mininame": "RE",
@@ -579,6 +643,7 @@
   "lon": "55.4682998657227",
   "Confidence": "High"
 }, {
+  "number": "19301",
   "City": "ST. PETERSBERG",
   "name": "United States",
   "mininame": "US",
@@ -588,6 +653,7 @@
   "lon": "30.3060398101807",
   "Confidence": "High"
 }, {
+  "number": "19407",
   "City": "BLYTHE VALLEY PARK",
   "name": "United Kingdom",
   "mininame": "GB",
@@ -597,6 +663,7 @@
   "lon": "-114.5986328125",
   "Confidence": "Medium"
 }, {
+  "number": "19963",
   "City": "VADUZ",
   "name": "Switzerland",
   "mininame": "CH",
@@ -606,6 +673,7 @@
   "lon": "9.52163982391357",
   "Confidence": "Medium"
 }, {
+  "number": "20131",
   "City": "LE PORT",
   "name": "R??union",
   "mininame": "RE",
@@ -615,6 +683,7 @@
   "lon": "55.2987403869629",
   "Confidence": "High"
 }, {
+  "number": "20472",
   "City": "del.Tlalpan",
   "name": "Mexico",
   "mininame": "MX",
@@ -624,6 +693,7 @@
   "lon": "9.62863540649414",
   "Confidence": "Medium"
 }, {
+  "number": "21151",
   "City": "HAPPY VA",
   "name": "Canada",
   "mininame": "CA",
@@ -633,6 +703,7 @@
   "lon": "-78.5051651000977",
   "Confidence": "Medium"
 }, {
+  "number": "21410",
   "City": "CARTAGENA NAVAL",
   "name": "Spain",
   "mininame": "ES",
@@ -642,6 +713,7 @@
   "lon": "-75.5383682250977",
   "Confidence": "Medium"
 }, {
+  "number": "22043",
   "City": "NTRA SEÑORA DE JESUS",
   "name": "Spain",
   "mininame": "ES",
@@ -651,6 +723,7 @@
   "lon": "10.4006948471069",
   "Confidence": "Medium"
 }, {
+  "number": "22526",
   "City": "GUERNSEY",
   "name": "Guernsey",
   "mininame": "GG",
@@ -660,6 +733,7 @@
   "lon": "-81.5927886962891",
   "Confidence": "High"
 }, {
+  "number": "22581",
   "City": "DEL. AZCAPOTZALCO",
   "name": "Mexico",
   "mininame": "MX",
@@ -669,6 +743,7 @@
   "lon": "9.62863540649414",
   "Confidence": "Medium"
 }, {
+  "number": "22908",
   "City": "\"ST SAVIOUR",
   "name": " JERSEY CHANNEL ISLANDS\"",
   "mininame": "United Kingdom",
@@ -679,6 +754,7 @@
   "Confidence": "-2.08857202529907",
   "undefined": "High"
 }, {
+  "number": "22938",
   "City": "LA MEJOSTILLA",
   "name": "Spain",
   "mininame": "ES",
@@ -688,6 +764,7 @@
   "lon": "-118.245323181152",
   "Confidence": "Medium"
 }, {
+  "number": "23217",
   "City": "GREAT BE",
   "name": "United States",
   "mininame": "US",
@@ -697,6 +774,7 @@
   "lon": "4.64641",
   "Confidence": "Medium"
 }, {
+  "number": "23256",
   "City": "\"ROAD TOWN",
   "name": " VG\"",
   "mininame": "Virgin Islands (British)",
@@ -707,6 +785,7 @@
   "Confidence": "-64.6132431030273",
   "undefined": "Medium"
 }, {
+  "number": "23597",
   "City": "LE LAMENTIN",
   "name": "France",
   "mininame": "FR",
@@ -716,6 +795,7 @@
   "lon": "-60.9946212768555",
   "Confidence": "High"
 }, {
+  "number": "24101",
   "City": "PARTIDO DE VICENTE L",
   "name": "Argentina",
   "mininame": "AR",
@@ -725,6 +805,7 @@
   "lon": "10.4006948471069",
   "Confidence": "Medium"
 }, {
+  "number": "24110",
   "City": "NUESTRA SRA DE JESUS",
   "name": "Spain",
   "mininame": "ES",
@@ -734,6 +815,7 @@
   "lon": "10.4006948471069",
   "Confidence": "Medium"
 }, {
+  "number": "24157",
   "City": "SAINT-LA",
   "name": "Canada",
   "mininame": "CA",
@@ -743,6 +825,7 @@
   "lon": "-118.207252502441",
   "Confidence": "High"
 }, {
+  "number": "24390",
   "City": "MISSIISA",
   "name": "Canada",
   "mininame": "CA",
@@ -752,6 +835,7 @@
   "lon": "-97.1050720214844",
   "Confidence": "Medium"
 }, {
+  "number": "24433",
   "City": "DEL.ALVARO OBREGON",
   "name": "Mexico",
   "mininame": "MX",
@@ -761,6 +845,7 @@
   "lon": "9.62863540649414",
   "Confidence": "Medium"
 }, {
+  "number": "24515",
   "City": "MUNI CONEJOS ATOTO TULA",
   "name": "Mexico",
   "mininame": "MX",
@@ -770,6 +855,7 @@
   "lon": "39.8677787780762",
   "Confidence": "Medium"
 }, {
+  "number": "24926",
   "City": "del. Benito juarez",
   "name": "Mexico",
   "mininame": "MX",
@@ -779,6 +865,7 @@
   "lon": "9.62863540649414",
   "Confidence": "Medium"
 }, {
+  "number": "25305",
   "City": "HAMELET ISRAEL CANADA",
   "name": "Israel",
   "mininame": "IL",
@@ -788,6 +875,7 @@
   "lon": "-96.3883514404297",
   "Confidence": "High"
 }, {
+  "number": "25869",
   "City": "SILVER S",
   "name": "United States",
   "mininame": "US",
@@ -797,6 +885,7 @@
   "lon": "28.29276",
   "Confidence": "Medium"
 }, {
+  "number": "26321",
   "City": "Ario",
   "name": "Mexico",
   "mininame": "MX",
@@ -806,6 +895,7 @@
   "lon": "",
   "Confidence": ""
 }, {
+  "number": "26357",
   "City": "SYLVAN L",
   "name": "Canada",
   "mininame": "CA",
@@ -815,6 +905,7 @@
   "lon": "0.206400007009506",
   "Confidence": "Low"
 }, {
+  "number": "26399",
   "City": "RICHMOND EAST",
   "name": "Australia",
   "mininame": "AU",
@@ -824,6 +915,7 @@
   "lon": "-77.4336471557617",
   "Confidence": "High"
 }, {
+  "number": "26689",
   "City": "MIAM",
   "name": "United States",
   "mininame": "US",
@@ -833,6 +925,7 @@
   "lon": "127.592575",
   "Confidence": "High"
 }, {
+  "number": "26866",
   "City": "Mount St Thomas",
   "name": "Australia",
   "mininame": "AU",
@@ -842,6 +935,7 @@
   "lon": "-64.9169998168945",
   "Confidence": "Medium"
 }, {
+  "number": "26871",
   "City": "TO",
   "name": "Canada",
   "mininame": "CA",
@@ -851,6 +945,7 @@
   "lon": "-4.54222011566162",
   "Confidence": "Low"
 }, {
+  "number": "26963",
   "City": "19 MAYIS MAH.",
   "name": "Turkey",
   "mininame": "TR",
@@ -860,6 +955,7 @@
   "lon": "-83.7716339447973",
   "Confidence": "Medium"
 }, {
+  "number": "27314",
   "City": "ST-ANNE DE BELLEVUE",
   "name": "Canada",
   "mininame": "CA",
@@ -869,6 +965,7 @@
   "lon": "-87.7230911254883",
   "Confidence": "Medium"
 }, {
+  "number": "28647",
   "City": "SAINT-MARTIN",
   "name": "France",
   "mininame": "FR",
@@ -878,6 +975,7 @@
   "lon": "-63.0621299743652",
   "Confidence": "High"
 }, {
+  "number": "29149",
   "City": "Mt St Thomas",
   "name": "Australia",
   "mininame": "AU",
@@ -887,6 +985,7 @@
   "lon": "-109.645080566406",
   "Confidence": "Medium"
 }, {
+  "number": "29388",
   "City": "BET SHEMESH",
   "name": "Israel",
   "mininame": "IL",
@@ -896,6 +995,7 @@
   "lon": "34.9863090515137",
   "Confidence": "Medium"
 }, {
+  "number": "29688",
   "City": "WILLOWGROVE",
   "name": "United States",
   "mininame": "US",
@@ -905,6 +1005,7 @@
   "lon": "-122.76411",
   "Confidence": "Medium"
 }, {
+  "number": "30001",
   "City": "HOLLY SP",
   "name": "United States",
   "mininame": "US",
@@ -914,6 +1015,7 @@
   "lon": "-42.53618",
   "Confidence": "Medium"
 }, {
+  "number": "30233",
   "City": "Freiburg/Breisgau",
   "name": "Germany",
   "mininame": "DE",
@@ -923,6 +1025,7 @@
   "lon": "7.1535701751709",
   "Confidence": "High"
 }, {
+  "number": "30623",
   "City": "51 STOCKHOLM",
   "name": "Sweden",
   "mininame": "SE",
@@ -932,6 +1035,7 @@
   "lon": "-68.1430588414302",
   "Confidence": "High"
 }, {
+  "number": "30678",
   "City": "Del. Tlalpan",
   "name": "Mexico",
   "mininame": "MX",
@@ -940,4 +1044,6 @@
   "lat": "46.6560554504395",
   "lon": "9.62863540649414",
   "Confidence": "Medium"
+}, {
+  "number": ""
 }]

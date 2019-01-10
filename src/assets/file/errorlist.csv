@@ -1,4 +1,4 @@
-,City,name,mininame,returnCountry,returnCity,lat,lon,Confidence
+number,City,name,mininame,returnCountry,returnCity,lat,lon,Confidence
 342,ARIEL,Israel,IL,West Bank,Ari'el,32.105339050293,35.1921882629395,Medium
 679,GRAND PR,Canada,CA,Brazil,Campo Grande,-20.49727,-54.59612,Medium
 720,SAINTE MARIE,R??union,RE,Reunion,Sainte-Marie,-20.8970909118652,55.5499000549316,High

@@ -12,7 +12,7 @@ function parseCsvJson(aa) {
   let arr = [];
   for (let m = 1; m < aa.length; m++) {
     let obj = {};
-    for (let j = 1; j < aa[m].length; j++) {
+    for (let j = 0; j < aa[m].length; j++) {
       obj[aa[0][j]] = aa[m][j];
     }
     if (JSON.stringify(obj) !== "{}") {

@@ -1,16 +1,19 @@
-<div id="content-details-body">
-  <div id="content">
-    <h1>{{title}}</h1>
-  </div>
-  <ng-template ngFor let-item [ngForOf]='curOption'>
-    <div class="img-content" *ngIf='item.type=="img"'>
-      <img [attr.src]='item.imgSrc' [ngStyle]="item.imgStyle" alt="">
+<div class="content-details-body-parent">
+  <div id="content-details-body">
+    <div id="content">
+      <h1>{{title}}</h1>
     </div>
-    <div class="md-content" id='md' *ngIf='item.type=="md"' [appMarked]='item'></div>
-    <iframe class="iframe-content" id='iframe' *ngIf='item.type=="iframeHtml"' [attr.src]='item.iframeSrc'></iframe>
-  </ng-template>
-  <!-- <img src="./assets/knowledge_img/team中國自.png" alt=""> -->
+    <ng-template ngFor let-item [ngForOf]='curOption'>
+      <div class="img-content" *ngIf='item.type=="img"'>
+        <img [attr.src]='item.imgSrc' [ngStyle]="item.imgStyle" alt="">
+      </div>
+      <div class="md-content" id='md' *ngIf='item.type=="md"' [appMarked]='item'></div>
+      <iframe class="iframe-content" id='iframe' *ngIf='item.type=="iframeHtml"' [attr.src]='item.iframeSrc'></iframe>
+    </ng-template>
+    <!-- <img src="./assets/knowledge_img/team中國自.png" alt=""> -->
+  </div>
 </div>
+
 
 <div class="call-top" (click)='scrollTop()'>
   回到顶部
