@@ -50,11 +50,11 @@ function getIndexOfPathByDeep(obj, dir, curDir, deep, arr) {
 
     if (newkey && (newkey.includes('png') || newkey.includes('jpg') || newkey.includes('jpeg') || newkey.includes('gif'))) {
       obj2['type'] = 'img';
-      obj2['imgSrc'] = ('./assets/' + mdSrc).replace(/\\/gi, '/');
+      obj2['imgSrc'] = ('/assets/' + mdSrc).replace(/\\/gi, '/');
 
     } else if (newkey && newkey == 'md') {
       obj2['type'] = 'md';
-      obj2['mdSrc'] = ('./assets/' + mdSrc).replace(/\\/gi, '/');
+      obj2['mdSrc'] = ('/assets/' + mdSrc).replace(/\\/gi, '/');
     }
 
     obj2['mdStyle'] = {};

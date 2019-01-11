@@ -324,7 +324,7 @@ function getIndexOfPathByDeep(obj, dir, curDir, deep, arr) {
     const obj2 = {};
     const mdSrc = curPath.split('\\assets\\')[1];
     obj2['type'] = 'md';
-    obj2['mdSrc'] = ('./assets/' + mdSrc).replace(/\\/gi, '/');
+    obj2['mdSrc'] = ('/assets/' + mdSrc).replace(/\\/gi, '/');
     obj2['mdStyle'] = {};
     obj['pageOption'].push(obj2);
     // 存储当前的text和title名称和type类型，本字段均生成的是markdown文件------------end

@@ -15,7 +15,7 @@ export class LoginService {
     redirectUrl: string;
 
     login(): Observable<Object> {
-        return this.http.get('./assets/json/text2.json');  // 模拟请求，看subscribe是否等待请求成功才调用
+        return this.http.get('/assets/json/text2.json');  // 模拟请求，看subscribe是否等待请求成功才调用
 
         // // 下边使用延时模拟请求延时
         // return of(true).pipe(

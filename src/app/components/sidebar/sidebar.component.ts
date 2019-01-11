@@ -49,7 +49,7 @@ export class SideBarComponent implements OnInit, AfterViewInit, OnDestroy {
             pageOption: [
                 {
                     type: 'md',
-                    mdSrc: './assets/markdown/all_study_station/all-study-station.md',
+                    mdSrc: '/assets/markdown/all_study_station/all-study-station.md',
                     mdStyle: {}
                 }
             ],
@@ -66,7 +66,7 @@ export class SideBarComponent implements OnInit, AfterViewInit, OnDestroy {
             pageOption: [
                 {
                     type: 'md',
-                    mdSrc: './assets/markdown/all_study_station/all-study-station.md',
+                    mdSrc: '/assets/markdown/all_study_station/all-study-station.md',
                     mdStyle: {}
                 }
             ],
@@ -94,7 +94,7 @@ export class SideBarComponent implements OnInit, AfterViewInit, OnDestroy {
             pageOption: [
                 {
                     type: 'md',
-                    mdSrc: './assets/markdown/css---Style/css3.md',
+                    mdSrc: '/assets/markdown/css---Style/css3.md',
                     mdStyle: {}
                 }
             ],
@@ -111,7 +111,7 @@ export class SideBarComponent implements OnInit, AfterViewInit, OnDestroy {
             pageOption: [
                 {
                     type: 'md',
-                    mdSrc: './assets/markdown/css---Style/table.md',
+                    mdSrc: '/assets/markdown/css---Style/table.md',
                     mdStyle: {}
                 }
             ],
@@ -128,7 +128,7 @@ export class SideBarComponent implements OnInit, AfterViewInit, OnDestroy {
             pageOption: [
                 {
                     type: 'md',
-                    mdSrc: './assets/markdown/css---Style/change--radioAndCheckboxStyle.md',
+                    mdSrc: '/assets/markdown/css---Style/change--radioAndCheckboxStyle.md',
                     mdStyle: {}
                 }
             ],
@@ -156,7 +156,7 @@ export class SideBarComponent implements OnInit, AfterViewInit, OnDestroy {
             pageOption: [
                 {
                     type: 'md',
-                    mdSrc: './assets/markdown/terminal/terminal.md',
+                    mdSrc: '/assets/markdown/terminal/terminal.md',
                     mdStyle: {}
                 }
             ],
@@ -184,7 +184,7 @@ export class SideBarComponent implements OnInit, AfterViewInit, OnDestroy {
             pageOption: [
                 {
                     type: 'md',
-                    mdSrc: './assets/markdown/nodejs/nodejs--callbackFun.md',
+                    mdSrc: '/assets/markdown/nodejs/nodejs--callbackFun.md',
                     mdStyle: {}
                 }
             ],
@@ -201,7 +201,7 @@ export class SideBarComponent implements OnInit, AfterViewInit, OnDestroy {
             pageOption: [
                 {
                     type: 'md',
-                    mdSrc: './assets/markdown/nodejs/nodejs—eventEmitter.md',
+                    mdSrc: '/assets/markdown/nodejs/nodejs—eventEmitter.md',
                     mdStyle: {}
                 }
             ],
@@ -218,7 +218,7 @@ export class SideBarComponent implements OnInit, AfterViewInit, OnDestroy {
             pageOption: [
                 {
                     type: 'md',
-                    mdSrc: './assets/markdown/nodejs/nodejs-getOrPost.md',
+                    mdSrc: '/assets/markdown/nodejs/nodejs-getOrPost.md',
                     mdStyle: {}
                 }
             ],
@@ -228,7 +228,7 @@ export class SideBarComponent implements OnInit, AfterViewInit, OnDestroy {
     isShowSideBar = true;
     constructor(private appUpdateService: AppUpdateService, private http: HttpClient) { }
     ngOnInit() {
-        this.http.get('./assets/json/text2.json')
+        this.http.get('/assets/json/text2.json')
             .subscribe((res) => {
                 console.log(res);
                 this.catalog = res;
