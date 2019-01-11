@@ -1,4 +1,7 @@
 <app-header></app-header>
 <!-- <app-sidebar></app-sidebar>
 <app-content-details></app-content-details> -->
-<router-outlet></router-outlet>
+<!-- <router-outlet></router-outlet> -->
+<div [@routeAnimation]="getAnimationData(routerOutlet)" style="height:100%;">
+  <router-outlet #routerOutlet="outlet"></router-outlet>
+</div>

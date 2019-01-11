@@ -6,12 +6,11 @@ import { MarkdownComponent } from './view/markdown/markdown.component';
 import { AuthGuard } from './auth';
 
 const routes: Routes = [
-  { path: '', component: LoginComponent },  // 不需要加  '/', 默认写法
   // { path: 'login', component: LoginComponent },  // 不需要加  '/', 默认写法
   { path: 'login', component: LoginComponent },
   {
     path: 'home',
-    // canActivate: [AuthGuard],
+    canActivate: [AuthGuard],
     component: HomeComponent,
     children: [
       // {
@@ -20,18 +19,26 @@ const routes: Routes = [
       // },
       {
         path: 'markdown',
-        component: MarkdownComponent
+        component: MarkdownComponent,
+        data: { animation: 'HomePage' }
       },
       {
         path: 'iframe',
-        component: MarkdownComponent
+        component: MarkdownComponent,
+        data: { animation: 'AboutPage' }
+      },
+      {
+        path: 'demo',
+        component: MarkdownComponent,
+        data: { animation: 'FilterPage' }
       },
       // {
       //   path: '**',
       //   component: MarkdownComponent
       // }
     ]
-  },  // 不需要加  '/', 默认写法
+  },
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: '**', component: LoginComponent },  // 通配符路由,其它不存在的跳转到404
 ];
 

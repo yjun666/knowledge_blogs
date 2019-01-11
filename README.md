@@ -30,3 +30,5 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ### yangjun---add
 > node assets/js/fsReadFileToJson2.js 生成目录json文件，生成home侧边栏目录
 
+> assets下有针对assets文件的详细文档
+

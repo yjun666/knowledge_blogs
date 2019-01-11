@@ -7,14 +7,16 @@ declare const $;
     styleUrls: ['contentDetails.component.scss']
 })
 export class ContentDetailsComponent implements OnInit, AfterViewInit, OnDestroy {
+    // 初始化参数
     private curOption = [
         {
             type: 'md',
-            mdSrc: './assets/markdown/常用网站集合/常用网站.md',
+            mdSrc: './assets/markdown/js/生成随机数.md',
             mdStyle: {}
         }
     ];
-    title = '学习网址';
+    // 初始化title
+    title = '生成随机数';
 
     constructor(private appUpdateService: AppUpdateService) { }
     ngOnInit() {

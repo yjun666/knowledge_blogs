@@ -12,11 +12,11 @@ export class LoginComponent implements OnInit {
     ngOnInit() { }
 
     login(param) {
-        if ((param.accountNumber).indexOf('yangjun') === -1) {
+        if ((param.accountNumber).indexOf('1') === -1) {
             console.error('账号错误,请重新输入');
             alert('账号错误,请重新输入');
             return false;
-        } else if (param.password !== '123456') {
+        } else if (param.password !== '1') {
             console.error('密码错误,请重新输入');
             alert('密码错误,请重新输入');
             return false;
