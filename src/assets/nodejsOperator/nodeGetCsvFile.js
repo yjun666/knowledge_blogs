@@ -1,22 +1,18 @@
 // node 读取csv文件生成二位数组
-const path = require('path');
-const fs = require('fs');
+var path = require('path');
+var fs = require('fs');
 
-fs.readFile('../file/errorlist.csv', function (err, data) {
+fs.readFile(path.join(__dirname, '../file/errorlist.csv'), function (err, data) {
   var table = new Array();
   if (err) {
     console.log(err.stack);
     return;
   }
 
-  ConvertToTable(data, function (table) {
-    // console.log(table);
-    fs.writeFileSync('../json/csv.json', JSON.stringify(table));
-  })
+  ConvertToTable(data);
 });
-console.log("程序执行完毕");
 
-function ConvertToTable(data, callBack) {
+function ConvertToTable(data) {
   data = data.toString();
   var table = new Array();
   var rows = new Array();
@@ -24,7 +20,13 @@ function ConvertToTable(data, callBack) {
   for (var i = 0; i < rows.length; i++) {
     table.push(rows[i].split(","));
   }
-  callBack(table);
+  fs.writeFile(path.join(__dirname, '../json/csv.json'), JSON.stringify(table), (err) => {
+    if (err) {
+      console.log(err);
+    }else{
+      console.log('success');
+    }
+  });
 }
 
-console.log('wancheng');
+console.log('程序执行完毕nodeGetCsvFile');

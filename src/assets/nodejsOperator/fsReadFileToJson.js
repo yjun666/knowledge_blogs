@@ -1,6 +1,6 @@
 // 根据文件夹目录生成嵌套的json对象
-const path = require('path');
-const fs = require('fs');
+var path = require('path');
+var fs = require('fs');
 // 获取指定路径 path 下的，默认深度为 3 的目录 JSON
 function getIndexByPath(dir, deep = 10) {
   let dirDevide = dir.split('/');
@@ -24,8 +24,6 @@ function getIndexOfPathByDeep(obj, dir, curDir, deep) {
   // }
 }
 
-fs.writeFileSync('../json/text.json', JSON.stringify(getIndexByPath('../markdown')))
+fs.writeFileSync(path.join(__dirname, '../json/text.json'), JSON.stringify(getIndexByPath('../markdown')));
 
-// console.log(getIndexByPath('../markdown'));
-
-console.log('程序执行完毕。');
+console.log('程序执行完毕fsReadFileToJson。');
