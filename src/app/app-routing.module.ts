@@ -11,7 +11,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   {
     path: 'home',
-    canActivate: [AuthGuard],
+    // canActivate: [AuthGuard],
     component: HomeComponent,
     children: [
       // {
@@ -33,10 +33,10 @@ const routes: Routes = [
         component: MarkdownComponent,
         data: { animation: 'FilterPage' }
       },
-      // {
-      //   path: '**',
-      //   component: MarkdownComponent
-      // }
+      {
+        path: '**',
+        component: MarkdownComponent
+      }
     ]
   },
   { path: '', redirectTo: '/login', pathMatch: 'full' },

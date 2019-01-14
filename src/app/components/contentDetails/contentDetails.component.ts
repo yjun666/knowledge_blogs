@@ -62,4 +62,19 @@ export class ContentDetailsComponent implements OnInit, AfterViewInit, OnDestroy
         }, 10);
     }
 
+    // 关闭pre代码块
+    public closeCode(event) {
+        const allPre = document.querySelectorAll('pre');
+        Array.from(allPre).map((item) => {
+            if (!item.style.display || item.style.display === 'block') {
+                item.style.display = 'none';
+                event.target.innerHTML = '点我展开Code';
+
+            } else {
+                item.style.display = 'block';
+                event.target.innerHTML = '点我折叠Code';
+            }
+        });
+    }
+
 }

@@ -230,7 +230,7 @@ export class SideBarComponent implements OnInit, AfterViewInit, OnDestroy {
     ngOnInit() {
         this.http.get('/assets/json/text2.json')
             .subscribe((res) => {
-                console.log(res);
+                // console.log(res);
                 this.catalog = res;
             });
 
@@ -259,19 +259,18 @@ export class SideBarComponent implements OnInit, AfterViewInit, OnDestroy {
 
     }
 
-    ngAfterViewInit(): void { this.niceScroll() }
+    ngAfterViewInit(): void { this.niceScroll(); }
 
     public closeCurCatalog(param, event) {
         const curId = param.id;
         const curParentId = param.parentId;
         const curEleClassName = event.className;
-        // console.log(curId, curParentId, curEleClassName);
         const catalog$ = from(this.catalog);
 
         const catalog$New = catalog$.pipe(filter((val) => val['id'] === param.id))
             .subscribe((data) => {
                 data['isShow'] = !data['isShow']; // 控制二级目录是否显示即一级目录是否打开
-                console.log(data['id']);
+                // console.log(data['id']);
                 // 控制三级目录是否显示即二级目录是否打开
                 catalog$.pipe(filter((val) => val['parentId'] === data['id']))
                     .subscribe((data2) => {
@@ -292,9 +291,9 @@ export class SideBarComponent implements OnInit, AfterViewInit, OnDestroy {
 
         param.isCurCatalog = true;
         this.appUpdateService.emitUpdataSideBarSubject(param);
-        console.log(event);
+        // console.log(event);
         // event.target.style.backgroundColor = 'purple';
-        console.log('pageTurn');
+        // console.log('pageTurn');
         this.niceScroll();
     }
 

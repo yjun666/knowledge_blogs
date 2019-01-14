@@ -3,6 +3,9 @@
     <div id="content">
       <h1>{{title}}</h1>
     </div>
+    <div class="close-code">
+      <button class="btn btn-primary" (click)='closeCode($event)'>点我折叠code</button>
+    </div>
     <ng-template ngFor let-item [ngForOf]='curOption'>
       <div class="img-content" *ngIf='item.type=="img"'>
         <img [attr.src]='item.imgSrc' [ngStyle]="item.imgStyle" alt="">
@@ -14,7 +17,9 @@
   </div>
 </div>
 
-
-<div class="call-top" (click)='scrollTop()'>
-  回到顶部
+<div class="call-top-parent">
+  <div class="call-top" (click)='scrollTop()'>
+    <p>回到</p>
+    <p>顶部</p>
+  </div>
 </div>

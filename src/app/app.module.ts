@@ -16,7 +16,7 @@ import { MarkdownComponent, MarkdowService } from './view/markdown';
 // components
 import { SideBarComponent, SidebarService } from './components/sidebar';
 import { ContentDetailsComponent, ContentDetailsService } from './components/contentDetails';
-import { HeaderService, HeaderComponent } from './components/Header';
+import { HeaderService, HeaderComponent } from './components/header';
 
 // directives
 import { AppMarkedDirective, AppTitleHoverShowDirective } from './directives';
