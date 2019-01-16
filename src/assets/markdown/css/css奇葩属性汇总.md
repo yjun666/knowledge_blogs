@@ -198,3 +198,144 @@
 </body>
 </html>
 ```
+
+> border-width 可设置4个值
+>>currentColor 当前的color值
+>>> 线尾型样式
+
+```
+.test {
+    position: absolute;
+    border-style: solid;
+    width: 100px;
+    height: 100px;
+    color: #fff;
+    border-radius: 50%;
+    border-color: currentColor transparent transparent currentColor;
+    border-width: 0.2em 0.2em 0em 0em;
+    --deg: -45deg;
+}
+```
+
+> loading 样式
+
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Comet rotating loader</title>
+	<style>
+		.test {
+			position: absolute;
+			border-style: solid;
+			width: 100px;
+			height: 100px;
+			color: #fff;
+			border-radius: 50%;
+			border-color: currentColor transparent transparent currentColor;
+			border-width: 0.2em 0.2em 0em 0em;
+			--deg: -45deg;
+			animation: animate 3s linear infinite;
+		}
+		.loader {
+			width: 20em;
+			height: 20em;
+			font-size: 10px;
+			position: relative;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+		.loader .face {
+			position: absolute;
+			border-radius: 50%;
+			border-style: solid;
+			animation: animate 3s linear infinite;
+		}
+		.loader .face:nth-child(1) {
+			width: 100%;
+			height: 100%;
+			color: gold;
+			border-color: currentColor transparent transparent currentColor;
+			border-width: 0.2em 0.2em 0em 0em;
+			--deg: -45deg;
+			animation-direction: normal;
+		}
+		.loader .face:nth-child(2) {
+			width: 70%;
+			height: 70%;
+			color: lime;
+			border-color: currentColor currentColor transparent transparent;
+			border-width: 0.2em 0em 0em 0.2em;
+			--deg: -135deg;
+			animation-direction: reverse;
+		}
+		.loader .face .circle {
+			position: absolute;
+			width: 50%;
+			height: 0.1em;
+			top: 50%;
+			left: 50%;
+			background-color: transparent;
+			transform: rotate(var(--deg));
+			transform-origin: left;
+		}
+		.loader .face .circle::before {
+			position: absolute;
+			top: -0.5em;
+			right: -0.5em;
+			content: '';
+			width: 1em;
+			height: 1em;
+			background-color: currentColor;
+			border-radius: 50%;
+			box-shadow: 0 0 2em,
+				0 0 4em,
+				0 0 6em,
+				0 0 8em,
+				0 0 10em,
+				0 0 0 0.5em rgba(255, 255, 0, 0.1);
+		}
+		@keyframes animate {
+			to {
+				transform: rotate(360deg);
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="test">
+	</div>
+	<div class="loader">
+		<div class="face">
+			<div class="circle"></div>
+		</div>
+		<div class="face">
+			<div class="circle"></div>
+		</div>
+	</div>
+</body>
+</html>
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
