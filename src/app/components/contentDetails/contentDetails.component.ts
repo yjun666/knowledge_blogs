@@ -11,7 +11,7 @@ export class ContentDetailsComponent implements OnInit, AfterViewInit, OnDestroy
     private curOption = [
         {
             type: 'md',
-            mdSrc: '/assets/markdown/js/生成随机数.md',
+            mdSrc: '/assets/markdown/js/js常用方法/生成随机数.md',
             mdStyle: {}
         }
     ];
