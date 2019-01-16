@@ -15,18 +15,20 @@ export class AppTitleHoverShowDirective implements OnInit {
         const bodyScrollTop = $('html')[0].scrollTop;
         if (Array.from(removeClass).length !== 0) {
             Array.from(removeClass).map((item, index, arr) => {
-                item.remove();
+                item.parentNode.removeChild(item);
             });
         }
+
         const div = document.createElement('div');
         div.innerHTML = this.element.nativeElement.innerText;
         div.className = 'titleHoverShow';
+        // console.log(e.pageY, e.screenY, 'asdfasdfasdfasdfasdfasdf');
         div.style.cssText = `
             position:absolute;
             left:${e.clientX}px;
-            top:${e.clientY - 40 + bodyScrollTop}px;
+            // top:${e.clientY - 40 + bodyScrollTop}px;
+            top:${e.pageY - 40}px;
             background-color:#d7e8fc;
-            color:#000;
             border:1px solid #bcc8dc;
             z-index:1000;
             padding:5px 10px;
@@ -39,7 +41,7 @@ export class AppTitleHoverShowDirective implements OnInit {
     titleHoverhide(eventTarget) {
         const removeClass = document.getElementsByClassName('titleHoverShow');
         Array.from(removeClass).map((item, index, arr) => {
-            item.remove();
+            item.parentNode.removeChild(item);
         });
     }
 }

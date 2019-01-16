@@ -9,7 +9,7 @@ export class LoginService {
     constructor(
         private http: HttpClient
     ) { }
-    isLoggedIn = false;
+    isLoggedIn = sessionStorage['wwwYjunsCn'] || false;
 
     // store the URL so we can redirect after logging in
     redirectUrl: string;

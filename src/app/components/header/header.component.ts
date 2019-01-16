@@ -22,6 +22,7 @@ export class HeaderComponent implements OnInit {
 
     private logout() {
         this.loginService.isLoggedIn = false;
+        sessionStorage['wwwYjunsCn'] = this.loginService.isLoggedIn;
         this.router.navigate(['./login']);
     }
 }

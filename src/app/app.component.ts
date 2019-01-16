@@ -13,8 +13,6 @@ export class AppComponent implements OnInit {
     private http: HttpClient,
     private router: Router,
   ) { }
-  ngOnInit() {
-    this.router.navigate(['/home']);
-  }
+  ngOnInit() {}
 
 }
