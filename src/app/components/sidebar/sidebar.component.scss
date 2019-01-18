@@ -18,6 +18,7 @@
   -ms-user-select: none;
   user-select: none;
   overflow: hidden;
+  // overflow-x: hidden;
 
   nav {
     height: 100%;
@@ -61,7 +62,8 @@
 
   ul#catalog-details {
     color: red;
-    overflow: hidden;
+    // overflow: hidden;
+    overflow-x: hidden;
     height: 100%;
     // background-color: rgba(255, 0, 0, 0.5);
 

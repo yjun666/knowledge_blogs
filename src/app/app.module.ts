@@ -15,7 +15,7 @@ import { MarkdownComponent, MarkdowService } from './view/markdown';
 
 // components
 import { SideBarComponent, SidebarService } from './components/sidebar';
-import { ContentDetailsComponent, ContentDetailsService } from './components/contentDetails';
+import { MarkdownDetailsComponent, MarkdownDetailsService } from './components/markdownDetails';
 import { HeaderService, HeaderComponent } from './components/header';
 
 // directives
@@ -32,7 +32,7 @@ const modules = [AlertModule];
 const components = [
   HomeComponent,
   SideBarComponent,
-  ContentDetailsComponent,
+  MarkdownDetailsComponent,
   LoginComponent,
   HeaderComponent,
   MarkdownComponent
@@ -46,7 +46,7 @@ const services = [
   AppService,
   HomeService,
   SidebarService,
-  ContentDetailsService,
+  MarkdownDetailsService,
   LoginService,
   AuthGuard,
   HeaderService,

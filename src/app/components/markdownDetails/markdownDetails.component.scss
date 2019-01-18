@@ -1,10 +1,10 @@
-.content-details-body-parent {
+.markdown-details-body-parent {
   padding-bottom: 60px;
   height: 100%;
   width: 100%;
 }
 
-#content-details-body {
+#markdown-details-body {
   background-color: rgba(255, 255, 255, 1);
   padding-left: 235px;
   box-sizing: border-box;
@@ -12,7 +12,8 @@
   width: 100%;
   transition: all 0.2s ease-in-out;
   background-color: bisque;
-  overflow: hidden;
+  // overflow: hidden;
+  overflow-x: hidden;
 
   #content {
     h1 {
@@ -72,7 +73,7 @@
 }
 
 @media screen and (max-width: 1024px) {
-  #content-details-body {
+  #markdown-details-body {
     padding-left: 0;
   }
 }

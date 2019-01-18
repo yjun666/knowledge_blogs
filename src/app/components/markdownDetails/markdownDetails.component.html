@@ -1,10 +1,21 @@
-<div class="content-details-body-parent">
-  <div id="content-details-body">
+<div class="markdown-details-body-parent">
+  <div id="markdown-details-body">
     <div id="content">
       <h1>{{title}}</h1>
     </div>
     <div class="close-code">
-      <button class="btn btn-primary" (click)='closeCode($event)'>点我折叠code</button>
+      <div class="row">
+        <button class="btn btn-primary" style="float:right;margin-right: 1.2rem;" (click)='closeCode($event)'>点我折叠code</button>
+        <div class="col-lg-2" style="float:right;">
+          <div class="input-group">
+            <input type="text" class="form-control" id='searchBoxMd' placeholder="Search for...">
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="button">&lt;</button>
+              <button class="btn btn-default" type="button">&gt;</button>
+            </span>
+          </div>
+        </div>
+      </div>
     </div>
     <ng-template ngFor let-item [ngForOf]='curOption'>
       <div class="img-content" *ngIf='item.type=="img"'>
