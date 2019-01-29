@@ -93,9 +93,7 @@ export class MarkdownDetailsComponent implements OnInit, AfterViewInit, OnDestro
             distinctUntilChanged()
         );
         this.searchBoxSubscribe$ = searchBox$.subscribe((data) => {
-            alert(data);
+            // alert(data);
         });
     }
-
-
 }
