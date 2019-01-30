@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "npm run nodeCMD && ng serve --port 1234",
+    "start": "ng serve --port 1234",
     "build": "npm run nodeCMD && ng build --base-href",
     "nodeCMD": "node ./src/assets/js/nodejsOperator.js && node ./src/assets/js/requestJson.js && node ./src/assets/js/nodejsOperatorAll.js  && node ./src/assets/js/requestJsonAll.js",
     "test": "ng test",
