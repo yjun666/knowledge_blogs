@@ -2,8 +2,6 @@ import { Component, OnInit, AfterViewInit, OnDestroy } from '@angular/core';
 import { AppUpdateService } from '../../app-update.service';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 
-
-
 import { from } from 'rxjs';
 import { filter } from 'rxjs/operators';
 declare const $;

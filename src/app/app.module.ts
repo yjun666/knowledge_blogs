@@ -24,6 +24,9 @@ import { AppMarkedDirective, AppTitleHoverShowDirective } from './directives';
 // auth
 import { AuthGuard } from './auth';
 
+// interceptor拦截器
+import { httpInterceptorProviders } from '../app/interceptor';
+
 // module
 import { AlertModule } from './components/alert/alert.module';
 
@@ -50,7 +53,8 @@ const services = [
   LoginService,
   AuthGuard,
   HeaderService,
-  MarkdowService
+  MarkdowService,
+  httpInterceptorProviders
 ];
 
 @NgModule({
