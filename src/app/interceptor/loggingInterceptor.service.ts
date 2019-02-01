@@ -1,4 +1,4 @@
-// 拦截器记录日志，监听请求的返回时间成功还是失败
+// 拦截器记录日志，监听请求的返回时间成功还是失败------摘抄自官网
 import { Injectable } from '@angular/core';
 import { finalize, tap } from 'rxjs/operators';
 window['messenger'] = [];

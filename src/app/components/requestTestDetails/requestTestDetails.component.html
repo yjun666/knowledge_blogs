@@ -1,0 +1,8 @@
+<button (click)='ngOnInit()' class="btn btn-primary request-test-btn">测试</button>
+<div class="lanjieqi-logs">
+  <ng-template ngFor let-item let-i='index' [ngForOf]='messageService.messages'>
+    <span>{{item}}</span>
+  </ng-template>
+</div>
+
+

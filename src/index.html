@@ -112,16 +112,18 @@
 
   </style>
 
+
+
   <script>
-    function test(data) {
-      console.log(data);
-    }
-    window.onload = () => {
-      // jsonp 跨域回调函数,接口是github上边的express启动的服务接口 
-      const search = document.createElement('script');
-      search.src = 'http://localhost:3000/search?name=123&callback=test';
-      document.body.append(search);
-    }
+    // function test(data) {
+    //   console.log(data,'test');
+    // }
+    // window.onload = () => {
+    //   // jsonp 跨域回调函数,接口是github上边的express启动的服务接口 
+    //   const search = document.createElement('script');
+    //   search.src = 'http://localhost:3000/search?name=123&callback=test';
+    //   document.body.append(search);
+    // }
 
   </script>
   <!-- <script src="http://localhost:3000/search?name=123&callback=test"></script> -->

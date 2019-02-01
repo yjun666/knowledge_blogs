@@ -4,6 +4,7 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { HomeComponent } from './view/home/home.component';
 import { LoginComponent } from './view/login/login.component';
 import { MarkdownComponent } from './view/markdown/markdown.component';
+import { RequestTestComponent } from './view/requestTest/requestTest.component';
 import { AuthGuard } from './auth';
 
 const routes: Routes = [
@@ -24,8 +25,8 @@ const routes: Routes = [
         data: { animation: 'HomePage' }
       },
       {
-        path: 'iframe',
-        component: MarkdownComponent,
+        path: 'requestTest',
+        component: RequestTestComponent,
         data: { animation: 'AboutPage' }
       },
       {
