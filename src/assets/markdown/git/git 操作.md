@@ -23,6 +23,8 @@ git global --config user.name ''  // 配置当前用户名
 git global --config user.email ''  // 配置当前邮箱
 
 git status // 查看当前状态，尤其在git add . 之后或git pull 之后
+
+`git config --global http.sslVerify false`  关闭git 的ssl验证证书，解决`error: SSL certificate problem: Invalid certificate chain while accessing https://githib.com/...XXXX.git fatal: HTTP request failed`报错
 ```
 
 > 创建子分支
