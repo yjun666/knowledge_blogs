@@ -2,17 +2,8 @@
 var path = require('path');
 var fs = require('fs');
 
-fs.readFile(path.join(__dirname, '../file/errorlist.csv'), function (err, data) {
-  var table = new Array();
-  if (err) {
-    console.log(err.stack);
-    return;
-  }
-
-  ConvertToTable(data);
-});
-
-function ConvertToTable(data) {
+function ConvertToTable1(data) {
+  console.log(data);
   data = data.toString();
   var table = new Array();
   var rows = new Array();
@@ -23,10 +14,21 @@ function ConvertToTable(data) {
   fs.writeFile(path.join(__dirname, '../json/csv.json'), JSON.stringify(table), (err) => {
     if (err) {
       console.log(err);
-    }else{
+    } else {
       console.log('success');
     }
   });
 }
 
-console.log('程序执行完毕nodeGetCsvFile');
+fs.readFile(path.join(__dirname, '../file/errorlist.csv'), function (err, data) {
+  var table = new Array();
+  if (err) {
+    console.log(err.stack);
+    return;
+  }
+  ConvertToTable1(data);
+});
+
+
+
+console.log('程序执行完毕nodeGetCsvFile--errorlist');

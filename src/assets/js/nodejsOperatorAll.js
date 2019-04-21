@@ -48,7 +48,7 @@ function getIndexOfPathByDeep(obj, dir, curDir, deep, arr) {
   obj = {};
   obj["id"] = curDir;
   const parentId = dir.split('\\').length == 1 ? dir.split('/') : dir.split('\\');
-  console.log(parentId);
+  // console.log(parentId);
   obj["parentId"] = parentId[parentId.length - 1] === 'assets' || parentId[parentId.length - 1] === 'markdown' ? '' : parentId[parentId.length - 1]; // 不需要顶层目录，如果顶层目录是assets或markdown则过滤掉。
   obj['pageOption'] = [];
   obj['text'] = curDir;
@@ -109,17 +109,8 @@ console.log('程序执行完毕fsReadFileToJson2。');
 var path = require('path');
 var fs = require('fs');
 
-fs.readFile(path.join(__dirname, '../file/errorlist.csv'), function (err, data) {
-  var table = new Array();
-  if (err) {
-    console.log(err.stack);
-    return;
-  }
-
-  ConvertToTable(data);
-});
-
-function ConvertToTable(data) {
+function ConvertToTable1(data) {
+  console.log(data);
   data = data.toString();
   var table = new Array();
   var rows = new Array();
@@ -130,13 +121,24 @@ function ConvertToTable(data) {
   fs.writeFile(path.join(__dirname, '../json/csv.json'), JSON.stringify(table), (err) => {
     if (err) {
       console.log(err);
-    }else{
+    } else {
       console.log('success');
     }
   });
 }
 
-console.log('程序执行完毕nodeGetCsvFile');
+fs.readFile(path.join(__dirname, '../file/errorlist.csv'), function (err, data) {
+  var table = new Array();
+  if (err) {
+    console.log(err.stack);
+    return;
+  }
+  ConvertToTable1(data);
+});
+
+
+
+console.log('程序执行完毕nodeGetCsvFile--errorlist');
 // node 读取csv文件生成二位数组
 var path = require('path');
 var fs = require('fs');
@@ -148,10 +150,10 @@ fs.readFile(path.join(__dirname, '../file/PCG_dbo_allCountryInfo_manualAdjustmen
     return;
   }
 
-  ConvertToTable(data);
+  ConvertToTable2(data);
 });
 
-function ConvertToTable(data) {
+function ConvertToTable2(data) {
   data = data.toString();
   var table = new Array();
   var rows = new Array();
@@ -168,4 +170,4 @@ function ConvertToTable(data) {
   });
 }
 
-console.log('程序执行完毕nodeGetCsvFile');
+console.log('程序执行完毕nodeGetCsvFile----PCG_dbo_allCountryInfo_manualAdjustment_2');

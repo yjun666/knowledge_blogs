@@ -19,7 +19,7 @@ function getIndexOfPathByDeep(obj, dir, curDir, deep, arr) {
   obj = {};
   obj["id"] = curDir;
   const parentId = dir.split('\\').length == 1 ? dir.split('/') : dir.split('\\');
-  console.log(parentId);
+  // console.log(parentId);
   obj["parentId"] = parentId[parentId.length - 1] === 'assets' || parentId[parentId.length - 1] === 'markdown' ? '' : parentId[parentId.length - 1]; // 不需要顶层目录，如果顶层目录是assets或markdown则过滤掉。
   obj['pageOption'] = [];
   obj['text'] = curDir;

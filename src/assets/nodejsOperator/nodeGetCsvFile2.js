@@ -9,10 +9,10 @@ fs.readFile(path.join(__dirname, '../file/PCG_dbo_allCountryInfo_manualAdjustmen
     return;
   }
 
-  ConvertToTable(data);
+  ConvertToTable2(data);
 });
 
-function ConvertToTable(data) {
+function ConvertToTable2(data) {
   data = data.toString();
   var table = new Array();
   var rows = new Array();
@@ -29,4 +29,4 @@ function ConvertToTable(data) {
   });
 }
 
-console.log('程序执行完毕nodeGetCsvFile');
+console.log('程序执行完毕nodeGetCsvFile----PCG_dbo_allCountryInfo_manualAdjustment_2');

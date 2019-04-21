@@ -4,12 +4,11 @@ var fs = require('fs');
 
 var data = fs.readFileSync(path.join(__dirname, '../json/csv.json'));
 parseCsvJson(JSON.parse(data));
-// console.log("同步读取: " + data.toString());
 
 
 function parseCsvJson(aa) {
   let arr = [];
-  for (let m = 1; m < aa.length; m++) {
+  for (let m = 0; m < aa.length; m++) {
     let obj = {};
     for (let j = 0; j < aa[m].length; j++) {
       obj[aa[0][j]] = aa[m][j];
