@@ -113,3 +113,37 @@ Object.getOwnPropertyDescriptors(obj)
 //      configurable: true } }
 ```
 
+#### preventExtensions() 
+> 禁止修改对象
+```
+var person = { name:'yang' };
+Object.isExtensible(person); // true
+Object.preventExtensions(person);
+Object.isExtensible(person); // false
+person.age = 29;
+console.log(person.age) // undefined
+```
+
+#### seal 
+> 密封的对象
+```
+var person = { name:'yang' };
+Object.isSealed(person); // false
+Object.seal(person);
+Object.isSealed(person); // true
+person.age = 29;
+console.log(person.age) // undefined
+```
+
+#### freeze 
+> 冻结的对象
+```
+var person = { name:'yang' };
+Object.isFrozen(person); // false
+Object.freeze(person);
+Object.isFrozen(person); // true
+person.age = 29;
+console.log(person.age) // undefined
+```
+
+
