@@ -5,6 +5,8 @@ import { HomeComponent } from './view/home/home.component';
 import { LoginComponent } from './view/login/login.component';
 import { MarkdownComponent } from './view/markdown/markdown.component';
 import { RequestTestComponent } from './view/requestTest/requestTest.component';
+import { RxjsComponent } from './view/rxjs/rxjs.component';
+import { LodashComponent } from './view/lodash/lodash.component';
 import { AuthGuard } from './auth';
 
 const routes: Routes = [
@@ -28,6 +30,16 @@ const routes: Routes = [
         path: 'requestTest',
         component: RequestTestComponent,
         data: { animation: 'AboutPage' }
+      },
+      {
+        path: 'rxjs',
+        component: RxjsComponent,
+        data: { animation: 'RxjsPage' }
+      },
+      {
+        path: 'lodash',
+        component: LodashComponent,
+        data: { animation: 'LodashPage' }
       },
       {
         path: 'demo',

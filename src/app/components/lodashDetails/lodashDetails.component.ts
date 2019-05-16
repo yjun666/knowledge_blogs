@@ -1,15 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router, ActivatedRoute, ParamMap, RouterOutlet } from '@angular/router';
-import { slideInAnimation } from '../../animations';
 
 @Component({
-    selector: 'app-home',
-    templateUrl: './home.component.html',
-    styleUrls: ['./home.component.scss'],
-    animations: [slideInAnimation]
+    selector: 'app-lodash-details',
+    templateUrl: './lodashDetails.component.html',
+    styleUrls: ['./lodashDetails.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class LodashDetailsComponent implements OnInit {
 
     constructor(
         private http: HttpClient,
@@ -18,14 +16,8 @@ export class HomeComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        console.log(slideInAnimation);
         this.route.paramMap.subscribe((data) => {
             console.log(data['params']);
         });
     }
-
-    getAnimationData(outlet: RouterOutlet) {
-        return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
-    }
-
 }

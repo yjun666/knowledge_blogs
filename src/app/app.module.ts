@@ -11,7 +11,9 @@ import { AppService } from './app.service';
 import { HomeComponent, HomeService } from './view/home';
 import { LoginComponent, LoginService } from './view/login';
 import { MarkdownComponent, MarkdowService } from './view/markdown';
-import { RequestTestComponent,RequestTestService } from './view/requestTest';
+import { RequestTestComponent, RequestTestService } from './view/requestTest';
+import { RxjsComponent } from './view/rxjs';
+import { LodashComponent } from './view/lodash';
 
 
 // components
@@ -19,7 +21,9 @@ import { SideBarComponent, SidebarService } from './components/sidebar';
 import { MarkdownDetailsComponent, MarkdownDetailsService } from './components/markdownDetails';
 import { HeaderService, HeaderComponent } from './components/header';
 import { RequestTestDetailsService, RequestTestDetailsComponent } from './components/requestTestDetails';
-import { UploaderComponent,UploaderService } from './components/upload';
+import { UploaderComponent, UploaderService } from './components/upload';
+import { RxjsDetailsComponent } from './components/rxjsDetails';
+import { LodashDetailsComponent } from './components/lodashDetails';
 
 // directives
 import { AppMarkedDirective, AppTitleHoverShowDirective } from './directives';
@@ -48,7 +52,11 @@ const components = [
   MarkdownComponent,
   RequestTestDetailsComponent,
   RequestTestComponent,
-  UploaderComponent
+  UploaderComponent,
+  RxjsComponent,
+  RxjsDetailsComponent,
+  LodashComponent,
+  LodashDetailsComponent
 ];
 const directives = [
   AppMarkedDirective,
