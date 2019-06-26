@@ -61,3 +61,20 @@ export class AppMarkedDirective implements OnInit {
     }
 
 }
+
+
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
+@NgModule({
+    imports: [
+        CommonModule
+    ],
+    declarations: [
+        AppMarkedDirective
+    ],
+    exports: [
+        AppMarkedDirective
+    ]
+})
+export class AppMarkedModule { }

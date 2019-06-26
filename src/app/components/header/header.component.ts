@@ -1,7 +1,7 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { LoginService } from '../../view/login/login.service';
+import { LoginService } from '../../shared/services/login.service';
 
 @Component({
     selector: 'app-header',
@@ -18,6 +18,10 @@ export class HeaderComponent implements OnInit {
     ngOnInit() { }
     private showUserDetails(param) {
         this.isShowUserDetails = !param;
+    }
+
+    public routeTurn(route) {
+        this.router.navigate([route])
     }
 
     private logout() {

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { UploaderService } from './uploader.service';
+import { UploaderService } from '../../shared/services/uploader.service';
 declare const $;
 // angular 给的demo不准，好像是自己用延时器模拟的
 @Component({

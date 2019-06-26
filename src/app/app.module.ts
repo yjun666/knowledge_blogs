@@ -8,25 +8,25 @@ import { AppUpdateService } from './app-update.service';
 import { AppService } from './app.service';
 
 // view 文件
-import { HomeComponent, HomeService } from './view/home';
-import { LoginComponent, LoginService } from './view/login';
-import { MarkdownComponent, MarkdowService } from './view/markdown';
-import { RequestTestComponent, RequestTestService } from './view/requestTest';
-import { RxjsComponent } from './view/rxjs';
-import { LodashComponent } from './view/lodash';
+// import { HomeComponent, HomeService } from './view/home';
+// import { LoginComponent, LoginService } from './view/login';
+// import { MarkdownComponent, MarkdowService } from './view/markdown';
+// import { RequestTestComponent, RequestTestService } from './view/requestTest';
+// import { RxjsComponent } from './view/rxjs';
+// import { LodashComponent } from './view/lodash';
 
 
 // components
-import { SideBarComponent, SidebarService } from './components/sidebar';
-import { MarkdownDetailsComponent, MarkdownDetailsService } from './components/markdownDetails';
-import { HeaderService, HeaderComponent } from './components/header';
-import { RequestTestDetailsService, RequestTestDetailsComponent } from './components/requestTestDetails';
-import { UploaderComponent, UploaderService } from './components/upload';
-import { RxjsDetailsComponent } from './components/rxjsDetails';
-import { LodashDetailsComponent } from './components/lodashDetails';
+// import { SideBarComponent, SidebarService } from './components/sidebar';
+// import { MarkdownDetailsComponent, MarkdownDetailsService } from './components/markdownDetails';
+// import { HeaderService, HeaderComponent } from './components/header';
+// import { RequestTestDetailsService, RequestTestDetailsComponent } from './components/requestTestDetails';
+// import { UploaderComponent, UploaderService } from './components/upload';
+// import { RxjsDetailsComponent } from './components/rxjsDetails';
+// import { LodashDetailsComponent } from './components/lodashDetails';
 
 // directives
-import { AppMarkedDirective, AppTitleHoverShowDirective } from './directives';
+// import { AppMarkedDirective, AppTitleHoverShowDirective } from './directives';
 
 // auth
 import { AuthGuard } from './auth';
@@ -44,40 +44,46 @@ import { RequestCache, RequestCacheWithMap } from './request-cache.service';
 const modules = [AlertModule, HttpClientJsonpModule];
 
 const components = [
-  HomeComponent,
-  SideBarComponent,
-  MarkdownDetailsComponent,
-  LoginComponent,
-  HeaderComponent,
-  MarkdownComponent,
-  RequestTestDetailsComponent,
-  RequestTestComponent,
-  UploaderComponent,
-  RxjsComponent,
-  RxjsDetailsComponent,
-  LodashComponent,
-  LodashDetailsComponent
+  // HomeComponent,
+  // SideBarComponent,
+  // MarkdownDetailsComponent,
+  // LoginComponent,
+  // HeaderComponent,
+  // MarkdownComponent,
+  // RequestTestDetailsComponent,
+  // RequestTestComponent,
+  // UploaderComponent,
+  // RxjsComponent,
+  // RxjsDetailsComponent,
+  // LodashComponent,
+  // LodashDetailsComponent
 ];
 const directives = [
-  AppMarkedDirective,
-  AppTitleHoverShowDirective
+  // AppMarkedDirective,
+  // AppTitleHoverShowDirective
 ];
+
+import { LoginService } from './shared/services/login.service';
+import { UploaderService } from './shared/services/uploader.service';
+import { SelectivePreloadingStrategyService } from './selective-preloading-strategy.service';
+
 const services = [
   AppUpdateService,
   AppService,
-  HomeService,
-  SidebarService,
-  MarkdownDetailsService,
+  // HomeService,
+  // SidebarService,
+  // MarkdownDetailsService,
   LoginService,
   AuthGuard,
-  HeaderService,
-  MarkdowService,
+  // HeaderService,
+  // MarkdowService,
   httpInterceptorProviders,
   MessageService,
   RequestCacheWithMap,
-  RequestTestDetailsService,
-  RequestTestService,
-  UploaderService
+  // RequestTestDetailsService,
+  // RequestTestService,
+  UploaderService,
+  SelectivePreloadingStrategyService
 ];
 
 @NgModule({

@@ -39,7 +39,6 @@ function createUploadEvents(delay: number) {
             // Use setTimeout and tail recursion instead.
             setTimeout(() => {
                 loaded += chunkSize;
-
                 if (loaded >= total) {
                     const doneResponse = new HttpResponse({
                         status: 201, // OK but no body;

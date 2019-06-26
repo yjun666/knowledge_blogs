@@ -1,2 +1,1 @@
-export { HeaderComponent } from './header.component'
-export { HeaderService } from './header.service'
+export { HeaderComponent } from './header.component';

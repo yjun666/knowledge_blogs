@@ -7,10 +7,19 @@
 
     <nav class="ul-list">
       <ul class="li-list">
-        <li><a routerLink="/home/markdown" routerLinkActive="active">notes</a></li>
-        <li><a routerLink="/home/requestTest" routerLinkActive="active">请求测试</a></li>
-        <li><a routerLink="/home/rxjs" routerLinkActive="active">rxjs</a></li>
-        <li><a routerLink="/home/lodash" routerLinkActive="active">lodash</a></li>
+        <li>
+          <button (click)="routeTurn('/home/markdown')">notes</button>
+        </li>
+        <li>
+          <button (click)="routeTurn('/home/requestTest')">notes</button>
+        </li>
+        <li>
+          <button (click)="routeTurn('/home/rxjs')">notes</button>
+        </li>
+        <li>
+          <button (click)="routeTurn('/home/lodash')">notes</button>
+        </li>
+        <!-- <li><a routerLink="/home/demo" routerLinkActive="active">demo</a></li> -->
         <!-- <li><a routerLink="/home/demo" routerLinkActive="active">demo</a></li> -->
         <!-- <li>home3</li>
         <li>home4</li>

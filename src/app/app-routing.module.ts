@@ -8,56 +8,35 @@ import { RequestTestComponent } from './view/requestTest/requestTest.component';
 import { RxjsComponent } from './view/rxjs/rxjs.component';
 import { LodashComponent } from './view/lodash/lodash.component';
 import { AuthGuard } from './auth';
-
+import { SelectivePreloadingStrategyService } from './selective-preloading-strategy.service';
 const routes: Routes = [
   // { path: 'login', component: LoginComponent },  // 不需要加  '/', 默认写法
-  { path: 'login', component: LoginComponent },
+  {
+    path: 'login',
+    loadChildren: './view/login/login.module#LoginModule',
+    // component: LoginComponent
+  },
   {
     path: 'home',
     canActivate: [AuthGuard],
-    component: HomeComponent,
-    children: [
-      // {
-      //   path: '',
-      //   component: MarkdownComponent
-      // },
-      {
-        path: 'markdown',
-        component: MarkdownComponent,
-        data: { animation: 'HomePage' }
-      },
-      {
-        path: 'requestTest',
-        component: RequestTestComponent,
-        data: { animation: 'AboutPage' }
-      },
-      {
-        path: 'rxjs',
-        component: RxjsComponent,
-        data: { animation: 'RxjsPage' }
-      },
-      {
-        path: 'lodash',
-        component: LodashComponent,
-        data: { animation: 'LodashPage' }
-      },
-      {
-        path: 'demo',
-        component: MarkdownComponent,
-        data: { animation: 'FilterPage' }
-      },
-      {
-        path: '**',
-        component: MarkdownComponent
-      }
-    ]
+    data: { preload: true }, // 路由欲加载
+    loadChildren: './view/home/home.module#HomeModule',
+    // component: HomeComponent,
   },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
-  { path: '**', component: LoginComponent },  // 通配符路由,其它不存在的跳转到404
+  {
+    path: '**',
+    loadChildren: './view/login/login.module#LoginModule',
+  },  // 通配符路由,其它不存在的跳转到404
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes, {
+      enableTracing: true, // <-- debugging purposes only
+      preloadingStrategy: SelectivePreloadingStrategyService,
+    })
+  ],
   exports: [RouterModule],
   providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
 })
