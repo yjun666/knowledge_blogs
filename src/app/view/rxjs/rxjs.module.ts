@@ -6,18 +6,10 @@ import { RxjsComponent } from './rxjs.component';
 import { RxjsDetailsModule } from '../../components/component.module';
 
 
-const adminRoutes: Routes = [
-    {
-        path: '',
-        component: RxjsComponent,
-    }
-];
-
 @NgModule({
     imports: [
         CommonModule,
-        RxjsDetailsModule,
-        RouterModule.forChild(adminRoutes)
+        RxjsDetailsModule
     ],
     declarations: [
         RxjsComponent

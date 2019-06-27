@@ -35,27 +35,27 @@ const adminRoutes: Routes = [
             {
                 path: 'markdown',
                 component: MarkdownComponent,
-                data: { animation: 'HomePage' }
+                // data: { animation: 'HomePage' }
             },
             {
                 path: 'requestTest',
                 component: RequestTestComponent,
-                data: { animation: 'AboutPage' }
+                // data: { animation: 'AboutPage' }
             },
             {
                 path: 'rxjs',
                 component: RxjsComponent,
-                data: { animation: 'RxjsPage' }
+                // data: { animation: 'RxjsPage' }
             },
             {
                 path: 'lodash',
                 component: LodashComponent,
-                data: { animation: 'LodashPage' }
+                // data: { animation: 'LodashPage' }
             },
             {
                 path: 'demo',
                 component: MarkdownComponent,
-                data: { animation: 'FilterPage' }
+                // data: { animation: 'FilterPage' }
             },
             {
                 path: '**',

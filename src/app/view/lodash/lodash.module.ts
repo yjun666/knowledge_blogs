@@ -6,18 +6,10 @@ import { LodashComponent } from './lodash.component';
 import { LodashDetailsModule } from '../../components/component.module';
 
 
-const adminRoutes: Routes = [
-    {
-        path: '',
-        component: LodashComponent,
-    }
-];
-
 @NgModule({
     imports: [
         CommonModule,
-        LodashDetailsModule,
-        RouterModule.forChild(adminRoutes)
+        LodashDetailsModule
     ],
     declarations: [
         LodashComponent

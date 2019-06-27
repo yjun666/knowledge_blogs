@@ -7,18 +7,10 @@ import { RequestTestDetailsModule, UploaderModule } from '../../components/compo
 
 
 
-const adminRoutes: Routes = [
-    {
-        path: '',
-        component: RequestTestComponent,
-    }
-];
-
 @NgModule({
     imports: [
         CommonModule,
-        RequestTestDetailsModule, UploaderModule,
-        RouterModule.forChild(adminRoutes)
+        RequestTestDetailsModule, UploaderModule
     ],
     declarations: [
         RequestTestComponent

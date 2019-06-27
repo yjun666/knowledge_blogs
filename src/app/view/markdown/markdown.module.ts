@@ -7,19 +7,18 @@ import { SideBarModule, MarkdownDetailsModule } from '../../components/component
 
 
 
-const adminRoutes: Routes = [
-    {
-        path: '',
-        component: MarkdownComponent,
-    }
-];
+// const adminRoutes: Routes = [
+//     {
+//         path: '',
+//         component: MarkdownComponent,
+//     }
+// ];
 
 @NgModule({
     imports: [
         CommonModule,
         SideBarModule,
-        MarkdownDetailsModule,
-        RouterModule.forChild(adminRoutes)
+        MarkdownDetailsModule
     ],
     declarations: [
         MarkdownComponent
