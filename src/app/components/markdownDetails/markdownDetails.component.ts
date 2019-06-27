@@ -12,7 +12,7 @@ declare const $;
 export class MarkdownDetailsComponent implements OnInit, AfterViewInit, OnDestroy {
     searchBoxSubscribe$; // 监听searchBox的输入
     // 初始化参数
-    private curOption = [
+    public curOption = [
         {
             type: 'md',
             mdSrc: '/assets/markdown/js/js常用方法/生成随机数.md',
@@ -58,7 +58,7 @@ export class MarkdownDetailsComponent implements OnInit, AfterViewInit, OnDestro
         // $('#markdown-details-body').getNiceScroll().resize();
     }
 
-    private scrollTop() {
+    public scrollTop() {
         const scrollTopInterval = setInterval(() => {
             document.getElementById('markdown-details-body').scrollTop -= 100;
             if (document.getElementById('markdown-details-body').scrollTop <= 0) {

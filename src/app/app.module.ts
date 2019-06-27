@@ -38,8 +38,8 @@ import { httpInterceptorProviders } from '../app/interceptor';
 import { AlertModule } from './components/alert/alert.module';
 
 // service
-import { MessageService } from './message.service';
-import { RequestCache, RequestCacheWithMap } from './request-cache.service';
+import { MessageService } from './shared/services/message.service';
+import { RequestCache, RequestCacheWithMap } from './shared/services/request-cache.service';
 
 const modules = [AlertModule, HttpClientJsonpModule];
 
@@ -65,7 +65,7 @@ const directives = [
 
 import { LoginService } from './shared/services/login.service';
 import { UploaderService } from './shared/services/uploader.service';
-import { SelectivePreloadingStrategyService } from './selective-preloading-strategy.service';
+import { SelectivePreloadingStrategyService } from './shared/services/selective-preloading-strategy.service';
 
 const services = [
   AppUpdateService,

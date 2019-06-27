@@ -8,7 +8,7 @@ import {
 import { Observable, of } from 'rxjs';
 import { startWith, tap } from 'rxjs/operators';
 
-import { RequestCacheWithMap } from '../request-cache.service';
+import { RequestCacheWithMap } from '../shared/services/request-cache.service';
 // const searchUrl = 'https://npmsearch.com/query';
 const searchUrl = 'http://localhost:3000/search';
 

@@ -16,12 +16,12 @@ export class HeaderComponent implements OnInit {
         private loginService: LoginService
     ) { }
     ngOnInit() { }
-    private showUserDetails(param) {
+    public showUserDetails(param) {
         this.isShowUserDetails = !param;
     }
 
     public routeTurn(route) {
-        this.router.navigate([route])
+        this.router.navigate([route]);
     }
 
     private logout() {

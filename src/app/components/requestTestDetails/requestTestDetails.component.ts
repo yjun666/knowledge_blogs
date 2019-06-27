@@ -1,7 +1,7 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { MessageService } from '../../message.service';
+import { MessageService } from '../../shared/services/message.service';
 
 declare const $;
 @Component({
@@ -14,7 +14,7 @@ export class RequestTestDetailsComponent implements OnInit, AfterViewInit {
     constructor(
         private http: HttpClient,
         private router: Router,
-        private messageService: MessageService,
+        public messageService: MessageService,
     ) { }
     ngOnInit() {
         document.cookie = 'alsdkjf=asdfasdf';

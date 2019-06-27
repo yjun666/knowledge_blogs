@@ -3,10 +3,9 @@ import {
   transition, animate, style, query
 } from '@angular/animations';
 
-const name = ['RxjsPage', 'LodashPage', 'FilterPage'];
-
-const createRepeatAnimate = x => x.map(n => {
-  return transition(`* <=> ${n}`, [
+// Routable animations
+export const slideInAnimation = trigger('routeAnimation', [
+  transition('HomePage <=> AboutPage', [
     style({ position: 'relative' }),
     query(':enter, :leave', [
       style({
@@ -29,16 +28,10 @@ const createRepeatAnimate = x => x.map(n => {
       ])
     ]),
     query(':enter', animateChild()),
-  ]);
-});
+  ]),
 
-const routeAnimateRepeat = createRepeatAnimate(name);
-console.log(routeAnimateRepeat);
-
-// Routable animations
-export const slideInAnimation =
-  trigger('routeAnimation', [
-    transition('HomePage <=> AboutPage', [
+  ...(['RxjsPage', 'LodashPage', 'FilterPage'].map(n => {
+    return transition(`* <=> ${n}`, [
       style({ position: 'relative' }),
       query(':enter, :leave', [
         style({
@@ -61,6 +54,9 @@ export const slideInAnimation =
         ])
       ]),
       query(':enter', animateChild()),
-    ]),
-    ...routeAnimateRepeat,
-  ]);
+    ]);
+  })),
+
+
+
+]);

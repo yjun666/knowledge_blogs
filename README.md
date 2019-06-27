@@ -32,3 +32,5 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 > assets下有针对assets文件的详细文档
 
+> share/servies/README.md 针对service文件说明
+

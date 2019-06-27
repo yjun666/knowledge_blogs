@@ -8,7 +8,7 @@ import { RequestTestComponent } from './view/requestTest/requestTest.component';
 import { RxjsComponent } from './view/rxjs/rxjs.component';
 import { LodashComponent } from './view/lodash/lodash.component';
 import { AuthGuard } from './auth';
-import { SelectivePreloadingStrategyService } from './selective-preloading-strategy.service';
+import { SelectivePreloadingStrategyService } from './shared/services/selective-preloading-strategy.service';
 const routes: Routes = [
   // { path: 'login', component: LoginComponent },  // 不需要加  '/', 默认写法
   {
@@ -33,7 +33,7 @@ const routes: Routes = [
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, {
-      enableTracing: true, // <-- debugging purposes only
+      enableTracing: false, // <-- debugging purposes only
       preloadingStrategy: SelectivePreloadingStrategyService,
     })
   ],
