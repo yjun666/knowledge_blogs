@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home.component';
+
 
 import { MarkdownComponent } from '../markdown/markdown.component';
 import { RequestTestComponent } from '../requestTest/requestTest.component';
@@ -35,27 +37,27 @@ const adminRoutes: Routes = [
             {
                 path: 'markdown',
                 component: MarkdownComponent,
-                // data: { animation: 'HomePage' }
+                data: { animation: 'HomePage' }
             },
             {
                 path: 'requestTest',
                 component: RequestTestComponent,
-                // data: { animation: 'AboutPage' }
+                data: { animation: 'AboutPage' }
             },
             {
                 path: 'rxjs',
                 component: RxjsComponent,
-                // data: { animation: 'RxjsPage' }
+                data: { animation: 'RxjsPage' }
             },
             {
                 path: 'lodash',
                 component: LodashComponent,
-                // data: { animation: 'LodashPage' }
+                data: { animation: 'LodashPage' }
             },
             {
                 path: 'demo',
                 component: MarkdownComponent,
-                // data: { animation: 'FilterPage' }
+                data: { animation: 'FilterPage' }
             },
             {
                 path: '**',

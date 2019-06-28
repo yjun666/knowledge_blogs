@@ -30,7 +30,7 @@ export const slideInAnimation = trigger('routeAnimation', [
     query(':enter', animateChild()),
   ]),
 
-  ...(['RxjsPage', 'LodashPage', 'FilterPage'].map(n => {
+  ...(['HomePage', 'AboutPage', 'RxjsPage', 'LodashPage', 'FilterPage'].map(n => {
     return transition(`* <=> ${n}`, [
       style({ position: 'relative' }),
       query(':enter, :leave', [
