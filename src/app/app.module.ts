@@ -36,12 +36,14 @@ import { httpInterceptorProviders } from '../app/interceptor';
 
 // module
 import { AlertModule } from './components/alert/alert.module';
+import { ADModule } from './components/ad-banner/ad.module';
 
 // service
 import { MessageService } from './shared/services/message.service';
+import { AdService } from './shared/services/ad.service';
 import { RequestCache, RequestCacheWithMap } from './shared/services/request-cache.service';
 
-const modules = [AlertModule, HttpClientJsonpModule];
+const modules = [AlertModule, HttpClientJsonpModule, ADModule];
 
 const components = [
   // HomeComponent,
@@ -83,7 +85,8 @@ const services = [
   // RequestTestDetailsService,
   // RequestTestService,
   UploaderService,
-  SelectivePreloadingStrategyService
+  SelectivePreloadingStrategyService,
+  AdService
 ];
 
 @NgModule({
