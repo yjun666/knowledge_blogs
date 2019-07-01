@@ -34,5 +34,5 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 > share/servies/README.md 针对service文件说明
 
-> test
+> ng build --prod --output-path docs --base-href 命令可生成一个文件夹，用于托管到github Pages 生成页面，不用在特意开一个分之或者一个仓库存储显示github Pages页面，解决了angular这种需要打包才能显示的文件的问题
 
