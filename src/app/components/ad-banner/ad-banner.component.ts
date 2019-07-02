@@ -7,8 +7,9 @@ import { AdComponent } from './ad.component';
 @Component({
   selector: 'app-ad-banner',
   template: `
-              <div class="ad-banner-example">
+              <div class="ad-banner-example" [ngStyle]='{"display": isShowAD ? "inline-block" : "none" }'>
                 <h3>Advertisements</h3>
+                <div (click)='closeAD()' style='position:absolute;right:0;top:0;'>关闭广告X</div>
                 <ng-template ad-host></ng-template>
               </div>
             `
@@ -16,10 +17,16 @@ import { AdComponent } from './ad.component';
 export class AdBannerComponent implements OnInit, OnDestroy {
   @Input() ads: AdItem[];
   currentAdIndex = -1;
+  isShowAD = true;
   @ViewChild(AdDirective) adHost: AdDirective;
   interval: any;
 
   constructor(private componentFactoryResolver: ComponentFactoryResolver) { }
+
+  // 关闭广告
+  closeAD() {
+    this.isShowAD = false;
+  }
 
   ngOnInit() {
     this.loadComponent();
