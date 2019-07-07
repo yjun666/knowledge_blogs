@@ -53,4 +53,4 @@ export class Zip implements ZipItem {
             result.subscribe(x => console.log(x));
         }
     }
-
+}
