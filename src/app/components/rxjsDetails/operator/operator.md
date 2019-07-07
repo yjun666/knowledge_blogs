@@ -111,15 +111,20 @@ interval(1500).pipe(
 > startWith startWith 是在 Observable 的一开始加入初始数据，同步立即发送，常用来提供初始状态
 
 ```
-import { fromEvent, from } from 'rxjs';import { startWith, switchMap } from 'rxjs/operators';const source$ = fromEvent(document.querySelector('#btn'), 'click')let number = 0const fakeRequest = x => {  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve(number++)
-    }, 1000)
-  })
-}
+startWith
+const source$ = fromEvent(document, 'click');
+let number = 0;
+const fakeRequest = x => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            console.log('aa');
+            resolve(number++);
+        }, 1000);
+    });
+};
 
 source$.pipe(
-  startWith('initData'),
-  switchMap(x => from(fakeRequest(x)))
-).subscribe(x => document.querySelector('#number').textContent = x)
+    startWith('initData'), // 初始化时默认调用了一次 这里通过 startWith 操作符获取了页面的初始数据，之后通过点击按钮获取更新数据。
+    switchMap(x => from(fakeRequest(x)))
+).subscribe(console.log);
 ```

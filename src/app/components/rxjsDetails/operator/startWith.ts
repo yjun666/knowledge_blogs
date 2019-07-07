@@ -21,7 +21,7 @@ export class StartWith implements StartWithItem {
         };
 
         source$.pipe(
-            startWith('initData'), // 初始化时默认调用了一次
+            startWith('initData'), // 初始化时默认调用了一次 这里通过 startWith 操作符获取了页面的初始数据，之后通过点击按钮获取更新数据。
             switchMap(x => from(fakeRequest(x)))
         ).subscribe(console.log);
     }
