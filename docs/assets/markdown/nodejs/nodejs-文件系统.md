@@ -626,8 +626,8 @@ console.log('wancheng');
 ### nodejs遍历文件夹目录生成json文件
 ```
 // 生成同级的json数组对象
-const path = require('path');
-const fs = require('fs');
+var path = require('path');
+var fs = require('fs');
 // 获取指定路径 path 下的，默认深度为 3 的目录 JSON
 function getIndexByPath(dir, deep = 10) {
   let dirDevide = dir.split('/');
@@ -638,13 +638,15 @@ function getIndexByPath(dir, deep = 10) {
   return arr;
 }
 
+
 // 开始对指定 path 递归查找深度为 deep 深度
 function getIndexOfPathByDeep(obj, dir, curDir, deep, arr) {
 
   // 存储需要的目录文件字段----具体需要的字段根据具体使用自行添加，详细字段见使用方式即sidebar.component.ts文件--------start
   obj = {};
   obj["id"] = curDir;
-  const parentId = dir.split('\\');
+  const parentId = dir.split('\\').length == 1 ? dir.split('/') : dir.split('\\');
+  // console.log(parentId);
   obj["parentId"] = parentId[parentId.length - 1] === 'assets' || parentId[parentId.length - 1] === 'markdown' ? '' : parentId[parentId.length - 1]; // 不需要顶层目录，如果顶层目录是assets或markdown则过滤掉。
   obj['pageOption'] = [];
   obj['text'] = curDir;
@@ -672,15 +674,15 @@ function getIndexOfPathByDeep(obj, dir, curDir, deep, arr) {
     obj['text'] = (key + '');
     obj['title'] = (key + '');
     const obj2 = {};
-    const mdSrc = curPath.split('\\assets\\')[1];
+    const mdSrc = curPath.split('\\assets\\').length===1 ? curPath.split('/assets/')[1] : curPath.split('\\assets\\')[1];
 
     if (newkey && (newkey.includes('png') || newkey.includes('jpg') || newkey.includes('jpeg') || newkey.includes('gif'))) {
       obj2['type'] = 'img';
-      obj2['imgSrc'] = ('/assets/' + mdSrc).replace(/\\/gi, '/');
+      obj2['imgSrc'] = ('/assets/' + mdSrc).replace(/\\|\//gi, '/');
 
     } else if (newkey && newkey == 'md') {
       obj2['type'] = 'md';
-      obj2['mdSrc'] = ('/assets/' + mdSrc).replace(/\\/gi, '/');
+      obj2['mdSrc'] = ('/assets/' + mdSrc).replace(/\\|\//gi, '/');
     }
 
     obj2['mdStyle'] = {};
@@ -698,8 +700,8 @@ function getIndexOfPathByDeep(obj, dir, curDir, deep, arr) {
   }
 }
 
-fs.writeFileSync('../json/text2.json', JSON.stringify(getIndexByPath('../markdown')));
-console.log('程序执行完毕。');
+fs.writeFileSync(path.join(__dirname, '../json/text2.json'), JSON.stringify(getIndexByPath('../markdown')));
+console.log('程序执行完毕fsReadFileToJson2。');
 ```
 
 
