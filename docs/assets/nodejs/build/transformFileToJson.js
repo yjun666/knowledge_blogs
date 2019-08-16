@@ -3,7 +3,10 @@
 const path = require('path');
 const fs = require('fs');
 
-fs.writeFile(path.join(__dirname, './nodejsOperatorAll.js'), '', (err, data) => {
+const delAndCreateDirFun = require('../src/operatorDir/delAndCreateDir');
+delAndCreateDirFun(path.join(__dirname, '../dist/transformFileToJson')); // 创建transformFileToJson文件夹
+
+fs.writeFile(path.join(__dirname, '../dist/transformFileToJson/transformFileToJson.js'), '', (err, data) => {
   if (err) {
     console.log(err);
   } else {
@@ -50,7 +53,7 @@ function getIndexOfPathByDeep(obj, dir, curDir, deep, arr) {
 }
 
 function writeFile(data) {
-  fs.appendFile(path.join(__dirname, './nodejsOperatorAll.js'), data, (err) => {
+  fs.appendFile(path.join(__dirname, '../dist/transformFileToJson/transformFileToJson.js'), data, (err) => {
     if (err) {
       // 读文件是不存在报错 
       // 意外错误
@@ -62,5 +65,5 @@ function writeFile(data) {
     }
   });
 }
-getIndexByPath('../nodejsOperator');
-console.log('程序执行完毕nodejsOperator.js');
+getIndexByPath('../src/transformFileToJson');
+console.log('程序执行完毕transformFileToJson.js');

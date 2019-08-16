@@ -2,8 +2,12 @@
 
 const path = require('path');
 const fs = require('fs');
+const operatorDir = require('../src/operatorDir/operatorDir');
 
-fs.writeFile(path.join(__dirname, './requestJsonAll.js'), '', (err, data) => {
+operatorDir.delDir(path.join(__dirname, '../dist/requestJsonTest'));
+operatorDir.createMkDir(path.join(__dirname, '../dist/requestJsonTest'));
+
+fs.writeFile(path.join(__dirname, '../dist/requestJsonTest/requestJsonAll.js'), '', (err, data) => {
   if (err) {
     console.log(err);
   } else {
@@ -50,7 +54,7 @@ function getIndexOfPathByDeep(obj, dir, curDir, deep, arr) {
 }
 
 function writeFile(data) {
-  fs.appendFile(path.join(__dirname, './requestJsonAll.js'), data, (err) => {
+  fs.appendFile(path.join(__dirname, '../dist/requestJsonTest/requestJsonAll.js'), data, (err) => {
     if (err) {
       // 读文件是不存在报错 
       // 意外错误
@@ -62,5 +66,5 @@ function writeFile(data) {
     }
   });
 }
-getIndexByPath('../requestJsonTest');
+getIndexByPath('../src/requestJsonTest');
 console.log('程序执行完毕requestJsonRun.js');
