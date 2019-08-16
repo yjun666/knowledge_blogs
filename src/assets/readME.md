@@ -6,6 +6,5 @@
 #### json 放node读取文件或便利文件夹操作生成的json文件
 #### knowledge_img 图片
 #### markdown 所有的markdown文件笔记
-#### nodejsOperator node操作的文件夹，json文件夹内的json文件有此处node生成
-#### requestJsonTest 获取node生成的json文件后进行测试或打印
+#### nodejs nodejs的操作文件，生成json文件的操作
 #### viewInfor 图片文件夹及字体文件夹

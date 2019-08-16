@@ -2,6 +2,16 @@
 <!-- <app-sidebar></app-sidebar>
 <app-markdown-details></app-markdown-details> -->
 <!-- <router-outlet></router-outlet> -->
+
+<!-- 当前预加载的路由 -->
+<!-- <ul>
+  <ng-template ngFor let-module let-i [ngForOf]='modules'>
+    <li>
+      {{module}}
+    </li>
+  </ng-template>
+</ul> -->
+
 <div [@routeAnimation]="getAnimationData(routerOutlet)" style="height:100%;">
   <router-outlet #routerOutlet="outlet"></router-outlet>
 </div>

@@ -226,7 +226,7 @@ export class SideBarComponent implements OnInit, AfterViewInit, OnDestroy {
     isShowSideBar = true;
     constructor(private appUpdateService: AppUpdateService, private http: HttpClient) { }
     ngOnInit() {
-        this.http.get('/assets/json/text2.json')
+        this.http.get('/assets/json/markdownCatalog.json')
             .subscribe((res) => {
                 // console.log(res);
                 this.catalog = res;

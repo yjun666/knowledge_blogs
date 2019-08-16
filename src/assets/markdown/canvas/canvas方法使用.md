@@ -1,7 +1,7 @@
 ### canvas 常用方法使用
 > toDataURL------打包canvas为base64图片
+
 ```
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">

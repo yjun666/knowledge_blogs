@@ -8,7 +8,12 @@
     "build:prod:output": "ng build --prod --output-path docs --base-href",
     "build:prod": "ng build --prod --base-href",
     "build:optimizer": "ng build --prod --build--optimizer --base-href",
-    "nodeCMD": "node ./src/assets/js/nodejsOperator.js && node ./src/assets/js/requestJson.js && node ./src/assets/js/nodejsOperatorAll.js  && node ./src/assets/js/requestJsonAll.js",
+
+    "node:createJson": "node ./src/assets/nodejs/index.js",
+    "node:build": "node ./src/assets/nodejs/build/requestJson.js && node ./src/assets/nodejs/build/transformFileToJson.js",
+    "node:dist": "node ./src/assets/nodejs/dist/**/*.js",
+
+
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

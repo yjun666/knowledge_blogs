@@ -12,7 +12,7 @@ export class Ajax implements AjaxItem {
     // ajax defer用法
     ajaxApply() {
         ajax({
-            url: '/assets/json/text2.json',
+            url: '/assets/json/markdownCatalog.json',
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',

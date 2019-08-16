@@ -36,3 +36,9 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 > ng build --prod --output-path docs --base-href 命令可生成一个文件夹，用于托管到github Pages 生成页面，不用在特意开一个分之或者一个仓库存储显示github Pages页面，解决了angular这种需要打包才能显示的文件的问题
 
+> // "nodeCMD": "node ./src/assets/nodejs/build/transformFileToJson.js && node ./src/assets/nodejs/build/requestJson.js && node ./src/assets/nodejs/dist/transformFileToJson.js  && node ./src/assets/nodejs/dist/requestJsonAll.js",
+
+> sass 公共scss文件
+
+> interceptor 拦截器
+

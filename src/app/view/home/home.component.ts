@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
         private router: Router,
         public preloadStrategy: SelectivePreloadingStrategyService
     ) {
-        this.modules = this.preloadStrategy.preloadedModules;
+        this.modules = this.preloadStrategy.preloadedModules; // 赋值当前所有预加载的路由，可打印到页面查看当前所有预加载的路由
     }
 
     ngOnInit() {
