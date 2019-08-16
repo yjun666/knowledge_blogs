@@ -253,6 +253,28 @@ SASS支持for循环：
 　　　　border: #{$i}px solid blue;
 　　}
 }
+
+循环遍历数组对象
+$series: ((large:'X', small:'x'),
+  (large:'E', small:'e'),
+  (large:'P', small:'p'),
+  (large:'T', small:'t'),
+  (large:'L', small:'l'),
+  (large:'Others', small:'others'));
+
+@for $i from 1 through length($series) {
+    $item: nth($series, $i); // 通过nth获取到当前项
+    $large: map-get($item, large); // 通过map-get方法获取对应属性的值
+    $small: map-get($item, small);
+
+
+// 使用$large和$small
+    &>span.product-img-#{$large} {
+        transition: all 500ms;
+        background-image: url(/assets/levelOne/assemblyLineSimulation/product_line_animate/big_hover_#{$small}.png);
+        @extend %setBackground;
+    }
+}
 ```
 
 也支持while循环：
