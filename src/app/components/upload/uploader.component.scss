@@ -1,0 +1,13 @@
+#uploadFile {
+  .progressUploadWraper {
+    width: 100px;
+    height: 7px;
+    background-color: red;
+
+    div {
+      width: 0%;
+      background-color: #000;
+      height: 100%;
+    }
+  }
+}
