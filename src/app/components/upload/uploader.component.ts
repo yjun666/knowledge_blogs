@@ -97,11 +97,9 @@ export class UploaderComponent {
             //     error: () => {
             //         console.log('error');
             //     }
-        });
+            // });
+        }
     }
-
-
-}
 }
 
 
