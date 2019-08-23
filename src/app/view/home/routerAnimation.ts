@@ -52,5 +52,14 @@ export const slideInAnimation = trigger('routeAnimation', [
     transition('FilterPage=>*', [
         style({ transform: 'translateY(0%)' }),
         animate('0.5s ease-in-out', style({ transform: 'translateY(-100%)' }))
+    ]),
+
+    transition('*=>HeroPage', [
+        style({ transform: 'translateY(100%)' }),
+        animate('0.5s ease-in-out', style({ transform: 'translateY(0%)' }))
+    ]),
+    transition('HeroPage=>*', [
+        style({ transform: 'translateY(0%)' }),
+        animate('0.5s ease-in-out', style({ transform: 'translateY(-100%)' }))
     ])
 ]);

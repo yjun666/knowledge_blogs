@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 
-import { HeroJobAdComponent } from '../../components/ad-banner/hero-job-ad.component';
-import { HeroProfileComponent } from '../../components/ad-banner/hero-profile.component';
-import { AdItem } from '../../components/ad-banner/ad-item';
+import { HeroJobAdComponent } from './hero-job-ad.component';
+import { HeroProfileComponent } from './hero-profile.component';
+import { AdItem } from './ad-item';
 
 @Injectable()
 export class AdService {

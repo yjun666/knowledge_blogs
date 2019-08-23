@@ -40,7 +40,7 @@ import { ADModule } from './components/ad-banner/ad.module';
 
 // service
 import { MessageService } from './shared/services/message.service';
-import { AdService } from './shared/services/ad.service';
+import { AdService } from './components/ad-banner/ad.service';
 import { RequestCache, RequestCacheWithMap } from './shared/services/request-cache.service';
 
 const modules = [AlertModule, HttpClientJsonpModule, ADModule];
@@ -66,6 +66,7 @@ const directives = [
 ];
 
 import { LoginService } from './shared/services/login.service';
+import { LoggerService } from './shared/services/logger.service';
 import { UploaderService } from './shared/services/uploader.service';
 import { SelectivePreloadingStrategyService } from './shared/services/selective-preloading-strategy.service';
 
@@ -86,8 +87,19 @@ const services = [
   // RequestTestService,
   UploaderService,
   SelectivePreloadingStrategyService,
-  AdService
+  // AdService,
+  {
+    // 输入参数控制是否开启打印
+    provide: LoggerService,
+    useFactory: (selectivePreloadingStrategyService) => {
+      return new LoggerService(true, selectivePreloadingStrategyService); // 使用useFactory 给服务添加参数
+    },
+    deps: [SelectivePreloadingStrategyService] // deps 中参数为传入useFactory方法的实参,如果该服务需要其他的服务依赖，那么从此处可以注入
+  }
 ];
+import { environment } from '../environments/environment';
+console.log(environment);
+const isLog = environment.isLog;
 
 @NgModule({
   declarations: [
@@ -102,7 +114,9 @@ const services = [
     HttpClientModule,
     ...modules
   ],
-  providers: [...services],
+  providers: [
+    ...services
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

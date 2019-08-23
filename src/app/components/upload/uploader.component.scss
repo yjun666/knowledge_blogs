@@ -1,3 +1,14 @@
+@function pxToRem($number) {
+  @return ($number/20)+rem;
+}
+
+
+%setBackground {
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
 #uploadFile {
   .progressUploadWraper {
     width: 100px;
@@ -8,6 +19,97 @@
       width: 0%;
       background-color: #000;
       height: 100%;
+    }
+  }
+
+  .selected_list {
+    position: relative;
+    margin-top: pxToRem(40);
+
+    ul {
+      width: pxToRem(600);
+
+      li:not(:last-child) {
+        margin-bottom: pxToRem(21);
+      }
+
+      li {
+        padding: 1rem 0;
+        height: pxToRem(40);
+
+        .top {
+          width: 90%;
+          font-size: 0;
+          letter-spacing: -4px;
+
+          span {
+            display: inline-block;
+            vertical-align: middle;
+          }
+
+          .name {
+            width: 70%;
+            font-family: MicrosoftYaHeiUI;
+            font-size: pxToRem(16);
+            color: #000000;
+            letter-spacing: 0;
+          }
+
+          .size {
+            width: 30%;
+            opacity: 0.7;
+            font-family: Gotham-Book;
+            font-size: pxToRem(16);
+            color: #000000;
+            letter-spacing: 0;
+            text-align: right;
+          }
+        }
+
+        .bottom {
+          font-size: 0;
+          letter-spacing: -4px;
+
+          .upload_progress_wrap {
+            display: inline-block;
+            vertical-align: middle;
+            width: 90%;
+            height: pxToRem(7);
+            background: #D8D8D8;
+            border-radius: pxToRem(3.5);
+            letter-spacing: 0;
+
+            .upload_progress {
+              width: 60%;
+              height: 100%;
+              background: #717C96;
+              border-radius: pxToRem(3.5);
+            }
+          }
+
+          .delFileWrap {
+            width: 10%;
+            height: pxToRem(18);
+            display: inline-block;
+            vertical-align: middle;
+            text-align: center;
+          }
+
+          .del_file {
+            position: relative;
+            z-index: 10;
+            width: 10%;
+            cursor: pointer;
+            display: inline-block;
+            width: pxToRem(18);
+            height: pxToRem(18);
+            background-image: url('/assets/single_prediction/substract_normal.png');
+            @extend %setBackground;
+            background-size: auto 100%;
+            letter-spacing: 0;
+          }
+        }
+      }
     }
   }
 }

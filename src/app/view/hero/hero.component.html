@@ -1,0 +1,7 @@
+<section class="hero">
+  <ul>
+    <ng-template ngFor let-item let-i=index [ngForOf]='heros'>
+      <li id='item.id'>{{item.name}}</li>
+    </ng-template>
+  </ul>
+</section>

@@ -2,7 +2,8 @@ import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 
-import { AdService } from './shared/services/ad.service';
+import { AdService } from './components/ad-banner/ad.service';
+import { LoggerService } from './shared/services/logger.service';
 
 declare const $;
 @Component({
@@ -17,9 +18,11 @@ export class AppComponent implements OnInit, AfterViewInit {
     private http: HttpClient,
     private router: Router,
     public adService: AdService,
+    public loggerService: LoggerService,
   ) { }
 
   ngOnInit() {
+    this.loggerService.log((x) => { console.log(123123); });
     this.ads = this.adService.getAds();
   }
 

@@ -11,13 +11,77 @@ declare const $;
     providers: [UploaderService]
 })
 export class UploaderComponent {
-    message: string;
+    fileList = []; // 文件files
+    // 文件list列表
+    userFeedBackData: { uploadFileList: Array<any> } = {
+        uploadFileList: []
+    }; // 已经添加的文件列表
+
+    // 调用接口的订阅对象
     uploadSubscribeObj = {};
 
     constructor(
         private uploaderService: UploaderService,
         public http: HttpClient
     ) { }
+
+    // 点击选择文件按钮
+    public selectFileBtn() {
+        this.getFile(() => {
+            return this.selectFileCallback(this);
+        }, this);
+    }
+
+    // 动态生成input进行文件选择
+    private getFile(callback, vm) {
+        vm.fileList = [];
+        vm.fileList.length = 0;
+
+        {
+            // 删除上传文件生成的所有input
+            const uploadFileOnlyIdList = Array.from(document.querySelectorAll('#uploadFileOnlyId'));
+            for (const [key, value] of Object.entries(uploadFileOnlyIdList)) {
+                document.body.removeChild(value);
+            }
+        }
+
+        const ipt = document.createElement('input');
+        ipt.accept = '.xlsx,.xls,.png,.jpg,.jpeg';
+
+        ipt.id = 'uploadFileOnlyId';
+        ipt.title = '';
+        ipt.type = 'file';
+        ipt.name = 'file';
+        document.body.appendChild(ipt);
+
+        ipt.click();
+        const that = this;
+        ipt.onchange = function () {
+            console.log(this['files'][0]);
+            vm.fileList.push(this['files'][0]);
+            // tslint:disable-next-line:no-unused-expression
+            callback && callback(vm);
+        };
+    }
+
+    // 选择文件回调事件
+    private selectFileCallback(vm) {
+        const files = this.fileList[0];
+        // console.log(files, Object.prototype.toString.apply(files));
+        const curTime = new Date().getTime();
+        const obj = Object.assign({}, {
+            id: 'id' + String(Math.random() * 100000000000) + '_' + curTime,
+            file: files,
+            fileName: files.name,
+            fileSize: files.size,
+            progress: '0%'
+        });
+        // console.log(obj);
+        // console.log(files.name, files.size, files.type, files.lastModified);
+        vm.userFeedBackData.uploadFileList.push(obj);
+        console.log(vm.userFeedBackData.uploadFileList);
+        this.upload(obj); // 上传接口，上传文件
+    }
 
     // 获取当前上传文件的进度事件
     private getEventMessage(event: HttpEvent<any>, progressFn: Function, fn: Function) {
@@ -46,10 +110,14 @@ export class UploaderComponent {
 
     }
 
+    // 上传文件
+    private upload(param) {
+        // const vm = this;
+        if (param.file) {
+            // const apiUrl = environment.apiUrl; // 开发时所有接口的域名
+            // console.log(apiUrl);
+            const file = param.file;
 
-    onPicked(input: HTMLInputElement) {
-        const file = input.files[0];
-        if (file) {
             const formdata = new FormData();
             formdata.append('fileInfo', file);
 
@@ -59,36 +127,39 @@ export class UploaderComponent {
             const req = new HttpRequest('POST', `http://localhost:3000/upload/file`, formdata, newHeaders);
 
             // 文件上传接口
-            this.uploadSubscribeObj['test'] = this.http.request(req).pipe(
+            this.uploadSubscribeObj[param.id] = this.http.request(req).pipe(
                 map(event => this.getEventMessage(event, (data) => {
                     // 监听进度条事件
-                    $('.progressUploadWraper > div').css('width', data);
+                    param.progress = data;
                 }, (data) => {
-                    $('.progressUploadWraper > div').css('width', '100%');
                     // 文件上传完成事件
-                    console.log(data);
+                    // console.log(data);
+                    // param.remoteFileName = data.data;
                 }))
-            ).subscribe((data) => { }, (err) => { });
+            ).subscribe((data) => {
+                console.log(data);
+            }, (err) => { });
 
 
-            // 使用ajax实现进度条加载成功，angular待调试
+
+
+            // 使用ajax实现进度条加载成功，angular待调试---调试时需要打开network的慢网速模拟状态，可以看到进度条的打印
             // $.ajax({
             //     url: 'http://localhost:3000/upload/file',
-            //     type: 'POST',
-            //     cache: false,
-            //     // data: {}, // 需要什么参数，自己配置
-            //     data: formdata, // 文件以formData形式传入
+            //     type: 'post',
+            //     dataType: 'json',
+            //     data: formdata,
             //     processData: false,
-            //     // 必须false才会自动加上正确的Content-Type
             //     contentType: false,
             //     xhr: function () {
             //         const xhr = new XMLHttpRequest();
-            //         // xhr.upload.addEventListener('progress', function (e) {
-            //         //     console.log(e);
-            //         //     const progressRate = (e.loaded / e.total) * 100 + '%';
-            //         //     console.log('%c progressRate', 'color:blue', progressRate);
-            //         //     $('.progressUploadWraper > div').css('width', progressRate);
-            //         // });
+            //         xhr.upload.addEventListener('progress', function (e) {
+            //             console.log(e);
+            //             const progressRate = (e.loaded / e.total) * 100 + '%';
+            //             console.log('%c progressRate', 'color:blue', progressRate);
+            //             param.progress = progressRate;
+            //             $('.progress > div').css('width', progressRate);
+            //         });
             //         return xhr;
             //     },
             //     success: () => {
@@ -99,6 +170,16 @@ export class UploaderComponent {
             //     }
             // });
         }
+    }
+
+    // 删除当前添加的文件
+    public delFile(id) {
+        this.userFeedBackData.uploadFileList.map((x, xIndex) => {
+            if (x.id === id) {
+                this.uploadSubscribeObj[id].unsubscribe(); // 取消当前上传
+                this.userFeedBackData.uploadFileList.splice(xIndex, 1);
+            }
+        });
     }
 }
 

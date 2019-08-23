@@ -8,11 +8,13 @@ import { MarkdownComponent } from '../markdown/markdown.component';
 import { RequestTestComponent } from '../requestTest/requestTest.component';
 import { RxjsComponent } from '../rxjs/rxjs.component';
 import { LodashComponent } from '../lodash/lodash.component';
+import { HeroComponent } from '../hero/hero.component';
 
 import { MarkdownModule } from '../markdown/markdown.module';
 import { RequestTestModule } from '../requestTest/requestTest.module';
 import { RxjsModule } from '../rxjs/rxjs.module';
 import { LodashModule } from '../lodash/lodash.module';
+import { HeroModule } from '../hero/hero.module';
 
 import {
     MarkdownDetailsModule,
@@ -54,9 +56,9 @@ const adminRoutes: Routes = [
                 data: { animation: 'LodashPage' }
             },
             {
-                path: 'demo',
-                component: MarkdownComponent,
-                data: { animation: 'FilterPage' }
+                path: 'hero',
+                component: HeroComponent,
+                data: { animation: 'HeroPage' }
             },
             {
                 path: '**',
@@ -86,6 +88,7 @@ const adminRoutes: Routes = [
         RequestTestModule,
         RxjsModule,
         LodashModule,
+        HeroModule,
 
         RouterModule.forChild(adminRoutes)
     ],

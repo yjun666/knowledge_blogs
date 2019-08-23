@@ -3,7 +3,7 @@ import { HeroJobAdComponent } from './hero-job-ad.component';
 import { AdBannerComponent } from './ad-banner.component';
 import { HeroProfileComponent } from './hero-profile.component';
 import { AdDirective } from './ad.directive';
-import { AdService } from '../../shared/services/ad.service';
+import { AdService } from './ad.service';
 import { CommonModule } from '@angular/common';
 
 @NgModule({

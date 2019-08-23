@@ -1,4 +1,4 @@
-// 监听进度不好用
+// 摘抄自官网demo----http一栏,貌似只能模拟进度条播放，在newwork中看不到接口调用
 import { Injectable } from '@angular/core';
 import {
     HttpEvent, HttpInterceptor, HttpHandler,
@@ -14,6 +14,9 @@ export class UploadInterceptor implements HttpInterceptor {
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         if (req.url.indexOf('/upload/file') === -1) {
             return next.handle(req);
+        } else {
+            // 自己添加的代码，不过不添加在network中看不到接口调用，貌似只是模拟了接口播放了进度条，在后台看不到接口请求
+            return next.handle(req);
         }
         const delay = 300; // TODO: inject delay?
         return createUploadEvents(delay);
@@ -23,8 +26,8 @@ export class UploadInterceptor implements HttpInterceptor {
 /** Create simulation of upload event stream */
 function createUploadEvents(delay: number) {
     // Simulate XHR behavior which would provide this information in a ProgressEvent
-    const chunks = 5;
-    const total = 12345678;
+    const chunks = 20;
+    const total = 123456789101112131415;
     const chunkSize = Math.ceil(total / chunks);
 
     return new Observable<HttpEvent<any>>(observer => {
@@ -39,10 +42,12 @@ function createUploadEvents(delay: number) {
             // Use setTimeout and tail recursion instead.
             setTimeout(() => {
                 loaded += chunkSize;
-                if (loaded >= total) {
+
+                if (loaded > total) {
                     const doneResponse = new HttpResponse({
                         status: 201, // OK but no body;
                     });
+                    console.log(doneResponse);
                     observer.next(doneResponse);
                     observer.complete();
                     return;

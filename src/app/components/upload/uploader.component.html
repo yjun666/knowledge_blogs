@@ -1,17 +1,33 @@
 <section id="uploadFile">
   <h3>Upload file</h3>
-  <form enctype="multipart/form-data" method="post">
-    <div>
-      <label for="picked">Choose file to upload</label>
-      <div>
-        <input type="file" id="picked" #picked (click)="message=''" (change)="onPicked(picked)">
-      </div>
+  <!-- <form enctype="multipart/form-data" method="post"> -->
+  <div>
+    <label for="picked">Choose file to upload</label>
+    <div class="selected_list">
+      <button (click)="selectFileBtn()">选择文件</button>
+      <ul>
+        <ng-template ngFor let-cont let-key=index [ngForOf]='userFeedBackData.uploadFileList'>
+          <li [attr.id]='cont.id+key'>
+            <section class="top">
+              <span class="name">{{cont.fileName}}</span>
+              <span class="size">{{cont.fileSize}}kb</span>
+            </section>
+            <section class="bottom">
+              <div class="upload_progress_wrap">
+                <div class="upload_progress" [style.width]='cont.progress'></div>
+              </div>
+              <div class="delFileWrap">
+                <span class="del_file" (click)='delFile(cont.id)'></span>
+              </div>
+            </section>
+          </li>
+        </ng-template>
+      </ul>
+      <!-- <input type="file" id="picked" #picked (click)="message=''" (change)="selectFileBtn()"> -->
     </div>
-    <p *ngIf="message">{{message}}</p>
-  </form>
-  <div class="progressUploadWraper">
-    <div></div>
   </div>
+
+  <hr style="background: #000;margin:1rem 0;">
 </section>
 
 <!-- 
