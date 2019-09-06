@@ -8,8 +8,12 @@ var buildPCG_dbo_allCountryInfo_manualAdjustment_2JsonFun = require('./src/trans
 var fsReadFileToJsonFun = require('./src/transformFileToJson/fsReadFileToJson');
 var fsReadFileToJson2Fun = require('./src/transformFileToJson/fsReadFileToJson2');
 var delAndCreateDirFun = require('./src/operatorDir/delAndCreateDir');
+var operatorDirFun = require('./src/operatorDir/operatorDir');
 
-delAndCreateDirFun(path.join(__dirname, '../../json'));
+
+operatorDirFun.createMkDir(path.join(__dirname, '../json/')); // 先生成json文件夹
+
+delAndCreateDirFun(path.join(__dirname, '../../json')); // 清空json文件夹
 
 buildErrorListJsonFun();
 buildPCG_dbo_allCountryInfo_manualAdjustment_2JsonFun();
