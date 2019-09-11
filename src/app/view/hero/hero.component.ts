@@ -20,6 +20,7 @@ export class HeroComponent implements OnInit {
     this.heroService.getHeros()
       .subscribe(res => {
         this.heros = res.data;
+        console.log(this.heros);
         console.log(res);
       });
   }

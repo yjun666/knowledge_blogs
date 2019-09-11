@@ -23,6 +23,7 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     this.loggerService.log((x) => { console.log(123123); });
+    console.log('123123asdfasdfasd');
     this.ads = this.adService.getAds();
   }
 
