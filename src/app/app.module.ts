@@ -89,8 +89,8 @@ const services = [
   SelectivePreloadingStrategyService,
   // AdService,
   {
-    // 输入参数控制是否开启打印
     provide: LoggerService,
+    // 输入参数控制是否开启打印
     useFactory: (selectivePreloadingStrategyService) => {
       return new LoggerService(true, selectivePreloadingStrategyService); // 使用useFactory 给服务添加参数
     },

@@ -1,15 +1,12 @@
+import { Heros, MockHeroData } from './herosType';
+import { Observable, of } from 'rxjs';
+
 export class MockHeroService {
-    heros: Array<{ id: number; name: string }> = [
-        { id: 16, name: 'RubberMan' },
-        { id: 17, name: 'Dynama' },
-        { id: 18, name: 'Dr IQ' },
-        { id: 19, name: 'Magma' },
-        { id: 20, name: 'Tornado' }
-    ];
+    heros: Array<Heros> = MockHeroData;
 
     constructor() { }
 
-    getHeros() {
-        return this.heros;
+    getHeros(): Observable<any> {
+        return of({ data: this.heros });
     }
 }
