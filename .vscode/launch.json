@@ -6,8 +6,8 @@
   "configurations": [{
     "type": "chrome",
     "request": "launch",
-    "name": "Launch Chrome",
+    "name": "Launch Chrome against localhost",
     "url": "http://localhost:4108",
-    "webRoot": "${workspaceFolder}"
+    "webRoot": "${workspaceFolder}/src"
   }]
 }

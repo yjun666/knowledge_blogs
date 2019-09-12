@@ -2,6 +2,7 @@
 
 # compiled output
 /dist
+/docs
 /tmp
 /out-tsc
 
@@ -18,11 +19,13 @@
 *.sublime-workspace
 
 # IDE - VSCode
+/.vscode/launch.json
+.vscode/launch.json
 .vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
+# !.vscode/settings.json
+# !.vscode/tasks.json
+# !.vscode/launch.json
+# !.vscode/extensions.json
 
 # misc
 /.sass-cache

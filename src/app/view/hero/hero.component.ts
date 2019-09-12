@@ -9,7 +9,7 @@ import { LoggerService } from '../../shared/services/logger.service';
   styleUrls: [`./hero.component.scss`]
 })
 export class HeroComponent implements OnInit {
-  heros: Array<Heros>;
+  heros: Array<Heros> = [{ id: 123, name: '123', value: 123, content: '123111', age: 12 }];
 
   constructor(private heroService: HeroService,
     private loggerService: LoggerService) { }
@@ -20,7 +20,6 @@ export class HeroComponent implements OnInit {
     this.heroService.getHeros()
       .subscribe(res => {
         this.heros = res.data;
-        console.log(this.heros);
         console.log(res);
       });
   }
