@@ -244,7 +244,6 @@ export class SideBarComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     private niceScroll() {
-        console.log(123123123);
         // $('#catalog-details').niceScroll({
         //     cursorcolor: '#ccc', // #CC0071 光标颜色
         //     cursoropacitymax: 1, // 改变不透明度非常光标处于活动状态（scrollabar“可见”状态），范围从1到0
@@ -254,8 +253,7 @@ export class SideBarComponent implements OnInit, AfterViewInit, OnDestroy {
         //     cursorborderradius: '5px', // 以像素为光标边界半径
         //     autohidemode: true // 是否隐藏滚动条
         // });
-        $('#catalog-details').getNiceScroll().resize();
-
+        // $('#catalog-details').getNiceScroll().resize();
     }
 
     ngAfterViewInit(): void { this.niceScroll(); }
