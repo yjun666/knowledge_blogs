@@ -128,3 +128,26 @@ source$.pipe(
     switchMap(x => from(fakeRequest(x)))
 ).subscribe(console.log);
 ```
+
+> timestamp 时间戳，获取当前时间戳
+
+> withLatestFrom 将源Observable与其他Observable组合以创建一个Observable，其值仅根据源发出的值从每个值的最新值计算。
+```
+组合鼠标按下时的时间戳，和鼠标抬起时的时间戳，并产生一个事件处理前后的流
+timeStampApply() {
+    const holeMe = document.querySelector('#holeMe');
+    const mouseUp$ = Rx.fromEvent(holeMe, 'mouseup');
+    const mouseDown$ = Rx.fromEvent(holeMe, 'mousedown');
+    console.log(timestamp());
+    const holdTime$ = mouseUp$.pipe(timestamp(), withLatestFrom(mouseDown$.pipe(timestamp()), (mouseUpEvent, mouseDownEvent) => {
+        console.log(mouseUpEvent, mouseDownEvent);
+        return mouseUpEvent.timestamp - mouseDownEvent.timestamp;
+    }));
+    holdTime$.subscribe((data) => {
+        console.log(data);
+    });
+
+}
+```
+
+

@@ -7,6 +7,7 @@ import { MapTo, MapToItem } from './mapTo';
 import { SwitchMap, SwitchMapItem } from './switchMap';
 import { Zip, ZipItem } from './zip';
 import { StartWith, StartWithItem } from './startWith';
+import { TimeStamp, TimeStampItem } from './timeStamp';
 
 export interface OperatorItem {
     rangeFun: Function;
@@ -18,6 +19,7 @@ export interface OperatorItem {
     switchMapFun: Function;
     zipFun: Function;
     startWithFun: Function;
+    timeStampFun: Function;
 }
 
 
@@ -31,6 +33,7 @@ export class Operator implements OperatorItem {
     switchMap: SwitchMapItem;
     zip: ZipItem;
     startWith: StartWithItem;
+    timeStamp: TimeStampItem;
     constructor() {
         this.range = new Range();
         this.concatAll = new ConcatAll();
@@ -41,6 +44,7 @@ export class Operator implements OperatorItem {
         this.switchMap = new SwitchMap();
         this.zip = new Zip();
         this.startWith = new StartWith();
+        this.timeStamp = new TimeStamp();
     }
     // zip
     startWithFun() {
@@ -77,5 +81,9 @@ export class Operator implements OperatorItem {
     // switchMap
     switchMapFun() {
         this.switchMap.switchMapApply();
+    }
+    // timeStamp
+    timeStampFun() {
+        this.timeStamp.timeStampApply();
     }
 }
