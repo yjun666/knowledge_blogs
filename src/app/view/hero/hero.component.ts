@@ -17,6 +17,9 @@ export class HeroComponent implements OnInit {
 
   ngOnInit() {
     this.loggerService.log(() => { console.log('Fetching heros...'); });
+    this.getHeros();
+  }
+  getHeros() {
     this.heroService.getHeros()
       .subscribe(res => {
         this.heros = res.data;
