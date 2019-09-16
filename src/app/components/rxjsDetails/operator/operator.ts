@@ -8,6 +8,7 @@ import { SwitchMap, SwitchMapItem } from './switchMap';
 import { Zip, ZipItem } from './zip';
 import { StartWith, StartWithItem } from './startWith';
 import { TimeStamp, TimeStampItem } from './timeStamp';
+import { RepeatWhenItem, RepeatWhen } from './repeatWhen';
 
 export interface OperatorItem {
     rangeFun: Function;
@@ -20,6 +21,7 @@ export interface OperatorItem {
     zipFun: Function;
     startWithFun: Function;
     timeStampFun: Function;
+    repeatWhenFun: Function;
 }
 
 
@@ -34,6 +36,7 @@ export class Operator implements OperatorItem {
     zip: ZipItem;
     startWith: StartWithItem;
     timeStamp: TimeStampItem;
+    repeatWhen: RepeatWhenItem;
     constructor() {
         this.range = new Range();
         this.concatAll = new ConcatAll();
@@ -45,6 +48,7 @@ export class Operator implements OperatorItem {
         this.zip = new Zip();
         this.startWith = new StartWith();
         this.timeStamp = new TimeStamp();
+        this.repeatWhen = new RepeatWhen();
     }
     // zip
     startWithFun() {
@@ -85,5 +89,9 @@ export class Operator implements OperatorItem {
     // timeStamp
     timeStampFun() {
         this.timeStamp.timeStampApply();
+    }
+    // repeatWhen
+    repeatWhenFun() {
+        this.repeatWhen.repeatWhenApply();
     }
 }

@@ -8,7 +8,8 @@ export interface AjaxItem {
 }
 
 export class Ajax implements AjaxItem {
-    click$;
+    ajaxApply$: any;
+
     // ajax defer用法
     ajaxApply() {
         ajax({
@@ -31,8 +32,9 @@ export class Ajax implements AjaxItem {
                 return of(error);
             })
         ).subscribe(x => console.log(x));
-        ajax({
-            url: '/assets/json/tex.json',
+
+        this.ajaxApply$ = ajax({
+            url: '/assets/json/markdownCatalog.json',
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -51,6 +53,8 @@ export class Ajax implements AjaxItem {
                 return of(error);
             })
         ).subscribe(x => console.log(x));
+
+        this.ajaxApply$.unsubscribe(); // 取消订阅
     }
 }
 

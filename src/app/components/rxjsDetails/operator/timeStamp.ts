@@ -19,27 +19,37 @@ export interface TimeStampItem {
 export class TimeStamp implements TimeStampItem {
     // 获取鼠标按下到抬起的时间差
     timeStampApply() {
-        const holeMe = document.querySelector('#holeMe');
-        const mouseUp$ = fromEvent(holeMe, 'mouseup');
-        const mouseDown$ = fromEvent(holeMe, 'mousedown');
-        const holdTime$ = mouseUp$.pipe(timestamp(), withLatestFrom(mouseDown$.pipe(timestamp()), (mouseUpEvent, mouseDownEvent) => {
-            console.log(mouseUpEvent, mouseDownEvent);
-            return mouseUpEvent.timestamp - mouseDownEvent.timestamp;
-        }));
-        holdTime$.subscribe((data) => {
+        const rxjsOperatorBody = document.querySelector('#rxjsOperatorBody');
+        {
+            // 创建点击按钮
+            const button = document.createElement('button');
+            button.id = 'holdMe';
+            button.className = 'btn btn-primary';
+            button.innerHTML = 'test timeStamp';
+            rxjsOperatorBody.appendChild(button);
+        }
 
-            {
-                // merge操作符
-                const source1$ = from([5]);
-                const source2$ = from([6]);
-                const source3$ = merge(source1$, source2$);
-                source3$
-                    .pipe(map((x: any) => x * x))
-                    .subscribe((m) => { console.log(m, 'merge操作符'); });
-            }
+        timer(500).subscribe(() => {
+            const holdMe = document.querySelector('#holdMe');
+            const mouseUp$ = fromEvent(holdMe, 'mouseup');
+            const mouseDown$ = fromEvent(holdMe, 'mousedown');
+            const holdTime$ = mouseUp$.pipe(timestamp(), withLatestFrom(mouseDown$.pipe(timestamp()), (mouseUpEvent, mouseDownEvent) => {
+                console.log(mouseUpEvent, mouseDownEvent);
+                return mouseUpEvent.timestamp - mouseDownEvent.timestamp;
+            }));
+            holdTime$.subscribe((data) => {
 
-
-            console.log(data);
+                {
+                    // merge操作符
+                    const source1$ = from([5]);
+                    const source2$ = from([6]);
+                    const source3$ = merge(source1$, source2$);
+                    source3$
+                        .pipe(map((x: any) => x * x))
+                        .subscribe((m) => { console.log(m, 'merge操作符'); });
+                }
+                console.log(data);
+            });
         });
     }
 }

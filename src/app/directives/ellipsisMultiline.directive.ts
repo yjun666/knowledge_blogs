@@ -3,7 +3,7 @@ declare const $, lenovoPublic;
 // js控制多行文本溢出显示省略号，在浏览器屏幕缩小时会有一行文字都显示不开的情况会出没有文字显示的问题,设置最小高度也不好用
 @Directive({ selector: '[appEllipsisMultiline]' })
 export class EllipsisMultilineDirective implements OnChanges, OnDestroy {
-    timerr: any = '';
+    timer: any = '';
     @Input() appEllipsisMultiline: any = '';
     constructor(
         private ele: ElementRef
@@ -21,8 +21,8 @@ export class EllipsisMultilineDirective implements OnChanges, OnDestroy {
 
         const setEllipsis = () => {
             const vm = this;
-            clearTimeout(this.timerr);
-            this.timerr = setTimeout(() => {
+            clearTimeout(this.timer);
+            this.timer = setTimeout(() => {
                 let aa = '';
                 const pHtml = this.appEllipsisMultiline;
                 if (!pHtml) {
@@ -67,7 +67,7 @@ export class EllipsisMultilineDirective implements OnChanges, OnDestroy {
     }
 
     ngOnDestroy(): void {
-        clearTimeout(this.timerr);
+        clearTimeout(this.timer);
     }
 }
 
