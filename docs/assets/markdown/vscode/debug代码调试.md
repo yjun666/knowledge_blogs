@@ -15,7 +15,7 @@ launch.json 简单配置
     "request": "launch", // 默认就行
     "name": "Launch Chrome against localhost", // 随便起名称
     "url": "http://localhost:4108", // 启动本地项目所用的host
-    "webRoot": "${workspaceFolder}/src"
+    "webRoot": "${workspaceFolder}" // 如果出现未验证的断点提示无法调试，尝试修改webRoot目录
   }]
 }
 
