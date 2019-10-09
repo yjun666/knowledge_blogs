@@ -39,7 +39,8 @@ export class RxjsDetailsComponent implements OnInit {
         // this.rxjsOperator.zipFun();
         // this.rxjsOperator.timeStampFun();
         // this.rxjsOperator.startWithFun();
-        this.rxjsOperator.repeatWhenFun();
+        // this.rxjsOperator.repeatWhenFun();
+        this.rxjsOperator.deferFun();
 
     }
 }
