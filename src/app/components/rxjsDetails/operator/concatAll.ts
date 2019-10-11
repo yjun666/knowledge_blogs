@@ -12,7 +12,7 @@ export class ConcatAll implements ConcatAllItem {
         const higherOrder = clicks.pipe(
             map(ev => {
                 console.log(123123);
-                return interval(1000).pipe(take(1));
+                return interval(1000).pipe(take(5));
             }),
         );
         const firstOrder = higherOrder.pipe(concatAll());
@@ -20,32 +20,32 @@ export class ConcatAll implements ConcatAllItem {
 
 
 
-        interval(1000).pipe(
-            take(2),
-            map(x => interval(1000).pipe(
-                map(y => x + ':' + y),
-                take(2))
-            ),
-            concatAll()
-        ).subscribe(console.log);
+        // interval(1000).pipe(
+        //     take(2),
+        //     map(x => interval(1000).pipe(
+        //         map(y => x + ':' + y),
+        //         take(2))
+        //     ),
+        //     concatAll()
+        // ).subscribe(console.log);
 
-        interval(1000).pipe(
-            take(2),
-            map(x => interval(1000).pipe(
-                map(y => x + ':' + y),
-                take(2))
-            ),
-            mergeAll()
-        ).subscribe(console.log);
+        // interval(1000).pipe(
+        //     take(2),
+        //     map(x => interval(1000).pipe(
+        //         map(y => x + ':' + y),
+        //         take(2))
+        //     ),
+        //     mergeAll()
+        // ).subscribe(console.log);
 
-        interval(1500).pipe(
-            take(2),
-            map(x => interval(1000).pipe(
-                map(y => x + ':' + y),
-                take(2))
-            ),
-            switchAll()
-        ).subscribe(console.log); // 0:0// 1:0// 1:1
+        // interval(1500).pipe(
+        //     take(2),
+        //     map(x => interval(1000).pipe(
+        //         map(y => x + ':' + y),
+        //         take(2))
+        //     ),
+        //     switchAll()
+        // ).subscribe(console.log); // 0:0// 1:0// 1:1
     }
 }
 

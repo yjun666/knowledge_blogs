@@ -11,9 +11,9 @@ export class SwitchMap implements SwitchMapItem {
         const clicks = fromEvent(document, 'click');
         {
             clicks.pipe(switchMap((ev) => interval(1000).pipe(map(x => {
-                console.log(x);
+                // console.log(x);
                 return x;
-            })))).subscribe(console.log);
+            })))).subscribe((data) => { console.log(data) });
         }
 
 
