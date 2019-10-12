@@ -9,12 +9,9 @@
     "build:prod:output": "ng build --prod --output-path docs --base-href",
     "build:prod": "ng build --prod --base-href",
     "build:optimizer": "ng build --prod --build--optimizer --base-href",
-
     "node:createJson": "node ./src/assets/nodejs/index.js",
     "node:build": "node ./src/assets/nodejs/build/requestJson.js && node ./src/assets/nodejs/build/transformFileToJson.js",
     "node:dist": "node ./src/assets/nodejs/dist/**/*.js",
-
-
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -30,9 +27,12 @@
     "@angular/platform-browser": "~7.0.0",
     "@angular/platform-browser-dynamic": "~7.0.0",
     "@angular/router": "~7.0.0",
+    "@ngx-translate/core": "^11.0.1",
+    "@ngx-translate/http-loader": "^4.0.0",
     "core-js": "^2.5.4",
     "fs": "0.0.1-security",
     "marked": "^0.6.0",
+    "ng-zorro-antd": "7.5.1",
     "node-sass": "^4.11.0",
     "path": "^0.12.7",
     "rxjs": "~6.3.3",
@@ -43,9 +43,9 @@
     "@angular/cli": "~7.0.6",
     "@angular/compiler-cli": "~7.0.0",
     "@angular/language-service": "~7.0.0",
-    "@types/node": "~8.9.4",
     "@types/jasmine": "~2.8.8",
     "@types/jasminewd2": "~2.0.3",
+    "@types/node": "~8.9.4",
     "codelyzer": "~4.5.0",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",

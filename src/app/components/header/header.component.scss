@@ -92,6 +92,17 @@
     padding-right: 1rem;
     cursor: pointer;
 
+    #i18n {
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 1rem;
+
+      .translate-test {
+        color: #fff;
+        margin-right: 1rem;
+      }
+    }
+
     .account-message {
       display: inline-block;
       vertical-align: middle;
@@ -154,6 +165,8 @@
         }
       }
     }
+
+
   }
 }
 

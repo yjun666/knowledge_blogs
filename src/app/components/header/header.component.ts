@@ -2,6 +2,7 @@ import { Component, OnInit, HostListener } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { LoginService } from '../../shared/services/login.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
     selector: 'app-header',
@@ -13,7 +14,8 @@ export class HeaderComponent implements OnInit {
     constructor(
         private http: HttpClient,
         private router: Router,
-        private loginService: LoginService
+        private loginService: LoginService,
+        private translate: TranslateService,
     ) { }
     ngOnInit() { }
     public showUserDetails(param) {
@@ -22,6 +24,10 @@ export class HeaderComponent implements OnInit {
 
     public routeTurn(route) {
         this.router.navigate([route]);
+    }
+
+    public changeLang(language: string) {
+        this.translate.use(language);
     }
 
     private logout() {

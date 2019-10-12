@@ -37,13 +37,20 @@ import { httpInterceptorProviders } from './shared/interceptor';
 // module
 import { AlertModule } from './components/alert/alert.module';
 import { ADModule } from './components/ad-banner/ad.module';
-
+import { LanguageTranslationModule } from '../app/shared/modules/language-translation/language-translation.module';
+import { NgZorroAntdModule, NZ_I18N, zh_CN } from 'ng-zorro-antd';
 // service
 import { MessageService } from './shared/services/message.service';
 import { AdService } from './components/ad-banner/ad.service';
 import { RequestCache, RequestCacheWithMap } from './shared/services/request-cache.service';
 
-const modules = [AlertModule, HttpClientJsonpModule, ADModule];
+const modules = [
+  AlertModule,
+  HttpClientJsonpModule,
+  ADModule,
+  LanguageTranslationModule,
+  NgZorroAntdModule
+];
 
 const components = [
   // HomeComponent,
@@ -95,7 +102,8 @@ const services = [
       return new LoggerService(true, selectivePreloadingStrategyService); // 使用useFactory 给服务添加参数
     },
     deps: [SelectivePreloadingStrategyService] // deps 中参数为传入useFactory方法的实参,如果该服务需要其他的服务依赖，那么从此处可以注入
-  }
+  },
+  { provide: NZ_I18N, useValue: zh_CN }
 ];
 import { environment } from '../environments/environment';
 console.log(environment);

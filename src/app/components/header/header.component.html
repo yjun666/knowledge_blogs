@@ -31,6 +31,57 @@
     </nav>
   </div>
   <div class="float-right header-right">
+    <div id="i18n">
+      <span class="translate-test">{{ 'Download Now' | translate }}</span>
+      <nz-dropdown>
+        <a nz-dropdown style="color: #fff;"> change laguage
+          <i nz-icon type="down"></i>
+        </a>
+        <ul nz-menu nzSelectable>
+          <li nz-menu-item>
+            <a href="javascript:void(0)" (click)="changeLang('en')">
+              {{ 'English' | translate }}
+            </a>
+          </li>
+          <li nz-menu-item>
+            <a href="javascript:void(0)" (click)="changeLang('fr')">
+              {{ 'French' | translate }}
+            </a>
+          </li>
+          <li nz-menu-item>
+            <a href="javascript:void(0)" (click)="changeLang('ur')">
+              {{ 'Urdu' | translate }}
+            </a>
+          </li>
+          <li nz-menu-item>
+            <a href="javascript:void(0)" (click)="changeLang('es')">
+              {{ 'Spanish' | translate }}
+            </a>
+          </li>
+          <li nz-menu-item>
+            <a href="javascript:void(0)" (click)="changeLang('it')">
+              {{ 'Italian' | translate }}
+            </a>
+          </li>
+          <li nz-menu-item>
+            <a href="javascript:void(0)" (click)="changeLang('fa')">
+              {{ 'Farsi' | translate }}
+            </a>
+          </li>
+          <li nz-menu-item>
+            <a href="javascript:void(0)" (click)="changeLang('de')">
+              {{ 'German' | translate }}
+            </a>
+          </li>
+          <li nz-menu-item>
+            <a href="javascript:void(0)" (click)="changeLang('zh-CHS')">
+              {{ 'Simplified Chinese' | translate }}
+            </a>
+          </li>
+        </ul>
+      </nz-dropdown>
+    </div>
+
     <span style="height: 60px;display: inline-block;vertical-align: middle;"></span>
     <div class="account-message" (click)='showUserDetails(isShowUserDetails)'>
       <i class="fa fa-angellist"></i>
