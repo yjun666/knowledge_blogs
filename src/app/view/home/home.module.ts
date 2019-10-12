@@ -27,7 +27,7 @@ import {
     UploaderModule
 } from '../../components/component.module';
 
-import { AppMarkedModule, AppTitleHoverShowModule } from '../../directives/directives.module';
+import { AppMarkedModule, AppTitleHoverShowModule } from '../../shared/directives/directives.module';
 
 
 const adminRoutes: Routes = [

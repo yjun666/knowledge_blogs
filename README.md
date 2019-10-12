@@ -38,7 +38,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 > // "nodeCMD": "node ./src/assets/nodejs/build/transformFileToJson.js && node ./src/assets/nodejs/build/requestJson.js && node ./src/assets/nodejs/dist/transformFileToJson.js  && node ./src/assets/nodejs/dist/requestJsonAll.js",
 
-> sass 公共scss文件
+> share/sass 公共scss文件
 
-> interceptor 拦截器
+> share/interceptor 拦截器
 

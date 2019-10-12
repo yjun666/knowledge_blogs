@@ -8,7 +8,7 @@ import { MockHeroService } from './mock_hero.service';
 
 
 
-import { AppMarkedModule, AppTitleHoverShowModule, EllipsisMultilineDirectiveModule } from '../../directives/directives.module';
+import { AppMarkedModule, AppTitleHoverShowModule, EllipsisMultilineDirectiveModule } from '../../shared/directives/directives.module';
 
 @NgModule({
     imports: [

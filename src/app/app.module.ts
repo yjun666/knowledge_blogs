@@ -29,10 +29,10 @@ import { AppService } from './app.service';
 // import { AppMarkedDirective, AppTitleHoverShowDirective } from './directives';
 
 // auth
-import { AuthGuard } from './auth';
+import { AuthGuard } from './shared/auth';
 
 // interceptor拦截器
-import { httpInterceptorProviders } from '../app/interceptor';
+import { httpInterceptorProviders } from './shared/interceptor';
 
 // module
 import { AlertModule } from './components/alert/alert.module';
