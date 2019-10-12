@@ -1,0 +1,18 @@
+$font-size-base:20; // 响应式的html的fontsize
+
+$path-zero: './'; // 目录路径 在当前路径下
+$path-one: '../'; // 目录路径 需要返回一层上层目录
+$path-two: '../../'; // 目录路径 需要返回两层上层目录
+$path-three: '../../../'; // 目录路径 需要返回三层上层目录
+$path-four: '../../../../'; // 目录路径 需要返回四层上层目录
+$path-five: '../../../../../'; // 目录路径 需要返回五层上层目录
+
+$font-size12: 12; // 字体大小12px
+$font-size13: 13; // 字体大小13px
+$font-size14: 14; // 字体大小14px
+$font-size15: 15; // 字体大小15px
+$font-size16: 16; // 字体大小16px
+$font-size17: 17; // 字体大小17px
+$font-size18: 18; // 字体大小18px
+$font-size19: 19; // 字体大小19px
+$font-size20: 20; // 字体大小20px

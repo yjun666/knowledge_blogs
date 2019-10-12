@@ -46,7 +46,10 @@
     padding-bottom: 1rem;
 
     ul li {
-      padding-left: 2em;
+      &>code {
+        display: inline-block !important;
+        vertical-align: middle !important;
+      }
     }
   }
 }
