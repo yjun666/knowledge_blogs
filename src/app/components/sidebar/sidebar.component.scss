@@ -1,15 +1,21 @@
+@import '../../shared/scss/pxToRem';
+
+@function pixelToRem($number) {
+  @return pxToRem($number)
+}
+
 #sidebar-body {
   position: fixed;
   z-index: 1000;
-  top: 60px;
-  left: 0px;
-  width: 235px;
+  top: pixelToRem(60);
+  left: pixelToRem(0);
+  width: pixelToRem(235);
   border: none;
   border-radius: 0;
   overflow-y: auto;
   background-color: #222;
   bottom: 0;
-  padding-bottom: 2.6rem;
+  padding-bottom: pixelToRem(52);
   white-space: nowrap;
   transition: all 0.2s ease-in-out;
   font-family: cursive;
@@ -26,17 +32,17 @@
 
   .nav-top {
     position: relative;
-    height: 2.6rem;
-    line-height: 2.6rem;
+    height: pixelToRem(52);
+    line-height: pixelToRem(52);
 
     title {
       display: block;
-      font-size: 20px;
+      font-size: pixelToRem(20);
       color: #fff;
       margin: 0 auto;
       width: 100%;
       text-align: center;
-      height: 43px;
+      height: pixelToRem(43);
       box-sizing: border-box;
     }
 
@@ -45,8 +51,8 @@
       position: absolute;
       color: #fff;
       top: 0;
-      line-height: 43px;
-      margin-left: 0.5rem;
+      line-height: pixelToRem(43);
+      margin-left: pixelToRem(10);
     }
   }
 
@@ -55,9 +61,9 @@
     position: absolute;
     top: 50%;
     right: 0;
-    width: 20/20+rem;
-    height: 20/20+rem;
-    margin-top: -20/20+rem;
+    width: pixelToRem(20);
+    height: pixelToRem(20);
+    margin-top: pixelToRem(-20);
   }
 
   ul#catalog-details {
@@ -76,12 +82,12 @@
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
-        padding: 5px 0;
-        padding-right: 1.1rem;
+        padding: pixelToRem(5) 0;
+        padding-right: pixelToRem(22);
 
         .icon-isShow {
           position: absolute;
-          right: 0.7rem;
+          right: pixelToRem(14);
         }
 
         &:hover {
@@ -91,20 +97,20 @@
 
 
       .first-catalog {
-        text-indent: 1em;
-        font-size: 18px;
+        text-indent: pixelToRem(20);
+        font-size: pixelToRem(18);
       }
 
       .second-catalog {
         // background-color: skyblue;
-        text-indent: 2em;
-        font-size: 16px;
+        text-indent: pixelToRem(40);
+        font-size: pixelToRem(16);
       }
 
       .third-catalog {
         // background-color: sienna;
         text-indent: 3em;
-        font-size: 16px;
+        font-size: pixelToRem(16);
       }
     }
   }
@@ -112,10 +118,10 @@
 
 .show-sideBar {
   position: absolute;
-  top: 60px;
-  font-size: 34px;
-  height: 40px;
-  left: 10px;
+  top: pixelToRem(60);
+  font-size: pixelToRem(34);
+  height: pixelToRem(40);
+  left: pixelToRem(10);
   color: green;
   animation-name: halo;
   animation-duration: 1s;
@@ -141,6 +147,6 @@
 
 @media screen and (max-width: 1024px) {
   #sidebar-body {
-    left: -235px;
+    left: pixelToRem(-235);
   }
 }

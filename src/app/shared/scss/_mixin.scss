@@ -1,5 +1,1 @@
-@import './varitables';
 
-@function pixelToRem($number) {
-  @return ($number/$font-size-base)+rem;
-}

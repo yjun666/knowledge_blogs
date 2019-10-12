@@ -1,12 +1,18 @@
+@import '../../shared/scss/pxToRem';
+
+@function pixelToRem($number) {
+  @return pxToRem($number)
+}
+
 .markdown-details-body-parent {
-  padding-bottom: 60px;
+  padding-bottom: pixelToRem(60);
   height: 100%;
   width: 100%;
 }
 
 #markdown-details-body {
   background-color: rgba(255, 255, 255, 1);
-  padding-left: 235px;
+  padding-left: pixelToRem(235);
   box-sizing: border-box;
   height: 100%;
   width: 100%;
@@ -19,14 +25,14 @@
     h1 {
       text-align: center;
       color: #00cccc;
-      font-size: 40/20+rem;
-      padding: 1rem 2rem 1.5rem 2rem;
+      font-size: pixelToRem(40);
+      padding: pixelToRem(20) pixelToRem(40) pixelToRem(30) pixelToRem(40);
     }
   }
 
   .close-code {
-    padding-right: 0.5rem;
-    padding-bottom: 0.5rem;
+    padding-right: pixelToRem(10);
+    padding-bottom: pixelToRem(10);
     text-align: right;
   }
 
@@ -41,9 +47,9 @@
   .md-content {
     overflow-x: hidden;
     overflow-y: auto;
-    padding: 0 10px;
+    padding: 0 pixelToRem(10);
     background-color: bisque;
-    padding-bottom: 1rem;
+    padding-bottom: pixelToRem(20);
 
     ul li {
       &>code {
@@ -56,20 +62,20 @@
 
 .call-top-parent {
   position: fixed;
-  bottom: 1rem;
-  right: 1.2rem;
+  bottom: pixelToRem(20);
+  right: pixelToRem(24);
 
   .call-top {
     display: table-cell;
     vertical-align: middle;
-    width: 4rem;
-    height: 4rem;
-    border: 1px solid #000;
-    border-radius: 5px;
-    box-shadow: 0 0 1rem rgba(0, 204, 204, 1);
+    width: pixelToRem(80);
+    height: pixelToRem(80);
+    border: pixelToRem(1) solid #000;
+    border-radius: pixelToRem(5);
+    box-shadow: 0 0 pixelToRem(20) rgba(0, 204, 204, 1);
     cursor: pointer;
     user-select: none;
-    font-size: 1.2rem;
+    font-size: pixelToRem(24);
     text-align: center;
     background-color: #fff;
   }

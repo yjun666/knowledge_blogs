@@ -1,30 +1,33 @@
+@import '../../shared/scss/pxToRem';
+
+@function pixelToRem($number) {
+  @return pxToRem($number)
+}
+
 .header-body {
   width: 100%;
-  height: 60px;
+  height: pixelToRem(60);
   background-color: #222;
   position: relative;
-  padding-left: 1rem;
-  margin-right: 1rem;
+  padding-left: pixelToRem(20);
+  margin-right: pixelToRem(20);
+
+  .header-wraper {
+    height: pixelToRem(60);
+  }
 
   .header-left {
-    width: 70%;
 
     .logo {
-      // float: left;
-      margin-right: 2rem;
-      display: inline-block;
-      vertical-align: middle;
+      margin-right: pixelToRem(40);
 
       i {
         color: #fff;
-        font-size: 40px;
-        vertical-align: middle;
+        font-size: pixelToRem(40);
       }
     }
 
     nav.ul-list {
-      display: inline-block;
-      vertical-align: middle;
 
       ul.li-list {
         // overflow: hidden;
@@ -33,18 +36,18 @@
           transition: all 300ms;
           float: left;
           color: #fff;
-          width: 5.5rem;
+          width: pixelToRem(110);
           text-align: center;
           background-color: #00a1ff;
-          margin-left: 0.2rem;
-          height: 30px;
-          line-height: 30px;
+          margin-left: pixelToRem(4);
+          height: pixelToRem(30);
+          line-height: pixelToRem(30);
           transform: skew(-30deg);
           cursor: pointer;
 
           &:hover {
-            margin-top: -2px;
-            box-shadow: 2px 2px 2px rgba(255, 255, 255, 1);
+            margin-top: pixelToRem(-2);
+            box-shadow: pixelToRem(2) pixelToRem(2) pixelToRem(2) rgba(255, 255, 255, 1);
           }
 
           a,
@@ -88,28 +91,28 @@
   }
 
   .header-right {
+    text-align: right;
     user-select: none;
-    padding-right: 1rem;
+    padding-right: pixelToRem(20);
     cursor: pointer;
 
+    .lineHeight {
+      height: pixelToRem(60);
+    }
+
     #i18n {
-      display: inline-block;
-      vertical-align: middle;
-      margin-right: 1rem;
+      margin-right: pixelToRem(20);
 
       .translate-test {
         color: #fff;
-        margin-right: 1rem;
+        margin-right: pixelToRem(20);
       }
     }
 
     .account-message {
-      display: inline-block;
-      vertical-align: middle;
-
       i {
         color: #fff;
-        margin-right: 0.5rem;
+        margin-right: pixelToRem(10);
       }
 
       span.name {
@@ -119,37 +122,37 @@
 
     .message-details {
       background-color: rgba(255, 255, 255, 1);
-      border-radius: 5px;
-      width: 220px;
+      border-radius: pixelToRem(5);
+      width: pixelToRem(220);
       position: absolute;
-      right: 10px;
-      border-radius: 5px;
-      padding: 5px 10px;
+      right: pixelToRem(10);
+      border-radius: pixelToRem(5);
+      padding: pixelToRem(5) pixelToRem(10);
 
       >i {
         position: absolute;
-        top: -25px;
-        font-size: 40px;
+        top: pixelToRem(-25);
+        font-size: pixelToRem(40);
         color: #fff;
-        right: 10px;
+        right: pixelToRem(10);
       }
 
       ul {
         li {
-          border-bottom: 1px solid #000;
-          font-size: 0.8rem;
-          height: 2.5rem;
-          line-height: 2.5rem;
+          border-bottom: pixelToRem(1) solid #000;
+          font-size: pixelToRem(16);
+          height: pixelToRem(50);
+          line-height: pixelToRem(50);
 
           .account-name {
             display: inline-block;
             width: 30%;
             font-weight: 900;
-            font-size: 0.8rem;
+            font-size: pixelToRem(16);
           }
 
           .name {
-            font-size: 14px;
+            font-size: pixelToRem(14);
           }
 
           .logout {
@@ -168,12 +171,4 @@
 
 
   }
-}
-
-.float-left {
-  float: left;
-}
-
-.float-right {
-  float: right;
 }

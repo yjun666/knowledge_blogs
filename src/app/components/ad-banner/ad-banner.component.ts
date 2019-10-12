@@ -9,7 +9,7 @@ import { AdComponent } from './ad.component';
   template: `
               <div class="ad-banner-example" [ngStyle]='{"display": isShowAD ? "inline-block" : "none" }'>
                 <h3>Advertisements</h3>
-                <div (click)='closeAD()' style='position:absolute;right:0;top:0;color:#fff;'>关闭广告X</div>
+                <div (click)='closeAD()' style='position:absolute;right:0;top:0;color:red;'>关闭广告X</div>
                 <ng-template ad-host></ng-template>
               </div>
             `

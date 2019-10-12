@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
-import { NzDropDownModule } from 'ng-zorro-antd';
+import { NgZorroAntdModule } from 'ng-zorro-antd';
 import { HeaderComponent } from './header.component';
 
 
@@ -9,7 +9,7 @@ import { HeaderComponent } from './header.component';
     imports: [
         CommonModule,
         TranslateModule,
-        NzDropDownModule
+        NgZorroAntdModule
     ],
     declarations: [HeaderComponent],
     exports: [HeaderComponent],

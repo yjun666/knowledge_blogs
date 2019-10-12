@@ -1,5 +1,7 @@
-@function pxToRem($number) {
-  @return ($number/20)+rem;
+@import '../../shared/scss/pxToRem';
+
+@function pixelToRem($number) {
+  @return pxToRem($number)
 }
 
 
@@ -11,8 +13,8 @@
 
 #uploadFile {
   .progressUploadWraper {
-    width: 100px;
-    height: 7px;
+    width: pixelToRem(100);
+    height: pixelToRem(7);
     background-color: red;
 
     div {
@@ -24,18 +26,18 @@
 
   .selected_list {
     position: relative;
-    margin-top: pxToRem(40);
+    margin-top: pixelToRem(40);
 
     ul {
-      width: pxToRem(600);
+      width: pixelToRem(600);
 
       li:not(:last-child) {
-        margin-bottom: pxToRem(21);
+        margin-bottom: pixelToRem(21);
       }
 
       li {
-        padding: 1rem 0;
-        height: pxToRem(40);
+        padding: pixelToRem(20) 0;
+        height: pixelToRem(40);
 
         .top {
           width: 90%;
@@ -50,7 +52,7 @@
           .name {
             width: 70%;
             font-family: MicrosoftYaHeiUI;
-            font-size: pxToRem(16);
+            font-size: pixelToRem(16);
             color: #000000;
             letter-spacing: 0;
           }
@@ -59,7 +61,7 @@
             width: 30%;
             opacity: 0.7;
             font-family: Gotham-Book;
-            font-size: pxToRem(16);
+            font-size: pixelToRem(16);
             color: #000000;
             letter-spacing: 0;
             text-align: right;
@@ -74,22 +76,22 @@
             display: inline-block;
             vertical-align: middle;
             width: 90%;
-            height: pxToRem(7);
+            height: pixelToRem(7);
             background: #D8D8D8;
-            border-radius: pxToRem(3.5);
+            border-radius: pixelToRem(3.5);
             letter-spacing: 0;
 
             .upload_progress {
               width: 60%;
               height: 100%;
               background: #717C96;
-              border-radius: pxToRem(3.5);
+              border-radius: pixelToRem(3.5);
             }
           }
 
           .delFileWrap {
             width: 10%;
-            height: pxToRem(18);
+            height: pixelToRem(18);
             display: inline-block;
             vertical-align: middle;
             text-align: center;
@@ -101,8 +103,8 @@
             width: 10%;
             cursor: pointer;
             display: inline-block;
-            width: pxToRem(18);
-            height: pxToRem(18);
+            width: pixelToRem(18);
+            height: pixelToRem(18);
             background-image: url('/assets/single_prediction/substract_normal.png');
             @extend %setBackground;
             background-size: auto 100%;
