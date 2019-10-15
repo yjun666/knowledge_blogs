@@ -1,4 +1,5 @@
 @import '../../shared/scss/pxToRem';
+@import '../../shared/scss/transitions';
 
 @function pixelToRem($number) {
   @return pxToRem($number)
@@ -33,7 +34,7 @@
         // overflow: hidden;
 
         li {
-          transition: all 300ms;
+          @include transition(all, 300ms, linear);
           float: left;
           color: #fff;
           width: pixelToRem(110);

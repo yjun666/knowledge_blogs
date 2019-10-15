@@ -1,3 +1,4 @@
+// 全局的css，markdown使用
 @import './pxToRem';
 
 @function pixelToRem($number) {
@@ -26,14 +27,16 @@ code {
 .md-content {
 
   ul,
-  ol li {
-    padding-left: 2em;
+  ol {
+    li {
+      padding-left: 2em;
 
-    &>code {
-      display: inline-block !important;
-      vertical-align: middle !important;
-      box-shadow: 0 0 pixelToRem(10) orange;
-      margin: pixelToRem(5) 0 !important;
+      &>code {
+        display: inline-block !important;
+        vertical-align: middle !important;
+        box-shadow: 0 0 pixelToRem(10) orange;
+        margin: pixelToRem(5) 0 !important;
+      }
     }
   }
 

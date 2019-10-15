@@ -1,0 +1,6 @@
+@mixin transition($property:all, $duration:300ms, $timingFunction:linear, $delay:0ms) {
+  transition-property: $property;
+  transition-duration: $duration;
+  transition-timing-function: $timingFunction;
+  transition-delay: $delay;
+}

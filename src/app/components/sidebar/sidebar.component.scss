@@ -1,4 +1,5 @@
 @import '../../shared/scss/pxToRem';
+@import '../../shared/scss/transitions';
 
 @function pixelToRem($number) {
   @return pxToRem($number)
@@ -17,7 +18,7 @@
   bottom: 0;
   padding-bottom: pixelToRem(52);
   white-space: nowrap;
-  transition: all 0.2s ease-in-out;
+  @include transition(all, 200ms, ease-in-out);
   font-family: cursive;
   -webkit-user-select: none;
   -moz-user-select: none;
