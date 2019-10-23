@@ -4,4 +4,4 @@
 
 
 
-### lenovoEncrypt.min   base64加密    ，在codebase.service.ts.md 中函数封装中有使用方法
+### base64Encrypt.min   base64加密    ，在codebase.service.ts.md 中函数封装中有使用方法

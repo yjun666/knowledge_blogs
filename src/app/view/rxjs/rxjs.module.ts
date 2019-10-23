@@ -5,9 +5,16 @@ import { RouterModule, Routes } from '@angular/router';
 import { RxjsComponent } from './rxjs.component';
 import { RxjsDetailsModule } from '../../components/component.module';
 
+const routes: Routes = [
+    {
+        path: '',
+        component: RxjsComponent
+    }
+];
 
 @NgModule({
     imports: [
+        RouterModule.forChild(routes),
         CommonModule,
         RxjsDetailsModule
     ],

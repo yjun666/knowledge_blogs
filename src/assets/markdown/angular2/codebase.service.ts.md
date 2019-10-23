@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 import { formattedError } from '@angular/compiler';
 declare function escape(s: string): string;
 declare function unescape(s: string): string;
-declare const LenovoEncrypt;
+declare const Base64Encrypt;
 
 @Injectable()
 export class CodebaseService {
@@ -50,7 +50,7 @@ export class CodebaseService {
       const exp = new Date();
       exp.setTime(exp.getTime() + strsec * 1);
       if (this.isNeedEncrypt) {
-        document.cookie = LenovoEncrypt.encode(name) + '=' + LenovoEncrypt.encode(value) + ';expires=' + exp['toGMTString']();
+        document.cookie = Base64Encrypt.encode(name) + '=' + Base64Encrypt.encode(value) + ';expires=' + exp['toGMTString']();
       } else {
         document.cookie = name + '=' + value + ';expires=' + exp['toGMTString']();
       }
@@ -60,14 +60,14 @@ export class CodebaseService {
     getCookie(name) {
       let arr, reg;
       if (this.isNeedEncrypt) {
-        reg = new RegExp('(^| )' + LenovoEncrypt.encode(name) + '=([^;]*)(;|$)');
+        reg = new RegExp('(^| )' + Base64Encrypt.encode(name) + '=([^;]*)(;|$)');
       } else {
         reg = new RegExp('(^| )' + name + '=([^;]*)(;|$)');
       }
 
       if (arr = document.cookie.match(reg)) {
-        if (this.isNeedEncrypt && LenovoEncrypt.decode(arr[2])) {
-          return LenovoEncrypt.decode(arr[2]);
+        if (this.isNeedEncrypt && Base64Encrypt.decode(arr[2])) {
+          return Base64Encrypt.decode(arr[2]);
         } else if (!this.isNeedEncrypt && arr[2]) {
           return arr[2];
         } else {
@@ -80,7 +80,7 @@ export class CodebaseService {
     // 删除cookie
     delCookie(name) {
       if (this.isNeedEncrypt) {
-        name = LenovoEncrypt.encode(name);
+        name = Base64Encrypt.encode(name);
       }
       const exp = new Date();
       exp.setTime(exp.getTime() - 1);
@@ -96,11 +96,11 @@ export class CodebaseService {
     // 设置sessionStroage
     setSessionStroage(name: string, value: any) {
       if (this.isNeedEncrypt) {
-        name = LenovoEncrypt.encode(name);
+        name = Base64Encrypt.encode(name);
       }
       value = typeof value === 'string' ? value : JSON.stringify(value);
       if (this.isNeedEncrypt) {
-        value = LenovoEncrypt.encode(value);
+        value = Base64Encrypt.encode(value);
       } else {
         value = value;
       }
@@ -110,12 +110,12 @@ export class CodebaseService {
     // 获取sessionStroage
     getSessionStroage(name): any {
       if (this.isNeedEncrypt) {
-        name = LenovoEncrypt.encode(name);
+        name = Base64Encrypt.encode(name);
       }
       let value = localStorage.getItem(name);
       if (value) {
         if (this.isNeedEncrypt) {
-          value = LenovoEncrypt.decode(value);
+          value = Base64Encrypt.decode(value);
         } else {
           value = value;
         }
@@ -128,7 +128,7 @@ export class CodebaseService {
     // 删除sessionStroage
     delSessionStroage(name) {
       if (this.isNeedEncrypt) {
-        name = LenovoEncrypt.encode(name);
+        name = Base64Encrypt.encode(name);
       }
       localStorage.removeItem(name);
     }

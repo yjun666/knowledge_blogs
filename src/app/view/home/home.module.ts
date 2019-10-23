@@ -27,7 +27,7 @@ import {
     UploaderModule
 } from '../../components/component.module';
 
-import { AppMarkedModule, AppTitleHoverShowModule } from '../../shared/directives/directives.module';
+import { AppTitleHoverShowModule } from '../../shared/directives';
 
 
 const adminRoutes: Routes = [
@@ -37,33 +37,35 @@ const adminRoutes: Routes = [
         children: [
             {
                 path: 'markdown',
-                component: MarkdownComponent,
+                loadChildren: () => import('../markdown/markdown.module').then(m => m.MarkdownModule),
+                // component: MarkdownComponent,
                 data: { animation: 'HomePage' }
             },
             {
                 path: 'requestTest',
-                component: RequestTestComponent,
+                loadChildren: () => import('../requestTest/requestTest.module').then(m => m.RequestTestModule),
+                // component: RequestTestComponent,
                 data: { animation: 'AboutPage' }
             },
             {
                 path: 'rxjs',
-                component: RxjsComponent,
+                loadChildren: () => import('../rxjs/rxjs.module').then(m => m.RxjsModule),
+                // component: RxjsComponent,
                 data: { animation: 'RxjsPage' }
             },
             {
                 path: 'lodash',
-                component: LodashComponent,
+                loadChildren: () => import('../lodash/lodash.module').then(m => m.LodashModule),
+                // component: LodashComponent,
                 data: { animation: 'LodashPage' }
             },
             {
                 path: 'hero',
-                component: HeroComponent,
+                loadChildren: () => import('../hero/hero.module').then(m => m.HeroModule),
+                // component: HeroComponent,
                 data: { animation: 'HeroPage' }
             },
-            {
-                path: '**',
-                component: MarkdownComponent
-            }
+            { path: '', redirectTo: 'markdown', pathMatch: 'prefix' },
         ]
     }
 ];
@@ -81,7 +83,6 @@ const adminRoutes: Routes = [
         SideBarModule,
         UploaderModule,
 
-        AppMarkedModule,
         AppTitleHoverShowModule,
 
         MarkdownModule,

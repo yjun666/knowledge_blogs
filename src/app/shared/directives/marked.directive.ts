@@ -1,8 +1,8 @@
 import { Directive, OnInit, ElementRef, Input, OnChanges } from '@angular/core';
 
-import marked from 'marked';
+// import marked from 'marked';
 
-declare const $, hljs;
+declare const $, hljs, marked;
 @Directive({ selector: '[appMarked]' })
 export class AppMarkedDirective implements OnInit {
     constructor(

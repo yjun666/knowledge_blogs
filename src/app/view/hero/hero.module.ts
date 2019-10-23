@@ -6,16 +6,21 @@ import { HeroComponent } from './hero.component';
 import { HeroService } from './hero.service';
 import { MockHeroService } from './mock_hero.service';
 
+import { AppTitleHoverShowModule, EllipsisMultilineDirectiveModule } from '../../shared/directives';
 
-
-import { AppMarkedModule, AppTitleHoverShowModule, EllipsisMultilineDirectiveModule } from '../../shared/directives/directives.module';
+const routes: Routes = [
+    {
+        path: '',
+        component: HeroComponent
+    }
+];
 
 @NgModule({
     imports: [
+        RouterModule.forChild(routes),
         CommonModule,
         HttpClientModule,
 
-        AppMarkedModule,
         AppTitleHoverShowModule,
         EllipsisMultilineDirectiveModule,
     ],

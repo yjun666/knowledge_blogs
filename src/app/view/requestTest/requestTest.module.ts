@@ -5,10 +5,16 @@ import { RouterModule, Routes } from '@angular/router';
 import { RequestTestComponent } from './requestTest.component';
 import { RequestTestDetailsModule, UploaderModule } from '../../components/component.module';
 
-
+const routes: Routes = [
+    {
+        path: '',
+        component: RequestTestComponent
+    }
+];
 
 @NgModule({
     imports: [
+        RouterModule.forChild(routes),
         CommonModule,
         RequestTestDetailsModule, UploaderModule
     ],

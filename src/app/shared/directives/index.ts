@@ -1,2 +1,3 @@
-export { AppMarkedDirective } from './marked.directive';
-export { AppTitleHoverShowDirective } from './titleHoverShow.directive';
+export { AppMarkedModule } from './marked.directive';
+export { AppTitleHoverShowModule } from './titleHoverShow.directive';
+export { EllipsisMultilineDirectiveModule } from './ellipsisMultiline.directive';
