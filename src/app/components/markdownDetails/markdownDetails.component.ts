@@ -2,6 +2,7 @@ import { Component, OnInit, AfterViewInit, OnDestroy } from '@angular/core';
 import { AppUpdateService } from '../../app-update.service';
 import { map, filter, debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
 import { fromEvent } from 'rxjs';
+import { MarkdownDetailsService } from './markdownDetails.service';
 
 declare const $;
 @Component({
@@ -21,51 +22,37 @@ export class MarkdownDetailsComponent implements OnInit, AfterViewInit, OnDestro
     ];
     // 初始化title
     title = '生成随机数';
-
-    constructor(private appUpdateService: AppUpdateService) { }
+    constructor(
+        private appUpdateService: AppUpdateService,
+        private markdownDetailsService: MarkdownDetailsService
+    ) { }
     ngOnInit() {
+        const vm = this;
         this.appUpdateService.getSideBarSubject().subscribe((data) => {
             this.title = data.title;
             this.curOption = data.pageOption;
         });
         window.addEventListener('resize', function () {
-            $('#markdown-details-body').getNiceScroll().resize();
+            vm.markdownDetailsService.niceScroll('markdown-details-body', false);
         });
         this.search();
     }
 
     ngAfterViewInit() {
-        this.niceScroll();
+        this.markdownDetailsService.niceScroll('markdown-details-body', true);
     }
 
     ngOnDestroy() {
+        const vm = this;
         window.removeEventListener('resize', function () {
-            $('#markdown-details-body').getNiceScroll().resize();
+            vm.markdownDetailsService.niceScroll('markdown-details-body', false);
         });
         this.searchBoxSubscribe$.unsubscribe();
     }
 
-    private niceScroll() {
-        // $('#markdown-details-body').niceScroll({
-        //     cursorcolor: '#ccc', // #CC0071 光标颜色
-        //     cursoropacitymax: 1, // 改变不透明度非常光标处于活动状态（scrollabar“可见”状态），范围从1到0
-        //     touchbehavior: false, // 使光标拖动滚动像在台式电脑触摸设备
-        //     cursorwidth: '5px', // 像素光标的宽度
-        //     cursorborder: '0', // 	游标边框css定义
-        //     cursorborderradius: '5px', // 以像素为光标边界半径
-        //     autohidemode: true // 是否隐藏滚动条
-        // });
-        // $('#markdown-details-body').getNiceScroll().resize();
-    }
-
+    // 点击回到顶部
     public scrollTop() {
-        const scrollTopInterval = setInterval(() => {
-            document.getElementById('markdown-details-body').scrollTop -= 100;
-            if (document.getElementById('markdown-details-body').scrollTop <= 0) {
-                document.getElementById('markdown-details-body').scrollTop = 0;
-                clearInterval(scrollTopInterval);
-            }
-        }, 10);
+        this.markdownDetailsService.scrollTop('markdown-details-body');
     }
 
     // 关闭pre代码块

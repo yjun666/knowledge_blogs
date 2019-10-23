@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 
 import { LodashComponent } from './lodash.component';
-import { LodashDetailsModule } from '../../components/component.module';
+import { LodashDetailsModule } from '../../components/lodashDetails/lodashDetails.module';
 
 const routes: Routes = [
     {

@@ -5,3 +5,4 @@
 > uploader.service 上传文件监听
 > login.service 登陆服务
 > ad.service 动态添加组件即动态添加广告服务
+> share-method.service 设置共享的公共方法

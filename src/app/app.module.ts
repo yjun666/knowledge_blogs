@@ -9,7 +9,7 @@ import { AppService } from './app.service';
 
 import { environment } from '../environments/environment';
 console.log(environment);
-const isLog = environment.isLog;
+const isLog = environment.isLog; // 根据环境配置是否开启打印
 
 // auth
 import { AuthGuard } from './shared/auth';
@@ -28,6 +28,7 @@ import { RequestCacheWithMap } from './shared/services/request-cache.service';
 import { LoginService } from './shared/services/login.service';
 import { LoggerService } from './shared/services/logger.service';
 import { UploaderService } from './shared/services/uploader.service';
+import { ShardMethodService } from './shared/services/share-method.service';
 import { SelectivePreloadingStrategyService } from './shared/services/selective-preloading-strategy.service';
 
 const modules = [
@@ -51,6 +52,7 @@ const services = [
   RequestCacheWithMap,
   UploaderService,
   SelectivePreloadingStrategyService,
+  ShardMethodService,
   {
     provide: LoggerService,
     // 输入参数控制是否开启打印

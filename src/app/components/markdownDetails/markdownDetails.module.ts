@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MarkdownDetailsComponent } from './markdownDetails.component';
 import { AppMarkedModule } from '../../shared/directives';
+import { MarkdownDetailsService } from './markdownDetails.service';
 
 @NgModule({
     imports: [
@@ -9,6 +10,7 @@ import { AppMarkedModule } from '../../shared/directives';
         AppMarkedModule
     ],
     declarations: [MarkdownDetailsComponent],
+    providers: [MarkdownDetailsService],
     exports: [MarkdownDetailsComponent],
     bootstrap: [MarkdownDetailsComponent]
 })
