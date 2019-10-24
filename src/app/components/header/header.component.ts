@@ -11,6 +11,7 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class HeaderComponent implements OnInit {
     isShowUserDetails = false;
+    text = 'Download Now';
     constructor(
         private http: HttpClient,
         private router: Router,
