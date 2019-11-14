@@ -1,3 +1,5 @@
+### tsconfigJson配置说明
+```
 {
   "compileOnSave": false,
   "compilerOptions": {
@@ -24,3 +26,4 @@
     "strictInjectionParameters": true
   }
 }
+```

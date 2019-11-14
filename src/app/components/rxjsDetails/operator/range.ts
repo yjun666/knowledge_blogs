@@ -1,7 +1,7 @@
 import { pipe, range, of, Observable, interval } from 'rxjs';
 import { filter, map, take } from 'rxjs/operators';
 export interface RangeItem {
-    rangeApply: Function; // range用法
+    rangeApply: () => void; // range用法
 }
 
 export class Range implements RangeItem {
@@ -11,9 +11,9 @@ export class Range implements RangeItem {
             // 使用Observable创建
             // tslint:disable-next-line:no-shadowed-variable
             const source$ = new Observable(observer => {
-                let number = 1;
+                let num = 1;
                 setInterval(() => {
-                    observer.next(number++);
+                    observer.next(num++);
                 }, 100);
             });
             const observer = {

@@ -18,7 +18,7 @@ export class AdBannerComponent implements OnInit, OnDestroy {
   @Input() ads: AdItem[];
   currentAdIndex = -1;
   isShowAD = true;
-  @ViewChild(AdDirective) adHost: AdDirective;
+  @ViewChild(AdDirective, { static: false }) adHost: AdDirective;
   interval: any;
 
   constructor(private componentFactoryResolver: ComponentFactoryResolver) { }
@@ -49,7 +49,7 @@ export class AdBannerComponent implements OnInit, OnDestroy {
 
     const componentRef = viewContainerRef.createComponent(componentFactory);
 
-    (<AdComponent>componentRef.instance).data = adItem.data;
+    (componentRef.instance as AdComponent).data = adItem.data;
 
   }
 

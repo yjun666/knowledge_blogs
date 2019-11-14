@@ -232,13 +232,13 @@ export class SideBarComponent implements OnInit, AfterViewInit, OnDestroy {
                 this.catalog = res;
             });
 
-        window.addEventListener('resize', function () {
+        window.addEventListener('resize', () => {
             $('#catalog-details').getNiceScroll().resize();
         });
     }
 
     ngOnDestroy() {
-        window.removeEventListener('resize', function () {
+        window.removeEventListener('resize', () => {
             $('#catalog-details').getNiceScroll().resize();
         });
     }
@@ -264,15 +264,15 @@ export class SideBarComponent implements OnInit, AfterViewInit, OnDestroy {
         const curEleClassName = event.className;
         const catalog$ = from(this.catalog);
 
-        const catalog$New = catalog$.pipe(filter((val) => val['id'] === param.id))
+        const catalog$New = catalog$.pipe(filter((val: any) => val.id === param.id))
             .subscribe((data) => {
-                data['isShow'] = !data['isShow']; // 控制二级目录是否显示即一级目录是否打开
+                data.isShow = !data.isShow; // 控制二级目录是否显示即一级目录是否打开
                 // console.log(data['id']);
                 // 控制三级目录是否显示即二级目录是否打开
-                catalog$.pipe(filter((val) => val['parentId'] === data['id']))
+                catalog$.pipe(filter((val: any) => val.parentId === data.id))
                     .subscribe((data2) => {
-                        if (!data['isShow']) {
-                            data2['isShow'] = false;
+                        if (!data.isShow) {
+                            data2.isShow = false;
                         }
                     }).unsubscribe();
             }).unsubscribe();

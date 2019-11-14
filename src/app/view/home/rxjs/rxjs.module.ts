@@ -2,13 +2,13 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 
-import { LodashComponent } from './lodash.component';
-import { LodashDetailsModule } from '../../components/lodashDetails/lodashDetails.module';
+import { RxjsComponent } from './rxjs.component';
+import { RxjsDetailsModule } from '../../../components/rxjsDetails/rxjsDetails.module';
 
 const routes: Routes = [
     {
         path: '',
-        component: LodashComponent
+        component: RxjsComponent
     }
 ];
 
@@ -16,13 +16,13 @@ const routes: Routes = [
     imports: [
         RouterModule.forChild(routes),
         CommonModule,
-        LodashDetailsModule
+        RxjsDetailsModule
     ],
     declarations: [
-        LodashComponent
+        RxjsComponent
     ],
     exports: [
         RouterModule
     ]
 })
-export class LodashModule { }
+export class RxjsModule { }

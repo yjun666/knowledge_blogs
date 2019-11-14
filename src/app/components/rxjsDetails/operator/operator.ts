@@ -12,18 +12,18 @@ import { RepeatWhenItem, RepeatWhen } from './repeatWhen';
 import { Defer, DeferItem } from './defer';
 
 export interface OperatorItem {
-    rangeFun: Function;
-    concatAllFun: Function;
-    takeFun: Function;
-    ajaxFun: Function;
-    mapToFun: Function;
-    takeUntilFun: Function;
-    switchMapFun: Function;
-    zipFun: Function;
-    startWithFun: Function;
-    timeStampFun: Function;
-    repeatWhenFun: Function;
-    deferFun: Function;
+    rangeFun: () => void;
+    concatAllFun: () => void;
+    takeFun: () => void;
+    ajaxFun: () => void;
+    mapToFun: () => void;
+    takeUntilFun: () => void;
+    switchMapFun: () => void;
+    zipFun: () => void;
+    startWithFun: () => void;
+    timeStampFun: () => void;
+    repeatWhenFun: () => void;
+    deferFun: () => void;
 }
 
 

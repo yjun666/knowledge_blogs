@@ -31,9 +31,9 @@ export class HeaderComponent implements OnInit {
         this.translate.use(language);
     }
 
-    private logout() {
+    public logout() {
         this.loginService.isLoggedIn = false;
-        sessionStorage['wwwYjunsCn'] = this.loginService.isLoggedIn;
+        sessionStorage.wwwYjunsCn = this.loginService.isLoggedIn;
         this.router.navigate(['./login']);
     }
 }

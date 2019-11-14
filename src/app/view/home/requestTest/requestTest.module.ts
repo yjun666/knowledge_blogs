@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 
 import { RequestTestComponent } from './requestTest.component';
-import { RequestTestDetailsModule } from '../../components/requestTestDetails/requestTestDetails.module';
-import { UploaderModule } from '../../components/upload/uploader.module';
+import { RequestTestDetailsModule } from '../../../components/requestTestDetails/requestTestDetails.module';
+import { UploaderModule } from '../../../components/upload/uploader.module';
 
 const routes: Routes = [
     {

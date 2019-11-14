@@ -3,7 +3,7 @@ import { map, takeUntil, takeLast, first, last, skip, skipLast } from 'rxjs/oper
 
 
 export interface TakeUntilItem {
-    takeUntilApply: Function; // takeUntil用法
+    takeUntilApply: () => void; // takeUntil用法
 }
 
 export class TakeUntil implements TakeUntilItem {

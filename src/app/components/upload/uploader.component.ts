@@ -56,9 +56,11 @@ export class UploaderComponent {
 
         ipt.click();
         const that = this;
+        // tslint:disable-next-line: space-before-function-paren
         ipt.onchange = function () {
-            console.log(this['files'][0]);
-            vm.fileList.push(this['files'][0]);
+            const self: any = this;
+            console.log(self.files[0]);
+            vm.fileList.push(self.files[0]);
             // tslint:disable-next-line:no-unused-expression
             callback && callback(vm);
         };
@@ -84,7 +86,7 @@ export class UploaderComponent {
     }
 
     // 获取当前上传文件的进度事件
-    private getEventMessage(event: HttpEvent<any>, progressFn: Function, fn: Function) {
+    private getEventMessage(event: HttpEvent<any>, progressFn: (T) => void, fn: (T) => void) {
         // console.log(event);
         // console.log(event.type, '====', HttpEventType.Sent, HttpEventType.UploadProgress, HttpEventType.Response);
         switch (event.type) {
@@ -93,7 +95,7 @@ export class UploaderComponent {
                 break;
             // 正在上传
             case HttpEventType.UploadProgress:
-                const percentDone = Math.round(100 * event['loaded'] / event['total']);
+                const percentDone = Math.round(100 * event.loaded / event.total);
                 console.log(percentDone);
                 progressFn(`${percentDone}%`);
                 return `${percentDone}%`;

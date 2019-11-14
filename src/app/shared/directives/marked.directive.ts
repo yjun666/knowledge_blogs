@@ -2,6 +2,7 @@ import { Directive, OnInit, ElementRef, Input, OnChanges } from '@angular/core';
 
 // import marked from 'marked';
 
+// tslint:disable-next-line: one-variable-per-declaration
 declare const $, hljs, marked;
 @Directive({ selector: '[appMarked]' })
 export class AppMarkedDirective implements OnInit {
@@ -11,22 +12,22 @@ export class AppMarkedDirective implements OnInit {
     @Input() appMarked; // 整个对象
     ngOnInit() {
         marked.setOptions({
-            'baseUrl': null,
-            'breaks': false,
-            'gfm': true,
-            'headerIds': true,
-            'headerPrefix': '',
-            'langPrefix': 'language-',
-            'mangle': true,
-            'pedantic': false,
-            'sanitize': false,
-            'sanitizer': null,
-            'silent': false,
-            'smartLists': false,
-            'smartypants': false,
-            'tables': true,
-            'xhtml': false,
-            highlight: function (code) {
+            baseUrl: null,
+            breaks: false,
+            gfm: true,
+            headerIds: true,
+            headerPrefix: '',
+            langPrefix: 'language-',
+            mangle: true,
+            pedantic: false,
+            sanitize: false,
+            sanitizer: null,
+            silent: false,
+            smartLists: false,
+            smartypants: false,
+            tables: true,
+            xhtml: false,
+            highlight(code) {
                 return hljs.highlightAuto(code).value;
             },
         });
@@ -51,8 +52,8 @@ export class AppMarkedDirective implements OnInit {
             const data = await this.getMarkDown();
             const code = this.element.nativeElement.getElementsByTagName('code');
             console.log(code);
-            Array.from(code).map((item, itemIndex, itemArr) => {
-                item['className'] = 'JavaScript hljs';
+            Array.from(code).map((item: any, itemIndex, itemArr) => {
+                item.className = 'JavaScript hljs';
             });
         } catch (error) {
             console.error(error);

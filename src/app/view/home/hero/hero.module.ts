@@ -6,7 +6,7 @@ import { HeroComponent } from './hero.component';
 import { HeroService } from './hero.service';
 import { MockHeroService } from './mock_hero.service';
 
-import { AppTitleHoverShowModule, EllipsisMultilineDirectiveModule } from '../../shared/directives';
+import { AppTitleHoverShowModule, EllipsisMultilineDirectiveModule } from '../../../shared/directives';
 
 const routes: Routes = [
     {
@@ -26,7 +26,8 @@ const routes: Routes = [
     ],
     providers: [
         {
-            provide: HeroService, useClass: MockHeroService // 使用useclass进行mock数据与heroService中数据进行切换，当本地调试时可使用mock数据，使用线上数据时改为HeroService,人工手动创建mock数据时需要与后台数据格式一致
+            provide: HeroService, useClass: MockHeroService
+            // 使用useclass进行mock数据与heroService中数据进行切换，当本地调试时可使用mock数据，使用线上数据时改为HeroService,人工手动创建mock数据时需要与后台数据格式一致
             // provide: HeroService, useClass: HeroService // 使用useclass进行mock数据与heroService中数据进行切换，当本地调试时可使用mock数据，使用线上数据时改为HeroService
         },
         {

@@ -2,12 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router, ActivatedRoute, ParamMap, RouterOutlet } from '@angular/router';
 
+
 @Component({
-    selector: 'app-lodash',
-    templateUrl: './lodash.component.html',
-    styleUrls: ['./lodash.component.scss']
+    selector: 'app-rxjs',
+    templateUrl: './rxjs.component.html',
+    styleUrls: ['./rxjs.component.scss']
 })
-export class LodashComponent implements OnInit {
+export class RxjsComponent implements OnInit {
 
     constructor(
         private http: HttpClient,
@@ -16,8 +17,8 @@ export class LodashComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.route.paramMap.subscribe((data) => {
-            console.log(data['params']);
+        this.route.paramMap.subscribe((data: any) => {
+            console.log(data.params);
         });
     }
 

@@ -13,7 +13,7 @@ import { take } from 'rxjs/internal/operators/take';
 // withLatestFrom  将源Observable与其他Observable组合以创建一个Observable，其值仅根据源发出的值从每个值的最新值计算。
 
 export interface TimeStampItem {
-    timeStampApply: Function; // timeStamp用法
+    timeStampApply: () => void; // timeStamp用法
 }
 
 export class TimeStamp implements TimeStampItem {

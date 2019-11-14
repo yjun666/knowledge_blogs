@@ -87,7 +87,7 @@ export class ShardMethodService {
             return;
         }
         if (styleObj.empty) {
-            ele['style'] = '';
+            ele.style = '';
             return;
         }
 
@@ -95,14 +95,14 @@ export class ShardMethodService {
         if (this.typeof(ele) === 'Array') {
             ele.map(x => {
                 for (const [key, value] of Object.entries(styleObj)) {
-                    x['style'][key] = value;
+                    x.style[key] = value;
                 }
             });
             return;
         }
         // 如果不是一个数组，那么单独给元素添加样式
         for (const [key, value] of Object.entries(styleObj)) {
-            ele['style'][key] = value;
+            ele.style[key] = value;
         }
     }
 
@@ -132,7 +132,7 @@ export class ShardMethodService {
      * @param argument 求和的所有参数
      */
     public getSum() {
-        return Array.from(arguments).reduce(function (preValue, curValue, index, array) {
+        return Array.from(arguments).reduce((preValue, curValue, index, array) => {
             console.log(parseInt(preValue, 10), parseInt(curValue, 10));
             return parseInt(preValue, 10) + parseInt(curValue, 10);
         });
@@ -143,7 +143,7 @@ export class ShardMethodService {
      * @param argument 求差值的所有参数
      */
     public getDiffVal() {
-        return Array.from(arguments).reduce(function (preValue, curValue, index, array) {
+        return Array.from(arguments).reduce((preValue, curValue, index, array) => {
             console.log(parseInt(preValue, 10), parseInt(curValue, 10));
             return parseInt(preValue, 10) - parseInt(curValue, 10);
         });
@@ -170,9 +170,11 @@ export class ShardMethodService {
 
         ipt.click();
         const that = this;
+        // tslint:disable-next-line:space-before-function-paren
         ipt.onchange = function () {
-            console.log(this, this['files'][0]);
-            vm.fileList.push(this['files'][0]);
+            const self: any = this;
+            console.log(self, self.files[0]);
+            vm.fileList.push(self.files[0]);
             // console.log(vm.fileList);
             // tslint:disable-next-line:no-unused-expression
             callback && callback(vm);
@@ -194,7 +196,12 @@ export class ShardMethodService {
         }
         if (this.typeof(date) === 'date') {
             const time = date ? new Date(date) : new Date();
-            const year = String(time.getFullYear()), month = (time.getMonth() + 1) < 10 ? '0' + String((time.getMonth() + 1)) : String((time.getMonth() + 1)), day = time.getDate() < 10 ? '0' + String(time.getDate()) : String(time.getDate());
+            // tslint:disable-next-line:one-variable-per-declaration
+            const year = String(time.getFullYear()), month = (time.getMonth() + 1) < 10 ?
+                '0' + String((time.getMonth() + 1)) :
+                String((time.getMonth() + 1)), day = time.getDate() < 10 ?
+                    '0' + String(time.getDate()) :
+                    String(time.getDate());
             return year + '-' + month + '-' + day;
         } else {
             console.warn('当前不是日期格式', date);

@@ -1,5 +1,5 @@
 import { Directive, OnChanges, Input, SimpleChanges, ElementRef, OnDestroy } from '@angular/core';
-declare const $, lenovoPublic;
+declare const $;
 // js控制多行文本溢出显示省略号，在浏览器屏幕缩小时会有一行文字都显示不开的情况会出没有文字显示的问题,设置最小高度也不好用
 @Directive({ selector: '[appEllipsisMultiline]' })
 export class EllipsisMultilineDirective implements OnChanges, OnDestroy {

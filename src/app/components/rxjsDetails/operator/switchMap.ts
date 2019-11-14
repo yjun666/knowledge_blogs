@@ -2,7 +2,7 @@ import { fromEvent, interval, of } from 'rxjs';
 import { map, take, switchAll, mergeAll, switchMap, concatMap } from 'rxjs/operators';
 
 export interface SwitchMapItem {
-    switchMapApply: Function; // switchMap用法
+    switchMapApply: () => void; // switchMap用法
 }
 
 export class SwitchMap implements SwitchMapItem {
@@ -13,7 +13,7 @@ export class SwitchMap implements SwitchMapItem {
             clicks.pipe(switchMap((ev) => interval(1000).pipe(map(x => {
                 // console.log(x);
                 return x;
-            })))).subscribe((data) => { console.log(data) });
+            })))).subscribe((data) => { console.log(data); });
         }
 
 

@@ -2,7 +2,8 @@ import { fromEvent, interval } from 'rxjs';
 import { map, take, switchAll, concatAll, mergeAll } from 'rxjs/operators';
 
 export interface ConcatAllItem {
-    concatAllApply: Function; // concatAll用法
+    concatAllApply: () => void; // concatAll用法
+
 }
 
 export class ConcatAll implements ConcatAllItem {

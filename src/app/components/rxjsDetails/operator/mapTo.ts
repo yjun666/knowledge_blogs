@@ -1,7 +1,7 @@
 import { fromEvent, interval } from 'rxjs';
 import { mapTo, map } from 'rxjs/operators';
 export interface MapToItem {
-    mapToApply: Function; // mapTo用法
+    mapToApply: () => void; // mapTo用法
 }
 
 export class MapTo implements MapToItem {

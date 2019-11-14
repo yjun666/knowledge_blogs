@@ -4,18 +4,18 @@ import { from } from 'rxjs/internal/observable/from';
 import { startWith } from 'rxjs/internal/operators';
 
 export interface StartWithItem {
-    startWithApply: Function; // startWith用法
+    startWithApply: () => void; // startWith用法
 }
 
 export class StartWith implements StartWithItem {
     startWithApply() {
         const source$ = fromEvent(document, 'click');
-        let number = 0;
+        let num = 0;
         const fakeRequest = x => {
             return new Promise((resolve, reject) => {
                 setTimeout(() => {
                     console.log('aa');
-                    resolve(number++);
+                    resolve(num++);
                 }, 1000);
             });
         };

@@ -4,7 +4,7 @@ import { ajax } from 'rxjs/ajax';
 
 
 export interface AjaxItem {
-    ajaxApply: Function; // take用法
+    ajaxApply: () => void; // take用法
 }
 
 export class Ajax implements AjaxItem {

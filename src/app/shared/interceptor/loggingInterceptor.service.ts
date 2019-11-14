@@ -1,7 +1,7 @@
 // 拦截器记录日志，监听请求的返回时间成功还是失败------摘抄自官网
 import { Injectable } from '@angular/core';
 import { finalize, tap } from 'rxjs/operators';
-window['messenger'] = [];
+
 import {
     HttpEvent, HttpInterceptor, HttpHandler, HttpRequest, HttpResponse
 } from '@angular/common/http';
@@ -10,6 +10,7 @@ import { Observable } from 'rxjs';
 
 @Injectable()
 export class LoggingInterceptor implements HttpInterceptor {
+    messenger = [];
     constructor() { }
 
     intercept(req: HttpRequest<any>, next: HttpHandler) {
@@ -29,8 +30,8 @@ export class LoggingInterceptor implements HttpInterceptor {
                 finalize(() => {
                     const elapsed = Date.now() - started;
                     const msg = `${req.method} "${req.urlWithParams}" ${ok} in ${elapsed} ms.`;
-                    window['messenger'].push(msg);
-                    console.log(window['messenger']);
+                    this.messenger.push(msg);
+                    console.log(this.messenger);
                 })
             );
     }

@@ -9,12 +9,12 @@ export class LoginService {
     constructor(
         private http: HttpClient
     ) { }
-    isLoggedIn = sessionStorage['wwwYjunsCn'] || false;
+    isLoggedIn = sessionStorage.wwwYjunsCn || false;
 
     // store the URL so we can redirect after logging in
     redirectUrl: string;
 
-    login(): Observable<Object> {
+    login(): Observable<any> {
         return this.http.get('/assets/json/markdownCatalog.json');  // 模拟请求，看subscribe是否等待请求成功才调用
 
         // // 下边使用延时模拟请求延时

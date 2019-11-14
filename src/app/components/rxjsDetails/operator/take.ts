@@ -3,7 +3,7 @@ import { map, take } from 'rxjs/operators';
 
 
 export interface TakeItem {
-    takeApply: Function; // take用法
+    takeApply: () => void; // take用法
 }
 
 export class Take implements TakeItem {

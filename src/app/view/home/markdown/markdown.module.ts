@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 
 import { MarkdownComponent } from './markdown.component';
-import { SideBarModule } from '../../components/sidebar/sidebar.module';
-import { MarkdownDetailsModule } from '../../components/markdownDetails/markdownDetails.module';
+import { SideBarModule } from '../../../components/sidebar/sidebar.module';
+import { MarkdownDetailsModule } from '../../../components/markdownDetails/markdownDetails.module';
 
 
 

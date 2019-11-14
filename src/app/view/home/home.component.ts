@@ -25,8 +25,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
     }
 
     ngOnInit() {
-        this.route.paramMap.subscribe((data) => {
-            console.log(data['params']);
+        this.route.paramMap.subscribe((data: any) => {
+            console.log(data.params);
         });
     }
 
@@ -34,6 +34,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
     getAnimationData(outlet: RouterOutlet) {
         // console.log(outlet, outlet.activatedRouteData, outlet.activatedRouteData['animation']);
-        return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
+        return outlet && outlet.activatedRouteData && outlet.activatedRouteData.animation;
     }
 }

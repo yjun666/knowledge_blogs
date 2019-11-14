@@ -9,8 +9,9 @@ export class AppTitleHoverShowDirective implements OnInit {
     ngOnInit() { }
 
     @HostListener('mousemove', ['$event.target'])
-    titleHoverShow(eventTarget, event) {
-        const e = event || window.event;
+    titleHoverShow(eventTarget) {
+        // tslint:disable-next-line: deprecation
+        const e: any = event || window.event;
         const removeClass = document.getElementsByClassName('titleHoverShow');
         const bodyScrollTop = $('html')[0].scrollTop;
         if (Array.from(removeClass).length !== 0) {

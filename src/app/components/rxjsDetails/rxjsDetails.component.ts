@@ -21,8 +21,8 @@ export class RxjsDetailsComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.route.paramMap.subscribe((data) => {
-            console.log(data['params']);
+        this.route.paramMap.subscribe((data: any) => {
+            console.log(data.params);
         });
         this.operatorApply();
     }

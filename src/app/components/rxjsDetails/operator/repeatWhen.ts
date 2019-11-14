@@ -4,7 +4,7 @@ import { ajax } from 'rxjs/ajax';
 
 
 export interface RepeatWhenItem {
-    repeatWhenApply: Function; // take用法
+    repeatWhenApply: () => void; // take用法
 }
 
 export class RepeatWhen implements RepeatWhenItem {
@@ -33,7 +33,7 @@ export class RepeatWhen implements RepeatWhenItem {
             // @example 03    每隔3s重播一次数据流
             const source2 = of(0, 1, 2, 3, 4, 5);
             const example2 = source2.pipe(repeatWhen(delay(3000)));
-            example2.subscribe((x) => { console.log(x) })
+            example2.subscribe((x) => { console.log(x); });
         }
     }
 }

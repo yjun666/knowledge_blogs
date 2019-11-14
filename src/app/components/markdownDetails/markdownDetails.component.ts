@@ -32,7 +32,7 @@ export class MarkdownDetailsComponent implements OnInit, AfterViewInit, OnDestro
             this.title = data.title;
             this.curOption = data.pageOption;
         });
-        window.addEventListener('resize', function () {
+        window.addEventListener('resize', () => {
             vm.markdownDetailsService.niceScroll('markdown-details-body', false);
         });
         this.search();
@@ -44,7 +44,7 @@ export class MarkdownDetailsComponent implements OnInit, AfterViewInit, OnDestro
 
     ngOnDestroy() {
         const vm = this;
-        window.removeEventListener('resize', function () {
+        window.removeEventListener('resize', () => {
             vm.markdownDetailsService.niceScroll('markdown-details-body', false);
         });
         this.searchBoxSubscribe$.unsubscribe();
@@ -74,7 +74,7 @@ export class MarkdownDetailsComponent implements OnInit, AfterViewInit, OnDestro
     search() {
         const searchBox = document.getElementById('searchBoxMd');
         const searchBox$ = fromEvent(searchBox, 'input').pipe(
-            map((e: KeyboardEvent) => e.target['value']),
+            map((e: any) => e.target.value),
             filter(text => text.length > 2),
             debounceTime(1000),
             distinctUntilChanged()
