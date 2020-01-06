@@ -1,2 +1,2 @@
-export * from './requestTestDetails.component';
+export * from './requestTestDetails/requestTestDetails.component';
 

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, ViewChild, ComponentFactoryResolver, OnDestroy } from '@angular/core';
+import { Component, Input, OnInit, ViewChild, ComponentFactoryResolver, OnDestroy, AfterViewInit } from '@angular/core';
 
 import { AdDirective } from './ad.directive';
 import { AdItem } from './ad-item';
@@ -14,7 +14,7 @@ import { AdComponent } from './ad.component';
               </div>
             `
 })
-export class AdBannerComponent implements OnInit, OnDestroy {
+export class AdBannerComponent implements OnInit, OnDestroy, AfterViewInit {
   @Input() ads: AdItem[];
   currentAdIndex = -1;
   isShowAD = true;
@@ -28,9 +28,13 @@ export class AdBannerComponent implements OnInit, OnDestroy {
     this.isShowAD = false;
   }
 
-  ngOnInit() {
-    this.loadComponent();
-    this.getAds();
+  ngOnInit() { }
+
+  ngAfterViewInit(): void {
+    setTimeout(() => {
+      this.loadComponent();
+      this.getAds();
+    }, 1000);
   }
 
   ngOnDestroy() {

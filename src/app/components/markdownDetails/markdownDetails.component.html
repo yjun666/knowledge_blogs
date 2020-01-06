@@ -20,10 +20,11 @@
     </div>
     <ng-template ngFor let-item [ngForOf]='curOption'>
       <div class="img-content" *ngIf='item.type=="img"'>
-        <img [attr.src]='item.imgSrc' [ngStyle]="item.imgStyle" alt="">
+        <img [attr.src]='$any(item).imgSrc' [ngStyle]="$any(item).imgStyle" alt="">
       </div>
       <div class="md-content" id='md' *ngIf='item.type=="md"' [appMarked]='item'></div>
-      <iframe class="iframe-content" id='iframe' *ngIf='item.type=="iframeHtml"' [attr.src]='item.iframeSrc'></iframe>
+      <iframe class="iframe-content" id='iframe' *ngIf='item.type=="iframeHtml"'
+        [attr.src]='$any(item).iframeSrc'></iframe>
     </ng-template>
     <!-- <img src="./assets/knowledge_img/team中國自.png" alt=""> -->
   </div>

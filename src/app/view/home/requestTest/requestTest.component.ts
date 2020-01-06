@@ -1,23 +1,25 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { MessageService } from '../../../shared/services/message.service';
 
 declare const $;
 @Component({
-    selector: 'app-request-test-parent',
-    templateUrl: './requestTest.component.html',
-    styleUrls: ['./requestTest.component.scss']
+  selector: 'app-request-test-parent',
+  templateUrl: './requestTest.component.html',
+  styleUrls: ['./requestTest.component.scss']
 })
 export class RequestTestComponent implements OnInit, AfterViewInit {
-    constructor(
-        private http: HttpClient,
-        private router: Router,
-    ) { }
-    ngOnInit() {
+  uploader: boolean = false;
+  requestTest: boolean = false;
+  constructor(
+    public messageService: MessageService,
+  ) { }
+  ngOnInit() {
 
-    }
+  }
 
-    ngAfterViewInit(): void {
+  ngAfterViewInit(): void {
 
-    }
+  }
 }

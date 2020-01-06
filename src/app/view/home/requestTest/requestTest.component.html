@@ -1,2 +1,18 @@
-<app-request-test></app-request-test>
-<app-uploader></app-uploader>
+<div>
+  <label nz-checkbox [(ngModel)]="uploader">uploader</label>
+  <label nz-checkbox [(ngModel)]="requestTest">requestTest</label>
+</div>
+<hr />
+<app-uploader *ngIf='uploader'></app-uploader>
+<hr />
+<app-request-test *ngIf='requestTest'></app-request-test>
+<hr />
+
+<ng-template [ngIf]='uploader||requestTest'>
+  <h1>Message:</h1>
+  <div class="lanjieqi-logs">
+    <ng-template ngFor let-item let-i='index' [ngForOf]='messageService.messages'>
+      <span>{{item}}</span>
+    </ng-template>
+  </div>
+</ng-template>
