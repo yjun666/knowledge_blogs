@@ -33,10 +33,12 @@
     <div nz-col nzSpan="8" class="header-right">
       <div id="i18n" class="middle">
         <span class="translate-test">{{ text | translate }}</span>
-        <nz-dropdown>
-          <a nz-dropdown style="color: #fff;"> change laguage
-            <i nz-icon type="down"></i>
-          </a>
+
+        <a nz-dropdown [nzDropdownMenu]="menu">
+          change laguage
+          <i nz-icon nzType="down"></i>
+        </a>
+        <nz-dropdown-menu #menu="nzDropdownMenu">
           <ul nz-menu nzSelectable>
             <li nz-menu-item>
               <a href="javascript:void(0)" (click)="changeLang('en')">
@@ -79,7 +81,7 @@
               </a>
             </li>
           </ul>
-        </nz-dropdown>
+        </nz-dropdown-menu>
       </div>
 
       <div class="account-message middle" (click)='showUserDetails(isShowUserDetails)'>
