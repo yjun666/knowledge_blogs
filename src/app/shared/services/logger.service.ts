@@ -3,15 +3,14 @@ import { SelectivePreloadingStrategyService } from './selective-preloading-strat
 
 @Injectable()
 export class LoggerService {
-    constructor(
-        private enable: boolean,
-        private selectivePreloadingStrategyService: SelectivePreloadingStrategyService
-    ) { }
-    log(fn) {
-        if (this.enable) {
-            console.log(this.selectivePreloadingStrategyService.preloadedModules);
-            fn();
-        }
+  constructor(
+    private enable: boolean,
+    private selectivePreloadingStrategyService: SelectivePreloadingStrategyService
+  ) { }
+  log(fn) {
+    if (this.enable) {
+      fn();
     }
+  }
 
 }

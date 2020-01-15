@@ -2,8 +2,9 @@ import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 
-import { AdService } from './components/ad-banner/ad.service';
+import { AdService } from './components/shared/ad-banner/ad.service';
 import { LoggerService } from './shared/services/logger.service';
+import { RouterService } from './shared/services/router.service';
 
 declare const $;
 @Component({
@@ -19,6 +20,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     private router: Router,
     public adService: AdService,
     public loggerService: LoggerService,
+    public routerService: RouterService,
   ) { }
 
   ngOnInit() {

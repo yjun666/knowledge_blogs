@@ -18,8 +18,7 @@ import { AuthGuard } from './shared/auth';
 import { httpInterceptorProviders } from './shared/interceptor';
 
 // module
-import { AlertModule } from './components/alert/alert.module';
-import { ADModule } from './components/ad-banner/ad.module';
+import { ADModule } from './components/shared/ad-banner/ad.module';
 import { LanguageTranslationModule } from '../app/shared/modules/language-translation/language-translation.module';
 import { NZ_I18N, zh_CN } from 'ng-zorro-antd';
 // service
@@ -28,11 +27,12 @@ import { RequestCacheWithMap } from './shared/services/request-cache.service';
 import { LoginService } from './shared/services/login.service';
 import { LoggerService } from './shared/services/logger.service';
 import { UploaderService } from './shared/services/uploader.service';
+import { RouterService } from './shared/services/router.service';
 import { ShardMethodService } from './shared/services/share-method.service';
+import { UpdataSubjectService } from './shared/services/subject.service';
 import { SelectivePreloadingStrategyService } from './shared/services/selective-preloading-strategy.service';
 
 const modules = [
-  AlertModule,
   HttpClientJsonpModule,
   ADModule,
   LanguageTranslationModule
@@ -53,6 +53,8 @@ const services = [
   UploaderService,
   SelectivePreloadingStrategyService,
   ShardMethodService,
+  RouterService,
+  UpdataSubjectService,
   {
     provide: LoggerService,
     // 输入参数控制是否开启打印

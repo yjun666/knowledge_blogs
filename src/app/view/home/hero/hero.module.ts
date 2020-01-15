@@ -5,41 +5,42 @@ import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 import { HeroComponent } from './hero.component';
 import { HeroService } from './hero.service';
 import { MockHeroService } from './mock_hero.service';
-
+import { RouterService } from '../../../shared/services/router.service';
 import { AppTitleHoverShowModule, EllipsisMultilineDirectiveModule } from '../../../shared/directives';
 
 const routes: Routes = [
-    {
-        path: '',
-        component: HeroComponent
-    }
+  {
+    path: '',
+    component: HeroComponent
+  }
 ];
 
 @NgModule({
-    imports: [
-        RouterModule.forChild(routes),
-        CommonModule,
-        HttpClientModule,
+  imports: [
+    RouterModule.forChild(routes),
+    CommonModule,
+    HttpClientModule,
 
-        AppTitleHoverShowModule,
-        EllipsisMultilineDirectiveModule,
-    ],
-    providers: [
-        {
-            provide: HeroService, useClass: MockHeroService
-            // 使用useclass进行mock数据与heroService中数据进行切换，当本地调试时可使用mock数据，使用线上数据时改为HeroService,人工手动创建mock数据时需要与后台数据格式一致
-            // provide: HeroService, useClass: HeroService // 使用useclass进行mock数据与heroService中数据进行切换，当本地调试时可使用mock数据，使用线上数据时改为HeroService
-        },
-        {
-            provide: 'apiUrl',
-            useValue: 'http://localhost:3000/list/searchHero'
-        }
-    ],
-    declarations: [
-        HeroComponent
-    ],
-    exports: [
-        RouterModule
-    ]
+    AppTitleHoverShowModule,
+    EllipsisMultilineDirectiveModule,
+  ],
+  providers: [
+    RouterService,
+    {
+      provide: HeroService, useClass: MockHeroService
+      // 使用useclass进行mock数据与heroService中数据进行切换，当本地调试时可使用mock数据，使用线上数据时改为HeroService,人工手动创建mock数据时需要与后台数据格式一致
+      // provide: HeroService, useClass: HeroService // 使用useclass进行mock数据与heroService中数据进行切换，当本地调试时可使用mock数据，使用线上数据时改为HeroService
+    },
+    {
+      provide: 'apiUrl',
+      useValue: 'http://localhost:3000/list/searchHero'
+    }
+  ],
+  declarations: [
+    HeroComponent
+  ],
+  exports: [
+    RouterModule
+  ]
 })
 export class HeroModule { }

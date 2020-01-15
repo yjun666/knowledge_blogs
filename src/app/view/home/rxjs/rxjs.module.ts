@@ -6,23 +6,23 @@ import { RxjsComponent } from './rxjs.component';
 import { RxjsDetailsModule } from '../../../components/rxjsDetails/rxjsDetails.module';
 
 const routes: Routes = [
-    {
-        path: '',
-        component: RxjsComponent
-    }
+  {
+    path: '',
+    component: RxjsComponent
+  }
 ];
 
 @NgModule({
-    imports: [
-        RouterModule.forChild(routes),
-        CommonModule,
-        RxjsDetailsModule
-    ],
-    declarations: [
-        RxjsComponent
-    ],
-    exports: [
-        RouterModule
-    ]
+  imports: [
+    RouterModule.forChild(routes),
+    CommonModule,
+    RxjsDetailsModule
+  ],
+  declarations: [
+    RxjsComponent
+  ],
+  exports: [
+    RouterModule
+  ]
 })
 export class RxjsModule { }

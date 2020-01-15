@@ -6,23 +6,23 @@ import { LodashComponent } from './lodash.component';
 import { LodashDetailsModule } from '../../../components/lodashDetails/lodashDetails.module';
 
 const routes: Routes = [
-    {
-        path: '',
-        component: LodashComponent
-    }
+  {
+    path: '',
+    component: LodashComponent
+  }
 ];
 
 @NgModule({
-    imports: [
-        RouterModule.forChild(routes),
-        CommonModule,
-        LodashDetailsModule
-    ],
-    declarations: [
-        LodashComponent
-    ],
-    exports: [
-        RouterModule
-    ]
+  imports: [
+    RouterModule.forChild(routes),
+    CommonModule,
+    LodashDetailsModule
+  ],
+  declarations: [
+    LodashComponent
+  ],
+  exports: [
+    RouterModule
+  ]
 })
 export class LodashModule { }

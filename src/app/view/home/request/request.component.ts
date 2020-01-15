@@ -6,8 +6,8 @@ import { MessageService } from '../../../shared/services/message.service';
 declare const $;
 @Component({
   selector: 'app-request-test-parent',
-  templateUrl: './requestTest.component.html',
-  styleUrls: ['./requestTest.component.scss']
+  templateUrl: './request.component.html',
+  styleUrls: ['./request.component.scss']
 })
 export class RequestTestComponent implements OnInit, AfterViewInit {
   uploader: boolean = false;

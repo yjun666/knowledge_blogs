@@ -6,10 +6,10 @@ import { MessageService } from '../../../shared/services/message.service';
 declare const $;
 @Component({
   selector: 'app-request-test',
-  templateUrl: './requestTestDetails.component.html',
-  styleUrls: ['./requestTestDetails.component.scss']
+  templateUrl: './requestTest.component.html',
+  styleUrls: ['./requestTest.component.scss']
 })
-export class RequestTestDetailsComponent implements OnInit, AfterViewInit {
+export class RequestTestComponent implements OnInit, AfterViewInit {
   title = 'knowledgeBlogs';
   constructor(
     private http: HttpClient,

@@ -6,25 +6,27 @@ import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class LoginService {
-    constructor(
-        private http: HttpClient
-    ) { }
-    isLoggedIn = sessionStorage.wwwYjunsCn || false;
+  constructor(
+    private http: HttpClient
+  ) {
+    console.log('asdfasdfasdfasdfsafd');
+  }
+  isLoggedIn = sessionStorage.wwwYjunsCn || false;
 
-    // store the URL so we can redirect after logging in
-    redirectUrl: string;
+  // store the URL so we can redirect after logging in
+  redirectUrl: string;
 
-    login(): Observable<any> {
-        return this.http.get('/assets/json/markdownCatalog.json');  // 模拟请求，看subscribe是否等待请求成功才调用
+  login(): Observable<any> {
+    return this.http.get('/assets/json/markdownCatalog.json');  // 模拟请求，看subscribe是否等待请求成功才调用
 
-        // // 下边使用延时模拟请求延时
-        // return of(true).pipe(
-        //     delay(5000),
-        //     tap(val => this.isLoggedIn = true)
-        // );
-    }
+    // // 下边使用延时模拟请求延时
+    // return of(true).pipe(
+    //     delay(5000),
+    //     tap(val => this.isLoggedIn = true)
+    // );
+  }
 
-    logout(): void {
-        this.isLoggedIn = false;
-    }
+  logout(): void {
+    this.isLoggedIn = false;
+  }
 }

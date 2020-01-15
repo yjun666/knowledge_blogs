@@ -4,8 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
 
-import { RequestTestComponent } from './requestTest.component';
-import { RequestTestDetailsModule } from '../../../components/requestTestDetails/requestTestDetails/requestTestDetails.module';
+import { RequestTestComponent } from './request.component';
+import { RequestTestModule } from '../../../components/requestTestDetails/requestTest/requestTest.module';
 import { UploaderModule } from '../../../components/requestTestDetails/upload/uploader.module';
 
 const routes: Routes = [
@@ -22,7 +22,7 @@ const routes: Routes = [
     CommonModule,
     NzCheckboxModule,
 
-    RequestTestDetailsModule,
+    RequestTestModule,
     UploaderModule
   ],
   declarations: [
@@ -32,4 +32,4 @@ const routes: Routes = [
     RouterModule
   ]
 })
-export class RequestTestModule { }
+export class RequestModule { }
