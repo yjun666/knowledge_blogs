@@ -1,7 +1,7 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { LoginService } from '../../../shared/services/login.service';
+import { removeToken } from '../../../shared/utils/auth';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -15,7 +15,6 @@ export class HeaderComponent implements OnInit {
   constructor(
     private http: HttpClient,
     private router: Router,
-    private loginService: LoginService,
     private translate: TranslateService,
   ) { }
   ngOnInit() { }
@@ -32,8 +31,7 @@ export class HeaderComponent implements OnInit {
   }
 
   public logout() {
-    this.loginService.isLoggedIn = false;
-    sessionStorage.wwwYjunsCn = this.loginService.isLoggedIn;
+    removeToken();
     this.router.navigate(['./login']);
   }
 }
