@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NzInputModule } from 'ng-zorro-antd/input';
+import { NzButtonModule } from 'ng-zorro-antd/button';
+import { NzIconModule } from 'ng-zorro-antd/icon';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 import { HeroComponent } from './hero.component';
@@ -19,6 +22,9 @@ const routes: Routes = [
   imports: [
     RouterModule.forChild(routes),
     CommonModule,
+    NzInputModule,
+    NzButtonModule,
+    NzIconModule,
     HttpClientModule,
 
     AppTitleHoverShowModule,
@@ -27,13 +33,13 @@ const routes: Routes = [
   providers: [
     RouterService,
     {
-      provide: HeroService, useClass: MockHeroService
+      // provide: HeroService, useClass: MockHeroService
       // 使用useclass进行mock数据与heroService中数据进行切换，当本地调试时可使用mock数据，使用线上数据时改为HeroService,人工手动创建mock数据时需要与后台数据格式一致
-      // provide: HeroService, useClass: HeroService // 使用useclass进行mock数据与heroService中数据进行切换，当本地调试时可使用mock数据，使用线上数据时改为HeroService
+      provide: HeroService, useClass: HeroService // 使用useclass进行mock数据与heroService中数据进行切换，当本地调试时可使用mock数据，使用线上数据时改为HeroService
     },
     {
       provide: 'apiUrl',
-      useValue: 'http://localhost:3000/list/searchHero'
+      useValue: 'http://localhost:3000/list/search'
     }
   ],
   declarations: [

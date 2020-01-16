@@ -1,3 +1,11 @@
+<div class="example-input create-hero">
+  <input #content nz-input placeholder="content" nzSize="default" />
+  <input #name nz-input placeholder="name" nzSize="default" />
+  <input #value nz-input placeholder="value" nzSize="default" />
+  <input #age nz-input placeholder="age" nzSize="default" />
+  <button nz-button nzType="primary" (click)='createHero(content,name,value,age)'>submit</button>
+  <button nz-button nzType="primary" (click)='getHeros()'>search</button>
+</div>
 <section class="hero">
   <ul>
     <ng-template ngFor let-item let-i=index [ngForOf]='heros'>
@@ -12,14 +20,18 @@
 
 
 <!-- ngTemplateOutlet 使用方法传入对象时需要定义字段，在模版中使用 ------start -->
-<ng-template #mulStateBody let-value="value" let-id='id' let-content='content' let-name='name'>
-  <div [attr.id]='id'>{{content}}---{{id}}---{{value}}----{{name}}</div>
+<ng-template #mulStateBody let-value="value" let-id='_id' let-content='content' let-name='name'>
+  <div [attr.id]='id'>
+    <span>{{content}}---{{id}}---{{value}}----{{name}}</span>
+    <i style="margin-left: 15px;font-size: 16px;" (click)="deleteHero(id)" nz-icon nzType="close-circle"
+      nzTheme="outline"></i>
+  </div>
 </ng-template>
 <!-- ngTemplateOutlet 使用方法传入对象时需要定义字段，在模版中使用 ------end -->
 
 
 <!--  ngTemplateOutlet 模版中可以直接使用类中定义的参数，但给模版传参只能时对象，并且进行定义 start -->
-<ng-container *ngTemplateOutlet="mulStateBody2; context: {data:heros}"></ng-container>
+<!-- <ng-container *ngTemplateOutlet="mulStateBody2; context: {data:heros}"></ng-container> -->
 
 <ng-template #mulStateBody2 let-data='data'>
   {{data|json}}

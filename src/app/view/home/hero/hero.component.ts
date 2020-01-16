@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HeroService } from './hero.service';
 import { Heros } from './herosType';
 import { LoggerService } from '../../../shared/services/logger.service';
+import { GetJsonService } from '../../../shared/services/getJson.service';
 
 @Component({
   selector: 'app-hero',
@@ -18,19 +19,47 @@ export class HeroComponent implements OnInit {
 
   constructor(
     private heroService: HeroService,
+    private getJson: GetJsonService,
     private loggerService: LoggerService
   ) { }
 
 
   ngOnInit() {
     console.log('Fetching heros...');
-    this.getHeros();
   }
   getHeros() {
     this.heroService.getHeros()
       .subscribe(res => {
         this.heros = res.data;
         console.log(res);
+      });
+    // this.getJson.searchHero({ id: 123, name: 'asdfasdf' })
+    //   .subscribe((res: any) => {
+    //     this.heros = res.data;
+    //   });
+  }
+
+
+  /**
+   * 创建英雄
+   */
+  public createHero(content, name, value, age) {
+    const param = {
+      content: content.value,
+      // id: 'mnbvcxz' + parseInt(String(Math.random() * 1000000000000), 10),
+      // name: name.value,
+      // value: value.value,
+      // age: age.value,
+    };
+    this.getJson.createHero(param)
+      .subscribe((data) => {
+        this.getHeros();
+      });
+  }
+  public deleteHero(id: string) {
+    this.getJson.deleteHero({ id })
+      .subscribe((data) => {
+        this.getHeros();
       });
   }
 }

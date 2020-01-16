@@ -9,13 +9,13 @@ import { LoggerService } from '../../../shared/services/logger.service';
 
 @Injectable()
 export class HeroService {
-    heros: Array<Heros>;
-    constructor(
-        private loggerService: LoggerService,
-        private http: HttpClient,
-        @Inject('apiUrl') private apiUrl) { }
+  heros: Array<Heros>;
+  constructor(
+    private loggerService: LoggerService,
+    private http: HttpClient,
+    @Inject('apiUrl') private apiUrl) { }
 
-    getHeros(): Observable<any> {
-        return this.http.get(this.apiUrl);
-    }
+  getHeros(): Observable<any> {
+    return this.http.get(this.apiUrl);
+  }
 }

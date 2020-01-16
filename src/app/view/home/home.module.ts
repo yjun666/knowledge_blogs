@@ -13,6 +13,7 @@ import { HeaderModule } from '../../components/shared/header/header.module';
 
 import { AppTitleHoverShowModule } from '../../shared/directives';
 import { RouterService } from '../../shared/services/router.service';
+import { GetJsonService } from '../../shared/services/getJson.service';
 
 
 const adminRoutes: Routes = [
@@ -85,7 +86,8 @@ const adminRoutes: Routes = [
     RouterModule.forChild(adminRoutes)
   ],
   providers: [
-    RouterService
+    RouterService,
+    GetJsonService
   ],
   declarations: [
     HomeComponent

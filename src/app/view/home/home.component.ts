@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Router, ActivatedRoute, ParamMap, RouterOutlet } from '@angular/router';
 import { slideInAnimation } from './routerAnimation';
 import { RouterService } from '../../shared/services/router.service';
+import { GetJsonService } from '../../shared/services/getJson.service';
 import { SelectivePreloadingStrategyService } from '../../shared/services/selective-preloading-strategy.service';
 
 
@@ -20,6 +21,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
     public routerService: RouterService,
     public preloadStrategy: SelectivePreloadingStrategyService,
     private route: ActivatedRoute,
+    private getJson: GetJsonService,
     private http: HttpClient,
     private router: Router,
   ) {
