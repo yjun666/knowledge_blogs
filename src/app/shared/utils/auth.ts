@@ -5,6 +5,7 @@ const TokenKey = 'ssc_user_token';
 const UserName = 'nickName';
 const UserItCode = 'itcode';
 const Password = 'password';
+const CookieExpires = new Date(new Date().getTime() + 1000 * 60 * 60 * 24 * 1); // cookie 7天有效期，过期自动删除cookie
 
 export const getToken = () => Cookies.get(TokenKey);
 
@@ -14,7 +15,7 @@ export const isLogin = () => {
 };
 
 export const setToken = (token: string) => {
-  Cookies.set(TokenKey, token, { expires: 0.1 });
+  Cookies.set(TokenKey, token, { expires: CookieExpires });
 };
 
 
