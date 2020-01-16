@@ -57,8 +57,8 @@ function sendRequest(
   cache: RequestCacheWithMap): Observable<HttpEvent<any>> {
 
   // No headers allowed in npm search request
-  const noHeaderReq = req.clone({ headers: new HttpHeaders() });
-  return next.handle(noHeaderReq).pipe(
+  // const noHeaderReq = req.clone({ headers: new HttpHeaders() });
+  return next.handle(req).pipe(
     tap(event => {
       // There may be other events besides the response.
       if (event instanceof HttpResponse) {
