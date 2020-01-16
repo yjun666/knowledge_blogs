@@ -10,7 +10,7 @@ import { startWith, tap } from 'rxjs/operators';
 
 import { RequestCacheWithMap } from '../services/request-cache.service';
 // const searchUrl = 'https://npmsearch.com/query';
-const searchUrl = 'http://localhost:3000/list/search';
+const searchUrl = 'http://localhost:3000/list/searchHero';
 
 @Injectable()
 export class CachingInterceptorService implements HttpInterceptor {
