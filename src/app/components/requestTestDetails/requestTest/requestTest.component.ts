@@ -38,7 +38,7 @@ export class RequestTestComponent implements OnInit, AfterViewInit {
     }
     {
       // get调用方式跨域携带cookie---------start
-      this.http.get('http://localhost:3000/list/search', {
+      this.http.get('http://localhost:3000/list/searchHero', {
         headers,
         withCredentials: true, // 解决跨域请求不能携带cookie的问题
         observe: 'response',  // 加入该参数可获取完整的响应体

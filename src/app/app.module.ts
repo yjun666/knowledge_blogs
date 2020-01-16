@@ -24,12 +24,12 @@ import { NZ_I18N, zh_CN } from 'ng-zorro-antd';
 // service
 import { MessageService } from './shared/services/message.service';
 import { RequestCacheWithMap } from './shared/services/request-cache.service';
-import { LoginService } from './shared/services/login.service';
 import { LoggerService } from './shared/services/logger.service';
 import { UploaderService } from './shared/services/uploader.service';
 import { RouterService } from './shared/services/router.service';
 import { ShardMethodService } from './shared/services/share-method.service';
 import { UpdataSubjectService } from './shared/services/subject.service';
+import { GetJsonService } from './shared/services/getJson.service';
 import { SelectivePreloadingStrategyService } from './shared/services/selective-preloading-strategy.service';
 
 const modules = [
@@ -45,7 +45,6 @@ const directives = [];
 const services = [
   AppUpdateService,
   AppService,
-  LoginService,
   AuthGuard,
   httpInterceptorProviders,
   MessageService,
@@ -55,6 +54,7 @@ const services = [
   ShardMethodService,
   RouterService,
   UpdataSubjectService,
+  GetJsonService,
   {
     provide: LoggerService,
     // 输入参数控制是否开启打印

@@ -5,17 +5,20 @@
     </div>
     <form class="form-controls" action="">
       <label for="">
-        <input type="text" id='accountNumber' (keyup.enter)='login({"accountNumber":accountNumberId.value,"password":password.value})'
-          placeholder="用户名" #accountNumberId value='' />
+        <input type="text" id='accountNumber'
+          (keyup.enter)='login({"accountNumber":accountNumberId.value,"password":password.value})' placeholder="用户名"
+          #accountNumberId value='' />
         <i class="fa fa-user-circle-o"></i>
       </label>
       <label for="">
-        <input type="text" id='password' (keyup.enter)='login({"accountNumber":accountNumberId.value,"password":password.value})'
-          placeholder="密码" #password value='' />
+        <input type="text" id='password'
+          (keyup.enter)='login({"accountNumber":accountNumberId.value,"password":password.value})' placeholder="密码"
+          #password value='' />
         <i class="fa fa-key fa-fw"></i>
       </label>
 
-      <button type='button' class='btn btn-primary' (click)='login({"accountNumber":accountNumberId.value,"password":password.value})'>登录</button>
+      <button type='button' class='btn btn-primary'
+        (click)='login({"accountNumber":accountNumberId.value,"password":password.value})'>登录</button>
       <button type='button' class='btn btn-primary' style="margin-left:1rem;" disabled>注册</button>
     </form>
   </div>
