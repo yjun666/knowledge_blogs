@@ -126,7 +126,7 @@ export class UploaderComponent {
       // 设置headers
       const newHeaders: object = Object.assign({}, { reportProgress: true });
       // 设置请求参数
-      const req = new HttpRequest('POST', `http://localhost:3000/upload/file`, formdata, newHeaders);
+      const req = new HttpRequest('POST', `/upload/file`, formdata, newHeaders);
 
       // 文件上传接口
       this.uploadSubscribeObj[param.id] = this.http.request(req).pipe(
@@ -147,7 +147,7 @@ export class UploaderComponent {
 
       // 使用ajax实现进度条加载成功，angular待调试---调试时需要打开network的慢网速模拟状态，可以看到进度条的打印
       // $.ajax({
-      //     url: 'http://localhost:3000/upload/file',
+      //     url: '/upload/file',
       //     type: 'post',
       //     dataType: 'json',
       //     data: formdata,

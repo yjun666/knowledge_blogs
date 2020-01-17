@@ -13,9 +13,9 @@ export class Api {
     const url = environment.apiUrl; // 谭俊东 test
     // const url = `http://10.112.95.137:8031`; // 谭俊东本地
     return {
-      searchHero: `http://localhost:3000/list/search`, // 查询接口
-      createHero: `http://localhost:3000/list/create`, // 创建
-      deleteHero: `http://localhost:3000/list/destroy`, // 删除
+      searchHero: `/list/search`, // 查询接口
+      createHero: `/list/create`, // 创建
+      deleteHero: `/list/destroy`, // 删除
       query: '',
       login: 'http://10.110.147.33:8015/oauth/rest_token' // 登陆接口
     };

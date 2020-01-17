@@ -35,7 +35,7 @@ export class UploaderService {
     // Create the request object that POSTs the file to an upload endpoint.
     // The `reportProgress` option tells HttpClient to listen and return
     // XHR progress events.
-    const req = new HttpRequest('POST', 'http://localhost:3000/upload/file', file, {
+    const req = new HttpRequest('POST', '/upload/file', file, {
       reportProgress: true
     });
 

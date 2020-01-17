@@ -3,7 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  apiUrl: 'http://localhost:3000',
+  apiUrl: 'http://www.yjuns.cn',
   production: false,
   isLog: true, // 是否开启打印
   env: 'dev'

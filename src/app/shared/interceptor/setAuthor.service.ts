@@ -24,7 +24,7 @@ export class SetAuthorInterceptorService implements HttpInterceptor {
         // 登陆失效，跳转到登陆页面
         if (!isLogin()) {
           this.router.navigate(['/login']);
-          return undefined;
+          return next.handle(req);
         }
       }
       authReq = req.clone({

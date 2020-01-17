@@ -38,7 +38,7 @@ export class RequestTestComponent implements OnInit, AfterViewInit {
     }
     {
       // get调用方式跨域携带cookie---------start
-      this.http.get('http://localhost:3000/list/searchHero', {
+      this.http.get('/list/searchHero', {
         headers,
         withCredentials: true, // 解决跨域请求不能携带cookie的问题
         observe: 'response',  // 加入该参数可获取完整的响应体
@@ -49,7 +49,7 @@ export class RequestTestComponent implements OnInit, AfterViewInit {
     }
     // {
     //   // jsonp跨域调用方式---------start
-    //   this.http.jsonp('http://localhost:3000/list/search', 'callback=test22').subscribe((data) => {
+    //   this.http.jsonp('/list/search', 'callback=test22').subscribe((data) => {
     //     console.log(data, 'test22');
     //   });
     //   // jsonp跨域调用方式---------end
@@ -58,7 +58,7 @@ export class RequestTestComponent implements OnInit, AfterViewInit {
     //   // ajax中get调用跨域携带cookie----------start
     //   $.ajax({
     //     type: 'GET',
-    //     url: 'http://localhost:3000/list/search',
+    //     url: '/list/search',
     //     // 允许携带证书
     //     xhrFields: {
     //       withCredentials: true

@@ -28,8 +28,8 @@ export class HeroComponent implements OnInit {
     console.log('Fetching heros...');
   }
   getHeros() {
-    this.heroService.getHeros()
-      .subscribe(res => {
+    this.getJson.searchHero({ id: 123, name: '123' })
+      .subscribe((res: any) => {
         this.heros = res.data;
         console.log(res);
       });
