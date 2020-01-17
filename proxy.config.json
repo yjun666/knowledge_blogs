@@ -1,4 +1,20 @@
 {
+  "/list/search": {
+    "target": "http://localhost:3000",
+    "secure": "true",
+    "pathRewrite": {
+      "^/search": ""
+    },
+    "logLevel": "debug"
+  },
+  "/list/create": {
+    "target": "http://localhost:3000",
+    "secure": "true",
+    "pathRewrite": {
+      "^/create": ""
+    },
+    "logLevel": "debug"
+  },
   "/": {
     "target": "http://localhost:3000",
     "secure": "true"

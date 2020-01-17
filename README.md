@@ -26,19 +26,18 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 
-
 ### yangjun---add
-> node assets/js/fsReadFileToJson2.js 生成目录json文件，生成home侧边栏目录
 
-> assets下有针对assets文件的详细文档
+> node assets/js/fsReadFileToJson2.js 生成目录 json 文件，生成 home 侧边栏目录
 
-> share/servies/README.md 针对service文件说明
+> assets 下有针对 assets 文件的详细文档
 
-> ng build --prod --output-path docs --base-href 命令可生成一个文件夹，用于托管到github Pages 生成页面，不用在特意开一个分之或者一个仓库存储显示github Pages页面，解决了angular这种需要打包才能显示的文件的问题
+> share/servies/README.md 针对 service 文件说明
 
-> // "nodeCMD": "node ./src/assets/nodejs/build/transformFileToJson.js && node ./src/assets/nodejs/build/requestJson.js && node ./src/assets/nodejs/dist/transformFileToJson.js  && node ./src/assets/nodejs/dist/requestJsonAll.js",
+> ng build --prod --output-path docs --base-href 命令可生成一个文件夹，用于托管到 github Pages 生成页面，不用在特意开一个分之或者一个仓库存储显示 github Pages 页面，解决了 angular 这种需要打包才能显示的文件的问题
 
-> share/sass 公共scss文件
+> // "nodeCMD": "node ./src/assets/nodejs/build/transformFileToJson.js && node ./src/assets/nodejs/build/requestJson.js && node ./src/assets/nodejs/dist/transformFileToJson.js && node ./src/assets/nodejs/dist/requestJsonAll.js",
+
+> share/sass 公共 scss 文件
 
 > share/interceptor 拦截器
-
