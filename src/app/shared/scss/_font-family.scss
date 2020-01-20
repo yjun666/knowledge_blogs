@@ -2,10 +2,10 @@
   font-family: "UnidreamLED";
   src: local("UnidreamLED"),
     local("UnidreamLED"),
-    url("/assets/viewinfor/font1/UnidreamLED.ttf") format("truetype"),
-    url("/assets/viewinfor/font1/UnidreamLED.svg#UnidreamLED") format("svg"),
-    url("/assets/viewinfor/font1/UnidreamLED.ttf") format("truetype"),
-    url("/assets/viewinfor/font1/UnidreamLED.woff") format("woff");
+    url("/assets/viewinfor/UnidreamLED/UnidreamLED.ttf") format("truetype"),
+    url("/assets/viewinfor/UnidreamLED/UnidreamLED.svg#UnidreamLED") format("svg"),
+    url("/assets/viewinfor/UnidreamLED/UnidreamLED.ttf") format("truetype"),
+    url("/assets/viewinfor/UnidreamLED/UnidreamLED.woff") format("woff");
 }
 
 // 字体引入
@@ -93,6 +93,11 @@
 @font-face {
   font-family: 'FZLTCXHJW';
   src: url('/assets/viewinfor/font/FZLTCXHJW.TTF');
+}
+
+@font-face {
+  font-family: 'FZLTCXHJWOTF';
+  src: url('/assets/viewinfor/font/FZLTCXHJW.otf');
 }
 
 @font-face {
