@@ -5,6 +5,7 @@ import { ApiCommon, ApiParamConfig, ApiUrlConfig } from '../config/api/api.confi
 import { SelectivePreloadingStrategyService } from './selective-preloading-strategy.service';
 
 import { Observable } from 'rxjs';
+import { retry } from 'rxjs/operators';
 
 @Injectable()
 export class GetJsonService implements ApiCommon {
@@ -34,11 +35,11 @@ export class GetJsonService implements ApiCommon {
       responseType: 'json',
     });
 
-    return this.get(this.api.searchHero, param, options);
+    return this.get(this.api.searchHero, param, options).pipe(retry(3));
   }
   // 创建hero
   public createHero(param: ApiParamConfig['createHero']): Observable<object> {
-    return this.post(this.api.createHero, { content: '12312313' });
+    return this.post(this.api.createHero, { content: '12312313' }).pipe(retry(3));
   }
   /**
    * 删除
