@@ -25,9 +25,16 @@ export class ApiParamConfig implements ApiCommon {
     id: string;
   };
   createHero: {
-    content: string,
+    content: string;
   };
-  login: any;
+  login: {
+    client_id: string;
+    client_secret: string;
+    grant_type: string;
+    scope: string;
+    username: string;
+    password: string;
+  };
   query: {
     query: string;
   };

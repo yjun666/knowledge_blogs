@@ -31,11 +31,11 @@ export class LoginComponent implements OnInit {
       client_secret: 'dps-china',
       grant_type: 'password',
       scope: 'read',
-      username: 'yangjun',
-      password: 'yangjun'
+      username: 'wangqian',
+      password: 'wangqian'
     }).subscribe((data: any) => {
-      setUserName('yangjun');
-      setPassword('yangjun');
+      setUserName('wangqian');
+      setPassword('wangqian');
       setToken(data.access_token);
 
       // 路由传参如果是传一个值需在路由配置中home后边添加"/:id",如果添加多个则不能加-----传参作为测试使用
