@@ -1,1 +1,0 @@
-#### sudo find / -name ".DS_Store" -depth -exec rm {} \; 去除mac的.DS_Store文件
