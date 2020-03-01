@@ -1,0 +1,12 @@
+安装顺序：
+1、NodeJs安装.docx
+
+2、Java安装.docx
+
+3、Android_SDK安装.docx
+
+4、Gradle安装.docx
+
+5、Cordova安装.txt
+
+请严格按照此步骤和对应的软件版本，对应目录进行安装，避免失败而导致看不到HelloWorld而灰心！

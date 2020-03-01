@@ -26,20 +26,20 @@ export class LoginComponent implements OnInit {
       alert('密码错误,请重新输入');
       // return false;
     }
-    this.getJson.login({
-      client_id: 'dps-china',
-      client_secret: 'dps-china',
-      grant_type: 'password',
-      scope: 'read',
-      username: 'wangqian',
-      password: 'wangqian'
-    }).subscribe((data: any) => {
-      setUserName('wangqian');
-      setPassword('wangqian');
-      setToken(data.access_token);
+    // this.getJson.login({
+    //   client_id: 'dps-china',
+    //   client_secret: 'dps-china',
+    //   grant_type: 'password',
+    //   scope: 'read',
+    //   username: 'wangqian',
+    //   password: 'wangqian'
+    // }).subscribe((data: any) => {
+    //   setUserName('wangqian');
+    //   setPassword('wangqian');
+    //   setToken(data.access_token);
 
-      // 路由传参如果是传一个值需在路由配置中home后边添加"/:id",如果添加多个则不能加-----传参作为测试使用
-      this.router.navigate(['/home/markdown', { a: 'asdfasdf', b: '123123', c: 'asdf' }]);
-    });
+    // 路由传参如果是传一个值需在路由配置中home后边添加"/:id",如果添加多个则不能加-----传参作为测试使用
+    this.router.navigate(['/home/markdown', { a: 'asdfasdf', b: '123123', c: 'asdf' }]);
+    // });
   }
 }
