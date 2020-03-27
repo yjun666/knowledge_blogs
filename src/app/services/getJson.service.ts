@@ -2,6 +2,7 @@ import { Injectable, Inject } from '@angular/core';
 import { HttpClient, HttpEvent, HttpRequest, HttpHeaders } from '@angular/common/http';
 import { API_CONFIG } from '../config/api/api';
 import { Api } from '../interface/api';
+import * as requestParamType from '../interface/requestParamType';
 import { SelectivePreloadingStrategyService } from './selective-preloading-strategy.service';
 
 import { retry } from 'rxjs/operators';
@@ -18,13 +19,13 @@ export class GetJsonService implements Api {
   }
 
 
-  public login(param) {
+  public login(param: requestParamType.Login) {
     const { method, url } = this.getApiParam('login');
     return this[method](url, param);
   }
 
   // 查询list列表所有内容
-  public search(param): Observable<object> {
+  public search(param: requestParamType.Search): Observable<object> {
     // const headers = new HttpHeaders().set();
     const options = {
       headers: {
