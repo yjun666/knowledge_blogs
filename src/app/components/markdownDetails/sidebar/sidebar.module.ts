@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SideBarComponent } from './sidebar.component';
-import { AppTitleHoverShowModule } from '../../../shared/directives';
+import { AppTitleHoverShowModule } from '../../../directives';
 
 @NgModule({
   imports: [

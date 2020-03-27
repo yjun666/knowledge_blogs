@@ -8,8 +8,8 @@ import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 import { HeroComponent } from './hero.component';
 import { HeroService } from './hero.service';
 import { MockHeroService } from './mock_hero.service';
-import { RouterService } from '../../../shared/services/router.service';
-import { AppTitleHoverShowModule, EllipsisMultilineDirectiveModule } from '../../../shared/directives';
+import { RouterService } from '../../../services/router.service';
+import { AppTitleHoverShowModule, EllipsisMultilineDirectiveModule } from '../../../directives';
 
 const routes: Routes = [
   {

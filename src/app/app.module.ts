@@ -12,25 +12,25 @@ console.log(environment);
 const isLog = environment.isLog; // 根据环境配置是否开启打印
 
 // auth
-import { AuthGuard } from './shared/auth';
+import { AuthGuard } from './guard';
 
 // interceptor拦截器
-import { httpInterceptorProviders } from './shared/interceptor';
+import { httpInterceptorProviders } from './interceptor';
 
 // module
 import { ADModule } from './components/shared/ad-banner/ad.module';
-import { LanguageTranslationModule } from '../app/shared/modules/language-translation/language-translation.module';
+import { LanguageTranslationModule } from './modules/language-translation/language-translation.module';
 import { NZ_I18N, zh_CN } from 'ng-zorro-antd';
 // service
-import { MessageService } from './shared/services/message.service';
-import { RequestCacheWithMap } from './shared/services/request-cache.service';
-import { LoggerService } from './shared/services/logger.service';
-import { UploaderService } from './shared/services/uploader.service';
-import { RouterService } from './shared/services/router.service';
-import { ShardMethodService } from './shared/services/share-method.service';
-import { UpdataSubjectService } from './shared/services/subject.service';
-import { GetJsonService } from './shared/services/getJson.service';
-import { SelectivePreloadingStrategyService } from './shared/services/selective-preloading-strategy.service';
+import { MessageService } from './services/message.service';
+import { RequestCacheWithMap } from './services/request-cache.service';
+import { LoggerService } from './services/logger.service';
+import { UploaderService } from './services/uploader.service';
+import { RouterService } from './services/router.service';
+import { ShardMethodService } from './services/share-method.service';
+import { UpdataSubjectService } from './services/subject.service';
+import { GetJsonService } from './services/getJson.service';
+import { SelectivePreloadingStrategyService } from './services/selective-preloading-strategy.service';
 
 const modules = [
   HttpClientJsonpModule,

@@ -1,51 +1,51 @@
 import { Injectable, Inject } from '@angular/core';
 import { HttpClient, HttpEvent, HttpRequest, HttpHeaders } from '@angular/common/http';
-import { API } from '../config/api/api';
-import { ApiCommon, ApiParamConfig, ApiUrlConfig } from '../config/api/api.config';
+import { API_CONFIG } from '../config/api/api';
+import { Api, ApiParamConfig } from '../interface/api';
 import { SelectivePreloadingStrategyService } from './selective-preloading-strategy.service';
 
 import { Observable } from 'rxjs';
 import { retry } from 'rxjs/operators';
 
 @Injectable()
-export class GetJsonService implements ApiCommon {
-  api: ApiCommon = API;
+export class GetJsonService {
+  api: Api = API_CONFIG;
   constructor(
     private http: HttpClient
   ) {
-    // this.searchHero({ id: 123, name: 'asdfasdf' })
+    // this.search({ id: 123, name: 'asdfasdf' })
     //   .subscribe((data) => {
     //     console.log(data);
     //   });
   }
 
   public login(param: ApiParamConfig['login']) {
-    return this.post(this.api.login, param);
+    return this.post(this.api.login.url, param);
   }
 
   // 查询list列表所有内容
-  public searchHero(param: ApiParamConfig['searchHero']): Observable<object> {
+  public search(param: ApiParamConfig['search']): Observable<object> {
     // const headers = new HttpHeaders().set();
-    const options = this.setOptions({
+    const options = {
       headers: {
         Authorization: 'asdf-asd-fa-sdf-asdf-sdf-123123',
         'Content-Type': 'application/json;charset=UTF-8'
       },
       reportProgress: false,
       responseType: 'json',
-    });
+    };
 
-    return this.get(this.api.searchHero, param, options).pipe(retry(3));
+    return this.get(this.api.search.url, param, options).pipe(retry(3));
   }
-  // 创建hero
-  public createHero(param: ApiParamConfig['createHero']): Observable<object> {
-    return this.post(this.api.createHero, { content: '12312313' }).pipe(retry(3));
+  // 创建
+  public create(param: ApiParamConfig['create']): Observable<object> {
+    return this.post(this.api.create.url, { content: '12312313' }).pipe(retry(3));
   }
   /**
    * 删除
    */
-  public deleteHero(param: ApiParamConfig['deleteHero']) {
-    return this.get(this.api.deleteHero, param);
+  public delete(param: ApiParamConfig['delete']) {
+    return this.get(this.api.delete.url, param);
   }
 
   query() { }
@@ -84,21 +84,4 @@ export class GetJsonService implements ApiCommon {
     console.log(req, ...options);
     return this.http.post(url, param, options);
   }
-
-  /**
-   * 设置请求头等参数配置
-   * @param options 请求头配置
-   */
-  private setOptions(options: any) {
-    const obj = {
-      withCredentials: true,
-      reportProgress: false,
-      responseType: 'json',
-      ...options,
-    };
-    return obj;
-  }
-
-
-
 }

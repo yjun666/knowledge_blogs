@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { GetJsonService } from '../../shared/services/getJson.service';
-import { setToken, setUserName, setPassword, getUserName, getPassword } from '../../shared/utils/auth';
+import { GetJsonService } from '../../services/getJson.service';
+import { setToken, setUserName, setPassword, getUserName, getPassword } from '../../utils/auth';
 import Cookies from 'js-cookie';
 import { Router } from '@angular/router';
 

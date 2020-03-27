@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MarkdownDetailsComponent } from './markdownDetails.component';
-import { AppMarkedModule } from '../../shared/directives';
+import { AppMarkedModule } from '../../directives';
 import { MarkdownDetailsService } from './markdownDetails.service';
 
 @NgModule({

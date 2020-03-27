@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Heros, MockHeroData } from './herosType';
-import { LoggerService } from '../../../shared/services/logger.service';
+import { LoggerService } from '../../../services/logger.service';
 
 @Injectable()
 export class HeroService {

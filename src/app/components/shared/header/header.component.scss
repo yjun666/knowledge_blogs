@@ -1,5 +1,5 @@
-@import '../../../shared/scss/pxToRem';
-@import '../../../shared/scss/transitions';
+@import '../../../scss/pxToRem';
+@import '../../../scss/transitions';
 
 @function pixelToRem($number) {
   @return pxToRem($number)

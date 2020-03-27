@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
-import { AuthGuard } from './shared/auth';
-import { SelectivePreloadingStrategyService } from './shared/services/selective-preloading-strategy.service';
+import { AuthGuard } from './guard';
+import { SelectivePreloadingStrategyService } from './services/selective-preloading-strategy.service';
 const routes: Routes = [
   {
     path: 'login',

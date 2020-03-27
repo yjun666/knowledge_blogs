@@ -2,9 +2,9 @@ import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router, ActivatedRoute, ParamMap, RouterOutlet } from '@angular/router';
 import { slideInAnimation } from './routerAnimation';
-import { RouterService } from '../../shared/services/router.service';
-import { GetJsonService } from '../../shared/services/getJson.service';
-import { SelectivePreloadingStrategyService } from '../../shared/services/selective-preloading-strategy.service';
+import { RouterService } from '../../services/router.service';
+import { GetJsonService } from '../../services/getJson.service';
+import { SelectivePreloadingStrategyService } from '../../services/selective-preloading-strategy.service';
 
 
 @Component({

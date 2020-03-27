@@ -1,7 +1,7 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { MessageService } from '../../../shared/services/message.service';
+import { MessageService } from '../../../services/message.service';
 
 declare const $;
 @Component({

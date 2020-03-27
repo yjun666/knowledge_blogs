@@ -1,4 +1,4 @@
-@import './app/shared/scss/pxToRem';
+@import './app/scss/pxToRem';
 
 @function pixelToRem($number) {
   @return pxToRem($number)

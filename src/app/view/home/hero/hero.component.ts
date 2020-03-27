@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HeroService } from './hero.service';
 import { Heros } from './herosType';
-import { LoggerService } from '../../../shared/services/logger.service';
-import { GetJsonService } from '../../../shared/services/getJson.service';
+import { LoggerService } from '../../../services/logger.service';
+import { GetJsonService } from '../../../services/getJson.service';
 
 @Component({
   selector: 'app-hero',
@@ -28,7 +28,7 @@ export class HeroComponent implements OnInit {
     console.log('Fetching heros...');
   }
   getHeros() {
-    this.getJson.searchHero({ id: 123, name: '123' })
+    this.getJson.search({ id: 123, name: '123' })
       .subscribe((res: any) => {
         this.heros = res.data;
         console.log(res);
@@ -51,13 +51,13 @@ export class HeroComponent implements OnInit {
       // value: value.value,
       // age: age.value,
     };
-    this.getJson.createHero(param)
+    this.getJson.create(param)
       .subscribe((data) => {
         this.getHeros();
       });
   }
   public deleteHero(id: string) {
-    this.getJson.deleteHero({ id })
+    this.getJson.delete({ id })
       .subscribe((data) => {
         this.getHeros();
       });

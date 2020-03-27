@@ -11,9 +11,9 @@ import { HeroModule } from './hero/hero.module';
 
 import { HeaderModule } from '../../components/shared/header/header.module';
 
-import { AppTitleHoverShowModule } from '../../shared/directives';
-import { RouterService } from '../../shared/services/router.service';
-import { GetJsonService } from '../../shared/services/getJson.service';
+import { AppTitleHoverShowModule } from '../../directives';
+import { RouterService } from '../../services/router.service';
+import { GetJsonService } from '../../services/getJson.service';
 
 
 const adminRoutes: Routes = [

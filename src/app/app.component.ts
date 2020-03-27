@@ -3,8 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 
 import { AdService } from './components/shared/ad-banner/ad.service';
-import { LoggerService } from './shared/services/logger.service';
-import { RouterService } from './shared/services/router.service';
+import { LoggerService } from './services/logger.service';
+import { RouterService } from './services/router.service';
 
 declare const $;
 @Component({

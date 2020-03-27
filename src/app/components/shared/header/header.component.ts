@@ -1,7 +1,7 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { removeToken } from '../../../shared/utils/auth';
+import { removeToken } from '../../../utils/auth';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({

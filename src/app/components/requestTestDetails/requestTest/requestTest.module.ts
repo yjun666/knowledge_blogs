@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RequestTestComponent } from './requestTest.component';
-import { httpInterceptorProviders } from '../../../shared/interceptor';
+import { httpInterceptorProviders } from '../../../interceptor';
 
 @NgModule({
   imports: [CommonModule],

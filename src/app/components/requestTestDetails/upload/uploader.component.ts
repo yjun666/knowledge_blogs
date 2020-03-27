@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { UploaderService } from '../../../shared/services/uploader.service';
+import { UploaderService } from '../../../services/uploader.service';
 import { HttpClient, HttpHeaders, HttpRequest, HttpEventType, HttpEvent } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 declare const $;
