@@ -1,30 +1,30 @@
 import { Injectable, Inject } from '@angular/core';
 import { HttpClient, HttpEvent, HttpRequest, HttpHeaders } from '@angular/common/http';
 import { API_CONFIG } from '../config/api/api';
-import { Api, ApiParamConfig } from '../interface/api';
+import { Api } from '../interface/api';
 import { SelectivePreloadingStrategyService } from './selective-preloading-strategy.service';
 
-import { Observable } from 'rxjs';
 import { retry } from 'rxjs/operators';
+import { Observable, of } from 'rxjs';
+import { timeout, catchError } from 'rxjs/operators';
 
 @Injectable()
-export class GetJsonService {
+export class GetJsonService implements Api {
   api: Api = API_CONFIG;
   constructor(
     private http: HttpClient
   ) {
-    // this.search({ id: 123, name: 'asdfasdf' })
-    //   .subscribe((data) => {
-    //     console.log(data);
-    //   });
+    // this.setRequest();
   }
 
-  public login(param: ApiParamConfig['login']) {
-    return this.post(this.api.login.url, param);
+
+  public login(param) {
+    const { method, url } = this.getApiParam('login');
+    return this[method](url, param);
   }
 
   // 查询list列表所有内容
-  public search(param: ApiParamConfig['search']): Observable<object> {
+  public search(param): Observable<object> {
     // const headers = new HttpHeaders().set();
     const options = {
       headers: {
@@ -34,21 +34,26 @@ export class GetJsonService {
       reportProgress: false,
       responseType: 'json',
     };
-
-    return this.get(this.api.search.url, param, options).pipe(retry(3));
+    const { method, url } = this.getApiParam('search');
+    return this[method](url, param, options);
   }
   // 创建
-  public create(param: ApiParamConfig['create']): Observable<object> {
-    return this.post(this.api.create.url, { content: '12312313' }).pipe(retry(3));
+  public create(param): Observable<object> {
+    const { method, url } = this.getApiParam('create');
+    return this[method](url, { content: '12312313' });
   }
   /**
    * 删除
    */
-  public delete(param: ApiParamConfig['delete']) {
-    return this.get(this.api.delete.url, param);
+  public delete(param) {
+    const { method, url } = this.getApiParam('delete');
+    return this[method](url, param);
   }
 
   query() { }
+
+
+
 
 
   /**
@@ -63,11 +68,20 @@ export class GetJsonService {
       {
         params: param
       },
-      {
-        ...options
-      });
-    console.log(req, ...options);
-    return this.http.get(url, req);
+      options
+    );
+    return this.http.get(url, req).pipe(
+      retry(3),
+      catchError(e => { // 错误处理，500、504等
+        // do something on a timeout
+        return of(e);
+      }),
+      timeout(2000), // 超时
+      catchError(e => { // 超时处理
+        // do something on a timeout
+        return of(e);
+      })
+    );
   }
   /**
    * @param url 地址栏
@@ -77,11 +91,56 @@ export class GetJsonService {
   private post(url, param, options?) {
     options = options ? options : {};
     const req = Object.assign(
-      {},
       {
-        ...options
-      });
-    console.log(req, ...options);
-    return this.http.post(url, param, options);
+        headers: {
+          'Content-Type': 'application/json;charset=UTF-8' // 默认json
+        }
+      },
+      options
+    );
+    return this.http.post(url, param, req).pipe(
+      retry(3),
+      catchError(e => { // 错误处理，500、504等
+        // do something on a timeout
+        return of(e);
+      }),
+      timeout(2000), // 超时
+      catchError(e => { // 超时处理
+        // do something on a timeout
+        return of(e);
+      })
+    );
+  }
+
+  /**
+   * 获取请求的url地址，减少开发http请求方法时多层级获取url地址
+   * @param type 获取的是哪一个请求API的url地址
+   */
+  private getApiParam(type: string) {
+    const method = this.api[type].method;
+    const url = this.api[type].url;
+    return { method, url };
+  }
+
+  /**
+   * 两种设置请求方法，一种是下边这种根据配置文件进行动态设置，另一种是手动开发，上边那种
+   */
+  private setRequest() {
+    for (const [key, value] of Object.entries(this.api)) {
+      this[key] = (params, isFormData = false, options = {}) => {
+        let newParams: any = {};
+        if (params && isFormData) {
+          newParams = new FormData();
+          // tslint:disable-next-line: forin
+          for (const i in params) {
+            newParams.append(i, params[i]);
+          }
+        } else {
+          newParams = params;
+        }
+        const { method, url } = value;
+        return this[method](url, newParams, options);
+      };
+    }
   }
 }

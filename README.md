@@ -32,12 +32,12 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 > assets 下有针对 assets 文件的详细文档
 
-> share/servies/README.md 针对 service 文件说明
+> servies/README.md 针对 service 文件说明
 
 > ng build --prod --output-path docs --base-href 命令可生成一个文件夹，用于托管到 github Pages 生成页面，不用在特意开一个分之或者一个仓库存储显示 github Pages 页面，解决了 angular 这种需要打包才能显示的文件的问题
 
 > // "nodeCMD": "node ./src/assets/nodejs/build/transformFileToJson.js && node ./src/assets/nodejs/build/requestJson.js && node ./src/assets/nodejs/dist/transformFileToJson.js && node ./src/assets/nodejs/dist/requestJsonAll.js",
 
-> share/sass 公共 scss 文件
+> sass 公共 scss 文件
 
-> share/interceptor 拦截器
+> interceptor 拦截器

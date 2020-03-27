@@ -1,7 +1,7 @@
-import { Api } from '../../interface/api';
+import { Api, ApiConfig } from '../../interface/api';
 
 // api 定义
-export const API_CONFIG: Api = {
+export const API_CONFIG: ApiConfig = {
   // 查询接口
   search: {
     method: 'get',

@@ -6,27 +6,12 @@ export interface Api {
   readonly login: any;
 }
 
-// 参数类型定义
-export interface ApiParamConfig {
-  search: {
-    id: number;
-    name: string;
-  };
-  delete: {
-    id: string;
-  };
-  create: {
-    content: string;
-  };
-  login: {
-    client_id: string;
-    client_secret: string;
-    grant_type: string;
-    scope: string;
-    username: string;
-    password: string;
-  };
-  query: {
-    query: string;
-  };
+
+export class ApiConfig implements Api {
+  readonly search: { method: string, url: string };
+  readonly create: { method: string, url: string };
+  readonly delete: { method: string, url: string };
+  readonly query: { method: string, url: string };
+  readonly login: { method: string, url: string };
 }
+
