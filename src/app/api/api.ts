@@ -1,4 +1,12 @@
-import { Api, ApiConfig } from '../../interface/api';
+import { Api, ApiConfig } from '../interface/api';
+import * as requestParamType from '../interface/requestParamType';
+
+/**
+ * @param Api 总的都有哪些接口，需要实现的方法，设置为any类型
+ * @param requestParamType 接口的请求参数类型定义
+ * @param ApiConfig 配置文件的参数类型定义
+ */
+export { requestParamType, Api, ApiConfig };
 
 // api 定义
 export const API_CONFIG: ApiConfig = {
@@ -27,3 +35,4 @@ export const API_CONFIG: ApiConfig = {
     url: 'http://10.110.147.33:8015/oauth/rest_token',
   }
 };
+

@@ -1,8 +1,6 @@
 import { Injectable, Inject } from '@angular/core';
 import { HttpClient, HttpEvent, HttpRequest, HttpHeaders } from '@angular/common/http';
-import { API_CONFIG } from '../config/api/api';
-import { Api } from '../interface/api';
-import * as requestParamType from '../interface/requestParamType';
+import { API_CONFIG, Api, requestParamType } from '../api/api';
 import { SelectivePreloadingStrategyService } from './selective-preloading-strategy.service';
 
 import { retry } from 'rxjs/operators';
