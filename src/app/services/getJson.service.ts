@@ -10,7 +10,7 @@ import { timeout, catchError } from 'rxjs/operators';
 @Injectable()
 export class GetJsonService implements Api {
   api: Api = API_CONFIG;
-  timeout = 0;
+  timeout = 2000;
   constructor(
     private http: HttpClient
   ) {
