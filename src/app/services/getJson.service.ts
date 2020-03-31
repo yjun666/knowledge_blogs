@@ -10,6 +10,7 @@ import { timeout, catchError } from 'rxjs/operators';
 @Injectable()
 export class GetJsonService implements Api {
   api: Api = API_CONFIG;
+  timeout = 0;
   constructor(
     private http: HttpClient
   ) {
@@ -67,18 +68,20 @@ export class GetJsonService implements Api {
       {
         params: param
       },
+      {
+        observe: 'response'  // 加入该参数可获取完整的响应体
+      },
       options
     );
     return this.http.get(url, req).pipe(
-      retry(3),
-      catchError(e => { // 错误处理，500、504等
-        // do something on a timeout
-        return of(e);
-      }),
-      timeout(2000), // 超时
+      timeout(this.timeout), // 超时
       catchError(e => { // 超时处理
-        // do something on a timeout
-        return of(e);
+        if (e.name === 'TimeoutError') {
+          console.warn(`${e.name}`); // 处理超时
+        }
+        console.log(e);
+        // tslint:disable-next-line: no-string-throw
+        throw new Error(e);
       })
     );
   }
@@ -91,22 +94,22 @@ export class GetJsonService implements Api {
     options = options ? options : {};
     const req = Object.assign(
       {
-        headers: {
-          'Content-Type': 'application/json;charset=UTF-8' // 默认json
-        }
+        // headers: {
+        //   'Content-Type': 'application/json;charset=UTF-8' // 默认json
+        // },
+        observe: 'response',  // 加入该参数可获取完整的响应体
       },
       options
     );
     return this.http.post(url, param, req).pipe(
-      retry(3),
-      catchError(e => { // 错误处理，500、504等
-        // do something on a timeout
-        return of(e);
-      }),
-      timeout(2000), // 超时
+      timeout(this.timeout), // 超时
       catchError(e => { // 超时处理
-        // do something on a timeout
-        return of(e);
+        if (e.name === 'TimeoutError') {
+          console.warn(`${e.name}`); // 处理超时
+        }
+        console.log(e);
+        // tslint:disable-next-line: no-string-throw
+        throw new Error(e);
       })
     );
   }
