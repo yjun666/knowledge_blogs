@@ -3,12 +3,6 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home.component';
 
-import { MarkdownModule } from './markdown/markdown.module';
-import { RequestModule } from './request/request.module';
-import { RxjsModule } from './rxjs/rxjs.module';
-import { LodashModule } from './lodash/lodash.module';
-import { HeroModule } from './hero/hero.module';
-
 import { HeaderModule } from '../../components/shared/header/header.module';
 
 import { AppTitleHoverShowModule } from '../../directives';
@@ -23,6 +17,7 @@ const adminRoutes: Routes = [
     children: [
       {
         path: 'markdown',
+        // component: MarkdownComponent,
         loadChildren: () => import('./markdown/markdown.module').then(m => m.MarkdownModule),
         data: {
           animation: 'HomePage',
@@ -66,7 +61,11 @@ const adminRoutes: Routes = [
           routeName: '/home/hero'
         }
       },
-      { path: '', redirectTo: 'markdown', pathMatch: 'prefix' },
+      {
+        path: '',
+        redirectTo: '/home/markdown',
+        pathMatch: 'prefix'
+      },
     ]
   }
 ];
@@ -75,11 +74,12 @@ const adminRoutes: Routes = [
   imports: [
     CommonModule,
     AppTitleHoverShowModule,
-    MarkdownModule,
-    RequestModule,
-    RxjsModule,
-    LodashModule,
-    HeroModule,
+    // 不能注入markdown等module，否则只输入home组件时，markdown直接找到跟组件，不渲染home组件
+    // MarkdownModule,
+    // RequestModule,
+    // RxjsModule,
+    // LodashModule,
+    // HeroModule,
 
     HeaderModule,
 

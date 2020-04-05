@@ -23,7 +23,11 @@ const routes: Routes = [
     }, // 路由欲加载
     loadChildren: () => import('./view/home/home.module').then(m => m.HomeModule)
   },
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  {
+    path: '',
+    redirectTo: '/login',
+    pathMatch: 'full'
+  },
   {
     path: '**',
     data: {

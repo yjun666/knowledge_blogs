@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 import { HeroService } from './hero.service';
 import { Heros } from './herosType';
 import { LoggerService } from '../../../services/logger.service';
@@ -18,6 +19,8 @@ export class HeroComponent implements OnInit {
   发阿斯顿发sadly就阿斯顿浪费空间`; // 测试多行文本显示省略号三个.  ,js控制
 
   constructor(
+    private router: Router,
+    private route: ActivatedRoute,
     private heroService: HeroService,
     private getJson: GetJsonService,
     private loggerService: LoggerService
@@ -31,6 +34,7 @@ export class HeroComponent implements OnInit {
     this.getJson.search({ id: 123, name: '123' })
       .subscribe((res: any) => {
         this.heros = res.data;
+        this.heroService.heros = res.data;
         console.log(res);
       });
     // this.getJson.searchHero({ id: 123, name: 'asdfasdf' })
@@ -56,10 +60,18 @@ export class HeroComponent implements OnInit {
         this.getHeros();
       });
   }
+  /**
+   * 删除
+   */
   public deleteHero(id: string) {
     this.getJson.delete({ id })
       .subscribe((data) => {
         this.getHeros();
       });
+  }
+
+  // 显示详情
+  public getDetails(id) {
+    this.router.navigate(['./heroDetails', id], { relativeTo: this.route }); // 按照当前路由进行跳转
   }
 }

@@ -32,29 +32,41 @@ export class RouterService {
   private setRouterData(router) {
     // 获取所有路由配置信息
     const getRouteAllConfig = (param) => {
-      if (
-        param._loadedConfig &&
-        param._loadedConfig.routes.length > 0 &&
-        param._loadedConfig.routes[param._loadedConfig.routes.length - 1].children
-      ) {
-        param._loadedConfig.routes[param._loadedConfig.routes.length - 1].children.map(x => {
-          return getRouteAllConfig(x);
-        });
-      } else if (param.path) {
+
+      if (param.data) {
         this.cacheAllConfig.set(param.data.routeName, param);
-        // this.cacheAllConfig.push(param);
       }
+
+      if (param._loadedConfig &&
+        param._loadedConfig.routes.length > 0) {
+        param._loadedConfig.routes.map(m => {
+          if (m.children) {
+            m.children.map(n => {
+              return getRouteAllConfig(n);
+            });
+          } else {
+            return getRouteAllConfig(m);
+          }
+        });
+      } else if (param.children) {
+        param.children.map(n => {
+          return getRouteAllConfig(n);
+        });
+      }
+
     };
+    console.log(router);
     router.config.map((x) => {
       getRouteAllConfig(x);
     });
+    console.log(this.cacheAllConfig);
 
 
     router.events.subscribe(event => {
       if (event instanceof NavigationStart) {
         // console.log(router);
       } else if (event instanceof NavigationEnd) { // 路由跳转结束时执行
-        // console.log(router, router.url);
+        console.log(router, router.url, event);
         let routerName = router.url; // 定义当前路由名称
         //  跳转路由时是否包含了点，路由的静态数据项配置没有包含点，如果包含了匹配时需要去掉
         if (routerName.indexOf('.') !== -1) {
@@ -71,6 +83,7 @@ export class RouterService {
         if (!curConfig) {
           return undefined;
         }
+
 
         if (curConfig.data.routeName === routerName) { // 如果当前不是空路由时
           this.routerData = Object.assign({}, curConfig); // 获取当前自定义的路由信息

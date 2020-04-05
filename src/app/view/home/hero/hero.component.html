@@ -7,22 +7,40 @@
   <button nz-button nzType="primary" (click)='getHeros()'>search</button>
 </div>
 <section class="hero">
+  <!-- hero 显示---start -->
   <ul>
     <ng-template ngFor let-item let-i=index [ngForOf]='heros'>
       <li>
+        <!-- 公用模版使用---start -->
         <ng-container *ngTemplateOutlet="mulStateBody; context: item"></ng-container>
+        <!-- 公用模版使用---end -->
       </li>
     </ng-template>
   </ul>
+  <!-- hero 显示---end -->
+  <!-- 多行文本溢出省略----start -->
   <div class="test_appEllipsisMultiline" [appEllipsisMultiline]='testAppEllipsisMultiline'>{{testAppEllipsisMultiline}}
   </div>
+  <!-- 多行文本溢出省略----end -->
+  <!-- 多行文本溢出省略----start -->
+  <p nz-paragraph nzEllipsis [nzEllipsisRows]="3">
+    Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design
+    language for background applications, is refined by Ant UED Team. Ant Design, a design language for background
+    applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by
+    Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a
+    design language for background applications, is refined by Ant UED Team.
+  </p>
+  <!-- 多行文本溢出省略----end-->
 </section>
+
+<h1 style="margin-top: 20px;">Details-info</h1>
+<router-outlet></router-outlet>
 
 
 <!-- ngTemplateOutlet 使用方法传入对象时需要定义字段，在模版中使用 ------start -->
 <ng-template #mulStateBody let-value="value" let-id='_id' let-content='content' let-name='name'>
   <div [attr.id]='id'>
-    <span>{{content}}---{{id}}---{{value}}----{{name}}</span>
+    <span (click)="getDetails(id)">{{content}}---{{id}}---{{value}}----{{name}}</span>
     <i style="margin-left: 15px;font-size: 16px;" (click)="deleteHero(id)" nz-icon nzType="close-circle"
       nzTheme="outline"></i>
   </div>
@@ -31,8 +49,8 @@
 
 
 <!--  ngTemplateOutlet 模版中可以直接使用类中定义的参数，但给模版传参只能时对象，并且进行定义 start -->
-<!-- <ng-container *ngTemplateOutlet="mulStateBody2; context: {data:heros}"></ng-container> -->
 
+<!-- <ng-container *ngTemplateOutlet="mulStateBody2; context: {data:heros}"></ng-container> -->
 <ng-template #mulStateBody2 let-data='data'>
   {{data|json}}
   <br>

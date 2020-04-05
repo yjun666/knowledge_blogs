@@ -40,7 +40,7 @@ export class GetJsonService implements Api {
   // 创建
   public create(param): Observable<object> {
     const { method, url } = this.getApiParam('create');
-    return this[method](url, { content: '12312313' });
+    return this[method](url, { content: param.content });
   }
   /**
    * 删除
@@ -69,7 +69,8 @@ export class GetJsonService implements Api {
         params: param
       },
       {
-        observe: 'response'  // 加入该参数可获取完整的响应体
+        isForm: false
+        // observe: 'response'  // 加入该参数可获取完整的响应体
       },
       options
     );
@@ -97,7 +98,7 @@ export class GetJsonService implements Api {
         // headers: {
         //   'Content-Type': 'application/json;charset=UTF-8' // 默认json
         // },
-        observe: 'response',  // 加入该参数可获取完整的响应体
+        // observe: 'response',  // 加入该参数可获取完整的响应体
       },
       options
     );

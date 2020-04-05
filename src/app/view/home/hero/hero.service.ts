@@ -9,13 +9,14 @@ import { LoggerService } from '../../../services/logger.service';
 
 @Injectable()
 export class HeroService {
-  heros: Array<Heros>;
+  heros: Array<Heros> = [];
   constructor(
     private loggerService: LoggerService,
     private http: HttpClient,
     @Inject('apiUrl') private apiUrl) { }
 
-  getHeros(): Observable<any> {
-    return this.http.get(this.apiUrl);
+  getHero(id) {
+    // tslint:disable-next-line: no-string-literal
+    return this.heros.find(x => x['_id'] === id);
   }
 }
