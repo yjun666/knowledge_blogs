@@ -6,7 +6,8 @@ export const environment = {
   apiUrl: 'http://www.yjuns.cn',
   production: false,
   isLog: true, // 是否开启打印
-  env: 'dev'
+  env: 'dev',
+  encrypt: true, // cookie、localstorage是否加密
 };
 
 /*

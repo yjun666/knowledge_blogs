@@ -2,3 +2,4 @@
 > setAuthor.service // 拦截器修改请求头添加 token
 > loggingInterceptor.service // 拦截器记录日志，监听请求的返回时间成功还是失败
 > uploadInterceptor.service // 拦截器监听文件上传进度
+> interceptor.service // 其他功能拦截器 ----- 除以上功能的其他功能

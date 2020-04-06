@@ -11,20 +11,27 @@ import { getToken, isLogin } from '../utils/auth';
 const noAuthorUrlArr = ['/oauth/rest_token', 'list/create']; // 这个数据里边的接口不添加Authorization
 /** Pass untouched request through to the next request handler. */
 @Injectable()
-export class SetAuthorInterceptorService implements HttpInterceptor {
+export class OtherInterceptorService implements HttpInterceptor {
   constructor(
     private router: Router
   ) { }
   intercept(req: HttpRequest<any>, next: HttpHandler):
     Observable<HttpEvent<any>> {
-    let authReq = req;
+    const isToLogin = this.toLogin(req);
+    console.log(isToLogin);
+    return next.handle(req);
+  }
 
-    // 排除设置Authorization等属性的接口，可能这类接口不允许设置这类字段
-    if (noAuthorUrlArr.every(x => req.url.indexOf(x) === -1)) {
-      authReq = req.clone({
-        headers: req.headers.set('Authorization', `Bearer ${getToken()}`)
-      });
+  // 如果登陆失效，跳转到登陆页面
+  private toLogin(req) {
+    // 除登陆接口以外的所有接口都设置访问失效，跳转登陆
+    if (req.url.indexOf('/oauth/rest_token') === -1) {
+      // 登陆失效，跳转到登陆页面
+      if (!isLogin()) {
+        this.router.navigate(['/login']);
+        return false;
+      }
     }
-    return next.handle(authReq);
+    return true;
   }
 }

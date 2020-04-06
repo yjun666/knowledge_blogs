@@ -57,26 +57,6 @@ export class ShardMethodService {
   }
 
   /**
-   * 去掉字符串的空格
-   * @param str 字符串
-   * @param type 类型 清除哪部分的空字符串
-   */
-  public trim(str, type) {
-    switch (type) {
-      case 1:
-        return str.replace(/\s+/g, '');
-      case 2:
-        return str.replace(/(^\s*)|(\s*$)/g, '');
-      case 3:
-        return str.replace(/(^\s*)/g, '');
-      case 4:
-        return str.replace(/(\s*$)/g, '');
-      default:
-        return str;
-    }
-  }
-
-  /**
    * 动态设置css样式
    * @param ele 要设置的元素
    * @param styleObj 要设置的样式

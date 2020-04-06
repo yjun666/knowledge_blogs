@@ -7,7 +7,6 @@ import { Router } from '@angular/router';
 
 import { finalize, tap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
-const filterNoHeadersUrlArr = ['http://10.110.147.33:8015/oauth/rest_token'];
 /** Pass untouched request through to the next request handler. */
 @Injectable()
 export class HandleErrorInterceptorService implements HttpInterceptor {

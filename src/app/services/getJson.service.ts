@@ -19,7 +19,9 @@ export class GetJsonService implements Api {
 
 
   public login(param: requestParamType.Login) {
-    const { method, url } = this.getApiParam('login');
+
+    const { method, url } = this.api.login;
+    // const { method, url } = this.getApiParam('login');
     return this[method](url, param);
   }
 
@@ -29,24 +31,24 @@ export class GetJsonService implements Api {
     const options = {
       headers: {
         Authorization: 'asdf-asd-fa-sdf-asdf-sdf-123123',
-        'Content-Type': 'application/json;charset=UTF-8'
+        // 'Content-Type': 'application/json;charset=UTF-8'
       },
       reportProgress: false,
-      responseType: 'json',
+      responseType: 'json'
     };
-    const { method, url } = this.getApiParam('search');
+    const { method, url } = this.api.search;
     return this[method](url, param, options);
   }
   // 创建
   public create(param): Observable<object> {
-    const { method, url } = this.getApiParam('create');
-    return this[method](url, { content: param.content });
+    const { method, url } = this.api.create;
+    return this[method](url, param);
   }
   /**
    * 删除
    */
   public delete(param) {
-    const { method, url } = this.getApiParam('delete');
+    const { method, url } = this.api.delete;
     return this[method](url, param);
   }
 
@@ -63,18 +65,8 @@ export class GetJsonService implements Api {
    */
   private get(url, param, options?) {
     options = options ? options : {};
-    const req = Object.assign(
-      {},
-      {
-        params: param
-      },
-      {
-        isForm: false
-        // observe: 'response'  // 加入该参数可获取完整的响应体
-      },
-      options
-    );
-    return this.http.get(url, req).pipe(
+    options.params = param;
+    return this.http.get(url, options).pipe(
       timeout(this.timeout), // 超时
       catchError(e => { // 超时处理
         if (e.name === 'TimeoutError') {
@@ -93,16 +85,7 @@ export class GetJsonService implements Api {
    */
   private post(url, param, options?) {
     options = options ? options : {};
-    const req = Object.assign(
-      {
-        // headers: {
-        //   'Content-Type': 'application/json;charset=UTF-8' // 默认json
-        // },
-        // observe: 'response',  // 加入该参数可获取完整的响应体
-      },
-      options
-    );
-    return this.http.post(url, param, req).pipe(
+    return this.http.post(url, param, options).pipe(
       timeout(this.timeout), // 超时
       catchError(e => { // 超时处理
         if (e.name === 'TimeoutError') {
@@ -116,34 +99,24 @@ export class GetJsonService implements Api {
   }
 
   /**
-   * 获取请求的url地址，减少开发http请求方法时多层级获取url地址
-   * @param type 获取的是哪一个请求API的url地址
-   */
-  private getApiParam(type: string) {
-    const method = this.api[type].method;
-    const url = this.api[type].url;
-    return { method, url };
-  }
-
-  /**
    * 两种设置请求方法，一种是下边这种根据配置文件进行动态设置，另一种是手动开发，上边那种
    */
-  private setRequest() {
-    for (const [key, value] of Object.entries(this.api)) {
-      this[key] = (params, isFormData = false, options = {}) => {
-        let newParams: any = {};
-        if (params && isFormData) {
-          newParams = new FormData();
-          // tslint:disable-next-line: forin
-          for (const i in params) {
-            newParams.append(i, params[i]);
-          }
-        } else {
-          newParams = params;
-        }
-        const { method, url } = value;
-        return this[method](url, newParams, options);
-      };
-    }
-  }
+  // private setRequest() {
+  //   for (const [key, value] of Object.entries(this.api)) {
+  //     this[key] = (params, isFormData = false, options = {}) => {
+  //       let newParams: any = {};
+  //       if (params && isFormData) {
+  //         newParams = new FormData();
+  //         // tslint:disable-next-line: forin
+  //         for (const i in params) {
+  //           newParams.append(i, params[i]);
+  //         }
+  //       } else {
+  //         newParams = params;
+  //       }
+  //       const { method, url } = value;
+  //       return this[method](url, newParams, options);
+  //     };
+  //   }
+  // }
 }
