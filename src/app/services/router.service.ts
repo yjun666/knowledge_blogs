@@ -66,7 +66,7 @@ export class RouterService {
       if (event instanceof NavigationStart) {
         // console.log(router);
       } else if (event instanceof NavigationEnd) { // 路由跳转结束时执行
-        console.log(router, router.url, event);
+        // console.log(router, router.url, event);
         let routerName = router.url; // 定义当前路由名称
         //  跳转路由时是否包含了点，路由的静态数据项配置没有包含点，如果包含了匹配时需要去掉
         if (routerName.indexOf('.') !== -1) {
