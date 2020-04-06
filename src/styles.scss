@@ -1,6 +1,6 @@
 @charset "utf-8";
-@import './app/scss/clear-global-styles';
-@import './app/scss/marked.scss';
+@import './app/scss/global/clear-global-styles';
+@import './app/scss/global/marked.scss';
 @import './ad-banner';
-@import './app/scss/global-styles';
-@import './app/scss/font-family';
+@import './app/scss/global/shared-class';
+@import './app/scss/global/font-family';
