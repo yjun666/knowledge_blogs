@@ -10,7 +10,9 @@ import { startWith, tap } from 'rxjs/operators';
 
 import { RequestCacheWithMap } from '../services/request-cache.service';
 // const searchUrl = 'https://npmsearch.com/query';
-const searchUrl = '/list/searchHero';
+
+const searchUrl = ['/list/searchHero', '/list/search'];
+// const searchUrl = '/list/searchHero';
 
 @Injectable()
 export class CachingInterceptorService implements HttpInterceptor {
@@ -44,7 +46,7 @@ function isCachable(req: HttpRequest<any>) {
   // Only GET requests are cachable
   return req.method === 'GET' &&
     // Only npm package search is cachable in this app
-    -1 < req.url.indexOf(searchUrl);
+    searchUrl.some(x => req.url.indexOf(x) !== -1);
 }
 
 /**

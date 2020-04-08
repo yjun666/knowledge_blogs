@@ -34,8 +34,8 @@ export class LoginComponent implements OnInit {
     //   username: 'wangqian',
     //   password: 'wangqian'
     // }).subscribe((data: any) => {
-    setUserName('wangqian');
-    setPassword('wangqian');
+    setUserName('username');
+    setPassword('password');
     // setToken(data.access_token);
     setToken('asdlkfcmwodicndkfvju');
 

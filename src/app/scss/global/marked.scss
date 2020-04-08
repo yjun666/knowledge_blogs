@@ -1,5 +1,5 @@
 // 全局的css，markdown使用
-@import './pxToRem';
+@import '../mixins/pxToRem';
 
 @function pixelToRem($number) {
   @return pxToRem($number)

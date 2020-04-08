@@ -1,0 +1,65 @@
+@import './absolute-path';
+
+@mixin bgImg($pathNo, $pathName, $name) {
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+  background-color: transparent;
+
+
+  @if $pathNo==0 {
+    @include setBgImg('./', $pathName, $name);
+  }
+
+  @if $pathNo==1 {
+    @include setBgImg('./../', $pathName, $name);
+  }
+
+  @if $pathNo==2 {
+    @include setBgImg('./../../', $pathName, $name);
+  }
+
+  @if $pathNo==3 {
+    @include setBgImg('./../../../', $pathName, $name);
+  }
+
+  @if $pathNo==4 {
+    @include setBgImg('./../../../../', $pathName, $name);
+  }
+
+  @if $pathNo==5 {
+    @include setBgImg('./../../../../../', $pathName, $name);
+  }
+}
+
+
+@mixin borderBgImg($pathNo, $pathName, $name) {
+
+  @if $pathNo==0 {
+    @include setBorderBgImg('./', $pathName, $name);
+  }
+
+  @if $pathNo==1 {
+    @include setBorderBgImg('./../', $pathName, $name);
+  }
+
+  @if $pathNo==2 {
+    @include setBorderBgImg('./../../', $pathName, $name);
+  }
+
+  @if $pathNo==3 {
+    @include setBorderBgImg('./../../../', $pathName, $name);
+  }
+
+  @if $pathNo==4 {
+    @include setBorderBgImg('./../../../../', $pathName, $name);
+  }
+
+  @if $pathNo==5 {
+    @include setBorderBgImg('./../../../../../', $pathName, $name);
+  }
+
+  border-image-slice: 30;
+  border-image-width: 1;
+  border-image-repeat: round;
+}

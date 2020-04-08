@@ -1,0 +1,14 @@
+@mixin setBgImg($path, $pathName, $name) {
+  background-image: url($path+'assets/img/'+$pathName+'/'+ $name);
+  // background-image: url('/assets/img/'+$pathName+'/'+ $name);
+}
+
+@mixin setBorderBgImg($path, $pathName, $name) {
+  border-image: url($path+'assets/img/'+$pathName+'/'+ $name);
+  // border-image: url('/assets/img/'+$pathName+'/'+ $name);
+}
+
+@mixin fontSrc($face) {
+  src: url("./assets/font/"+$face);
+  // src: url("/assets/font/"+$face);
+}

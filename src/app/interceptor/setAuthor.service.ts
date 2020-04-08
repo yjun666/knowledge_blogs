@@ -8,7 +8,7 @@ import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from
 import { Observable, of } from 'rxjs';
 import { getToken, isLogin } from '../utils/auth';
 
-const filterNoHeadersUrlArr = ['http://10.110.147.33:8015/oauth/rest_token'];
+const noAuthorUrlArr = ['/oauth/rest_token', 'list/create']; // 这个数据里边的接口不添加Authorization
 /** Pass untouched request through to the next request handler. */
 @Injectable()
 export class SetAuthorInterceptorService implements HttpInterceptor {
@@ -18,15 +18,9 @@ export class SetAuthorInterceptorService implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler):
     Observable<HttpEvent<any>> {
     let authReq = req;
+
     // 排除设置Authorization等属性的接口，可能这类接口不允许设置这类字段
-    if (!filterNoHeadersUrlArr.includes(req.url)) {
-      {
-        // 登陆失效，跳转到登陆页面
-        if (!isLogin()) {
-          this.router.navigate(['/login']);
-          return next.handle(req);
-        }
-      }
+    if (noAuthorUrlArr.every(x => req.url.indexOf(x) === -1)) {
       authReq = req.clone({
         headers: req.headers.set('Authorization', `Bearer ${getToken()}`)
       });

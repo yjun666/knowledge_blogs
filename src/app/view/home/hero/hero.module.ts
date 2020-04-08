@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzIconModule } from 'ng-zorro-antd/icon';
+import { NzTypographyModule } from 'ng-zorro-antd/typography';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 import { HeroComponent } from './hero.component';
@@ -10,11 +11,29 @@ import { HeroService } from './hero.service';
 import { MockHeroService } from './mock_hero.service';
 import { RouterService } from '../../../services/router.service';
 import { AppTitleHoverShowModule, EllipsisMultilineDirectiveModule } from '../../../directives';
+import { HeroDetailsComponent } from './hero-details/hero-details.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: HeroComponent
+    component: HeroComponent,
+    children: [
+      {
+        path: 'heroDetails/:id', // :id 传参
+        loadChildren: () => import('./hero-details/hero-details.module').then(m => m.HeroDetailsModule),
+        // component: HeroDetailsComponent,
+        data: {
+          animation: '',
+          name: 'heroDetails',
+          routeName: '/home/hero/heroDetails'
+        }
+      },
+      {
+        path: '',
+        redirectTo: '/home/hero/heroDetails/0',
+        pathMatch: 'prefix'
+      }
+    ]
   }
 ];
 
@@ -26,7 +45,7 @@ const routes: Routes = [
     NzButtonModule,
     NzIconModule,
     HttpClientModule,
-
+    NzTypographyModule,
     AppTitleHoverShowModule,
     EllipsisMultilineDirectiveModule,
   ],
@@ -43,10 +62,12 @@ const routes: Routes = [
     }
   ],
   declarations: [
-    HeroComponent
+    HeroComponent,
+    // HeroDetailsComponent
   ],
   exports: [
-    RouterModule
+    RouterModule,
+    // HeroDetailsComponent
   ]
 })
 export class HeroModule { }

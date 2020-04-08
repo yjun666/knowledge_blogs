@@ -22,7 +22,7 @@ export const API_CONFIG: ApiConfig = {
   },
   // 删除
   delete: {
-    method: 'post',
+    method: 'get',
     url: '/list/destroy',
   },
   query: {
