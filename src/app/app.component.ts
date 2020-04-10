@@ -3,7 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 
 import { AdService } from './components/shared/ad-banner/ad.service';
-import { LoggerService } from './services/logger.service';
 import { RouterService } from './services/router.service';
 
 declare const $;
@@ -19,12 +18,10 @@ export class AppComponent implements OnInit, AfterViewInit {
     private http: HttpClient,
     private router: Router,
     public adService: AdService,
-    public loggerService: LoggerService,
     public routerService: RouterService,
   ) { }
 
   ngOnInit() {
-    this.loggerService.log((x) => { console.log(123123); });
     console.log('123123asdfasdfasd');
     this.ads = this.adService.getAds();
   }

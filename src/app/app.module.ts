@@ -24,7 +24,6 @@ import { NZ_I18N, zh_CN } from 'ng-zorro-antd';
 // service
 import { MessageService } from './services/message.service';
 import { RequestCacheWithMap } from './services/request-cache.service';
-import { LoggerService } from './services/logger.service';
 import { UploaderService } from './services/uploader.service';
 import { RouterService } from './services/router.service';
 import { ShardMethodService } from './services/share-method.service';
@@ -55,14 +54,6 @@ const services = [
   RouterService,
   UpdataSubjectService,
   GetJsonService,
-  {
-    provide: LoggerService,
-    // 输入参数控制是否开启打印
-    useFactory: (selectivePreloadingStrategyService) => {
-      return new LoggerService(isLog, selectivePreloadingStrategyService); // 使用useFactory 给服务添加参数
-    },
-    deps: [SelectivePreloadingStrategyService] // deps 中参数为传入useFactory方法的实参,如果该服务需要其他的服务依赖，那么从此处可以注入
-  },
   { provide: NZ_I18N, useValue: zh_CN }
 ];
 

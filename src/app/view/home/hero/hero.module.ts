@@ -10,7 +10,7 @@ import { HeroComponent } from './hero.component';
 import { HeroService } from './hero.service';
 import { MockHeroService } from './mock_hero.service';
 import { RouterService } from '../../../services/router.service';
-import { AppTitleHoverShowModule, EllipsisMultilineDirectiveModule } from '../../../directives';
+import { EllipsisMultilineDirectiveModule } from '../../../directives';
 import { HeroDetailsComponent } from './hero-details/hero-details.component';
 
 const routes: Routes = [
@@ -46,7 +46,6 @@ const routes: Routes = [
     NzIconModule,
     HttpClientModule,
     NzTypographyModule,
-    AppTitleHoverShowModule,
     EllipsisMultilineDirectiveModule,
   ],
   providers: [

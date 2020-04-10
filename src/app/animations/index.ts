@@ -1,1 +1,0 @@
-export { slideInAnimation } from './animation';

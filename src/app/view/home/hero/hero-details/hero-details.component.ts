@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, ParamMap } from '@angular/router';
 import { HeroService } from '../hero.service';
 import { Heros } from '../herosType';
-import { LoggerService } from '../../../../services/logger.service';
 import { GetJsonService } from '../../../../services/getJson.service';
 
 // import { switchMap } from 'rxjs/operator/switchMap';
@@ -23,7 +22,6 @@ export class HeroDetailsComponent implements OnInit {
     private router: Router,
     private heroService: HeroService,
     private getJson: GetJsonService,
-    private loggerService: LoggerService
   ) { }
 
 

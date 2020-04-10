@@ -5,13 +5,11 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Heros, MockHeroData } from './herosType';
-import { LoggerService } from '../../../services/logger.service';
 
 @Injectable()
 export class HeroService {
   heros: Array<Heros> = [];
   constructor(
-    private loggerService: LoggerService,
     private http: HttpClient,
     @Inject('apiUrl') private apiUrl) { }
 

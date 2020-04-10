@@ -5,7 +5,6 @@ import { HomeComponent } from './home.component';
 
 import { HeaderModule } from '../../components/shared/header/header.module';
 
-import { AppTitleHoverShowModule } from '../../directives';
 import { RouterService } from '../../services/router.service';
 import { GetJsonService } from '../../services/getJson.service';
 
@@ -73,7 +72,6 @@ const adminRoutes: Routes = [
 @NgModule({
   imports: [
     CommonModule,
-    AppTitleHoverShowModule,
     // 不能注入markdown等module，否则只输入home组件时，markdown直接找到跟组件，不渲染home组件
     // MarkdownModule,
     // RequestModule,

@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { HeroService } from './hero.service';
 import { Heros } from './herosType';
-import { LoggerService } from '../../../services/logger.service';
 import { GetJsonService } from '../../../services/getJson.service';
 
 @Component({
@@ -23,7 +22,6 @@ export class HeroComponent implements OnInit {
     private route: ActivatedRoute,
     private heroService: HeroService,
     private getJson: GetJsonService,
-    private loggerService: LoggerService
   ) { }
 
 
