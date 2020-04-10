@@ -27,7 +27,7 @@ export const API_CONFIG: ApiConfig = {
   },
   query: {
     method: 'get',
-    url: 'https://npmsearch.com/query?q=vue',
+    url: 'https://npmsearch.com/query',
   },
   // 登陆接口
   login: {

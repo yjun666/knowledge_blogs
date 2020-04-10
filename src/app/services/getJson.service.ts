@@ -10,7 +10,7 @@ import { timeout, catchError } from 'rxjs/operators';
 @Injectable()
 export class GetJsonService implements Api {
   api: Api = API_CONFIG;
-  timeout = 2000;
+  timeout = 5000;
   constructor(
     private http: HttpClient
   ) {
@@ -52,7 +52,14 @@ export class GetJsonService implements Api {
     return this[method](url, param);
   }
 
-  query() { }
+  /**
+   * 查询
+   * @param param 参数
+   */
+  public query(param: requestParamType.Query) {
+    const { method, url } = this.api.query;
+    return this[method](url, param);
+  }
 
 
 

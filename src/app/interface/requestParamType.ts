@@ -32,5 +32,5 @@ export interface Login {
  * 查询接口参数类型定义
  */
 export interface Query {
-  query: string;
+  q: string;
 }

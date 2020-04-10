@@ -2,6 +2,7 @@ import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { MessageService } from '../../../services/message.service';
+import { GetJsonService } from '../../../services/getJson.service';
 
 declare const $;
 @Component({
@@ -14,6 +15,7 @@ export class RequestTestComponent implements OnInit, AfterViewInit {
   constructor(
     private http: HttpClient,
     private router: Router,
+    private getJsonService: GetJsonService,
     public messageService: MessageService,
   ) { }
   ngOnInit() {
@@ -30,7 +32,7 @@ export class RequestTestComponent implements OnInit, AfterViewInit {
       // }).subscribe((data) => {
       //   console.log(data);
       // });
-      this.http.get('https://npmsearch.com/query?q=vue')
+      this.getJsonService.query({ q: 'vue' })
         .subscribe((data) => {
           console.log(data);
         });
@@ -38,7 +40,7 @@ export class RequestTestComponent implements OnInit, AfterViewInit {
     }
     {
       // get调用方式跨域携带cookie---------start
-      this.http.get('/list/searchHero', {
+      this.http.get('/list/search', {
         headers,
         withCredentials: true, // 解决跨域请求不能携带cookie的问题
         observe: 'response',  // 加入该参数可获取完整的响应体
