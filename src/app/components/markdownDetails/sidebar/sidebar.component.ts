@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, AfterViewInit, OnDestroy, HostListener } from '@angular/core';
 import { AppUpdateService } from '../../../app-update.service';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 
@@ -231,16 +231,10 @@ export class SideBarComponent implements OnInit, AfterViewInit, OnDestroy {
         // console.log(res);
         this.catalog = res;
       });
-
-    window.addEventListener('resize', () => {
-      $('#catalog-details').getNiceScroll().resize();
-    });
   }
 
   ngOnDestroy() {
-    window.removeEventListener('resize', () => {
-      $('#catalog-details').getNiceScroll().resize();
-    });
+    clearTimeout(this.resizeTimer);
   }
 
   private niceScroll() {
@@ -310,6 +304,17 @@ export class SideBarComponent implements OnInit, AfterViewInit, OnDestroy {
     $('#markdown-details-body').css('padding-left', '235px');
     this.isShowSideBar = true;
     this.niceScroll();
+  }
+
+
+  // tslint:disable-next-line: member-ordering
+  resizeTimer = null;
+  @HostListener('window:resize')
+  resizeEvent() {
+    clearTimeout(this.resizeTimer);
+    this.resizeTimer = setTimeout(() => {
+      $('#catalog-details').getNiceScroll().resize();
+    }, 200);
   }
 
 }
