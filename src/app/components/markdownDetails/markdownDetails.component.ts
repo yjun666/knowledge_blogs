@@ -3,6 +3,7 @@ import { AppUpdateService } from '../../app-update.service';
 import { map, filter, debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
 import { fromEvent } from 'rxjs';
 import { MarkdownDetailsService } from './markdownDetails.service';
+import { setUuid1, setUuid3, setUuid4, setUuid5 } from '../../utils/uuid';
 // import { MarkdownDetailsService } from '.';
 
 declare const $;
@@ -82,6 +83,12 @@ export class MarkdownDetailsComponent implements OnInit, AfterViewInit, OnDestro
   resizetTimer = null;
   @HostListener('window:resize')
   resizeEvent(event) {
+    // console.log(setUuid1());
+    // console.log(setUuid4());
+    console.log(setUuid3('www.yjuns.cn'));
+    console.log(setUuid3([1, 2, 3, 4]));
+    console.log(setUuid5('www.yjuns.cn'));
+    console.log(setUuid5([5, 6, 7, 8]));
     clearTimeout(this.resizetTimer);
     this.resizetTimer = setTimeout(() => {
       this.markdownDetailsService.niceScroll('markdown-details-body', false);
