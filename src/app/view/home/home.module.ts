@@ -61,6 +61,15 @@ const adminRoutes: Routes = [
         }
       },
       {
+        path: 'demo',
+        loadChildren: () => import('./demo/demo.module').then(m => m.DemoModule),
+        data: {
+          animation: 'DemoPage',
+          name: 'demo',
+          routeName: '/home/demo'
+        }
+      },
+      {
         path: '',
         redirectTo: '/home/markdown',
         pathMatch: 'prefix'
