@@ -1,1 +1,35 @@
-search-component
+<section class="search-body">
+  <div class="search-area">
+    <div class="search-box" style="width:500px;border:1px solid #000;">
+      <div class="search-wrapper" [attr.type]='item.isText ? "text" : "button"'
+        *ngFor="let item of searchContentArr; let i=index" (click)='searchClick(item)'
+        (dblclick)='searchDblClick(item)'>
+        <input [attr.id]='item.id' [ngClass]='{"error":item.isError}' [attr.type]='item.isText ? "text" : "button"'
+          type="button" [(ngModel)]="item.val" (keyup)='searchKeyUp($event, item)'
+          (keydown)='searchKeyDown($event, item)' (blur)='searchBlur(item)' (focus)='searchFocus(item)'>
+        <i *ngIf='!item.isText&&!item.isShowBox' nz-icon nzType="down" nzTheme="outline"></i>
+        <i *ngIf='!item.isText&&item.isShowBox' nz-icon nzType="up" nzTheme="outline"></i>
+
+        <div class="operator-box" *ngIf='!item.isText&&item.isShowBox'>
+          <span (click)='editCode(item)'>编辑编号</span>
+          <span (click)='copyCode(item)'>拷贝编号</span>
+          <span (click)='removeCode(item)'>移除编号</span>
+        </div>
+      </div>
+
+      <div class="search-wrapper" (click)='searchClick(curEditSearch)'>
+        <input [attr.id]='curEditSearch.id' [ngClass]='{"error":curEditSearch.isError}' type='text'
+          [(ngModel)]="curEditSearch.val" (keyup)='searchKeyUp($event,curEditSearch)'
+          (keydown)='searchKeyDown($event, curEditSearch)' (blur)='searchBlur(curEditSearch)'
+          (focus)='searchFocus(curEditSearch)'>
+      </div>
+    </div>
+    <ul class="think-list">
+      <li class="pnCont" style="display:none;">{{parameterPage.keyWord}}</li>
+      <li *ngFor="let item of thinkList; let i=index" class="pnCont" [ngClass]="{'bg': parameterPage.pnIndex==i+1}"
+        (click)='getCode(item)'>
+        {{item.code}}
+      </li>
+    </ul>
+  </div>
+</section>

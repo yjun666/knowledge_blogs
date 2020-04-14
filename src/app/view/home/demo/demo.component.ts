@@ -10,7 +10,7 @@ import { GetJsonService } from '../../../services/getJson.service';
 export class DemoComponent implements OnInit {
   // checkbox 开关
   cb = {
-    search: false,
+    search: true,
   }
   constructor() { }
 

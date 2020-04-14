@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
     setUserName('username');
     setPassword('password');
     // setToken(data.access_token);
-    setToken('asdlkfcmwodicndkfvju');
+    setToken('7cca7af2-d19f-4edf-ab80-45fe1990c619');
 
     // 路由传参如果是传一个值需在路由配置中home后边添加"/:id",如果添加多个则不能加-----传参作为测试使用
     this.router.navigate(['/home/markdown', { a: 'asdfasdf', b: '123123', c: 'asdf' }]);
