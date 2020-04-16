@@ -2,7 +2,7 @@
   <div class="search-area">
     <div class="search-box" style="width:500px;border:1px solid #000;">
       <div class="search-wrapper" [attr.type]='item.isText ? "text" : "button"'
-        *ngFor="let item of searchContentArr; let i=index" (click)='searchClick(item)'
+        *ngFor="let item of searchContentArr; let i=index" (click)='searchClick($event,item)'
         (dblclick)='searchDblClick(item)'>
         <input [attr.id]='item.id' [ngClass]='{"error":item.isError}' [attr.type]='item.isText ? "text" : "button"'
           type="button" [(ngModel)]="item.val" (keyup)='searchKeyUp($event, item)'
@@ -10,18 +10,19 @@
         <i *ngIf='!item.isText&&!item.isShowBox' nz-icon nzType="down" nzTheme="outline"></i>
         <i *ngIf='!item.isText&&item.isShowBox' nz-icon nzType="up" nzTheme="outline"></i>
 
-        <div class="operator-box" *ngIf='!item.isText&&item.isShowBox'>
-          <span (click)='editCode(item)'>编辑编号</span>
-          <span (click)='copyCode(item)'>拷贝编号</span>
-          <span (click)='removeCode(item)'>移除编号</span>
-        </div>
       </div>
 
-      <div class="search-wrapper" (click)='searchClick(curEditSearch)'>
+      <div class="search-wrapper" (click)='searchClick($event,curEditSearch)'>
         <input [attr.id]='curEditSearch.id' [ngClass]='{"error":curEditSearch.isError}' type='text'
           [(ngModel)]="curEditSearch.val" (keyup)='searchKeyUp($event,curEditSearch)'
           (keydown)='searchKeyDown($event, curEditSearch)' (blur)='searchBlur(curEditSearch)'
           (focus)='searchFocus(curEditSearch)'>
+      </div>
+      <div class="operator-box"
+        [ngStyle]='{"top":!parameterPage.curEditItem.isText&&parameterPage.curEditItem.isShowBox?"50%":"9999999999px"}'>
+        <span (click)='editCode(parameterPage.curEditItem)'>编辑编号</span>
+        <span (click)='copyCode(parameterPage.curEditItem)'>拷贝编号</span>
+        <span (click)='removeCode(parameterPage.curEditItem)'>移除编号</span>
       </div>
     </div>
     <ul class="think-list">

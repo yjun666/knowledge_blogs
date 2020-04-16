@@ -69,7 +69,7 @@ export class SearchComponent implements OnInit {
    * 单机搜索框事件
    * @param item 参数
    */
-  public searchClick(item) {
+  public searchClick(event, item) {
     clearTimeout(this.parameterPage.searchClickTimeout);
     this.parameterPage.searchClickTimeout = setTimeout(() => {
       // 如果是双击事件，那么不执行单机方法
@@ -78,7 +78,13 @@ export class SearchComponent implements OnInit {
         clearTimeout(this.parameterPage.searchClickTimeout);
         return;
       }
-      console.log('click', item);
+
+      const ele: any = this.getParentEle(event.target, '.search-wrapper');
+      const searchBox: any = document.querySelector('.search-box');
+      const operatorBox: any = document.querySelector('.operator-box');
+      this.parameterPage.curEditItem = item;
+      // console.log(this.parameterPage.curEditItem);
+      // console.log('click', item);
       if (item.isText) {
         // 如果当前点击的是输入框，如果oldVal存在，那么初始化参数，
         this.searchContentArr.map((x, xIdx) => {
@@ -95,6 +101,14 @@ export class SearchComponent implements OnInit {
             x.isShowBox = false; // 关闭操作编辑框
           }
         });
+        // console.log(ele.offsetLeft, ele.offsetWidth, event);
+        // console.log(searchBox.scrollLeft);
+        // console.log(ele.offsetLeft, searchBox.scrollLeft, ele.offsetWidth, operatorBox.offsetWidth);
+        const eleL = ele.offsetLeft;
+        const eleW = ele.offsetWidth;
+        const searchBoxL = searchBox.scrollLeft;
+        const operatorBoxW = operatorBox.offsetWidth;
+        operatorBox.style.left = (eleL - searchBoxL + eleW - (operatorBoxW + 20) / 2) + 'px';
         item.isShowBox = !item.isShowBox; // 打开或关闭操作编辑框
       }
     }, 300);
@@ -238,6 +252,35 @@ export class SearchComponent implements OnInit {
     this.parameterPage.curEditItem.val = code; // 设置值
     this.parameterPage.curEditItem.oldVal = code; // 设置值
     this.setTextToBtn(this.parameterPage.curEditItem); // 设置当前选中的code码变为按钮状态
+  }
+
+  /**
+   * 获取指定类型的父级元素,或者当前元素就是我们要找的元素
+   * @param ele 需要查找的当前元素
+   * @param parent 指定父级元素的id或者className或者元素类型
+   */
+  private getParentEle(ele, parent) {
+    const str = parent.replace(/\.|\#/, '');
+    console.log(ele, ele.className, ele.parentElement, ele.parentElement.className);
+    if (parent.indexOf('.') !== -1 && typeof ele.parentElement.className === 'string' && ele.parentElement.className.indexOf(str) !== -1) {
+      return ele.parentElement;
+    } else if (parent.indexOf('#') !== -1 && ele.parentElement.id === str) {
+      return ele.parentElement;
+    } else if (ele.parentElement.tagName === parent.toUpperCase()) {
+      return ele.parentElement;
+    } else if (parent.indexOf('.') !== -1 && typeof ele.className === 'string' && ele.className.indexOf(str) !== -1) {
+      return ele;
+    } else if (parent.indexOf('#') !== -1 && ele.id === str) {
+      return ele;
+    } else if (ele.tagName === parent.toUpperCase()) {
+      return ele;
+    }
+    if (ele.tagName === 'BODY') {
+      console.log('zhaobudao');
+      return;
+    }
+    // console.log(ele, parent, ele.parentElement);
+    return this.getParentEle(ele.parentElement, parent);
   }
 
   /**
