@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { HeroService } from './hero.service';
 import { Heros } from './herosType';
 import { GetJsonService } from '../../../services/getJson.service';
+import { RouterService } from '../../../services/router.service';
 
 @Component({
   selector: 'app-hero',
@@ -22,6 +23,7 @@ export class HeroComponent implements OnInit {
     private route: ActivatedRoute,
     private heroService: HeroService,
     private getJson: GetJsonService,
+    public routerService: RouterService,
   ) { }
 
 
@@ -70,6 +72,6 @@ export class HeroComponent implements OnInit {
 
   // 显示详情
   public getDetails(id) {
-    this.router.navigate(['./heroDetails', id], { relativeTo: this.route }); // 按照当前路由进行跳转
+    this.router.navigate(['./heroDetails', { id, param: 123 }], { relativeTo: this.route }); // 按照当前路由进行跳转
   }
 }

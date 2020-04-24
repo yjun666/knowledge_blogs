@@ -1,5 +1,5 @@
 import { Component, OnInit, AfterViewInit, OnDestroy, HostListener } from '@angular/core';
-import { AppUpdateService } from '../../app-update.service';
+import { UpdataSubjectService } from '../../services/subject.service';
 import { map, filter, debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
 import { fromEvent } from 'rxjs';
 import { MarkdownDetailsService } from './markdownDetails.service';
@@ -25,11 +25,11 @@ export class MarkdownDetailsComponent implements OnInit, AfterViewInit, OnDestro
   // 初始化title
   title = '生成随机数';
   constructor(
-    private appUpdateService: AppUpdateService,
+    private updataSubjectService: UpdataSubjectService,
     private markdownDetailsService: MarkdownDetailsService
   ) { }
   ngOnInit() {
-    this.appUpdateService.getSideBarSubject().subscribe((data) => {
+    this.updataSubjectService.sideBarSubject.subscribe((data) => {
       this.title = data.title;
       this.curOption = data.pageOption;
     });
