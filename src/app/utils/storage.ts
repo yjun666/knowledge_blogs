@@ -1,13 +1,13 @@
 import { Base64 } from 'js-base64';
 import { environment } from '../../environments/environment';
 
-let setSessionStorage = (name: string, value: any) => { };
-let getSessionStorage = (name: string) => { };
-let removeSessionStorage = (name: string) => { };
+let setStorage = (name: string, value: any) => { };
+let getStorage = (name: string) => { };
+let removeStorage = (name: string) => { };
 
 {
   // 设置sessionStorage
-  setSessionStorage = (name: string, value: any) => {
+  setStorage = (name: string, value: any) => {
     name = environment.encrypt ? Base64.encode(name) : name;
     value = typeof value === 'string' ? value : JSON.stringify(value);
     value = environment.encrypt ? Base64.encode(value) : value;
@@ -15,7 +15,7 @@ let removeSessionStorage = (name: string) => { };
   };
 
   // 获取sessionStorage
-  getSessionStorage = (name): any => {
+  getStorage = (name): any => {
     name = environment.encrypt ? Base64.encode(name) : name;
     let value = sessionStorage.getItem(name);
     value = value && environment.encrypt ? Base64.decode(value) : value;
@@ -25,8 +25,10 @@ let removeSessionStorage = (name: string) => { };
     return value;
   };
   // 删除sessionStorage
-  removeSessionStorage = (name) => {
+  removeStorage = (name) => {
     name = environment.encrypt ? Base64.encode(name) : name;
     sessionStorage.removeItem(name);
   };
 }
+
+export { setStorage,getStorage,removeStorage };
