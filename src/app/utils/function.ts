@@ -6,6 +6,12 @@ let downloadAsXLS = (res: any) => { };
 // dateTimeStamp是一个时间毫秒，注意时间戳是秒的形式，在这个毫秒的基础上除以1000，就是十位数的时间戳。13位数的都是时间毫秒。
 let timeago = (dateTimeStamp: number) => { };
 
+/**
+ * 修改new Date() 为 2015-01-01 字符串
+ * @param value value是任意日期格式，2010-01-01 或者 2020／01／01，或者毫秒数
+ * @param symbol 连接字符 默认是 -
+ */
+let changeDateToString = ({ value, symbol }): string => { return '1970-01-01' };
 
 // 方法重写
 {
@@ -27,7 +33,7 @@ let timeago = (dateTimeStamp: number) => { };
       default:
         return str;
     }
-  };
+  }
 
   // 下载为XLS表格
   downloadAsXLS = (res: any) => {
@@ -52,7 +58,7 @@ let timeago = (dateTimeStamp: number) => { };
       a.click();
       document.body.removeChild(a);
     };
-  };
+  }
 
 
   // dateTimeStamp是一个时间毫秒，注意时间戳是秒的形式，在这个毫秒的基础上除以1000，就是十位数的时间戳。13位数的都是时间毫秒。
@@ -99,5 +105,18 @@ let timeago = (dateTimeStamp: number) => { };
       result = Nyear + '-' + Nmonth + '-' + Ndate;
     }
     return result;
-  };
+  }
+
+
+
+  /**
+   * 修改new Date() 为 2015-01-01 字符串
+   */
+  changeDateToString = ({ value, symbol }: any): string => {
+    symbol = symbol ? symbol : '-';
+    let dateArr: string[] = value ? new Date(value).toLocaleDateString().split('/') : new Date().toLocaleDateString().split('/');
+    dateArr = dateArr.map((x: string, xIdx: number) => Number(x) < 10 ? '0' + x : x);
+    return dateArr.join(symbol);
+  }
 }
+

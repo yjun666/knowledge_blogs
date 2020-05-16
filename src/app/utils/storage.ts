@@ -1,5 +1,4 @@
-import { Base64 } from 'js-base64';
-import { environment } from '../../environments/environment';
+import { setEncryptValue, getEncryptValue } from './encrypt';
 
 let setStorage = (name: string, value: any) => { };
 let getStorage = (name: string) => { };
@@ -8,17 +7,20 @@ let removeStorage = (name: string) => { };
 {
   // 设置sessionStorage
   setStorage = (name: string, value: any) => {
-    name = environment.encrypt ? Base64.encode(name) : name;
+    name = setEncryptValue(name);
     value = typeof value === 'string' ? value : JSON.stringify(value);
-    value = environment.encrypt ? Base64.encode(value) : value;
+    value = setEncryptValue(value);
     sessionStorage.setItem(name, value);
   };
 
   // 获取sessionStorage
   getStorage = (name): any => {
-    name = environment.encrypt ? Base64.encode(name) : name;
-    let value = sessionStorage.getItem(name);
-    value = value && environment.encrypt ? Base64.decode(value) : value;
+    name = setEncryptValue(name); // 解密name值
+    let value = sessionStorage.getItem(name); // 获取value
+    if (value) {
+      value = getEncryptValue(value); // 解密value值
+    }
+    // 如果是string json，那么parse
     if (value && (value.indexOf('[') !== -1 || value.indexOf('{') !== -1)) {
       value = JSON.parse(value);
     }
@@ -26,9 +28,9 @@ let removeStorage = (name: string) => { };
   };
   // 删除sessionStorage
   removeStorage = (name) => {
-    name = environment.encrypt ? Base64.encode(name) : name;
+    name = setEncryptValue(name);
     sessionStorage.removeItem(name);
   };
 }
 
-export { setStorage,getStorage,removeStorage };
+export { setStorage, getStorage, removeStorage };

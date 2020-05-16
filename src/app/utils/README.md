@@ -14,3 +14,6 @@ funtion.ts
 
 sessionStorage.ts
 - sessionStorage 设置与清除等
+
+encrypt.ts
+- 设置base64加密数据，base64解密
