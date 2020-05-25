@@ -253,6 +253,67 @@ SASS支持for循环：
 　　　　border: #{$i}px solid blue;
 　　}
 }
+
+
+$oneNavStatusImg: ((className:'demandForecasting', imgHeight:1.1rem, format:'.png'),
+  (className:'purchasePlan', imgHeight:1.05rem, format:'.png'),
+  // (className:'oweGoodsWarning', imgHeight:1rem),
+  (className:'historyRecord', imgHeight:1.1rem, format:'.svg'),
+  (className:'statisticalReports', imgHeight:1.05rem, format:'.png'),
+  (className:'ruleManagement', imgHeight:0.85rem, format:'.png'),
+  (className:'systemOperational', imgHeight:1rem, format:'.png'),
+  (className:'ltbFullDosePred', imgHeight:1.2rem, format:'.png'));
+
+// 设置一级导航的图片及hover态图片
+  @for $i from 1 through length($oneNavStatusImg) {
+    $item: nth($oneNavStatusImg, $i);
+    $className: map-get($item, className);
+    $imgHeight: map-get($item, imgHeight);
+    $format: map-get($item, format);
+
+    li.#{$className} {
+      .top {
+        span.icon {
+          background-image: url(../../../assets/sideBar/#{$className}_normal#{$format});
+          height: #{$imgHeight};
+        }
+      }
+
+      &:hover {
+        .top:not(.notAllowDisabled) {
+          span.icon {
+            background-image: url(../../../assets/sideBar/#{$className}_hover#{$format});
+          }
+        }
+      }
+
+      &:active {
+        .top:not(.notAllowDisabled) {
+          span.icon {
+            background-image: url(../../../assets/sideBar/#{$className}_hover#{$format});
+          }
+        }
+      }
+
+      .active:not(.notAllowDisabled) {
+        background-color: #4ECEFF !important;
+
+        span.icon {
+          transition: all 10ms;
+          background-image: url(../../../assets/sideBar/#{$className}_active.png) !important;
+        }
+
+        span.text {
+          color: #fff;
+        }
+      }
+
+      .active:not(.notAllowDisabled)+div.bottom {
+        background-color: #4ECEFF !important;
+        color: #fff;
+      }
+    }
+  }
 ```
 
 也支持while循环：

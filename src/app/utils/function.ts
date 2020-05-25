@@ -51,7 +51,7 @@ function getDifferenceVal() {
       default:
         return str;
     }
-  };
+  }
 
   // 下载为XLS表格
   downloadAsXLS = (res: any) => {
@@ -76,7 +76,7 @@ function getDifferenceVal() {
       a.click();
       document.body.removeChild(a);
     };
-  };
+  }
 
 
   // dateTimeStamp是一个时间毫秒，注意时间戳是秒的形式，在这个毫秒的基础上除以1000，就是十位数的时间戳。13位数的都是时间毫秒。
@@ -170,4 +170,5 @@ export {
   isSomeType,
   getSum,
   getDifferenceVal
-}
+};
+

@@ -4,7 +4,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AppUpdateService } from './app-update.service';
 import { AppService } from './app.service';
 
 import { environment } from '../environments/environment';
@@ -42,7 +41,6 @@ const directives = [];
 
 
 const services = [
-  AppUpdateService,
   AppService,
   AuthGuard,
   httpInterceptorProviders,

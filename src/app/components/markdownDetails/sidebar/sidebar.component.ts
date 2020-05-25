@@ -1,5 +1,5 @@
 import { Component, OnInit, AfterViewInit, OnDestroy, HostListener } from '@angular/core';
-import { AppUpdateService } from '../../../app-update.service';
+import { UpdataSubjectService } from '../../../services/subject.service';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 
 import { from } from 'rxjs';
@@ -224,7 +224,7 @@ export class SideBarComponent implements OnInit, AfterViewInit, OnDestroy {
   ];
 
   isShowSideBar = true;
-  constructor(private appUpdateService: AppUpdateService, private http: HttpClient) { }
+  constructor(private updataSubjectService: UpdataSubjectService, private http: HttpClient) { }
   ngOnInit() {
     this.http.get('/assets/json/markdownCatalog.json')
       .subscribe((res) => {
@@ -281,7 +281,7 @@ export class SideBarComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     param.isCurCatalog = true;
-    this.appUpdateService.emitUpdataSideBarSubject(param);
+    this.updataSubjectService.emitUpdataSideBarSubject(param);
     // console.log(event);
     // event.target.style.backgroundColor = 'purple';
     // console.log('pageTurn');

@@ -19,7 +19,7 @@ const routes: Routes = [
     component: HeroComponent,
     children: [
       {
-        path: 'heroDetails/:id', // :id 传参
+        path: 'heroDetails',
         loadChildren: () => import('./hero-details/hero-details.module').then(m => m.HeroDetailsModule),
         // component: HeroDetailsComponent,
         data: {
@@ -27,11 +27,6 @@ const routes: Routes = [
           name: 'heroDetails',
           routeName: '/home/hero/heroDetails'
         }
-      },
-      {
-        path: '',
-        redirectTo: '/home/hero/heroDetails/0',
-        pathMatch: 'prefix'
       }
     ]
   }

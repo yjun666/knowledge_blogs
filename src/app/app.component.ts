@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 
 import { AdService } from './components/shared/ad-banner/ad.service';
 import { RouterService } from './services/router.service';
+import { UpdataSubjectService } from './services/subject.service';
 
 declare const $;
 @Component({
@@ -19,14 +20,24 @@ export class AppComponent implements OnInit, AfterViewInit {
     private router: Router,
     public adService: AdService,
     public routerService: RouterService,
+    public updataSubjectService: UpdataSubjectService,
   ) { }
 
   ngOnInit() {
     console.log('123123asdfasdfasd');
     this.ads = this.adService.getAds();
+    this.getRouterData();
   }
 
-  ngAfterViewInit(): void {
 
+  ngAfterViewInit(): void { }
+
+  /**
+   * 获取路由数据
+   */
+  private getRouterData() {
+    this.updataSubjectService.routerData.subscribe(data => {
+      console.log(data);
+    })
   }
 }
