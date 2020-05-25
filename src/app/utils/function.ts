@@ -6,6 +6,30 @@ let downloadAsXLS = (res: any) => { };
 // dateTimeStamp是一个时间毫秒，注意时间戳是秒的形式，在这个毫秒的基础上除以1000，就是十位数的时间戳。13位数的都是时间毫秒。
 let timeago = (dateTimeStamp: number) => { };
 
+let isArray = (param: any) => { }; // 是否是数组类型
+let isUndefined = (param: any) => { }; // 是否是undefined类型
+let isString = (param: any) => { }; // 是否是string类型
+let isObject = (param: any) => { }; // 是否是object类型
+let isBoolean = (param: any) => { }; // 是否是boolean类型
+let isNumber = (param: any) => { }; // 是否是number类型
+let isNull = (param: any) => { }; // 是否是null类型
+let isDate = (param: any) => { }; // 是否是date类型
+let isSomeType = (type: string[], param) => { }; // 是否是多个类型中的其中一种类型
+// 求和
+function getSum() {
+  return Array.from(arguments).reduce((preValue, curValue, index, array) => {
+    console.log(parseInt(preValue, 10), parseInt(curValue, 10));
+    return parseInt(preValue, 10) + parseInt(curValue, 10);
+  });
+}
+// 求差值
+function getDifferenceVal() {
+  return Array.from(arguments).reduce((preValue, curValue, index, array) => {
+    console.log(parseInt(preValue, 10), parseInt(curValue, 10));
+    return parseInt(preValue, 10) - parseInt(curValue, 10);
+  });
+}
+
 
 // 方法重写
 {
@@ -100,4 +124,50 @@ let timeago = (dateTimeStamp: number) => { };
     }
     return result;
   };
+
+  isArray = (param) => {
+    return Object.prototype.toString.apply(param) === '[object Array]';
+  };
+  isUndefined = (param) => {
+    return Object.prototype.toString.apply(param) === '[object Undefined]';
+  };
+  isString = (param) => {
+    return Object.prototype.toString.apply(param) === '[object String]';
+  };
+  isObject = (param) => {
+    return Object.prototype.toString.apply(param) === '[object Object]';
+  };
+  isBoolean = (param) => {
+    return Object.prototype.toString.apply(param) === '[object Boolean]';
+  };
+  isNumber = (param) => {
+    return Object.prototype.toString.apply(param) === '[object Number]';
+  };
+  isNull = (param) => {
+    return Object.prototype.toString.apply(param) === '[object Null]';
+  };
+  isDate = (param) => {
+    return Object.prototype.toString.apply(param) === '[object Date]';
+  };
+  // 是否是多个类型中的一个，例如当前参数是否属于null或者undefined
+  isSomeType = (type: string[], param) => {
+    return type.some(x => this[x](param));
+  };
+}
+
+export {
+  trim,
+  downloadAsXLS,
+  timeago,
+  isArray,
+  isUndefined,
+  isString,
+  isObject,
+  isBoolean,
+  isNumber,
+  isNull,
+  isDate,
+  isSomeType,
+  getSum,
+  getDifferenceVal
 }
