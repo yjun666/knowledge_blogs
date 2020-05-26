@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { UploaderService } from '../../../services/uploader.service';
 import { HttpClient, HttpHeaders, HttpRequest, HttpEventType, HttpEvent } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { setUuid1 } from 'src/app/utils/uuid';
 declare const $;
 // angular 给的demo不准，好像是自己用延时器模拟的
 @Component({
@@ -72,7 +73,7 @@ export class UploaderComponent {
     // console.log(files, Object.prototype.toString.apply(files));
     const curTime = new Date().getTime();
     const obj = Object.assign({}, {
-      id: 'id' + String(Math.random() * 100000000000) + '_' + curTime,
+      id: 'id' + setUuid1() + '_' + curTime,
       file: files,
       fileName: files.name,
       fileSize: files.size,
@@ -135,7 +136,7 @@ export class UploaderComponent {
           param.progress = data;
         }, (data) => {
           // 文件上传完成事件
-          // console.log(data);
+          console.log(data, '上传完成');
           // param.remoteFileName = data.data;
         }))
       ).subscribe((data) => {

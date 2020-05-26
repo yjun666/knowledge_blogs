@@ -4,7 +4,6 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { DemoComponent } from './demo.component';
 import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
-import { SearchModule } from '../../../components/demo/search/search.module';
 
 const routes: Routes = [
   {
@@ -17,7 +16,6 @@ const routes: Routes = [
   imports: [
     RouterModule.forChild(routes),
     FormsModule,
-    SearchModule,
     NzCheckboxModule,
     CommonModule
   ],
