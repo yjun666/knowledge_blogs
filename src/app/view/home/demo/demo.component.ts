@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
-import { GetJsonService } from '../../../services/getJson.service';
+import { MessageService } from '../../../services/message.service';
 
 @Component({
   selector: 'app-demo',
@@ -10,9 +9,13 @@ import { GetJsonService } from '../../../services/getJson.service';
 export class DemoComponent implements OnInit {
   // checkbox 开关
   cb = {
-    appEllipsisMultilineTest: true,
-  }
-  constructor() { }
+    appEllipsisMultilineTest: true, // 多行文本超出显示省略号
+    requestTest: false, // 请求接口调试、请求方式调试
+    uploader: false, // 上传文件组件
+  };
+  constructor(
+    public messageService: MessageService
+  ) { }
 
 
   ngOnInit() {
