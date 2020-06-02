@@ -3,14 +3,14 @@ import { CommonModule } from '@angular/common';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzIconModule } from 'ng-zorro-antd/icon';
-import { NzTypographyModule } from 'ng-zorro-antd/typography';
+// import { NzTypographyModule } from 'ng-zorro-antd/typography';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 import { HeroComponent } from './hero.component';
 import { HeroService } from './hero.service';
 import { MockHeroService } from './mock_hero.service';
 import { RouterService } from '../../../services/router.service';
-import { EllipsisMultilineDirectiveModule } from '../../../directives';
+// import { EllipsisMultilineDirectiveModule } from '../../../directives';
 import { HeroDetailsComponent } from './hero-details/hero-details.component';
 
 const routes: Routes = [
@@ -40,8 +40,6 @@ const routes: Routes = [
     NzButtonModule,
     NzIconModule,
     HttpClientModule,
-    NzTypographyModule,
-    EllipsisMultilineDirectiveModule,
   ],
   providers: [
     RouterService,
