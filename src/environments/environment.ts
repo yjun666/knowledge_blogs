@@ -7,7 +7,7 @@ export const environment = {
   production: false,
   isLog: true, // 是否开启打印
   env: 'dev',
-  encrypt: true, // cookie、localstorage是否加密
+  encrypt: false, // cookie、localstorage是否加密
 };
 
 /*

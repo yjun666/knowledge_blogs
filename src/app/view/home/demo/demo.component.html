@@ -1,5 +1,31 @@
-<label nz-checkbox [(ngModel)]="cb.search">search</label>
+<h1>demo</h1>
+
+<div>
+  <label nz-checkbox [(ngModel)]="cb.appEllipsisMultilineTest">appEllipsisMultilineTest</label>
+  <label nz-checkbox [(ngModel)]="cb.uploader">uploader</label>
+  <label nz-checkbox [(ngModel)]="cb.requestTest">requestTest</label>
+</div>
+<hr />
+<app-ellipsismultiline-test *ngIf='cb.appEllipsisMultilineTest'></app-ellipsismultiline-test>
+<hr />
+<app-request-test *ngIf='cb.requestTest'></app-request-test>
+<hr />
+<app-uploader *ngIf='cb.uploader'></app-uploader>
+<hr />
+<hr />
+<hr />
+<hr />
+<hr />
+<hr />
+<hr />
 
 
-<br>
-<app-search *ngIf='cb.search'></app-search>
+
+<ng-template [ngIf]='cb.uploader||cb.requestTest'>
+  <h1>Message:</h1>
+  <div class="lanjieqi-logs">
+    <ng-template ngFor let-item let-i='index' [ngForOf]='messageService.messages'>
+      <span>{{item}}</span>
+    </ng-template>
+  </div>
+</ng-template>

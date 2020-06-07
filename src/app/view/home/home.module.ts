@@ -25,15 +25,6 @@ const adminRoutes: Routes = [
         }
       },
       {
-        path: 'requestTest',
-        loadChildren: () => import('./request/request.module').then(m => m.RequestModule),
-        data: {
-          animation: 'AboutPage',
-          name: 'requestTest',
-          routeName: '/home/requestTest'
-        }
-      },
-      {
         path: 'rxjs',
         loadChildren: () => import('./rxjs/rxjs.module').then(m => m.RxjsModule),
         data: {
