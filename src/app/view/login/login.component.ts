@@ -18,14 +18,14 @@ export class LoginComponent implements OnInit {
   ngOnInit() { }
 
   login(param) {
-    if (param.accountNumber === '') {
+    if (param.accountNumber !== 'mm') {
       console.error('账号错误,请重新输入');
       alert('账号错误,请重新输入');
-      // return false;
-    } else if (param.password === '') {
+      return false;
+    } else if (param.password !== 'mm') {
       console.error('密码错误,请重新输入');
       alert('密码错误,请重新输入');
-      // return false;
+      return false;
     }
     this.getJson.login({
       client_id: 'dps-china',
