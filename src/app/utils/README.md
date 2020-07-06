@@ -17,3 +17,7 @@ sessionStorage.ts
 
 encrypt.ts
 - 设置base64加密数据，base64解密
+
+decimal.ts
+- 修正js精度计算
+- api网站 http://mikemcl.github.io/decimal.js/#decimal
