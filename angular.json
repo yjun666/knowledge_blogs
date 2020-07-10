@@ -129,6 +129,6 @@
   },
   "defaultProject": "blogs-test",
   "cli": {
-    "analytics": false
+    "analytics": true
   }
 }
