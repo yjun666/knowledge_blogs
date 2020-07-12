@@ -5,18 +5,19 @@
     "ng": "ng",
     "start": "ng serve --port 4108",
     "start:proxy": "ng serve --proxy-config proxy.config.json --port 4108",
-    "build": "ng build --base-href",
-    "build:dev:output": "ng build --prod --output-path docs --base-href",
-    "build:dev": "ng build --prod --base-href",
-    "build:prod:output": "ng build --configuration=production --prod --output-path docs --base-href",
-    "build:prod": "ng build --configuration=production --prod --base-href",
-    "build:optimizer": "ng build --prod --build--optimizer --base-href",
+    "build": "ng build --base-href --stats-json",
+    "build:dev:output": "ng build --prod --output-path docs --base-href --stats-json",
+    "build:dev": "ng build --prod --base-href --stats-json",
+    "build:prod:output": "ng build --configuration=production --prod --output-path docs --base-href --stats-json && npm run bundle-report",
+    "build:prod": "ng build --configuration=production --prod --base-href --stats-json",
+    "build:optimizer": "ng build --prod --build--optimizer --base-href --stats-json",
     "node:createJson": "node ./src/assets/nodejs/index.js",
     "node:build": "node ./src/assets/nodejs/build/requestJson.js && node ./src/assets/nodejs/build/transformFileToJson.js",
     "node:dist": "node ./src/assets/nodejs/dist/**/*.js",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "bundle-report": "webpack-bundle-analyzer docs/stats-es2015.json"
   },
   "private": true,
   "dependencies": {
@@ -61,6 +62,7 @@
     "protractor": "^5.4.3",
     "ts-node": "~8.8.2",
     "tslint": "~6.1.1",
-    "typescript": "~3.8.3"
+    "typescript": "~3.8.3",
+    "webpack-bundle-analyzer": "^3.8.0"
   }
 }
