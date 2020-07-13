@@ -8,7 +8,7 @@
     "build": "ng build --base-href --stats-json",
     "build:dev:output": "ng build --prod --output-path docs --base-href --stats-json",
     "build:dev": "ng build --prod --base-href --stats-json",
-    "build:prod:output": "ng build --configuration=production --prod --output-path docs --base-href --stats-json && npm run bundle-report",
+    "build:prod:output": "ng build --configuration=production --prod --build-optimizer --output-path docs --base-href --stats-json && npm run bundle-report",
     "build:prod": "ng build --configuration=production --prod --base-href --stats-json",
     "build:optimizer": "ng build --prod --build--optimizer --base-href --stats-json",
     "node:createJson": "node ./src/assets/nodejs/index.js",
