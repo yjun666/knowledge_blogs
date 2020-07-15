@@ -12,6 +12,7 @@ export class DemoComponent implements OnInit {
     appEllipsisMultilineTest: true, // 多行文本超出显示省略号
     requestTest: false, // 请求接口调试、请求方式调试
     uploader: false, // 上传文件组件
+    lineEchart: false, // echarts 中的 lineEchart
   };
   constructor(
     public messageService: MessageService

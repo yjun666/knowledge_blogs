@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-ellipsismultiline-test',
+  selector: 'component-ellipsismultiline-test',
   template: `
   <!-- 多行文本溢出省略----start -->
   <div class="test_appEllipsisMultiline" [appEllipsisMultiline]='testAppEllipsisMultiline'>{{testAppEllipsisMultiline}}

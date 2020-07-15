@@ -6,7 +6,7 @@ import { setUuid1 } from 'src/app/utils/uuid';
 declare const $;
 // angular 给的demo不准，好像是自己用延时器模拟的
 @Component({
-  selector: 'app-uploader',
+  selector: 'component-uploader',
   templateUrl: './uploader.component.html',
   styleUrls: ['./uploader.component.scss'],
   providers: [UploaderService]

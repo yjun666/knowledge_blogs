@@ -4,11 +4,14 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
 import { NzTypographyModule } from 'ng-zorro-antd/typography';
+import { NgxEchartsModule } from 'ngx-echarts';
+import * as echarts from 'echarts';
 
 import { DemoComponent } from './demo.component';
 import { EllipsismultilineComponent } from '../../../components/demoDetails/appEllipsisMultilineTest/appEllipsisMultilineTest.component';
 import { RequestTestComponent } from '../../../components/demoDetails/requestTest/requestTest.component';
 import { UploaderComponent } from '../../../components/demoDetails/upload/uploader.component';
+import { LineEhcartComponent } from '../../../components/demoDetails/echarts/line-echart/line-echart.component';
 
 import { EllipsisMultilineDirectiveModule } from '../../../directives';
 
@@ -22,6 +25,9 @@ const routes: Routes = [
 @NgModule({
   imports: [
     RouterModule.forChild(routes),
+    NgxEchartsModule.forRoot({
+      echarts,
+    }),
     FormsModule,
     NzCheckboxModule,
     NzTypographyModule,
@@ -32,7 +38,8 @@ const routes: Routes = [
     DemoComponent,
     UploaderComponent,
     RequestTestComponent,
-    EllipsismultilineComponent
+    EllipsismultilineComponent,
+    LineEhcartComponent
   ],
   providers: [],
   exports: [

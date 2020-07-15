@@ -4,15 +4,17 @@
   <label nz-checkbox [(ngModel)]="cb.appEllipsisMultilineTest">appEllipsisMultilineTest</label>
   <label nz-checkbox [(ngModel)]="cb.uploader">uploader</label>
   <label nz-checkbox [(ngModel)]="cb.requestTest">requestTest</label>
+  <label nz-checkbox [(ngModel)]="cb.lineEchart">lineEchart</label>
 </div>
 <hr />
-<app-ellipsismultiline-test *ngIf='cb.appEllipsisMultilineTest'></app-ellipsismultiline-test>
-<hr />
-<app-request-test *ngIf='cb.requestTest'></app-request-test>
-<hr />
-<app-uploader *ngIf='cb.uploader'></app-uploader>
-<hr />
-<hr />
+<component-ellipsismultiline-test *ngIf='cb.appEllipsisMultilineTest'></component-ellipsismultiline-test>
+<hr *ngIf='cb.appEllipsisMultilineTest'/>
+<component-request-test *ngIf='cb.requestTest'></component-request-test>
+<hr *ngIf='cb.requestTest'/>
+<component-uploader *ngIf='cb.uploader'></component-uploader>
+<hr *ngIf='cb.uploader'/>
+<component-line-echart *ngIf='cb.lineEchart'></component-line-echart>
+<hr *ngIf='cb.lineEchart'/>
 <hr />
 <hr />
 <hr />

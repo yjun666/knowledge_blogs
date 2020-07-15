@@ -6,7 +6,7 @@ import { GetJsonService } from '../../../services/getJson.service';
 
 declare const $;
 @Component({
-  selector: 'app-request-test',
+  selector: 'component-request-test',
   templateUrl: './requestTest.component.html',
   styleUrls: ['./requestTest.component.scss']
 })
