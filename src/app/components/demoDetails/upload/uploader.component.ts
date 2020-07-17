@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { UploaderService } from '../../../services/uploader.service';
 import { HttpClient, HttpHeaders, HttpRequest, HttpEventType, HttpEvent } from '@angular/common/http';
 import { map } from 'rxjs/operators';
-import { setUuid1 } from 'src/app/utils/uuid';
+import { uuidv1 } from 'src/app/utils/uuid';
 declare const $;
 // angular 给的demo不准，好像是自己用延时器模拟的
 @Component({
@@ -73,7 +73,7 @@ export class UploaderComponent {
     // console.log(files, Object.prototype.toString.apply(files));
     const curTime = new Date().getTime();
     const obj = Object.assign({}, {
-      id: 'id' + setUuid1() + '_' + curTime,
+      id: 'id' + uuidv1() + '_' + curTime,
       file: files,
       fileName: files.name,
       fileSize: files.size,

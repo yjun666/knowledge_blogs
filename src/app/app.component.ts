@@ -1,11 +1,12 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { add, sub, mul, divide } from './utils/decimal';
 
 import { AdService } from './components/shared/ad-banner/ad.service';
 import { RouterService } from './services/router.service';
 import { UpdataSubjectService } from './services/subject.service';
+
+import { demo } from './utils/demo';
 
 declare const $;
 @Component({
@@ -32,7 +33,7 @@ export class AppComponent implements OnInit, AfterViewInit {
 
 
   ngAfterViewInit(): void {
-    this.demoDecimal();
+    demo();
   }
 
   /**
@@ -42,15 +43,5 @@ export class AppComponent implements OnInit, AfterViewInit {
     this.updataSubjectService.routerData.subscribe(data => {
       console.log(data);
     })
-  }
-
-  demoDecimal() {
-    const a = 9.95;
-    const b = 8.03;
-    console.log(add(a, b),
-      sub(a, b),
-      mul(a, b),
-      divide(a, b));
-
   }
 }

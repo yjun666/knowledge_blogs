@@ -1,3 +1,5 @@
+import { add, sub, mul, divide } from './decimal';
+
 // 方法定义
 // 去掉字符串的空格
 let trim = (str: string, type: number): any => { };
@@ -27,6 +29,11 @@ let dateFormat = (vDate: Date, params: string): string => '2020-01-01'; // 转�
  * @param parent 指定父级元素的id或者className或者元素类型
  */
 let getParentEle = (ele: any, parent: any): any => '';
+
+// 保留小数方法====四舍五入保留2位小数（若第二位小数为0，则保留一位小数） ?isPercent 是否需要转化成为百分比
+let keepFloatDecimal = (num: any, fixedNum: number, isPercent: number) => { }
+
+
 // 求和
 function getSum() {
   return Array.from(arguments).reduce((preValue, curValue, index, array) => {
@@ -249,9 +256,20 @@ function addZero(timeNum: number) {
     // console.log(ele, parent, parentElement);
     return getParentEle(parentElement, parent);
   }
+
+  // 保留小数位数
+  keepFloatDecimal = (num: any, fixedNum: number, isPercent: number) => {
+    let result = parseFloat(num);
+    if (isNaN(result)) {
+      alert('传递参数错误，请检查！');
+      return false;
+    }
+    const cont = isPercent ? mul(fixedNum, 100) : fixedNum;
+    result = divide(Math.floor(mul(num, cont)), fixedNum);
+    return result;
+  }
 }
 
-dateFormat(new Date(), 'y-M');
 
 export {
   trim,
@@ -269,6 +287,7 @@ export {
   getSum,
   getDifferenceVal,
   dateFormat,
-  getParentEle
+  getParentEle,
+  keepFloatDecimal
 };
 
