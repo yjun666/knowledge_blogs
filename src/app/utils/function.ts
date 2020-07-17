@@ -15,6 +15,18 @@ let isNumber = (param: any) => { }; // 是否是number类型
 let isNull = (param: any) => { }; // 是否是null类型
 let isDate = (param: any) => { }; // 是否是date类型
 let isSomeType = (type: string[], param) => { }; // 是否是多个类型中的其中一种类型
+/**
+ * 获取指定类型的父级元素,或者当前元素就是我们要找的元素
+ * @param vDate 日期
+ * @param params 格式模板
+ */
+let dateFormat = (vDate: Date, params: string): string => '2020-01-01'; // 转换日期类型为字符串格式
+/**
+ * 获取指定类型的父级元素,或者当前元素就是我们要找的元素
+ * @param ele 需要查找的当前元素
+ * @param parent 指定父级元素的id或者className或者元素类型
+ */
+let getParentEle = (ele: any, parent: any): any => '';
 // 求和
 function getSum() {
   return Array.from(arguments).reduce((preValue, curValue, index, array) => {
@@ -28,6 +40,11 @@ function getDifferenceVal() {
     console.log(parseInt(preValue, 10), parseInt(curValue, 10));
     return parseInt(preValue, 10) - parseInt(curValue, 10);
   });
+}
+
+// 如果时间是个位数，就补0
+function addZero(timeNum: number) {
+  return timeNum < 10 ? '0' + timeNum : timeNum
 }
 
 
@@ -153,7 +170,88 @@ function getDifferenceVal() {
   isSomeType = (type: string[], param) => {
     return type.some(x => this[x](param));
   };
+
+  // 转换日期格式
+  dateFormat = (vDate: Date, params: string) => {
+    const date = new Date(vDate);
+    const year = date.getFullYear();
+    const month = date.getMonth() + 1;
+    const day = date.getDate();
+    const hour = date.getHours();
+    const minute = date.getMinutes();
+    const second = date.getSeconds();
+
+    const arr = params.split('')
+    let result = ''
+    for (let i = 0; i < arr.length; i += 2) {
+      const tem = arr[i + 1] === undefined ? '' : arr[i + 1]
+      console.log(arr, tem);
+      switch (arr[i]) {
+        case 'y':
+          result += addZero(year) + tem
+          break
+        case 'M':
+          result += addZero(month) + tem
+          break
+        case 'd':
+          result += addZero(day) + tem
+          break
+        case 'h':
+          result += addZero(hour) + tem
+          break
+        case 'm':
+          result += addZero(minute) + tem
+          break
+        case 's':
+          result += addZero(second)
+          break
+      }
+    }
+    return result
+  }
+
+  /**
+   * 获取指定类型的父级元素,或者当前元素就是我们要找的元素
+   * @param ele 需要查找的当前元素
+   * @param parent 指定父级元素的id或者className或者元素类型
+   */
+  getParentEle = (ele: any, parent: any): any => {
+    const str = parent.replace(/\.|#/, '');
+
+    if (!ele) {
+      console.log('当前元素不存在');
+      return;
+    }
+    const parentElement = ele.parentElement;
+
+    if (
+      parent.indexOf('.') !== -1 &&
+      parentElement &&
+      parentElement.className &&
+      parentElement.className.indexOf(str) !== -1
+    ) {
+      return parentElement;
+    } else if (parent.indexOf('#') !== -1 && parentElement && parentElement.id === str) {
+      return parentElement;
+    } else if (parentElement && parentElement.tagName === parent.toUpperCase()) {
+      return parentElement;
+    } else if (parent.indexOf('.') !== -1 && ele.className && ele.className.indexOf(str) !== -1) {
+      return ele;
+    } else if (parent.indexOf('#') !== -1 && ele.id === str) {
+      return ele;
+    } else if (ele.tagName === parent.toUpperCase()) {
+      return ele;
+    }
+    if (ele.tagName === 'BODY') {
+      console.log('找不到');
+      return;
+    }
+    // console.log(ele, parent, parentElement);
+    return getParentEle(parentElement, parent);
+  }
 }
+
+dateFormat(new Date(), 'y-M');
 
 export {
   trim,
@@ -169,6 +267,8 @@ export {
   isDate,
   isSomeType,
   getSum,
-  getDifferenceVal
+  getDifferenceVal,
+  dateFormat,
+  getParentEle
 };
 
