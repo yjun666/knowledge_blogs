@@ -53,6 +53,19 @@ export function demo() {
   console.log('uuidv3', uuidv3('中国'), uuidv3('美国'), uuidv3('中国'));
   console.log('uuidv5', uuidv5('中国'), uuidv5('美国'), uuidv5('中国'));
 
+  const obj = { a:1,b:2 };
+  const obj2 = { a:1,b:2 };
+  const obj3 = { a:1,b:2,c:3 };
+  console.log('obj===obj2',uuidv5(JSON.stringify(obj)),uuidv5(JSON.stringify(obj2)),uuidv5(JSON.stringify(obj3)));
+
+  const arr1 = [1,2,3,4];
+  const arr2 = [4,2,3,1];
+  const arr3 = [4,2,3,1];
+
+  console.log('arr===arr2',uuidv5(JSON.stringify(arr1)),uuidv5(JSON.stringify(arr2)),uuidv5(JSON.stringify(arr3)));
+
+
+
 
 
 }

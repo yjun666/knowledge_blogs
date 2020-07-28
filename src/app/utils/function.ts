@@ -27,11 +27,12 @@ let dateFormat = (vDate: Date, params: string): string => '2020-01-01'; // 转�
  * 获取指定类型的父级元素,或者当前元素就是我们要找的元素
  * @param ele 需要查找的当前元素
  * @param parent 指定父级元素的id或者className或者元素类型
+ * @param count 最多多少查询多少层级停止查询
  */
-let getParentEle = (ele: any, parent: any): any => '';
+let getParentEle = (ele: any, parent: any,count?:number): any => '';
 
 // 保留小数方法====四舍五入保留2位小数（若第二位小数为0，则保留一位小数） ?isPercent 是否需要转化成为百分比
-let keepFloatDecimal = (num: any, fixedNum: number, isPercent: number) => { }
+let keepFloatDecimal = (num: any, fixedNum: number, isPercent?: number) => { }
 
 
 // 求和
@@ -217,16 +218,18 @@ function addZero(timeNum: number) {
     return result
   }
 
-  /**
-   * 获取指定类型的父级元素,或者当前元素就是我们要找的元素
-   * @param ele 需要查找的当前元素
-   * @param parent 指定父级元素的id或者className或者元素类型
-   */
-  getParentEle = (ele: any, parent: any): any => {
+   /**
+    * 获取指定类型的父级元素,或者当前元素就是我们要找的元素
+    * @param ele 需要查找的当前元素
+    * @param parent 指定父级元素的id或者className或者元素类型
+    * @param count 最多多少查询多少层级停止查询
+    */
+  getParentEle = (ele: any, parent: any, count?: number): any => {
     const str = parent.replace(/\.|#/, '');
-
+    // console.log(count);
+    count = count ? count : 0;
     if (!ele) {
-      console.log('当前元素不存在');
+      console.log('当前元素不存在', count);
       return;
     }
     const parentElement = ele.parentElement;
@@ -249,12 +252,13 @@ function addZero(timeNum: number) {
     } else if (ele.tagName === parent.toUpperCase()) {
       return ele;
     }
-    if (ele.tagName === 'BODY') {
-      console.log('找不到');
+    // 最多查询7个层级则退出，查询的层级上限可通过参数传入
+    if (count > 7 || ele.tagName === 'BODY') {
+      // console.log("找不到",count);
       return;
     }
-    // console.log(ele, parent, parentElement);
-    return getParentEle(parentElement, parent);
+    count++;
+    return getParentEle(parentElement, parent, count);
   }
 
   // 保留小数位数
