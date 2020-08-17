@@ -15,8 +15,28 @@
     },
     "logLevel": "debug"
   },
-  "/": {
-    "target": "http://localhost:3000",
-    "secure": "true"
+  "/proxy": {
+    "target": "http://ai-dps-test.lenovo.com",
+    "secure": "true",
+    "pathRewrite": {
+      "^/proxy": ""
+    },
+    "logLevel": "debug"
+  },
+  "/proxy1": {
+    "target": "http://ai-dps-test.lenovo.com",
+    "secure": "true",
+    "pathRewrite": {
+      "^/proxy1": ""
+    },
+    "logLevel": "debug"
+  },
+  "/proxy2": {
+    "target": "http://ai-dps-test.lenovo.com",
+    "secure": "true",
+    "pathRewrite": {
+      "^/proxy2": ""
+    },
+    "logLevel": "debug"
   }
 }

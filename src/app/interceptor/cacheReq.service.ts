@@ -9,7 +9,6 @@ import { Observable, of } from 'rxjs';
 import { startWith, tap } from 'rxjs/operators';
 
 import { RequestCacheWithMap } from '../services/request-cache.service';
-// const searchUrl = 'https://npmsearch.com/query';
 
 const searchUrl = ['/list/searchHero', '/list/search'];
 // const searchUrl = '/list/searchHero';
