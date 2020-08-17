@@ -1,4 +1,5 @@
 import { add, sub, mul, divide } from './decimal';
+import { KeepFloatDecimalType } from '../interface/common';
 
 // 方法定义
 // 去掉字符串的空格
@@ -29,10 +30,12 @@ let dateFormat = (vDate: Date, params: string): string => '2020-01-01'; // 转�
  * @param parent 指定父级元素的id或者className或者元素类型
  * @param count 最多多少查询多少层级停止查询
  */
-let getParentEle = (ele: any, parent: any,count?:number): any => '';
+let getParentEle = (ele: any, parent: any, count?: number): any => '';
 
-// 保留小数方法====四舍五入保留2位小数（若第二位小数为0，则保留一位小数） ?isPercent 是否需要转化成为百分比
-let keepFloatDecimal = (num: any, fixedNum: number, isPercent?: number) => { }
+/**
+ * 是否需要转化成为百分比，如果需要并且保留小数  就是 num*10000/100
+ */
+let keepFloatDecimal = (item: KeepFloatDecimalType) => { }
 
 
 // 求和
@@ -218,12 +221,12 @@ function addZero(timeNum: number) {
     return result
   }
 
-   /**
-    * 获取指定类型的父级元素,或者当前元素就是我们要找的元素
-    * @param ele 需要查找的当前元素
-    * @param parent 指定父级元素的id或者className或者元素类型
-    * @param count 最多多少查询多少层级停止查询
-    */
+  /**
+   * 获取指定类型的父级元素,或者当前元素就是我们要找的元素
+   * @param ele 需要查找的当前元素
+   * @param parent 指定父级元素的id或者className或者元素类型
+   * @param count 最多多少查询多少层级停止查询
+   */
   getParentEle = (ele: any, parent: any, count?: number): any => {
     const str = parent.replace(/\.|#/, '');
     // console.log(count);
@@ -261,15 +264,71 @@ function addZero(timeNum: number) {
     return getParentEle(parentElement, parent, count);
   }
 
-  // 保留小数位数
-  keepFloatDecimal = (num: any, fixedNum: number, isPercent: number) => {
-    let result = parseFloat(num);
-    if (isNaN(result)) {
-      alert('传递参数错误，请检查！');
-      return false;
+  /**
+   * 是否需要转化成为百分比，如果需要并且保留小数  就是 num*10000/100
+   */
+  keepFloatDecimal = (item: KeepFloatDecimalType) => {
+    // tslint:disable-next-line: prefer-const
+    let [num, fixedNum, isPercent, defValue, isForceToFixed, unit, truncType]: any = [item.num, item.fixedNum, item.isPercent, item.defValue, item.isForceToFixed, item.unit, item.truncType];
+
+    if (!defValue && defValue !== 0) {
+      // 默认值没有传值时，默认默认值是'-'
+      defValue = '-';
     }
-    const cont = isPercent ? mul(fixedNum, 100) : fixedNum;
-    result = divide(Math.floor(mul(num, cont)), fixedNum);
+
+    if (!fixedNum) {
+      // 保留小数位数默认没有传值时，默认保留0位小数
+      fixedNum = 0;
+    }
+
+    if (typeof isPercent === 'boolean' || typeof isPercent === 'undefined') {
+
+      /**
+       * 是否转换百分比如果为undefined或者false，那么取值为0即不需要转换百分比，如果为true，那么取值为100，默认转换为百分比，如果为number，取值1000,10000，等，显示千分比，万分比
+       * isPercent 取值
+       * undefined  不需要转换百分比
+       * false  不需要转换百分比
+       * true  转换为百分比
+       * number  转换为百分比，千分比还是万分比等等
+       */
+      isPercent = isPercent ? 100 : 0;
+    }
+    // 设置取整类型
+    if (!truncType) {
+      truncType = 'floor';
+    }
+
+    let result: string | number = parseFloat(num);
+    if (isNaN(result)) {
+      // alert('传递参数错误，请检查！');
+      return defValue;
+    }
+    const floatNum = Math.pow(10, fixedNum); // 保留的小数位数
+    const cont = isPercent ? mul(floatNum, isPercent) : floatNum; // 如果需要转换成为百分比那么需要多乘100
+    // result = divide(Math.floor(mul(num, cont)), floatNum);
+    result = divide((Math as any)[truncType](mul(num, cont)), floatNum);
+
+    /* 如果需要强制保留小数，即如果小数位数不足，用0不足------start */
+    if (isForceToFixed) {
+      // result = result.toFixed(fixedNum);
+
+      result = result.toString();
+      if (result.indexOf('.') !== -1) {
+        const decimalsLength = result.split('.')[1].length;
+        let aa = 0;
+        while (decimalsLength + aa < fixedNum) {
+          result = result + '0';
+          aa++;
+        }
+      } else {
+        result = result + '.';
+        for (let i = 0; i < fixedNum; i++) {
+          result = result + '0';
+        }
+      }
+    }
+    /* 如果需要强制保留小数，即如果小数位数不足，用0不足------end */
+    result = unit || unit === '' ? result + unit : result; // 如果单位存在则添加单位，否则不添加
     return result;
   }
 }

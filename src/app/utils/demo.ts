@@ -42,10 +42,52 @@ export function demo() {
   console.log('');
   console.log('');
   console.log(dateFormat(new Date(), 'y-M'));
-  console.log('keepFloatDecimal', keepFloatDecimal(10.1198, 100));
-  console.log('keepFloatDecimal', keepFloatDecimal(10.12, 100));
-  console.log('keepFloatDecimal', keepFloatDecimal(10.125, 100));
-  console.log('keepFloatDecimal', keepFloatDecimal(10.1, 100));
+  console.log('keepFloatDecimal', keepFloatDecimal({
+    num: 10.1198,
+    fixedNum: 2,
+    isPercent: 100,
+
+  }));
+  console.log('keepFloatDecimal', keepFloatDecimal({
+    num: 10.1198,
+    fixedNum: 2,
+    isPercent: 100,
+    defValue: '-',
+    isForceToFixed: false,
+    unit: '%',
+    truncType: 'floor'
+
+  }));
+  console.log('keepFloatDecimal', keepFloatDecimal({
+    num: 10.1234123,
+    fixedNum: 2,
+    isPercent: false,
+    defValue: '-',
+    isForceToFixed: false,
+    unit: '%',
+    truncType: 'ceil'
+
+  }));
+  console.log('keepFloatDecimal', keepFloatDecimal({
+    num: 10.09810294857,
+    fixedNum: 2,
+    isPercent: 1000000,
+    defValue: '-',
+    isForceToFixed: false,
+    unit: '%',
+    truncType: 'round'
+
+  }));
+  console.log('keepFloatDecimal', keepFloatDecimal({
+    num: 10.84192847575,
+    fixedNum: 2,
+    isPercent: 100,
+    defValue: '-',
+    isForceToFixed: false,
+    unit: '%',
+    truncType: 'floor'
+
+  }));
   console.log('');
   console.log('');
   console.log('uuidv1', uuidv1());
@@ -53,16 +95,16 @@ export function demo() {
   console.log('uuidv3', uuidv3('中国'), uuidv3('美国'), uuidv3('中国'));
   console.log('uuidv5', uuidv5('中国'), uuidv5('美国'), uuidv5('中国'));
 
-  const obj = { a:1,b:2 };
-  const obj2 = { a:1,b:2 };
-  const obj3 = { a:1,b:2,c:3 };
-  console.log('obj===obj2',uuidv5(JSON.stringify(obj)),uuidv5(JSON.stringify(obj2)),uuidv5(JSON.stringify(obj3)));
+  const obj = { a: 1, b: 2 };
+  const obj2 = { a: 1, b: 2 };
+  const obj3 = { a: 1, b: 2, c: 3 };
+  console.log('obj===obj2', uuidv5(JSON.stringify(obj)), uuidv5(JSON.stringify(obj2)), uuidv5(JSON.stringify(obj3)));
 
-  const arr1 = [1,2,3,4];
-  const arr2 = [4,2,3,1];
-  const arr3 = [4,2,3,1];
+  const arr1 = [1, 2, 3, 4];
+  const arr2 = [4, 2, 3, 1];
+  const arr3 = [4, 2, 3, 1];
 
-  console.log('arr===arr2',uuidv5(JSON.stringify(arr1)),uuidv5(JSON.stringify(arr2)),uuidv5(JSON.stringify(arr3)));
+  console.log('arr===arr2', uuidv5(JSON.stringify(arr1)), uuidv5(JSON.stringify(arr2)), uuidv5(JSON.stringify(arr3)));
 
 
 
