@@ -24,3 +24,6 @@ encrypt.ts
 decimal.ts
 - 修正js精度计算
 - api网站 http://mikemcl.github.io/decimal.js/#decimal
+
+main-init-fun.ts
+- main.ts 中需要初始化的方法
