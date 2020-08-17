@@ -55,11 +55,19 @@ export class GetJsonService implements Api {
     return this[method](url, param);
   }
 
+  /**
+   * 删除
+   */
+  public getCodeBySearch(param) {
+    const { method, url } = this.api.getCodeBySearch;
+    return this[method](url, param);
+  }
+
 
   private setPathUrl(url: string) {
     const proxy = ['oauth/rest_token']; // 使用proxy代理
-    const proxy1 = ['oauth/rest_token']; // 使用proxy1代理
-    const proxy2 = ['oauth/rest_token']; // 使用proxy2代理
+    const secondProxy = ['machine-learning/1.0']; // 使用secondProxy代理
+    const thirdProxy = []; // 使用thirdProxy代理
     const localUrl = []; // 使用本地url
     if (environment.production) {
       return pathUrl.prodUrl;
@@ -67,12 +75,12 @@ export class GetJsonService implements Api {
       if (proxy.some((x: string) => url.indexOf(x) !== -1)) {
         // 使用代理的地址
         return pathUrl.proxy;
-      } else if (proxy1.some((x: string) => url.indexOf(x) !== -1)) {
+      } else if (secondProxy.some((x: string) => url.indexOf(x) !== -1)) {
         // 使用代理的地址
-        return pathUrl.proxy1;
-      } else if (proxy2.some((x: string) => url.indexOf(x) !== -1)) {
+        return pathUrl.secondProxy;
+      } else if (thirdProxy.some((x: string) => url.indexOf(x) !== -1)) {
         // 使用代理的地址
-        return pathUrl.proxy2;
+        return pathUrl.thirdProxy;
       } else if (localUrl.some((x: string) => url.indexOf(x) !== -1)) {
         // 使用本地的地址
         return pathUrl.localUrl;

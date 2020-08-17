@@ -17,25 +17,28 @@
   },
   "/proxy": {
     "target": "http://ai-dps-test.lenovo.com",
-    "secure": "true",
+    "changeOrigin": true,
+    "secure": false,
     "pathRewrite": {
       "^/proxy": ""
     },
     "logLevel": "debug"
   },
-  "/proxy1": {
+  "/secondProxy": {
     "target": "http://ai-dps-test.lenovo.com",
-    "secure": "true",
+    "changeOrigin": true,
+    "secure": false,
     "pathRewrite": {
-      "^/proxy1": ""
+      "^/secondProxy": ""
     },
     "logLevel": "debug"
   },
-  "/proxy2": {
+  "/thirdProxy": {
     "target": "http://ai-dps-test.lenovo.com",
-    "secure": "true",
+    "changeOrigin": true,
+    "secure": false,
     "pathRewrite": {
-      "^/proxy2": ""
+      "^/thirdProxy": ""
     },
     "logLevel": "debug"
   }

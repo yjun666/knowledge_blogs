@@ -2,15 +2,15 @@ import { environment } from './../../environments/environment';
 
 class PathUrl{
   proxy = '/proxy';
-  proxy1 = '/proxy1'
-  proxy2 = '/proxy2'
+  secondProxy = '/secondProxy';
+  thirdProxy = '/thirdProxy'; // 设置了三个代理，以避免一个项目中出现多个地址
   localUrl = 'http://10.110.137.33:8015';
   prodUrl='';
   constructor(){
     if( !environment.production ){
       this.proxy = '/proxy';
-      this.proxy1 = '/proxy1';
-      this.proxy2 = '/proxy2';
+      this.secondProxy = '/secondProxy';
+      this.thirdProxy = '/thirdProxy';
       // this.localUrl = 'http://10.110.147.33:8015';
       this.localUrl = '';
     }else{

@@ -29,6 +29,11 @@ export const API_CONFIG: ApiConfig = {
   login: {
     method: 'post',
     url: '/oauth/rest_token',
+  },
+  // 查询
+  getCodeBySearch: {
+    method: 'get',
+    url: '/machine-learning/1.0/app/es/getCodeBySearch',
   }
 };
 

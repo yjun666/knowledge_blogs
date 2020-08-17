@@ -4,6 +4,7 @@ export interface Api {
   readonly create: any;
   readonly delete: any;
   readonly login: any;
+  readonly getCodeBySearch: any;
 }
 
 // 接口的配置 需要有 请求方式，请求地址
@@ -12,5 +13,6 @@ export class ApiConfig implements Api {
   readonly create: { method: string, url: string };
   readonly delete: { method: string, url: string };
   readonly login: { method: string, url: string };
+  readonly getCodeBySearch: { method: string, url: string };
 }
 
