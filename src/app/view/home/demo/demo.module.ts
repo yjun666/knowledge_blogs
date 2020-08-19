@@ -13,6 +13,8 @@ import { RequestTestComponent } from '../../../components/demoDetails/requestTes
 import { UploaderComponent } from '../../../components/demoDetails/upload/uploader.component';
 import { LineEhcartComponent } from '../../../components/demoDetails/echarts/line-echart/line-echart.component';
 
+import { ReadExcelToJsonComponent } from '../../../components/demoDetails/readExcelToJson/read-excel-to-json.component';
+
 import { EllipsisMultilineDirectiveModule } from '../../../directives';
 
 const routes: Routes = [
@@ -39,7 +41,8 @@ const routes: Routes = [
     UploaderComponent,
     RequestTestComponent,
     EllipsismultilineComponent,
-    LineEhcartComponent
+    LineEhcartComponent,
+    ReadExcelToJsonComponent
   ],
   providers: [],
   exports: [

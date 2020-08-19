@@ -5,6 +5,7 @@
   <label nz-checkbox [(ngModel)]="cb.uploader">uploader</label>
   <label nz-checkbox [(ngModel)]="cb.requestTest">requestTest</label>
   <label nz-checkbox [(ngModel)]="cb.lineEchart">lineEchart</label>
+  <label nz-checkbox [(ngModel)]="cb.readExcelToJson">readExcelToJson</label>
 </div>
 <hr />
 <component-ellipsismultiline-test *ngIf='cb.appEllipsisMultilineTest'></component-ellipsismultiline-test>
@@ -15,6 +16,7 @@
 <hr *ngIf='cb.uploader'/>
 <component-line-echart *ngIf='cb.lineEchart'></component-line-echart>
 <hr *ngIf='cb.lineEchart'/>
+<component-read-excel-to-json *ngIf='cb.readExcelToJson'></component-read-excel-to-json>
 <hr />
 <hr />
 <hr />

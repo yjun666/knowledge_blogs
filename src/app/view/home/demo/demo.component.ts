@@ -13,6 +13,7 @@ export class DemoComponent implements OnInit {
     requestTest: false, // 请求接口调试、请求方式调试
     uploader: false, // 上传文件组件
     lineEchart: false, // echarts 中的 lineEchart
+    readExcelToJson:false // 读取excel转换为json
   };
   constructor(
     public messageService: MessageService
