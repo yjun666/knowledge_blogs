@@ -1,4 +1,4 @@
-@import './absolute-path';
+@import './static-resource-path';
 
 @mixin bgImg($pathNo, $pathName, $name) {
   background-repeat: no-repeat;
