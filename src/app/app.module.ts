@@ -60,7 +60,7 @@ const services = [
   declarations: [
     AppComponent,
     ...components,
-    ...directives
+    ...directives,
   ],
   imports: [
     BrowserModule,

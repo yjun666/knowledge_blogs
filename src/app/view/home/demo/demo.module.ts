@@ -15,6 +15,8 @@ import { LineEhcartComponent } from '../../../components/demoDetails/echarts/lin
 
 import { ReadExcelToJsonComponent } from '../../../components/demoDetails/readExcelToJson/read-excel-to-json.component';
 
+import { SvgComponent } from '../../../components/demoDetails/svg/svg.component';
+
 import { EllipsisMultilineDirectiveModule } from '../../../directives';
 
 const routes: Routes = [
@@ -42,7 +44,8 @@ const routes: Routes = [
     RequestTestComponent,
     EllipsismultilineComponent,
     LineEhcartComponent,
-    ReadExcelToJsonComponent
+    ReadExcelToJsonComponent,
+    SvgComponent
   ],
   providers: [],
   exports: [
