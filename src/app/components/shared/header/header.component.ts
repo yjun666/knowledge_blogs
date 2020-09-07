@@ -23,7 +23,9 @@ export class HeaderComponent implements OnInit {
   }
 
   public routeTurn(route) {
-    this.router.navigate([route]);
+    this.router.navigate([route]).then((data)=>{
+      console.log(data);
+    });
   }
 
   public changeLang(language: string) {
