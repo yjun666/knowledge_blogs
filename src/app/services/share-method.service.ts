@@ -164,46 +164,4 @@ export class ShardMethodService {
     };
     console.log(vm.fileList);
   }
-
-
-  /**
-   * 格式化日期为字符串格式
-   * @param date 传入的日期，格式可以为 new Date() 或者 2019-09-09 或者2019\09\09 或者 2019.09.09
-   */
-  public dateToStr(date) {
-    if (!date) {
-      return;
-    }
-    if (this.typeof(date) === 'date') {
-      const time = date ? new Date(date) : new Date();
-      // tslint:disable-next-line:one-variable-per-declaration
-      const year = String(time.getFullYear()), month = (time.getMonth() + 1) < 10 ?
-        '0' + String((time.getMonth() + 1)) :
-        String((time.getMonth() + 1)), day = time.getDate() < 10 ?
-          '0' + String(time.getDate()) :
-          String(time.getDate());
-      return year + '-' + month + '-' + day;
-    } else {
-      console.warn('当前不是日期格式', date);
-      if (date.indexOf('/') !== -1 || date.indexOf('.') !== -1) {
-        return date.replace(/\/|\./g, '-');
-      } else {
-        console.warn('当前格式不匹配');
-        return date;
-      }
-    }
-  }
-
-  /**
-   * 根据字符串的日期格式拆分成单独的年月日
-   * @param data 传入的日期格式为字符串格式
-   */
-  public getYMD(data: string) {
-    data = this.dateToStr(data); // 如果有/或者.转化为 - 形式
-    const [year, month, date] = data.split('-')[0];
-    return { year, month, date };
-  }
-
-
-
 }

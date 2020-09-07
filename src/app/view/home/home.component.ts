@@ -37,7 +37,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(): void { }
 
   getAnimationData(outlet: RouterOutlet) {
-    // console.log(outlet, outlet.activatedRouteData, outlet.activatedRouteData.animation);
-    return this.routerService.getRouterData(outlet) && this.routerService.getRouterData(outlet).animation || '';
+    return outlet && outlet.activatedRouteData && outlet.activatedRouteData.animation || '';
   }
 }
