@@ -36,9 +36,9 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     demo();
-    this.getJsonService.getCodeBySearch({code: 'B'}).subscribe((data:any)=>{
-      console.log('getCodeBySearch', data);
-    });
+    // this.getJsonService.getCodeBySearch({code: 'B'}).subscribe((data:any)=>{
+    //   console.log('getCodeBySearch', data);
+    // });
   }
 
   /**
