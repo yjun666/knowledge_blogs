@@ -5,6 +5,7 @@
   <label nz-checkbox [(ngModel)]="cb.uploader">uploader</label>
   <label nz-checkbox [(ngModel)]="cb.requestTest">requestTest</label>
   <label nz-checkbox [(ngModel)]="cb.lineEchart">lineEchart</label>
+  <label nz-checkbox [(ngModel)]="cb.barEchart">barEchart</label>
   <label nz-checkbox [(ngModel)]="cb.readExcelToJson">readExcelToJson</label>
   <label nz-checkbox [(ngModel)]="cb.svg">svgTemplate</label>
 </div>
@@ -17,6 +18,8 @@
 <hr *ngIf='cb.uploader' />
 <component-line-echart *ngIf='cb.lineEchart'></component-line-echart>
 <hr *ngIf='cb.lineEchart' />
+<component-bar-echart *ngIf='cb.barEchart'></component-bar-echart>
+<hr *ngIf='cb.barEchart' />
 <component-read-excel-to-json *ngIf='cb.readExcelToJson'></component-read-excel-to-json>
 <hr *ngIf="cb.readExcelToJson" />
 <component-svg *ngIf='cb.svg'></component-svg>
