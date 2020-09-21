@@ -86,7 +86,7 @@ export class GetJsonService implements Api {
         return pathUrl.localUrl;
       } else {
         // 默认使用代理的地址
-        return pathUrl.proxy;
+        return pathUrl.localUrl;
       }
     }
   }

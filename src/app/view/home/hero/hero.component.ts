@@ -32,8 +32,10 @@ export class HeroComponent implements OnInit {
     console.log('Fetching heros...');
   }
   getHeros() {
-    this.getJson.search({ id: 123, name: '123' })
+    this.getJson.search({ id: Math.random(), name: '123' })
       .subscribe((res: any) => {
+
+        this.heros = [];
         this.heros = res.data;
         this.heroService.heros = res.data;
         console.log(res);
