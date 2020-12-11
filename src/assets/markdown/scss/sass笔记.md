@@ -333,6 +333,19 @@ each命令，作用与for类似：
 　　　　background-image: url("/image/#{$member}.jpg");
 　　}
 }
+
+
+$liColor: #fff,
+red;
+
+@each $c in $liColor {
+  $i:index($liColor,$c);
+  li:nth-child( #{$i} ){
+    &:hover{
+      background: lighten($c,10%);
+    }
+  }
+}
 ```
 * 5.3 自定义函数
 
