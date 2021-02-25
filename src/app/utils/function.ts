@@ -1,4 +1,5 @@
 import { add, sub, mul, divide } from './decimal';
+// import { KeepFloatDecimalType } from '../interface/common';
 
 // 保留小数位数
 export interface KeepFloatDecimalType {
@@ -17,6 +18,8 @@ export interface KeepFloatDecimalType {
 let trim = (str: string, type: number): any => { };
 // 下载为XLS表格
 let downloadAsXLS = (res: any) => { };
+// 下载为XLS表格
+let downloadAsXLS2 = (res: any) => { };
 // dateTimeStamp是一个时间毫秒，注意时间戳是秒的形式，在这个毫秒的基础上除以1000，就是十位数的时间戳。13位数的都是时间毫秒。
 let timeago = (dateTimeStamp: number) => { };
 
@@ -136,6 +139,32 @@ function addZero(timeNum: number) {
       a.click();
       document.body.removeChild(a);
     };
+  }
+
+  // 下载为XLS表格
+  downloadAsXLS2 = () => {
+
+    const oReq = new XMLHttpRequest();
+    const filename = 'data.xls';
+    oReq.open('GET', '<你的返回流的Action路径>', true);
+    oReq.responseType = 'blob';
+    // tslint:disable-next-line: only-arrow-functions
+    oReq.onload = function (oEvent) {
+      const content = oReq.response;
+
+      const elink = document.createElement('a');
+      elink.download = filename;
+      elink.style.display = 'none';
+
+      const blob = new Blob([content]);
+      elink.href = URL.createObjectURL(blob);
+
+      document.body.appendChild(elink);
+      elink.click();
+
+      document.body.removeChild(elink);
+    };
+    oReq.send();
   }
 
 
@@ -459,6 +488,7 @@ keepFloatDecimal = (item: KeepFloatDecimalType): any => {
 export {
   trim,
   downloadAsXLS,
+  downloadAsXLS2,
   timeago,
   isArray,
   isUndefined,

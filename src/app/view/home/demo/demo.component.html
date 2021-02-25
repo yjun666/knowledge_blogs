@@ -5,17 +5,25 @@
   <label nz-checkbox [(ngModel)]="cb.uploader">uploader</label>
   <label nz-checkbox [(ngModel)]="cb.requestTest">requestTest</label>
   <label nz-checkbox [(ngModel)]="cb.lineEchart">lineEchart</label>
+  <label nz-checkbox [(ngModel)]="cb.barEchart">barEchart</label>
+  <label nz-checkbox [(ngModel)]="cb.readExcelToJson">readExcelToJson</label>
+  <label nz-checkbox [(ngModel)]="cb.svg">svgTemplate</label>
 </div>
 <hr />
 <component-ellipsismultiline-test *ngIf='cb.appEllipsisMultilineTest'></component-ellipsismultiline-test>
-<hr *ngIf='cb.appEllipsisMultilineTest'/>
+<hr *ngIf='cb.appEllipsisMultilineTest' />
 <component-request-test *ngIf='cb.requestTest'></component-request-test>
-<hr *ngIf='cb.requestTest'/>
+<hr *ngIf='cb.requestTest' />
 <component-uploader *ngIf='cb.uploader'></component-uploader>
-<hr *ngIf='cb.uploader'/>
+<hr *ngIf='cb.uploader' />
 <component-line-echart *ngIf='cb.lineEchart'></component-line-echart>
-<hr *ngIf='cb.lineEchart'/>
-<hr />
+<hr *ngIf='cb.lineEchart' />
+<component-bar-echart *ngIf='cb.barEchart'></component-bar-echart>
+<hr *ngIf='cb.barEchart' />
+<component-read-excel-to-json *ngIf='cb.readExcelToJson'></component-read-excel-to-json>
+<hr *ngIf="cb.readExcelToJson" />
+<component-svg *ngIf='cb.svg'></component-svg>
+<hr *ngIf="cb.svg" />
 <hr />
 <hr />
 <hr />

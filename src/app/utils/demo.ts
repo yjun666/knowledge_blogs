@@ -58,11 +58,11 @@ export function demo() {
   const obj3 = { a:1,b:2,c:3 };
   console.log('obj===obj2',uuidv5(JSON.stringify(obj)),uuidv5(JSON.stringify(obj2)),uuidv5(JSON.stringify(obj3)));
 
-  const arr1 = [1,2,3,4];
-  const arr2 = [4,2,3,1];
-  const arr3 = [4,2,3,1];
+  const arr1 = [1, 2, 3, 4];
+  const arr2 = [4, 2, 3, 1];
+  const arr3 = [4, 2, 3, 1];
 
-  console.log('arr===arr2',uuidv5(JSON.stringify(arr1)),uuidv5(JSON.stringify(arr2)),uuidv5(JSON.stringify(arr3)));
+  console.log('arr===arr2', uuidv5(JSON.stringify(arr1)), uuidv5(JSON.stringify(arr2)), uuidv5(JSON.stringify(arr3)));
 
 
 

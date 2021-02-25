@@ -12,6 +12,11 @@ import { EllipsismultilineComponent } from '../../../components/demoDetails/appE
 import { RequestTestComponent } from '../../../components/demoDetails/requestTest/requestTest.component';
 import { UploaderComponent } from '../../../components/demoDetails/upload/uploader.component';
 import { LineEhcartComponent } from '../../../components/demoDetails/echarts/line-echart/line-echart.component';
+import { BarEhcartComponent } from '../../../components/demoDetails/echarts/bar-echart/bar-echart.component';
+
+import { ReadExcelToJsonComponent } from '../../../components/demoDetails/readExcelToJson/read-excel-to-json.component';
+
+import { SvgComponent } from '../../../components/demoDetails/svg/svg.component';
 
 import { EllipsisMultilineDirectiveModule } from '../../../directives';
 
@@ -39,7 +44,10 @@ const routes: Routes = [
     UploaderComponent,
     RequestTestComponent,
     EllipsismultilineComponent,
-    LineEhcartComponent
+    LineEhcartComponent,
+    BarEhcartComponent,
+    ReadExcelToJsonComponent,
+    SvgComponent
   ],
   providers: [],
   exports: [

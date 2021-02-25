@@ -1,0 +1,4 @@
+<h1>bar-echart</h1>
+<div style="background-color:#000;" echarts [options]="chartOption" class="demo-chart" [autoResize]='true'
+      (chartInit)='forecastChartInit($event)' (chartClick)='clickFc($event)' (chartDblClick)='dbClickFc($event)' (chartDataZoom)='dataZoomFc($event)'
+      (chartMouseOver)="onChartEventOver($event)" (chartMouseOut)='onChartEventOut($event)'></div>

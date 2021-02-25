@@ -25,14 +25,15 @@ export const API_CONFIG: ApiConfig = {
     method: 'get',
     url: '/list/destroy',
   },
-  query: {
-    method: 'get',
-    url: 'https://npmsearch.com/query',
-  },
   // 登陆接口
   login: {
     method: 'post',
-    url: 'http://10.110.147.33:8015/oauth/rest_token',
+    url: '/oauth/rest_token',
+  },
+  // 查询
+  getCodeBySearch: {
+    method: 'get',
+    url: '/machine-learning/1.0/app/es/getCodeBySearch',
   }
 };
 

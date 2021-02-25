@@ -32,7 +32,7 @@ export class RequestTestComponent implements OnInit, AfterViewInit {
       // }).subscribe((data) => {
       //   console.log(data);
       // });
-      this.getJsonService.query({ q: 'vue' })
+      this.http.get('https://npmsearch.com/query?q=vue')
         .subscribe((data) => {
           console.log(data);
         });

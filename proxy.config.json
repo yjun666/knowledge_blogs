@@ -1,22 +1,37 @@
 {
-  "/list/search": {
+  "/list": {
     "target": "http://localhost:3000",
     "secure": "true",
     "pathRewrite": {
-      "^/search": ""
+      "^/list": "/list"
     },
     "logLevel": "debug"
   },
-  "/list/create": {
-    "target": "http://localhost:3000",
-    "secure": "true",
+  "/proxy": {
+    "target": "http://ai-dps-test.lenovo.com",
+    "changeOrigin": true,
+    "secure": false,
     "pathRewrite": {
-      "^/create": ""
+      "^/proxy": ""
     },
     "logLevel": "debug"
   },
-  "/": {
-    "target": "http://localhost:3000",
-    "secure": "true"
+  "/secondProxy": {
+    "target": "http://ai-dps-test.lenovo.com",
+    "changeOrigin": true,
+    "secure": false,
+    "pathRewrite": {
+      "^/secondProxy": ""
+    },
+    "logLevel": "debug"
+  },
+  "/thirdProxy": {
+    "target": "http://ai-dps-test.lenovo.com",
+    "changeOrigin": true,
+    "secure": false,
+    "pathRewrite": {
+      "^/thirdProxy": ""
+    },
+    "logLevel": "debug"
   }
 }

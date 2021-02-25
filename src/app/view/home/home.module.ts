@@ -7,6 +7,7 @@ import { HeaderModule } from '../../components/shared/header/header.module';
 
 import { RouterService } from '../../services/router.service';
 import { GetJsonService } from '../../services/getJson.service';
+import { UpdataSubjectService } from '../../services/subject.service';
 
 
 const adminRoutes: Routes = [
@@ -85,7 +86,8 @@ const adminRoutes: Routes = [
   ],
   providers: [
     RouterService,
-    GetJsonService
+    GetJsonService,
+    UpdataSubjectService
   ],
   declarations: [
     HomeComponent

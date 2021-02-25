@@ -1,3 +1,4 @@
+import { GetJsonService } from './services/getJson.service';
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
@@ -23,6 +24,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     public adService: AdService,
     public routerService: RouterService,
     public updataSubjectService: UpdataSubjectService,
+    public getJsonService: GetJsonService,
   ) { }
 
   ngOnInit() {
@@ -34,6 +36,9 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     demo();
+    // this.getJsonService.getCodeBySearch({code: 'B'}).subscribe((data:any)=>{
+    //   console.log('getCodeBySearch', data);
+    // });
   }
 
   /**

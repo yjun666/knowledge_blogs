@@ -1,3 +1,4 @@
+import { environment } from 'src/environments/environment';
 import { Injectable, Inject } from '@angular/core';
 import { HttpClient, HttpEvent, HttpRequest, HttpHeaders } from '@angular/common/http';
 import { API_CONFIG, Api, requestParamType } from '../api/api';
@@ -6,6 +7,8 @@ import { SelectivePreloadingStrategyService } from './selective-preloading-strat
 import { retry } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
 import { timeout, catchError } from 'rxjs/operators';
+
+import { pathUrl } from './../api/pathUrl';
 
 @Injectable()
 export class GetJsonService implements Api {
@@ -53,16 +56,40 @@ export class GetJsonService implements Api {
   }
 
   /**
-   * 查询
-   * @param param 参数
+   * 删除
    */
-  public query(param: requestParamType.Query) {
-    const { method, url } = this.api.query;
+  public getCodeBySearch(param) {
+    const { method, url } = this.api.getCodeBySearch;
     return this[method](url, param);
   }
 
 
-
+  private setPathUrl(url: string) {
+    const proxy = ['oauth/rest_token']; // 使用proxy代理
+    const secondProxy = ['machine-learning/1.0']; // 使用secondProxy代理
+    const thirdProxy = []; // 使用thirdProxy代理
+    const localUrl = []; // 使用本地url
+    if (environment.production) {
+      return pathUrl.prodUrl;
+    } else {
+      if (proxy.some((x: string) => url.indexOf(x) !== -1)) {
+        // 使用代理的地址
+        return pathUrl.proxy;
+      } else if (secondProxy.some((x: string) => url.indexOf(x) !== -1)) {
+        // 使用代理的地址
+        return pathUrl.secondProxy;
+      } else if (thirdProxy.some((x: string) => url.indexOf(x) !== -1)) {
+        // 使用代理的地址
+        return pathUrl.thirdProxy;
+      } else if (localUrl.some((x: string) => url.indexOf(x) !== -1)) {
+        // 使用本地的地址
+        return pathUrl.localUrl;
+      } else {
+        // 默认使用代理的地址
+        return pathUrl.localUrl;
+      }
+    }
+  }
 
 
   /**
@@ -73,7 +100,8 @@ export class GetJsonService implements Api {
   private get(url, param, options?) {
     options = options ? options : {};
     options.params = param;
-    return this.http.get(url, options).pipe(
+    const baseUrl = this.setPathUrl(url);
+    return this.http.get(baseUrl + url, options).pipe(
       timeout(this.timeout), // 超时
       catchError(e => { // 超时处理
         if (e.name === 'TimeoutError') {
@@ -92,7 +120,8 @@ export class GetJsonService implements Api {
    */
   private post(url, param, options?) {
     options = options ? options : {};
-    return this.http.post(url, param, options).pipe(
+    const baseUrl = this.setPathUrl(url);
+    return this.http.post(baseUrl + url, param, options).pipe(
       timeout(this.timeout), // 超时
       catchError(e => { // 超时处理
         if (e.name === 'TimeoutError') {
