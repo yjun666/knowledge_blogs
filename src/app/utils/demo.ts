@@ -42,10 +42,10 @@ export function demo() {
   console.log('');
   console.log('');
   console.log(dateFormat(new Date(), 'y-M'));
-  console.log('keepFloatDecimal', keepFloatDecimal(10.1198, 100));
-  console.log('keepFloatDecimal', keepFloatDecimal(10.12, 100));
-  console.log('keepFloatDecimal', keepFloatDecimal(10.125, 100));
-  console.log('keepFloatDecimal', keepFloatDecimal(10.1, 100));
+  console.log('keepFloatDecimal', keepFloatDecimal({num: 10.1198,fixedNum: 2, isPercent: 100}));
+  console.log('keepFloatDecimal', keepFloatDecimal({num: 10.12,fixedNum: 2, isPercent: 100}));
+  console.log('keepFloatDecimal', keepFloatDecimal({num: 10.125,fixedNum: 2, isPercent: 100}));
+  console.log('keepFloatDecimal', keepFloatDecimal({num: 10.1,fixedNum: 2, isPercent: 100}));
   console.log('');
   console.log('');
   console.log('uuidv1', uuidv1());
@@ -54,7 +54,7 @@ export function demo() {
   console.log('uuidv5', uuidv5('中国'), uuidv5('美国'), uuidv5('中国'));
 
   const obj = { a:1,b:2 };
-  const obj2 = { a:1,b:2 };
+  const obj2 = { b:2, a:1 };
   const obj3 = { a:1,b:2,c:3 };
   console.log('obj===obj2',uuidv5(JSON.stringify(obj)),uuidv5(JSON.stringify(obj2)),uuidv5(JSON.stringify(obj3)));
 

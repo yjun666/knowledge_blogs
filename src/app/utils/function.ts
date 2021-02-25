@@ -1,5 +1,17 @@
 import { add, sub, mul, divide } from './decimal';
 
+// 保留小数位数
+export interface KeepFloatDecimalType {
+  num?: any, // 数值
+  fixedNum?: number, // 需要保存的小数位数
+  isPercent?: boolean | number, // 是否需要转化成为百分比，需要多除以一个100，如果为 true 那么默认显示百分比，如果为false 或者0 为不需要百分比，如果为1000 那么显示千分比，如果为1000000 那么就是单位转换为百万兆
+  defValue?: string | number; // 如果参数isNaN为true，那么默认显示的值是什么
+  isForceToFixed?: boolean; // 是否强制保留小数
+  unit?: string; // 当前参数后边需要添加的单位是什么
+  transType?: 'number' | 'string';  // 是否需要转换成为number类型还是string类型
+  truncType?:'floor'|'round'|'ceil'; // 取整类型 floor 向下取整，round 四舍五入，ceil 向上取整
+}
+
 // 方法定义
 // 去掉字符串的空格
 let trim = (str: string, type: number): any => { };
@@ -29,11 +41,34 @@ let dateFormat = (vDate: Date, params: string): string => '2020-01-01'; // 转�
  * @param parent 指定父级元素的id或者className或者元素类型
  * @param count 最多多少查询多少层级停止查询
  */
-let getParentEle = (ele: any, parent: any,count?:number): any => '';
+let getParentEle = (ele: any, parent: any, count?: number): any => '';
 
 // 保留小数方法====四舍五入保留2位小数（若第二位小数为0，则保留一位小数） ?isPercent 是否需要转化成为百分比
-let keepFloatDecimal = (num: any, fixedNum: number, isPercent?: number) => { }
+let keepFloatDecimal = (item: KeepFloatDecimalType) => { }
+// 动态设置样式
+let setCss = (ele: any, styleObj: any) => { };
+// 获取元素样式
+let getStyle = (ele: any, singleStyle: any) => { };
 
+/**
+ * 计算月份差，计算预测时间跨度
+ * @param start 开始时间
+ * @param end 结束时间
+ */
+let monthDiff = (start: string | Date | number, end: string | Date | number):number => 0
+
+/**
+ * 解析url参数
+ */
+let parseUrlParam = (): object => {
+  return {};
+}
+
+/**
+ * 获取随机id
+ * ? num 获取多少位的随机数id,默认25位
+ */
+let getRandomId = (num?: number):string => '';
 
 // 求和
 function getSum() {
@@ -176,7 +211,7 @@ function addZero(timeNum: number) {
   };
   // 是否是多个类型中的一个，例如当前参数是否属于null或者undefined
   isSomeType = (type: string[], param) => {
-    return type.some(x => this[x](param));
+    return type.some(x => (this as any)[x](param));
   };
 
   // 转换日期格式
@@ -218,61 +253,207 @@ function addZero(timeNum: number) {
     return result
   }
 
-   /**
-    * 获取指定类型的父级元素,或者当前元素就是我们要找的元素
-    * @param ele 需要查找的当前元素
-    * @param parent 指定父级元素的id或者className或者元素类型
-    * @param count 最多多少查询多少层级停止查询
-    */
+  /**
+   * 获取指定类型的父级元素,或者当前元素就是我们要找的元素
+   * @param ele 需要查找的当前元素
+   * @param parent 指定父级元素的id或者className或者元素类型
+   * @param count 最多多少查询多少层级停止查询
+   */
   getParentEle = (ele: any, parent: any, count?: number): any => {
     const str = parent.replace(/\.|#/, '');
-    // console.log(count);
-    count = count ? count : 0;
+    count = count ? count - 1 : 7;
     if (!ele) {
       console.log('当前元素不存在', count);
       return;
     }
     const parentElement = ele.parentElement;
+    // 通过class查找
+    const isParentClass = () => parent.indexOf('.') !== -1 && parentElement.className && parentElement.className.indexOf(str) !== -1;
+    const isSelfClass = () => parent.indexOf('.') !== -1 && ele.className && ele.className.indexOf(str) !== -1;
+    // 通过id查找
+    const isParentId = () => parent.indexOf('#') !== -1 && parentElement.id === str;
+    const isSelfId = () => parent.indexOf('#') !== -1 && ele.id === str;
+    // 通过tagName查找
+    const isParentTagName = () => parentElement.tagName === parent.toUpperCase();
+    const isSelfTagName = () => ele.tagName === parent.toUpperCase();
 
-    if (
-      parent.indexOf('.') !== -1 &&
-      parentElement &&
-      parentElement.className &&
-      parentElement.className.indexOf(str) !== -1
-    ) {
+    if ( parentElement && (isParentClass() || isParentId() || isParentTagName()) ) {
       return parentElement;
-    } else if (parent.indexOf('#') !== -1 && parentElement && parentElement.id === str) {
-      return parentElement;
-    } else if (parentElement && parentElement.tagName === parent.toUpperCase()) {
-      return parentElement;
-    } else if (parent.indexOf('.') !== -1 && ele.className && ele.className.indexOf(str) !== -1) {
-      return ele;
-    } else if (parent.indexOf('#') !== -1 && ele.id === str) {
-      return ele;
-    } else if (ele.tagName === parent.toUpperCase()) {
+    } else if (isSelfClass() || isSelfId() || isSelfTagName()) {
       return ele;
     }
-    // 最多查询7个层级则退出，查询的层级上限可通过参数传入
-    if (count > 7 || ele.tagName === 'BODY') {
-      // console.log("找不到",count);
+
+    if( count <= 0 ){
+      console.log('count已经为0，查询层数少，不需要查到body',count);
       return;
     }
-    count++;
+    // 最多查询7个层级则退出，查询的层级上限可通过参数传入
+    if ( ele.tagName === 'BODY') {
+      console.log('已经找到Body');
+      return;
+    }
     return getParentEle(parentElement, parent, count);
   }
 
-  // 保留小数位数
-  keepFloatDecimal = (num: any, fixedNum: number, isPercent: number) => {
-    let result = parseFloat(num);
-    if (isNaN(result)) {
-      alert('传递参数错误，请检查！');
-      return false;
+/**
+ * 是否需要转化成为百分比，如果需要并且保留小数  就是 num*10000/100
+ */
+keepFloatDecimal = (item: KeepFloatDecimalType): any => {
+  // tslint:disable-next-line:prefer-const
+  let [num, fixedNum, isPercent, defValue, isForceToFixed, unit, truncType, transType]: any =
+  [item.num, item.fixedNum, item.isPercent, item.defValue, item.isForceToFixed, item.unit, item.truncType, item.transType];
+  // console.log(typeof num,'alskdfjlaksdjflkasjdlfjlaskdjflsakjdf');
+  num = typeof num === 'undefined' ? 'undefined' : num;
+  num = num.toString();
+  defValue = !defValue && defValue !== 0 ? '-' : defValue; // 默认值没有传值时，默认默认值是'-'
+  fixedNum = !fixedNum ? 0 : fixedNum; // 保留小数位数默认没有传值时，默认保留0位小数
+
+  if (typeof isPercent === 'boolean' || typeof isPercent === 'undefined') {
+    /**
+     * 是否转换百分比如果为undefined或者false，那么取值为0即不需要转换百分比，如果为true，那么取值为100，默认转换为百分比，如果为number，取值1000,10000，等，显示千分比，万分比
+     * isPercent 取值
+     * undefined  不需要转换百分比
+     * false  不需要转换百分比
+     * true  转换为百分比
+     * number  转换为百分比，千分比还是万分比等等
+     */
+    isPercent = isPercent ? 100 : 0;
+  }
+  truncType = !truncType ? 'floor' : truncType; // 设置取整类型
+
+  let result: string | number = parseFloat(num);
+  if (isNaN(result)) {
+    // alert('传递参数错误，请检查！');
+    return defValue;
+  }
+  const floatNum = Math.pow(10, fixedNum); // 保留的小数位数
+  const cont = isPercent ? mul(floatNum, isPercent) : floatNum; // 如果需要转换成为百分比那么需要多乘100
+  // result = divide(Math.floor(mul(num, cont)), floatNum);
+  result = divide((Math as any)[truncType](mul(num, cont)), floatNum);
+
+  /* 如果需要强制保留小数，即如果小数位数不足，用0不足------start */
+  if (isForceToFixed) {
+    // result = result.toFixed(fixedNum);
+
+    result = result.toString();
+    result = result.indexOf('.') !== -1 ? result : result + '.';
+
+    const decimalsLength = result.split('.')[1].length;
+    let aa = 0;
+    while (decimalsLength + aa < fixedNum) {
+      result = result + '0';
+      aa++;
     }
-    const cont = isPercent ? mul(fixedNum, 100) : fixedNum;
-    result = divide(Math.floor(mul(num, cont)), fixedNum);
-    return result;
+  }
+  /* 如果需要强制保留小数，即如果小数位数不足，用0不足------end */
+  result = unit || unit === '' ? result + unit : result; // 如果单位存在则添加单位，否则不添加
+  if( transType === 'number' ){
+    result = parseFloat((result as any));
+  }else if(transType === 'string'){
+    result = String((result as any));
+  }
+  return result;
+}
+
+  /**
+   * 动态设置样式
+   * @param ele 元素，dom节点，可能是一个或者多个
+   */
+  setCss = (ele: any, styleObj: any) => {
+    if (!ele) {
+      console.log('当前元素不存在');
+      return;
+    }
+    if (styleObj.empty) {
+      ele.style = '';
+      return;
+    }
+
+    // 如果是一个数组，那么给所有元素添加样式
+    if (Array.isArray(ele)) {
+      (ele || []).map((x: any) => {
+        for (const [key, value] of Object.entries(styleObj)) {
+          x.style[key] = value;
+        }
+      });
+      return;
+    }
+    // 如果不是一个数组，那么单独给元素添加样式
+    for (const [key, value] of Object.entries(styleObj)) {
+      ele.style[key] = value;
+    }
+  }
+
+  /**
+   * 获取当前元素的某一个样式
+   * @param ele dom节点
+   * @param singleStyle 样式字段position 或者color 等样式
+   */
+  getStyle = (ele: any, singleStyle: any) => {
+    return ele.currentStyle ? ele.currentStyle[singleStyle] : getComputedStyle(ele, null)[singleStyle];
+  }
+
+  monthDiff = (start: string | Date | number, end: string | Date | number) => {
+    const startDate = new Date(start);
+    const endDate = new Date(end);
+    const startMonth = startDate.getMonth();
+    const endMonth = endDate.getMonth();
+    const intervalMonth = (endDate.getFullYear() * 12 + endMonth) - (startDate.getFullYear() * 12 + startMonth);
+    return intervalMonth;
+  }
+
+  /**
+   * 解析url中参数
+   */
+  parseUrlParam = () => {
+    const obj:{
+      [key:string]:string
+    } = {};
+    const href = decodeURIComponent(window.location.href);
+    try {
+      href.split('?')[1].split('&').map((x)=>{
+        const [a,b] = x.split('=');
+        obj[a] = b;
+      })
+    } catch (error) {
+      // console.log(error);
+    }
+    return obj;
+  }
+
+  /**
+   * 获取随机id
+   * ? num 获取多少位的随机数id,默认25位
+   */
+  getRandomId = (num?: number):string => {
+    num = num || 25;
+    const valueObj: {[key:string]: any} = {
+      arabic: [0,1,2,3,4,5,6,7,8,9],
+      en: ['q','w','e','r','t','y','u','i','o','p','l','k','j','h','g','f','d','s','a','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','L','K','J','H','G','F','D','S','A','Z','X','C','V','B','N','M']
+    }
+    const getRdVal = ()=>{
+      return Math.random();
+    }
+    let id: string = '';
+    let fieldsVal: any;
+    let fields: string = '';
+    let count: number = 0;
+    while (count < num) {
+      count++;
+      if( id.length === 0 ){
+        fields = 'en';
+      }else{
+        fields = getRdVal() > 0.5 ? 'en' : 'arabic';
+      }
+
+      fieldsVal = valueObj[fields];
+      id = id + fieldsVal[Math.floor(getRdVal() * fieldsVal.length)];
+    }
+    return id;
   }
 }
+
+
 
 
 export {
@@ -292,6 +473,11 @@ export {
   getDifferenceVal,
   dateFormat,
   getParentEle,
-  keepFloatDecimal
+  keepFloatDecimal,
+  setCss,
+  getStyle,
+  monthDiff,
+  parseUrlParam,
+  getRandomId
 };
 
